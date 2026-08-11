@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 3 | Construct a DNA Strand</title>
 
-<title>Stage 3 | Build a DNA Strand</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body data-page="stage3">
 
@@ -26,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -38,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 3 of 6</span>
-    <strong>Build a DNA Strand</strong>
+    <strong>Construct a Polynucleotide Strand</strong>
   </div>
 
   <div class="progress-bar">
@@ -52,115 +49,144 @@
 
 <section class="stage-heading">
 
-  <span class="stage-number">
-    STAGE 03
-  </span>
+  <span class="stage-number">STAGE 03</span>
 
-  <h1>
-    Construct a DNA Strand
-  </h1>
+  <h1>Construct a DNA Strand</h1>
 
   <p>
-    Connect nucleotides to create a polynucleotide strand.
-    Pay attention to the repeating sugar-phosphate backbone.
+    Use individual DNA nucleotides to construct the sequence below.
+    Your completed strand must contain both the correct base sequence
+    and the correct repeating backbone.
   </p>
 
 </section>
 
 
+<section class="lab-panel">
 
-<section class="strand-lab">
+  <div class="target-banner">
 
-  <aside class="nucleotide-tray">
+    <span>REQUIRED STRAND</span>
 
-    <h2>Nucleotide Tray</h2>
+    <strong>5′ — A T G C C A — 3′</strong>
 
-    <div class="mini-nucleotide" draggable="true" data-base="A">
-      <span class="mini-phosphate">P</span>
-      <span class="mini-sugar">D</span>
-      <span class="mini-base base-a">A</span>
-    </div>
-
-    <div class="mini-nucleotide" draggable="true" data-base="T">
-      <span class="mini-phosphate">P</span>
-      <span class="mini-sugar">D</span>
-      <span class="mini-base base-t">T</span>
-    </div>
-
-    <div class="mini-nucleotide" draggable="true" data-base="C">
-      <span class="mini-phosphate">P</span>
-      <span class="mini-sugar">D</span>
-      <span class="mini-base base-c">C</span>
-    </div>
-
-    <div class="mini-nucleotide" draggable="true" data-base="G">
-      <span class="mini-phosphate">P</span>
-      <span class="mini-sugar">D</span>
-      <span class="mini-base base-g">G</span>
-    </div>
-
-  </aside>
+  </div>
 
 
+  <div class="nucleotide-bank">
 
-  <section class="strand-workbench">
-
-    <div class="strand-direction">
-      <span>5′</span>
-      <span>Build →</span>
-      <span>3′</span>
-    </div>
-
-
-    <div
-      id="primary-strand-builder"
-      class="primary-strand-builder"
-    >
-
-      <div class="strand-slot" data-position="0"></div>
-      <div class="strand-slot" data-position="1"></div>
-      <div class="strand-slot" data-position="2"></div>
-      <div class="strand-slot" data-position="3"></div>
-      <div class="strand-slot" data-position="4"></div>
-      <div class="strand-slot" data-position="5"></div>
-
-    </div>
-
-
-    <div class="target-sequence">
-
-      Build this base sequence:
-
-      <strong>
-        5′–A T G C C A–3′
-      </strong>
-
-    </div>
-
-
-    <button id="check-stage3" class="check-button">
-      Test My Strand
+    <button class="whole-nucleotide" data-base="A" type="button">
+      <span class="nt-phosphate">P</span>
+      <span class="nt-sugar">D</span>
+      <span class="nt-base base-a">A</span>
     </button>
 
+    <button class="whole-nucleotide" data-base="T" type="button">
+      <span class="nt-phosphate">P</span>
+      <span class="nt-sugar">D</span>
+      <span class="nt-base base-t">T</span>
+    </button>
 
-    <div
-      id="stage3-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
+    <button class="whole-nucleotide" data-base="C" type="button">
+      <span class="nt-phosphate">P</span>
+      <span class="nt-sugar">D</span>
+      <span class="nt-base base-c">C</span>
+    </button>
 
-  </section>
+    <button class="whole-nucleotide" data-base="G" type="button">
+      <span class="nt-phosphate">P</span>
+      <span class="nt-sugar">D</span>
+      <span class="nt-base base-g">G</span>
+    </button>
+
+  </div>
+
+
+  <div class="strand-construction-area">
+
+    <div class="strand-end">
+      5′
+    </div>
+
+
+    <div class="strand-build-slots">
+
+      <div class="strand-build-slot" data-position="0"></div>
+      <div class="strand-build-slot" data-position="1"></div>
+      <div class="strand-build-slot" data-position="2"></div>
+      <div class="strand-build-slot" data-position="3"></div>
+      <div class="strand-build-slot" data-position="4"></div>
+      <div class="strand-build-slot" data-position="5"></div>
+
+    </div>
+
+
+    <div class="strand-end">
+      3′
+    </div>
+
+  </div>
+
+
+  <div class="lab-actions">
+
+    <button
+      id="check-stage3-strand"
+      class="check-button"
+      type="button"
+    >
+      Validate My Strand
+    </button>
+
+    <button
+      id="clear-stage3-strand"
+      class="secondary-button"
+      type="button"
+    >
+      Clear Strand
+    </button>
+
+  </div>
+
+
+  <div
+    id="stage3-feedback"
+    class="feedback-box"
+  ></div>
 
 </section>
 
 
+<section class="analysis-section">
 
-<section class="lab-notebook">
+  <span class="panel-label">STRUCTURAL ANALYSIS</span>
 
-  <h2>Lab Notebook</h2>
+  <h2>What provides structural continuity along the strand?</h2>
 
-  <label for="stage3-note">
-    What forms the structural backbone of a DNA strand?
+
+  <div class="choice-grid">
+
+    <label class="choice-card">
+      <input type="radio" name="stage3-backbone" value="bases">
+      <span>Nitrogenous bases</span>
+    </label>
+
+    <label class="choice-card">
+      <input type="radio" name="stage3-backbone" value="sugar-phosphate">
+      <span>Alternating sugar and phosphate groups</span>
+    </label>
+
+    <label class="choice-card">
+      <input type="radio" name="stage3-backbone" value="hydrogen">
+      <span>Hydrogen bonds</span>
+    </label>
+
+  </div>
+
+
+  <label for="stage3-note" class="response-label">
+    Explain why the base sequence can change without changing
+    the basic structure of the DNA backbone.
   </label>
 
   <textarea
@@ -168,8 +194,22 @@
     data-save-field="stage3Note"
   ></textarea>
 
-</section>
 
+  <button
+    id="check-stage3-analysis"
+    class="check-button"
+    type="button"
+  >
+    Submit Strand Analysis
+  </button>
+
+
+  <div
+    id="stage3-analysis-feedback"
+    class="feedback-box"
+  ></div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -189,6 +229,10 @@
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
