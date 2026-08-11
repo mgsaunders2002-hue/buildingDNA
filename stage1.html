@@ -13,7 +13,6 @@
 <body data-page="stage1">
 
 <header class="site-header">
-
   <div class="header-inner">
 
     <div>
@@ -27,7 +26,6 @@
     </div>
 
   </div>
-
 </header>
 
 
@@ -54,31 +52,29 @@
   <h1>Construct a DNA Nucleotide</h1>
 
   <p>
-    Your parts tray contains structures from several different biological
-    molecules. Use your knowledge of DNA structure to select and assemble
-    the components that could form one DNA nucleotide.
+    The tray contains structures from several biological molecules.
+    Use your knowledge of DNA to identify and assemble the components
+    that could form one DNA nucleotide.
   </p>
 
 </section>
 
 
-<section class="stage1-investigation">
+<section class="investigation-grid">
 
-  <!-- ==========================================
-       PARTS TRAY
-       ========================================== -->
+  <!-- PARTS TRAY -->
 
-  <aside class="molecular-parts-panel">
+  <aside class="lab-panel parts-panel">
 
     <div class="panel-heading">
 
-      <span class="panel-label">PARTS TRAY</span>
+      <span class="panel-label">MOLECULAR PARTS TRAY</span>
 
-      <h2>Select from the available structures.</h2>
+      <h2>Which structures belong in DNA?</h2>
 
       <p>
-        The pieces are intentionally unlabeled. Not every structure belongs
-        in DNA.
+        The components are identified only by letter.
+        Some are distractors.
       </p>
 
     </div>
@@ -87,194 +83,132 @@
     <div class="molecular-parts-grid">
 
 
-      <!-- PIECE A: PHOSPHATE -->
+      <!-- A — PHOSPHATE -->
 
       <button
+        class="molecule-card"
         type="button"
-        class="unknown-molecule-piece"
+        draggable="true"
         data-piece="phosphate"
         data-piece-id="A"
-        draggable="true"
-        aria-label="Molecular component A"
       >
 
-        <span class="piece-letter">A</span>
+        <span class="piece-id">A</span>
 
-        <svg viewBox="0 0 150 135" role="img" aria-label="Component A">
+        <svg viewBox="0 0 180 140" class="molecule-svg">
 
-          <circle
-            cx="75"
-            cy="68"
-            r="39"
-            class="phosphate-shape"
-          />
+          <circle cx="90" cy="70" r="19" class="atom phosphorus"/>
+          <text x="90" y="76" text-anchor="middle">P</text>
 
-          <text
-            x="75"
-            y="77"
-            text-anchor="middle"
-            class="molecule-symbol"
-          >
-            PO₄
-          </text>
+          <circle cx="90" cy="22" r="14" class="atom oxygen"/>
+          <circle cx="90" cy="118" r="14" class="atom oxygen"/>
+          <circle cx="42" cy="70" r="14" class="atom oxygen"/>
+          <circle cx="138" cy="70" r="14" class="atom oxygen"/>
+
+          <line x1="90" y1="50" x2="90" y2="36" class="bond"/>
+          <line x1="90" y1="90" x2="90" y2="104" class="bond"/>
+          <line x1="70" y1="70" x2="56" y2="70" class="bond"/>
+          <line x1="110" y1="70" x2="124" y2="70" class="bond"/>
 
         </svg>
 
       </button>
 
 
-      <!-- PIECE B: DEOXYRIBOSE -->
+      <!-- B — DEOXYRIBOSE -->
 
       <button
+        class="molecule-card sugar-candidate"
         type="button"
-        class="unknown-molecule-piece"
+        draggable="true"
         data-piece="deoxyribose"
         data-piece-id="B"
-        draggable="true"
-        aria-label="Molecular component B"
       >
 
-        <span class="piece-letter">B</span>
+        <span class="piece-id">B</span>
 
-        <svg viewBox="0 0 150 135" role="img" aria-label="Component B">
+        <svg viewBox="0 0 200 150" class="molecule-svg sugar-diagram">
 
           <polygon
-            points="75,20 122,55 103,112 45,112 28,55"
-            class="sugar-shape"
+            points="65,35 125,35 153,85 104,125 48,88"
+            class="sugar-ring"
           />
 
-          <text
-            x="75"
-            y="72"
-            text-anchor="middle"
-            class="molecule-small-label"
-          >
-            H
-          </text>
+          <text x="48" y="95" class="carbon-label">1′</text>
+          <text x="90" y="137" class="carbon-label">2′</text>
+          <text x="145" y="102" class="carbon-label">3′</text>
+          <text x="135" y="30" class="carbon-label">4′</text>
 
-          <text
-            x="93"
-            y="101"
-            text-anchor="middle"
-            class="molecule-small-label"
-          >
-            OH
-          </text>
+          <text x="78" y="128" class="group-label">H</text>
+          <text x="152" y="120" class="group-label">OH</text>
 
         </svg>
 
       </button>
 
 
-      <!-- PIECE C: RIBOSE DISTRACTOR -->
+      <!-- C — RIBOSE -->
 
       <button
+        class="molecule-card sugar-candidate"
         type="button"
-        class="unknown-molecule-piece"
+        draggable="true"
         data-piece="ribose"
         data-piece-id="C"
-        draggable="true"
-        aria-label="Molecular component C"
       >
 
-        <span class="piece-letter">C</span>
+        <span class="piece-id">C</span>
 
-        <svg viewBox="0 0 150 135" role="img" aria-label="Component C">
+        <svg viewBox="0 0 200 150" class="molecule-svg sugar-diagram">
 
           <polygon
-            points="75,20 122,55 103,112 45,112 28,55"
-            class="ribose-shape"
+            points="65,35 125,35 153,85 104,125 48,88"
+            class="sugar-ring"
           />
 
-          <text
-            x="75"
-            y="72"
-            text-anchor="middle"
-            class="molecule-small-label"
-          >
-            OH
-          </text>
+          <text x="48" y="95" class="carbon-label">1′</text>
+          <text x="90" y="137" class="carbon-label">2′</text>
+          <text x="145" y="102" class="carbon-label">3′</text>
+          <text x="135" y="30" class="carbon-label">4′</text>
 
-          <text
-            x="93"
-            y="101"
-            text-anchor="middle"
-            class="molecule-small-label"
-          >
-            OH
-          </text>
+          <text x="71" y="128" class="group-label">OH</text>
+          <text x="152" y="120" class="group-label">OH</text>
 
         </svg>
 
       </button>
 
 
-      <!-- PIECE D: ADENINE / BASE -->
+      <!-- D — ADENINE -->
 
       <button
+        class="molecule-card"
         type="button"
-        class="unknown-molecule-piece"
-        data-piece="base"
-        data-piece-id="D"
         draggable="true"
-        aria-label="Molecular component D"
+        data-piece="dna-base"
+        data-piece-id="D"
       >
 
-        <span class="piece-letter">D</span>
+        <span class="piece-id">D</span>
 
-        <svg viewBox="0 0 180 135" role="img" aria-label="Component D">
+        <svg viewBox="0 0 210 150" class="molecule-svg">
 
           <polygon
-            points="32,44 70,24 108,45 100,88 58,98 28,72"
-            class="base-ring-shape"
+            points="44,53 83,28 122,50 112,94 68,105 37,79"
+            class="base-ring"
           />
 
           <polygon
-            points="108,45 144,35 163,67 138,101 100,88"
-            class="base-ring-shape"
+            points="122,50 157,40 180,72 154,108 112,94"
+            class="base-ring"
           />
 
-          <text
-            x="96"
-            y="70"
-            text-anchor="middle"
-            class="molecule-symbol"
-          >
+          <text x="109" y="77" text-anchor="middle" class="base-symbol">
             A
           </text>
 
-        </svg>
-
-      </button>
-
-
-      <!-- PIECE E: URACIL DISTRACTOR -->
-
-      <button
-        type="button"
-        class="unknown-molecule-piece"
-        data-piece="uracil"
-        data-piece-id="E"
-        draggable="true"
-        aria-label="Molecular component E"
-      >
-
-        <span class="piece-letter">E</span>
-
-        <svg viewBox="0 0 170 135" role="img" aria-label="Component E">
-
-          <polygon
-            points="49,27 115,27 146,66 115,106 49,106 20,66"
-            class="uracil-shape"
-          />
-
-          <text
-            x="83"
-            y="76"
-            text-anchor="middle"
-            class="molecule-symbol"
-          >
-            U
+          <text x="105" y="20" class="group-label">
+            NH₂
           </text>
 
         </svg>
@@ -282,30 +216,60 @@
       </button>
 
 
-      <!-- PIECE F: AMINO ACID DISTRACTOR -->
+      <!-- E — URACIL -->
 
       <button
+        class="molecule-card"
         type="button"
-        class="unknown-molecule-piece"
-        data-piece="amino-acid"
-        data-piece-id="F"
         draggable="true"
-        aria-label="Molecular component F"
+        data-piece="rna-base"
+        data-piece-id="E"
       >
 
-        <span class="piece-letter">F</span>
+        <span class="piece-id">E</span>
 
-        <svg viewBox="0 0 180 135" role="img" aria-label="Component F">
+        <svg viewBox="0 0 200 150" class="molecule-svg">
 
-          <line x1="90" y1="66" x2="42" y2="66" class="structure-line"/>
-          <line x1="90" y1="66" x2="138" y2="66" class="structure-line"/>
-          <line x1="90" y1="66" x2="90" y2="25" class="structure-line"/>
-          <line x1="90" y1="66" x2="90" y2="108" class="structure-line"/>
+          <polygon
+            points="61,33 129,33 159,76 128,118 61,118 31,76"
+            class="base-ring"
+          />
 
-          <text x="20" y="72" class="molecule-small-label">NH₂</text>
-          <text x="139" y="72" class="molecule-small-label">COOH</text>
-          <text x="84" y="22" class="molecule-small-label">H</text>
-          <text x="84" y="125" class="molecule-small-label">R</text>
+          <text x="95" y="80" text-anchor="middle" class="base-symbol">
+            U
+          </text>
+
+          <text x="72" y="25" class="group-label">O</text>
+          <text x="137" y="129" class="group-label">O</text>
+
+        </svg>
+
+      </button>
+
+
+      <!-- F — AMINO ACID -->
+
+      <button
+        class="molecule-card"
+        type="button"
+        draggable="true"
+        data-piece="amino-acid"
+        data-piece-id="F"
+      >
+
+        <span class="piece-id">F</span>
+
+        <svg viewBox="0 0 220 150" class="molecule-svg">
+
+          <line x1="110" y1="70" x2="58" y2="70" class="bond"/>
+          <line x1="110" y1="70" x2="165" y2="70" class="bond"/>
+          <line x1="110" y1="70" x2="110" y2="27" class="bond"/>
+          <line x1="110" y1="70" x2="110" y2="115" class="bond"/>
+
+          <text x="20" y="77" class="group-label">NH₂</text>
+          <text x="166" y="77" class="group-label">COOH</text>
+          <text x="103" y="22" class="group-label">H</text>
+          <text x="102" y="137" class="group-label">R</text>
 
         </svg>
 
@@ -316,11 +280,9 @@
   </aside>
 
 
-  <!-- ==========================================
-       CONSTRUCTION BENCH
-       ========================================== -->
+  <!-- CONSTRUCTION BENCH -->
 
-  <section class="nucleotide-construction-panel">
+  <section class="lab-panel construction-panel">
 
     <div class="panel-heading">
 
@@ -329,83 +291,60 @@
       <h2>Assemble one DNA nucleotide.</h2>
 
       <p>
-        Place three structures into the model. The location of each component
-        matters.
+        Select a structure and then select the connection site
+        where you think it belongs. Drag-and-drop will also be available.
       </p>
 
     </div>
 
 
-    <div class="advanced-nucleotide-bench">
+    <div class="nucleotide-workspace">
 
-
-      <div class="nucleotide-position phosphate-position">
-
-        <div class="position-number">1</div>
-
-        <div
-          class="advanced-drop-zone"
-          data-position="phosphate"
-        >
-          <span>Place component</span>
-        </div>
-
+      <div
+        class="nucleotide-site site-phosphate"
+        data-site="phosphate"
+      >
+        <span>Connection site</span>
       </div>
 
 
-      <div class="molecular-connection">
-        <span></span>
+      <div class="structure-connector"></div>
+
+
+      <div
+        class="nucleotide-site site-sugar"
+        data-site="sugar"
+      >
+        <span>Connection site</span>
       </div>
 
 
-      <div class="nucleotide-position sugar-position">
-
-        <div class="position-number">2</div>
-
-        <div
-          class="advanced-drop-zone"
-          data-position="deoxyribose"
-        >
-          <span>Place component</span>
-        </div>
-
-      </div>
+      <div class="structure-connector"></div>
 
 
-      <div class="molecular-connection">
-        <span></span>
-      </div>
-
-
-      <div class="nucleotide-position base-position">
-
-        <div class="position-number">3</div>
-
-        <div
-          class="advanced-drop-zone"
-          data-position="base"
-        >
-          <span>Place component</span>
-        </div>
-
+      <div
+        class="nucleotide-site site-base"
+        data-site="base"
+      >
+        <span>Connection site</span>
       </div>
 
     </div>
 
 
-    <div class="construction-tools">
+    <div class="lab-actions">
 
       <button
-        id="check-stage1"
         type="button"
+        id="check-stage1-model"
         class="check-button"
       >
         Analyze My Model
       </button>
 
       <button
-        id="reset-stage1-model"
         type="button"
+        id="clear-stage1-model"
         class="secondary-button"
       >
         Clear Model
@@ -415,38 +354,36 @@
 
 
     <div
-      id="stage1-feedback"
+      id="stage1-model-feedback"
       class="feedback-box"
       aria-live="polite"
     ></div>
 
 
-    <!-- Revealed only after correct model -->
-
     <div
-      id="stage1-reveal"
-      class="structure-reveal hidden-content"
+      id="stage1-model-reveal"
+      class="verified-model hidden-content"
     >
 
-      <span class="reveal-label">MODEL VERIFIED</span>
+      <span class="verified-label">MODEL VERIFIED</span>
 
-      <h3>You constructed a DNA nucleotide.</h3>
+      <h3>One DNA nucleotide</h3>
 
-      <div class="verified-components">
+      <div class="verified-term-grid">
 
-        <div class="verified-component">
+        <div>
           <strong>Phosphate group</strong>
-          <span>Forms part of the DNA backbone</span>
+          <span>Part of the backbone</span>
         </div>
 
-        <div class="verified-component">
+        <div>
           <strong>Deoxyribose</strong>
-          <span>The five-carbon sugar found in DNA</span>
+          <span>Five-carbon DNA sugar</span>
         </div>
 
-        <div class="verified-component">
+        <div>
           <strong>Nitrogenous base</strong>
-          <span>The variable component of the nucleotide</span>
+          <span>Variable component</span>
         </div>
 
       </div>
@@ -458,95 +395,77 @@
 </section>
 
 
-<!-- ==========================================
-     APPLICATION ANALYSIS
-     ========================================== -->
+<!-- ANALYSIS -->
 
-<section class="stage-analysis">
+<section class="analysis-section">
 
-  <div class="analysis-heading">
+  <span class="panel-label">STRUCTURAL ANALYSIS</span>
 
-    <span class="analysis-label">STRUCTURAL ANALYSIS</span>
+  <h2>Use your nucleotide as evidence.</h2>
 
-    <h2>Use your model as evidence.</h2>
-
-  </div>
-
-
-  <div class="analysis-question-card">
-
-    <p class="analysis-question">
-      Two DNA nucleotides may contain the same phosphate group and the same
-      deoxyribose sugar but still carry different information.
-      Which component accounts for this difference?
-    </p>
+  <p>
+    Two DNA nucleotides can contain the same phosphate group and
+    the same deoxyribose sugar yet carry different genetic information.
+    Which part of the nucleotide accounts for this difference?
+  </p>
 
 
-    <div class="analysis-options">
+  <div class="choice-grid">
 
-      <label class="analysis-option">
-        <input
-          type="radio"
-          name="stage1-variable-component"
-          value="phosphate"
-        >
-        <span>Phosphate group</span>
-      </label>
-
-
-      <label class="analysis-option">
-        <input
-          type="radio"
-          name="stage1-variable-component"
-          value="sugar"
-        >
-        <span>Deoxyribose sugar</span>
-      </label>
-
-
-      <label class="analysis-option">
-        <input
-          type="radio"
-          name="stage1-variable-component"
-          value="base"
-        >
-        <span>Nitrogenous base</span>
-      </label>
-
-    </div>
-
-
-    <label
-      for="stage1-note"
-      class="reasoning-label"
-    >
-      Explain how this component allows DNA to store genetic information.
+    <label class="choice-card">
+      <input
+        type="radio"
+        name="stage1-variable"
+        value="phosphate"
+      >
+      <span>Phosphate group</span>
     </label>
 
+    <label class="choice-card">
+      <input
+        type="radio"
+        name="stage1-variable"
+        value="sugar"
+      >
+      <span>Deoxyribose sugar</span>
+    </label>
 
-    <textarea
-      id="stage1-note"
-      data-save-field="stage1Note"
-      placeholder="Use evidence from the nucleotide you constructed..."
-    ></textarea>
-
-
-    <button
-      id="check-stage1-analysis"
-      type="button"
-      class="check-button"
-    >
-      Submit Structural Analysis
-    </button>
-
-
-    <div
-      id="stage1-analysis-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
+    <label class="choice-card">
+      <input
+        type="radio"
+        name="stage1-variable"
+        value="base"
+      >
+      <span>Nitrogenous base</span>
+    </label>
 
   </div>
+
+
+  <label for="stage1-note" class="response-label">
+    Explain how variation in this component allows DNA to store information.
+  </label>
+
+  <textarea
+    id="stage1-note"
+    data-save-field="stage1Note"
+    placeholder="Use evidence from the nucleotide you constructed..."
+  ></textarea>
+
+
+  <button
+    type="button"
+    id="check-stage1-analysis"
+    class="check-button"
+  >
+    Submit Structural Analysis
+  </button>
+
+
+  <div
+    id="stage1-analysis-feedback"
+    class="feedback-box"
+  ></div>
 
 </section>
 
@@ -569,7 +488,6 @@
 </nav>
 
 </main>
-
 
 <footer>
   Biology 30 • Molecular Genetics
