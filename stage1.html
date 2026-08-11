@@ -135,27 +135,14 @@
 
         <span class="piece-id">B</span>
 
-        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Deoxyribose sugar ring with a hydrogen at the 2 prime carbon and a hydroxyl at the 3 prime carbon">
+        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Deoxyribose sugar ring with a hydrogen group attached">
 
           <polygon
             points="78,42 148,42 178,97 122,144 58,102"
             class="sugar-ring"
           />
 
-          <!-- ring oxygen -->
-          <text x="78" y="28" class="carbon-label">O</text>
-
-          <!-- carbon position numbers, set just outside each ring vertex -->
-          <text x="150" y="26" class="carbon-label">4′</text>
-          <text x="196" y="76" class="carbon-label">3′</text>
-          <text x="96" y="164" class="carbon-label">2′</text>
-          <text x="28" y="94" class="carbon-label">1′</text>
-
-          <!-- 3' substituent: hydroxyl (both sugars) -->
-          <line x1="178" y1="97" x2="204" y2="120" class="bond bond-thin"/>
-          <text x="207" y="134" text-anchor="start" class="group-label">OH</text>
-
-          <!-- 2' substituent: hydrogen only — the defining "deoxy" feature -->
+          <!-- the one detail that matters for this lab: no -OH here -->
           <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
           <circle cx="122" cy="188" r="21" class="diff-mark mark-a"/>
           <text x="122" y="193" class="group-label diff-label">H</text>
@@ -177,25 +164,14 @@
 
         <span class="piece-id">C</span>
 
-        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Ribose sugar ring with hydroxyl groups at both the 2 prime and 3 prime carbons">
+        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Ribose sugar ring with a hydroxyl group attached">
 
           <polygon
             points="78,42 148,42 178,97 122,144 58,102"
             class="sugar-ring"
           />
 
-          <text x="78" y="28" class="carbon-label">O</text>
-
-          <text x="150" y="26" class="carbon-label">4′</text>
-          <text x="196" y="76" class="carbon-label">3′</text>
-          <text x="96" y="164" class="carbon-label">2′</text>
-          <text x="28" y="94" class="carbon-label">1′</text>
-
-          <!-- 3' substituent: hydroxyl -->
-          <line x1="178" y1="97" x2="204" y2="120" class="bond bond-thin"/>
-          <text x="207" y="134" text-anchor="start" class="group-label">OH</text>
-
-          <!-- 2' substituent: hydroxyl — ribose keeps the oxygen deoxyribose lacks -->
+          <!-- the one detail that matters for this lab: an -OH here -->
           <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
           <circle cx="122" cy="188" r="21" class="diff-mark mark-b"/>
           <text x="122" y="193" class="group-label diff-label">OH</text>
@@ -217,7 +193,7 @@
 
         <span class="piece-id">D</span>
 
-        <svg viewBox="0 0 220 200" class="molecule-svg" aria-label="Adenine: a fused six-membered and five-membered ring with an amino group">
+        <svg viewBox="0 0 220 200" class="molecule-svg" aria-label="Adenine: a fused six-membered and five-membered ring">
 
           <polygon
             points="95,52 140,77 140,127 95,152 50,127 50,77"
@@ -228,9 +204,6 @@
             points="140,77 140,127 170,147 200,107 170,62"
             class="base-ring"
           />
-
-          <line x1="95" y1="52" x2="95" y2="26" class="bond bond-thin"/>
-          <text x="95" y="15" class="group-label">NH₂</text>
 
           <text x="95" y="102" class="base-symbol">A</text>
 
@@ -251,18 +224,12 @@
 
         <span class="piece-id">E</span>
 
-        <svg viewBox="0 0 200 210" class="molecule-svg" aria-label="Uracil: a single six-membered ring with two oxygen groups">
+        <svg viewBox="0 0 200 210" class="molecule-svg" aria-label="Uracil: a single six-membered ring">
 
           <polygon
             points="100,44 148,72 148,126 100,154 52,126 52,72"
             class="base-ring"
           />
-
-          <line x1="52" y1="72" x2="26" y2="52" class="bond bond-thin"/>
-          <text x="18" y="38" text-anchor="middle" class="group-label">O</text>
-
-          <line x1="100" y1="154" x2="100" y2="182" class="bond bond-thin"/>
-          <text x="100" y="198" class="group-label">O</text>
 
           <text x="100" y="100" class="base-symbol">U</text>
 
