@@ -1,6 +1,6 @@
 /* =========================================================
    BIOLOGY 30 — VIRTUAL DNA CONSTRUCTION LAB
-   CLEAN FINAL STYLE.CSS
+   COMPLETE STYLE.CSS
    ========================================================= */
 
 
@@ -109,11 +109,6 @@ select {
   font: inherit;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 button {
   cursor: pointer;
 }
@@ -215,7 +210,7 @@ h3 {
 
 
 /* =========================================================
-   4. SHARED PAGE CONTAINERS
+   4. PAGE CONTAINERS
    ========================================================= */
 
 .home-page,
@@ -230,7 +225,7 @@ h3 {
 
 
 /* =========================================================
-   5. SHARED EYEBROWS / LABELS
+   5. LABELS
    ========================================================= */
 
 .eyebrow,
@@ -255,21 +250,19 @@ h3 {
   text-transform: uppercase;
 }
 
-.final-heading .stage-number {
-  background: rgba(199, 154, 62, 0.16);
-  color: #85631b;
-}
-
 
 /* =========================================================
-   6. HOME PAGE HERO
+   6. HOME HERO
    ========================================================= */
 
 .hero {
   min-height: 590px;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, 0.85fr);
+
   align-items: center;
   gap: 72px;
 
@@ -298,7 +291,7 @@ h3 {
 
 
 /* =========================================================
-   7. HOME START CARD
+   7. START CARD
    ========================================================= */
 
 .student-start-card {
@@ -309,7 +302,7 @@ h3 {
   border: 1px solid var(--grey-200);
   border-radius: var(--radius-lg);
 
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-md);
 }
 
@@ -368,7 +361,7 @@ h3 {
 
 
 /* =========================================================
-   8. HOME DNA VISUAL
+   8. HOME DNA
    ========================================================= */
 
 .hero-dna-visual {
@@ -416,7 +409,7 @@ h3 {
 
 
 /* =========================================================
-   9. HOME LAB ROUTE
+   9. LAB ROUTE
    ========================================================= */
 
 .lab-route {
@@ -464,7 +457,6 @@ h3 {
   transform: translateY(-3px);
 
   border-color: var(--teal-300);
-
   box-shadow: var(--shadow-md);
 }
 
@@ -491,7 +483,7 @@ h3 {
 
 
 /* =========================================================
-   10. FINAL CHALLENGE PREVIEW
+   10. FINAL PREVIEW
    ========================================================= */
 
 .final-challenge-preview {
@@ -515,13 +507,9 @@ h3 {
   max-width: 800px;
 }
 
-.final-challenge-preview h2 {
-  margin-bottom: 10px;
-}
-
 
 /* =========================================================
-   11. PROGRESS BAR
+   11. PROGRESS
    ========================================================= */
 
 .progress-wrapper {
@@ -561,8 +549,6 @@ h3 {
       var(--teal-500),
       #6cd2c7
     );
-
-  transition: width 500ms ease;
 }
 
 .progress-1 { width: 16.66%; }
@@ -578,8 +564,7 @@ h3 {
    ========================================================= */
 
 .stage-heading {
-  max-width: 860px;
-
+  max-width: 900px;
   margin-bottom: 34px;
 }
 
@@ -600,7 +585,7 @@ h3 {
 
 
 /* =========================================================
-   13. SHARED LAB PANELS
+   13. LAB PANELS
    ========================================================= */
 
 .lab-panel,
@@ -612,7 +597,7 @@ h3 {
   border: 1px solid var(--grey-200);
   border-radius: var(--radius-lg);
 
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.97);
   box-shadow: var(--shadow-md);
 }
 
@@ -628,7 +613,7 @@ h3 {
   margin-bottom: 0;
 
   color: var(--grey-500);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .analysis-section h2 {
@@ -641,7 +626,7 @@ h3 {
 
 
 /* =========================================================
-   14. SHARED BUTTONS
+   14. BUTTONS
    ========================================================= */
 
 .primary-button,
@@ -697,7 +682,6 @@ h3 {
 
 .secondary-button:hover {
   transform: translateY(-2px);
-
   border-color: var(--navy-700);
 }
 
@@ -708,13 +692,9 @@ h3 {
   color: var(--navy-900);
 }
 
-.model-select-button:hover {
-  background: var(--teal-100);
-}
-
 
 /* =========================================================
-   15. FORM CONTROLS
+   15. FORMS
    ========================================================= */
 
 input[type="text"],
@@ -748,7 +728,7 @@ select:focus {
 
 textarea {
   width: 100%;
-  min-height: 130px;
+  min-height: 135px;
 
   resize: vertical;
 }
@@ -790,16 +770,6 @@ input[type="number"] {
   border-radius: 12px;
 
   background: var(--grey-50);
-
-  cursor: pointer;
-
-  transition:
-    border-color var(--transition),
-    background var(--transition);
-}
-
-.choice-card:hover {
-  border-color: var(--teal-300);
 }
 
 .choice-card:has(input:checked) {
@@ -809,7 +779,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   17. LAB ACTIONS
+   17. ACTIONS
    ========================================================= */
 
 .lab-actions {
@@ -864,7 +834,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   19. HIDDEN / VERIFIED STATES
+   19. VERIFIED / HIDDEN
    ========================================================= */
 
 .hidden-content {
@@ -893,33 +863,17 @@ input[type="number"] {
   margin-top: 16px;
 }
 
-.verified-term-grid > div {
-  padding: 14px;
-
-  border: 1px solid rgba(63, 158, 112, 0.23);
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.verified-term-grid strong {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.verified-term-grid span {
-  color: var(--grey-700);
-  font-size: 0.84rem;
-}
-
 
 /* =========================================================
-   20. STAGE 1 — INVESTIGATION GRID
+   20. STAGE 1
    ========================================================= */
 
 .investigation-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.35fr);
+  grid-template-columns:
+    minmax(320px, 0.95fr)
+    minmax(0, 1.35fr);
+
   gap: 28px;
 
   margin-bottom: 30px;
@@ -930,11 +884,6 @@ input[type="number"] {
   margin-bottom: 0;
 }
 
-
-/* =========================================================
-   21. STAGE 1 — MOLECULAR PARTS
-   ========================================================= */
-
 .molecular-parts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -944,9 +893,9 @@ input[type="number"] {
 .molecule-card {
   position: relative;
 
-  min-height: 216px;
+  min-height: 190px;
 
-  padding: 20px 14px 14px;
+  padding: 18px 12px 12px;
 
   border: 2px solid var(--grey-200);
   border-radius: 16px;
@@ -978,7 +927,6 @@ input[type="number"] {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 1;
 
   width: 30px;
   height: 30px;
@@ -998,16 +946,11 @@ input[type="number"] {
 
 .molecule-svg {
   width: 100%;
-  height: 160px;
-  margin-top: 6px;
-
-  overflow: visible;
+  height: 135px;
 }
 
 .atom {
   stroke-width: 3;
-
-  filter: drop-shadow(0 2px 3px rgba(7, 21, 33, 0.12));
 }
 
 .atom.phosphorus {
@@ -1020,86 +963,40 @@ input[type="number"] {
   stroke: var(--blue-500);
 }
 
-.atom-symbol {
-  fill: var(--navy-800);
-  font-size: 13px;
-  font-weight: 800;
-  text-anchor: middle;
-  dominant-baseline: middle;
-}
-
 .bond {
   stroke: var(--navy-700);
   stroke-width: 4;
   stroke-linecap: round;
 }
 
-.bond.bond-thin {
-  stroke: var(--grey-500);
-  stroke-width: 3;
-}
-
 .sugar-ring {
   fill: var(--blue-200);
   stroke: var(--blue-500);
   stroke-width: 5;
-  stroke-linejoin: round;
-
-  filter: drop-shadow(0 3px 4px rgba(7, 21, 33, 0.10));
 }
 
 .base-ring {
   fill: var(--purple-200);
   stroke: var(--purple-500);
   stroke-width: 5;
-  stroke-linejoin: round;
-
-  filter: drop-shadow(0 3px 4px rgba(7, 21, 33, 0.10));
 }
 
 .base-symbol {
   fill: var(--navy-900);
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 900;
-  text-anchor: middle;
-  dominant-baseline: middle;
 }
 
-.carbon-label {
-  fill: var(--grey-500);
-  font-size: 12px;
-  font-weight: 700;
-  text-anchor: middle;
-}
-
+.carbon-label,
 .group-label {
   fill: var(--navy-900);
   font-size: 14px;
   font-weight: 800;
-  text-anchor: middle;
-}
-
-.diff-mark {
-  stroke-width: 2.5;
-}
-
-.diff-mark.mark-a {
-  fill: rgba(185, 137, 46, 0.14);
-  stroke: var(--amber-500);
-}
-
-.diff-mark.mark-b {
-  fill: rgba(43, 183, 169, 0.14);
-  stroke: var(--teal-500);
-}
-
-.group-label.diff-label {
-  font-size: 16px;
 }
 
 
 /* =========================================================
-   22. STAGE 1 — NUCLEOTIDE WORKSPACE
+   21. STAGE 1 WORKSPACE
    ========================================================= */
 
 .nucleotide-workspace {
@@ -1120,13 +1017,7 @@ input[type="number"] {
   border: 2px dashed var(--grey-300);
   border-radius: 18px;
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(43, 183, 169, 0.055),
-      transparent 55%
-    ),
-    var(--grey-50);
+  background: var(--grey-50);
 }
 
 .nucleotide-site {
@@ -1141,21 +1032,14 @@ input[type="number"] {
   border: 3px dashed var(--grey-300);
   border-radius: 15px;
 
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--white);
   color: var(--grey-500);
 
   text-align: center;
-
-  transition:
-    border-color var(--transition),
-    background var(--transition),
-    transform var(--transition);
 }
 
 .nucleotide-site.drag-over,
 .nucleotide-site.active-site {
-  transform: scale(1.025);
-
   border-color: var(--teal-500);
   background: var(--teal-100);
 }
@@ -1179,132 +1063,138 @@ input[type="number"] {
   background: var(--grey-300);
 }
 
-.assembled-phosphate {
-  width: 78px;
-  height: 78px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 4px solid var(--gold-500);
-  border-radius: 50%;
-
-  background: var(--gold-200);
-
-  color: #6c511a;
-  font-weight: 900;
-}
-
-.assembled-sugar {
-  width: 88px;
-  height: 88px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: var(--blue-200);
-
-  color: #2c659e;
-  font-weight: 900;
-
-  clip-path:
-    polygon(
-      50% 0%,
-      100% 38%,
-      82% 100%,
-      18% 100%,
-      0% 38%
-    );
-}
-
-.assembled-base {
-  min-width: 88px;
-  height: 68px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 16px;
-
-  border: 3px solid var(--purple-500);
-  border-radius: 14px;
-
-  background: var(--purple-200);
-
-  color: #5c4891;
-  font-size: 1.15rem;
-  font-weight: 900;
-}
-
 
 /* =========================================================
-   23. STAGE 2 — BASE ANALYSIS
+   22. STAGE 2 — MOLECULAR STRUCTURES
    ========================================================= */
 
-.base-analysis-grid {
+.advanced-base-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 
   margin-bottom: 28px;
 }
 
-.analysis-base-card {
-  min-height: 220px;
+.advanced-base-card {
+  padding: 22px;
 
-  padding: 17px;
-
-  border: 2px solid var(--grey-200);
+  border: 1px solid var(--grey-200);
   border-radius: var(--radius-md);
 
   background: var(--white);
 
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.analysis-base-card:hover {
-  transform: translateY(-3px);
-
-  border-color: var(--teal-500);
-  box-shadow: var(--shadow-sm);
-}
-
-.analysis-base-card.selected-piece {
-  border-color: var(--teal-500);
-
   box-shadow:
-    0 0 0 4px rgba(43, 183, 169, 0.14);
+    0 3px 10px rgba(7, 21, 33, 0.04);
 }
 
-.analysis-base-card svg {
+.advanced-base-card h3 {
+  margin-bottom: 14px;
+
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.molecule-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 235px;
+
+  margin-bottom: 18px;
+  padding: 10px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #f8fafb
+    );
+}
+
+.advanced-base-svg {
   width: 100%;
-  height: 135px;
+  height: 215px;
 }
 
-.base-name {
-  display: block;
 
-  margin-bottom: 6px;
+/* Main chemical bond */
 
-  color: var(--navy-900);
-  font-weight: 800;
+.chem-bond {
+  stroke: var(--navy-800);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.classification-grid {
+
+/* Second line used for double bonds */
+
+.chem-double {
+  stroke: var(--navy-800);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+
+/* Atomic labels */
+
+.chem-atom {
+  fill: var(--navy-950);
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+
+/* Functional groups */
+
+.chem-group {
+  fill: var(--navy-950);
+
+  font-size: 16px;
+  font-weight: 850;
+}
+
+
+/* Stage 2 controls */
+
+.base-analysis-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-
-  margin-bottom: 22px;
+  gap: 14px;
 }
 
-.classification-box {
+.base-analysis-controls label {
+  color: var(--navy-900);
+
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.base-analysis-controls select {
+  width: 100%;
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   23. STAGE 2 APPLICATION
+   ========================================================= */
+
+.stage2-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  margin: 24px 0;
+}
+
+.application-question {
   padding: 20px;
 
   border: 1px solid var(--grey-200);
@@ -1313,48 +1203,120 @@ input[type="number"] {
   background: var(--grey-50);
 }
 
-.classification-box h3 {
-  margin-bottom: 12px;
+.application-question h3 {
+  min-height: 50px;
+
+  margin-bottom: 16px;
+
+  font-size: 1rem;
 }
 
-.classification-dropzone {
-  min-height: 190px;
-
+.application-question label {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 9px;
 
-  padding: 18px;
+  margin-bottom: 9px;
+  padding: 11px 12px;
 
-  border: 3px dashed var(--grey-300);
-  border-radius: 14px;
+  border: 1px solid var(--grey-200);
+  border-radius: 9px;
 
   background: var(--white);
-  color: var(--grey-500);
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--transition),
+    background var(--transition);
 }
 
-.classification-dropzone.drag-over {
+.application-question label:hover {
+  border-color: var(--teal-300);
+}
+
+.application-question label:has(input:checked) {
   border-color: var(--teal-500);
   background: var(--teal-100);
 }
 
-.classified-base-tag {
-  padding: 10px 14px;
 
-  border: 2px solid var(--grey-200);
+/* =========================================================
+   24. STAGE 2 DATA
+   ========================================================= */
+
+.stage2-data-box {
+  max-width: 760px;
+
+  margin: 20px 0;
+  padding: 18px 20px;
+
+  border-left: 5px solid var(--blue-500);
   border-radius: 10px;
 
-  background: var(--white);
+  background: rgba(76, 143, 216, 0.09);
+}
 
+.stage2-data-box p:last-child {
+  margin-bottom: 0;
+}
+
+.calculation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin: 20px 0;
+}
+
+.calculation-grid label {
   color: var(--navy-900);
-  font-weight: 750;
+  font-weight: 700;
+}
+
+.calculation-grid input {
+  margin-top: 7px;
+}
+
+.stage2-calculation-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 
 /* =========================================================
-   24. STAGE 3 — NUCLEOTIDE BANK
+   25. STAGE 2 SUMMARY
+   ========================================================= */
+
+.stage2-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+.stage2-summary-grid > div {
+  padding: 14px;
+
+  border: 1px solid rgba(63, 158, 112, 0.25);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.stage2-summary-grid strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stage2-summary-grid span {
+  color: var(--grey-700);
+  font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   26. STAGE 3
    ========================================================= */
 
 .target-banner {
@@ -1385,7 +1347,6 @@ input[type="number"] {
 
   font-family: "Courier New", monospace;
   font-size: 1.1rem;
-  letter-spacing: 0.08em;
 }
 
 .nucleotide-bank,
@@ -1410,16 +1371,6 @@ input[type="number"] {
   border-radius: 13px;
 
   background: var(--white);
-
-  transition:
-    transform var(--transition),
-    border-color var(--transition);
-}
-
-.whole-nucleotide:hover,
-.whole-nucleotide.selected-piece {
-  transform: translateY(-2px);
-  border-color: var(--teal-500);
 }
 
 .nt-phosphate {
@@ -1514,14 +1465,9 @@ input[type="number"] {
   background: var(--white);
 }
 
-.strand-build-slot.active-site {
-  border-color: var(--teal-500);
-  background: var(--teal-100);
-}
-
 
 /* =========================================================
-   25. DNA BASE COLOURS
+   27. DNA BASE COLOURS
    ========================================================= */
 
 .base-a {
@@ -1568,21 +1514,11 @@ input[type="number"] {
 .base-bank-button {
   width: 62px;
   height: 62px;
-
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.base-bank-button:hover,
-.base-bank-button.selected-piece {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
 }
 
 
 /* =========================================================
-   26. STAGE 4 — DNA LADDER
+   28. STAGE 4
    ========================================================= */
 
 .dna-ladder-workspace {
@@ -1594,12 +1530,7 @@ input[type="number"] {
   border: 1px solid var(--grey-200);
   border-radius: var(--radius-md);
 
-  background:
-    linear-gradient(
-      180deg,
-      #fafcfd,
-      #f1f6f8
-    );
+  background: var(--grey-50);
 }
 
 .strand-row {
@@ -1614,10 +1545,6 @@ input[type="number"] {
   font-size: 1.15rem;
   font-weight: 900;
   text-align: center;
-}
-
-.pending-direction {
-  color: var(--grey-500);
 }
 
 .bond-row {
@@ -1641,7 +1568,6 @@ input[type="number"] {
 
   font-size: 1.7rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
 }
 
 .hydrogen-bond-zone.connected {
@@ -1660,36 +1586,9 @@ input[type="number"] {
   font-weight: 900;
 }
 
-.complement-position.active-site {
-  border-color: var(--teal-500);
-  background: var(--teal-100);
-}
-
 
 /* =========================================================
-   27. CALCULATION GRID
-   ========================================================= */
-
-.calculation-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-
-  margin: 20px 0;
-}
-
-.calculation-grid label {
-  color: var(--navy-900);
-  font-weight: 700;
-}
-
-.calculation-grid input {
-  margin-top: 7px;
-}
-
-
-/* =========================================================
-   28. STAGE 5 — DIAGNOSTIC MODEL
+   29. STAGE 5
    ========================================================= */
 
 .diagnostic-panel {
@@ -1729,11 +1628,6 @@ input[type="number"] {
   font-weight: 900;
 }
 
-.direction-control:hover,
-.final-direction:hover {
-  background: var(--teal-100);
-}
-
 .diagnostic-bonds {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1753,24 +1647,9 @@ input[type="number"] {
   width: 100%;
 }
 
-.diagnostic-base.active-site {
-  box-shadow:
-    0 0 0 4px rgba(43, 183, 169, 0.15);
-}
-
-.diagnostic-tools {
-  max-width: 680px;
-
-  margin: 0 auto;
-}
-
-.diagnostic-tools p {
-  color: var(--grey-700);
-}
-
 
 /* =========================================================
-   29. STAGE 6 — MODEL COMPARISON
+   30. STAGE 6
    ========================================================= */
 
 .model-comparison-grid {
@@ -1789,18 +1668,6 @@ input[type="number"] {
 
   background: var(--white);
   box-shadow: var(--shadow-sm);
-
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.candidate-model:hover {
-  transform: translateY(-3px);
-
-  border-color: var(--teal-300);
-  box-shadow: var(--shadow-md);
 }
 
 .candidate-model.selected-model {
@@ -1839,12 +1706,7 @@ input[type="number"] {
 
   color: var(--teal-500);
 
-  font-weight: 900;
   text-align: center;
-}
-
-.model-select-button {
-  width: 100%;
 }
 
 .evidence-check-grid {
@@ -1873,7 +1735,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   30. FINAL CHALLENGE
+   31. FINAL CHALLENGE
    ========================================================= */
 
 .final-build-panel {
@@ -1892,14 +1754,6 @@ input[type="number"] {
   margin-bottom: 12px;
 }
 
-.final-template-row > span:first-child,
-.final-template-row > span:last-child {
-  color: var(--navy-900);
-
-  font-weight: 900;
-  text-align: center;
-}
-
 .final-bond-row {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -1908,17 +1762,6 @@ input[type="number"] {
   width: calc(100% - 126px);
 
   margin: 8px auto;
-}
-
-.final-bond-row > div {
-  min-height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--teal-500);
-  font-weight: 900;
 }
 
 .final-base-slot {
@@ -1933,14 +1776,9 @@ input[type="number"] {
   font-weight: 900;
 }
 
-.final-base-slot.active-site {
-  border-color: var(--teal-500);
-  background: var(--teal-100);
-}
-
 
 /* =========================================================
-   31. COMPLETED DOUBLE HELIX
+   32. FINAL HELIX
    ========================================================= */
 
 .completed-helix-section {
@@ -1960,15 +1798,6 @@ input[type="number"] {
   box-shadow: var(--shadow-lg);
 }
 
-.completed-helix-section h2 {
-  margin-bottom: 10px;
-}
-
-.completed-helix-section > p {
-  max-width: 780px;
-  color: var(--grey-700);
-}
-
 .complete-dna-display {
   position: relative;
 
@@ -1977,20 +1806,10 @@ input[type="number"] {
 
   margin: 30px auto;
   padding: 10px;
-
-  border-radius: 22px;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(43, 183, 169, 0.10),
-      transparent 62%
-    );
 }
 
 #final-double-helix-svg {
   width: min(100%, 700px);
-
   margin: 0 auto;
 }
 
@@ -2017,14 +1836,13 @@ input[type="number"] {
 
 .helix-label {
   position: absolute;
-  z-index: 3;
 
   padding: 8px 11px;
 
   border: 1px solid var(--grey-200);
   border-radius: 9px;
 
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--white);
   box-shadow: var(--shadow-sm);
 
   color: var(--navy-900);
@@ -2045,12 +1863,12 @@ input[type="number"] {
 
 .label-backbone {
   top: 38%;
-  left: 0%;
+  left: 0;
 }
 
 .label-base {
   top: 50%;
-  right: 0%;
+  right: 0;
 }
 
 .label-basepair {
@@ -2085,20 +1903,9 @@ input[type="number"] {
   background: var(--grey-50);
 }
 
-.final-structure-summary strong {
-  display: block;
-
-  margin-bottom: 4px;
-}
-
-.final-structure-summary span {
-  color: var(--grey-700);
-  font-size: 0.86rem;
-}
-
 
 /* =========================================================
-   32. NAVIGATION
+   33. NAVIGATION
    ========================================================= */
 
 .stage-navigation {
@@ -2132,10 +1939,6 @@ input[type="number"] {
   box-shadow: var(--shadow-sm);
 }
 
-.next-button:hover:not(.locked) {
-  background: var(--navy-800);
-}
-
 .locked {
   pointer-events: none;
 
@@ -2145,7 +1948,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   33. DRAG / CLICK STATES
+   34. CLICK / DRAG STATES
    ========================================================= */
 
 [draggable="true"] {
@@ -2164,6 +1967,12 @@ input[type="number"] {
   outline: 4px solid rgba(43, 183, 169, 0.16);
 }
 
+.drag-over,
+.active-site {
+  border-color: var(--teal-500) !important;
+  background: var(--teal-100) !important;
+}
+
 .correct-piece {
   border-color: var(--green-500) !important;
 }
@@ -2175,6 +1984,7 @@ input[type="number"] {
 }
 
 @keyframes shake {
+
   0% {
     transform: translateX(0);
   }
@@ -2194,11 +2004,12 @@ input[type="number"] {
   100% {
     transform: translateX(0);
   }
+
 }
 
 
 /* =========================================================
-   34. FOOTER
+   35. FOOTER
    ========================================================= */
 
 footer {
@@ -2215,7 +2026,7 @@ footer {
 
 
 /* =========================================================
-   35. RESPONSIVE — TABLET
+   36. RESPONSIVE — TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -2237,10 +2048,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .base-analysis-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .model-comparison-grid {
     grid-template-columns: 1fr;
   }
@@ -2253,7 +2060,24 @@ footer {
 
 
 /* =========================================================
-   36. RESPONSIVE — SMALL TABLET / PHONE
+   37. RESPONSIVE — STAGE 2
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .stage2-application-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage2-calculation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   38. RESPONSIVE — SMALL TABLET
    ========================================================= */
 
 @media (max-width: 760px) {
@@ -2280,7 +2104,6 @@ footer {
 
   .route-grid,
   .choice-grid,
-  .classification-grid,
   .calculation-grid,
   .evidence-check-grid,
   .verified-term-grid,
@@ -2306,60 +2129,11 @@ footer {
 
   .nucleotide-site {
     width: min(100%, 300px);
-
     margin: auto;
-  }
-
-  .strand-construction-area {
-    grid-template-columns: 42px minmax(0, 1fr) 42px;
-    gap: 7px;
   }
 
   .strand-build-slots {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .strand-row {
-    grid-template-columns: 42px repeat(3, 1fr) 42px;
-  }
-
-  .bond-row {
-    grid-template-columns: repeat(3, 1fr);
-
-    width: calc(100% - 100px);
-  }
-
-  .diagnostic-strand {
-    grid-template-columns: 50px repeat(3, 1fr) 50px;
-  }
-
-  .diagnostic-bonds {
-    grid-template-columns: repeat(3, 1fr);
-
-    width: calc(100% - 120px);
-  }
-
-  .final-template-row,
-  .final-student-row {
-    grid-template-columns: 45px repeat(4, 1fr) 45px;
-  }
-
-  .final-bond-row {
-    grid-template-columns: repeat(4, 1fr);
-
-    width: calc(100% - 110px);
-  }
-
-  .complete-dna-display {
-    min-height: 760px;
-  }
-
-  .helix-label {
-    position: static;
-
-    display: inline-flex;
-
-    margin: 4px;
   }
 
   .stage-navigation {
@@ -2374,7 +2148,35 @@ footer {
 
 
 /* =========================================================
-   37. RESPONSIVE — PHONE
+   39. RESPONSIVE — STAGE 2 MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .advanced-base-grid,
+  .base-analysis-controls,
+  .stage2-calculation-grid,
+  .stage2-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advanced-base-card {
+    padding: 17px;
+  }
+
+  .molecule-frame {
+    min-height: 210px;
+  }
+
+  .advanced-base-svg {
+    height: 195px;
+  }
+
+}
+
+
+/* =========================================================
+   40. RESPONSIVE — PHONE
    ========================================================= */
 
 @media (max-width: 520px) {
@@ -2392,8 +2194,7 @@ footer {
     padding: 19px;
   }
 
-  .molecular-parts-grid,
-  .base-analysis-grid {
+  .molecular-parts-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2405,20 +2206,11 @@ footer {
     width: 100%;
   }
 
-  .target-banner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .strand-build-slots {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
 }
 
 
 /* =========================================================
-   38. PRINT
+   41. PRINT
    ========================================================= */
 
 @media print {
@@ -2446,7 +2238,7 @@ footer {
 
 
 /* =========================================================
-   39. ACCESSIBILITY — REDUCED MOTION
+   42. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2462,274 +2254,4 @@ footer {
     transition-duration: 0.001ms !important;
   }
 
-}
-/* =========================================================
-   REVISED STAGE 2 — ADVANCED BASE ANALYSIS
-   ========================================================= */
-
-.advanced-base-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-
-  margin-bottom: 26px;
-}
-
-
-.advanced-base-card {
-  padding: 22px;
-
-  border: 1px solid var(--grey-200);
-  border-radius: var(--radius-md);
-
-  background: var(--grey-50);
-}
-
-
-.advanced-base-card h3 {
-  margin-bottom: 8px;
-
-  text-align: center;
-}
-
-
-.advanced-base-svg {
-  width: 100%;
-  height: 185px;
-
-  margin-bottom: 15px;
-}
-
-
-.chemical-ring {
-  fill: rgba(128, 102, 188, 0.08);
-
-  stroke: var(--navy-700);
-  stroke-width: 4;
-
-  stroke-linejoin: round;
-}
-
-
-.atom-label {
-  fill: var(--navy-950);
-
-  font-size: 15px;
-  font-weight: 900;
-}
-
-
-.substituent-label {
-  fill: var(--navy-900);
-
-  font-size: 15px;
-  font-weight: 800;
-}
-
-
-.base-analysis-controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-
-.base-analysis-controls label {
-  color: var(--navy-900);
-
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-
-.base-analysis-controls select {
-  width: 100%;
-
-  margin-top: 6px;
-}
-
-
-/* =========================================================
-   STAGE 2 APPLICATION
-   ========================================================= */
-
-.stage2-application-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-
-  margin: 24px 0;
-}
-
-
-.application-question {
-  padding: 20px;
-
-  border: 1px solid var(--grey-200);
-  border-radius: var(--radius-md);
-
-  background: var(--grey-50);
-}
-
-
-.application-question h3 {
-  min-height: 48px;
-
-  margin-bottom: 16px;
-
-  font-size: 1rem;
-}
-
-
-.application-question label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  margin-bottom: 9px;
-  padding: 10px 12px;
-
-  border: 1px solid var(--grey-200);
-  border-radius: 9px;
-
-  background: var(--white);
-
-  cursor: pointer;
-}
-
-
-.application-question label:has(input:checked) {
-  border-color: var(--teal-500);
-
-  background: var(--teal-100);
-}
-
-
-/* =========================================================
-   STAGE 2 CHARGAFF DATA
-   ========================================================= */
-
-.stage2-data-box {
-  max-width: 760px;
-
-  margin: 20px 0;
-  padding: 18px 20px;
-
-  border-left: 5px solid var(--blue-500);
-  border-radius: 10px;
-
-  background: rgba(76, 143, 216, 0.09);
-}
-
-
-.stage2-data-box p:last-child {
-  margin-bottom: 0;
-}
-
-
-.stage2-calculation-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-
-/* =========================================================
-   STAGE 2 SUMMARY
-   ========================================================= */
-
-.stage2-summary-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-
-  margin-top: 15px;
-}
-
-
-.stage2-summary-grid > div {
-  padding: 14px;
-
-  border: 1px solid rgba(63, 158, 112, 0.25);
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.75);
-}
-
-
-.stage2-summary-grid strong {
-  display: block;
-
-  margin-bottom: 4px;
-}
-
-
-.stage2-summary-grid span {
-  color: var(--grey-700);
-
-  font-size: 0.86rem;
-}
-
-
-/* =========================================================
-   STAGE 2 RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .stage2-application-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stage2-calculation-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-
-@media (max-width: 650px) {
-
-  .advanced-base-grid,
-  .base-analysis-controls,
-  .stage2-calculation-grid,
-  .stage2-summary-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-/* =========================================================
-   STAGE 2 — CHEMICAL STRUCTURES
-   ========================================================= */
-
-.advanced-base-svg .bond {
-  stroke: var(--navy-800);
-  stroke-width: 4;
-  stroke-linecap: round;
-}
-
-.advanced-base-svg .bond-thin {
-  stroke: var(--navy-800);
-  stroke-width: 2.5;
-}
-
-.advanced-base-svg .atom-label {
-  fill: var(--navy-950);
-  font-size: 16px;
-  font-weight: 900;
-}
-
-.advanced-base-svg .substituent-label {
-  fill: var(--navy-950);
-  font-size: 16px;
-  font-weight: 850;
-}
-
-.advanced-base-card {
-  background: #ffffff;
-}
-
-.advanced-base-svg {
-  background: #fbfcfd;
-  border: 1px solid var(--grey-200);
-  border-radius: 12px;
-  padding: 8px;
 }
