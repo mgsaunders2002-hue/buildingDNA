@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Challenge | DNA Construction Lab</title>
 
-<title>Final Challenge | DNA Construction Lab</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body data-page="challenge">
 
@@ -26,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -38,173 +35,311 @@
 
 <section class="stage-heading final-heading">
 
-  <span class="stage-number">
-    FINAL LAB CHALLENGE
-  </span>
+  <span class="stage-number">FINAL CHALLENGE</span>
 
-  <h1>
-    Build DNA Independently
-  </h1>
+  <h1>Construct and Defend a DNA Molecule</h1>
 
   <p>
-    This time, the scaffolding is gone.
-    Complete and analyze the molecule using everything you have learned.
+    You now have minimal scaffolding.
+    Use everything you have learned to construct a biologically valid
+    DNA molecule and defend your model.
   </p>
 
 </section>
 
 
+<section class="lab-panel final-build-panel">
 
-<section class="final-lab-workspace">
+  <span class="panel-label">PART A — CONSTRUCT</span>
 
-  <div class="final-dna-builder">
-
-    <div class="final-template">
-
-      <span>5′</span>
-
-      <span class="dna-base base-g">G</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-a">A</span>
-      <span class="dna-base base-t">T</span>
-      <span class="dna-base base-t">T</span>
-      <span class="dna-base base-g">G</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-c">C</span>
-
-      <span>3′</span>
-
-    </div>
+  <h2>Complete the molecule.</h2>
 
 
-    <div
-      id="final-complement-builder"
-      class="final-complement-builder"
-    >
+  <div class="final-template-row">
 
-      <div class="final-end-drop" data-position="left">
-        ?
-      </div>
+    <span>5′</span>
 
-      <div class="final-base-slot" data-position="0"></div>
-      <div class="final-base-slot" data-position="1"></div>
-      <div class="final-base-slot" data-position="2"></div>
-      <div class="final-base-slot" data-position="3"></div>
-      <div class="final-base-slot" data-position="4"></div>
-      <div class="final-base-slot" data-position="5"></div>
-      <div class="final-base-slot" data-position="6"></div>
-      <div class="final-base-slot" data-position="7"></div>
+    <span class="dna-base base-g">G</span>
+    <span class="dna-base base-c">C</span>
+    <span class="dna-base base-a">A</span>
+    <span class="dna-base base-t">T</span>
+    <span class="dna-base base-t">T</span>
+    <span class="dna-base base-g">G</span>
+    <span class="dna-base base-c">C</span>
+    <span class="dna-base base-c">C</span>
 
-      <div class="final-end-drop" data-position="right">
-        ?
-      </div>
-
-    </div>
+    <span>3′</span>
 
   </div>
 
 
+  <div class="final-bond-row">
 
-  <div class="analysis-panel">
+    <div data-position="0"></div>
+    <div data-position="1"></div>
+    <div data-position="2"></div>
+    <div data-position="3"></div>
+    <div data-position="4"></div>
+    <div data-position="5"></div>
+    <div data-position="6"></div>
+    <div data-position="7"></div>
 
-    <h2>Analyze Your Molecule</h2>
+  </div>
 
 
-    <label for="final-at">
-      Number of A–T base pairs
+  <div class="final-student-row">
+
+    <button
+      type="button"
+      class="final-direction"
+      id="final-left-direction"
+    >
+      ?
+    </button>
+
+    <button class="final-base-slot" data-position="0" type="button">?</button>
+    <button class="final-base-slot" data-position="1" type="button">?</button>
+    <button class="final-base-slot" data-position="2" type="button">?</button>
+    <button class="final-base-slot" data-position="3" type="button">?</button>
+    <button class="final-base-slot" data-position="4" type="button">?</button>
+    <button class="final-base-slot" data-position="5" type="button">?</button>
+    <button class="final-base-slot" data-position="6" type="button">?</button>
+    <button class="final-base-slot" data-position="7" type="button">?</button>
+
+    <button
+      type="button"
+      class="final-direction"
+      id="final-right-direction"
+    >
+      ?
+    </button>
+
+  </div>
+
+
+  <div class="base-bank">
+
+    <button class="base-bank-button base-a" data-base="A" type="button">A</button>
+    <button class="base-bank-button base-t" data-base="T" type="button">T</button>
+    <button class="base-bank-button base-c" data-base="C" type="button">C</button>
+    <button class="base-bank-button base-g" data-base="G" type="button">G</button>
+
+  </div>
+
+</section>
+
+
+<section class="analysis-section">
+
+  <span class="panel-label">PART B — ANALYZE</span>
+
+  <h2>Quantify the structure you built.</h2>
+
+
+  <div class="calculation-grid">
+
+    <label>
+      A–T base pairs
+      <input id="final-at" type="number" min="0">
     </label>
 
-    <input
-      type="number"
-      id="final-at"
-      data-save-field="finalAT"
-    >
-
-
-    <label for="final-gc">
-      Number of G–C base pairs
+    <label>
+      G–C base pairs
+      <input id="final-gc" type="number" min="0">
     </label>
 
-    <input
-      type="number"
-      id="final-gc"
-      data-save-field="finalGC"
-    >
-
-
-    <label for="final-hydrogen">
+    <label>
       Total hydrogen bonds
+      <input id="final-hydrogen" type="number" min="0">
     </label>
 
-    <input
-      type="number"
-      id="final-hydrogen"
-      data-save-field="finalHydrogen"
-    >
-
-
-    <label for="final-relationship">
-      The two DNA strands are:
+    <label>
+      Purine bases in the original strand
+      <input id="final-purines" type="number" min="0">
     </label>
-
-    <select
-      id="final-relationship"
-      data-save-field="finalRelationship"
-    >
-
-      <option value="">Choose...</option>
-
-      <option value="parallel">
-        Parallel
-      </option>
-
-      <option value="antiparallel">
-        Complementary and antiparallel
-      </option>
-
-      <option value="identical">
-        Identical
-      </option>
-
-    </select>
 
   </div>
 
+</section>
 
 
-  <section class="lab-notebook final-reflection">
+<section class="analysis-section">
 
-    <h2>Final Lab Reflection</h2>
+  <span class="panel-label">PART C — DEFEND</span>
 
-    <label for="final-note">
-      Describe how the different parts of DNA work together to create
-      a stable molecule capable of storing genetic information.
-    </label>
+  <h2>Demonstrate that your molecule is biologically valid.</h2>
 
-    <textarea
-      id="final-note"
-      data-save-field="finalNote"
-    ></textarea>
+  <label for="final-note" class="response-label">
+    Use at least four structural features to justify your model.
+    Your response should refer to nucleotide structure, complementary
+    base pairing, strand orientation, bonding, and/or the
+    sugar-phosphate backbone.
+  </label>
 
-  </section>
+  <textarea
+    id="final-note"
+    data-save-field="finalNote"
+  ></textarea>
 
 
   <button
-    id="submit-final"
+    id="submit-final-challenge"
     class="check-button final-submit"
+    type="button"
   >
-    Submit My DNA Molecule
+    Validate My DNA Molecule
   </button>
 
 
   <div
     id="final-feedback"
     class="feedback-box"
-    aria-live="polite"
   ></div>
 
 </section>
 
+
+<!-- FINAL CULMINATING MODEL -->
+
+<section
+  id="completed-double-helix"
+  class="completed-helix-section hidden-content"
+>
+
+  <span class="panel-label">
+    YOUR COMPLETED DNA MODEL
+  </span>
+
+  <h2>From nucleotides to the double helix</h2>
+
+  <p>
+    Your molecule has passed the structural checks.
+    The model below brings together every major structural feature
+    from this lesson.
+  </p>
+
+
+  <div class="complete-dna-display">
+
+    <div class="helix-label label-phosphate">
+      Phosphate group
+    </div>
+
+    <div class="helix-label label-sugar">
+      Deoxyribose
+    </div>
+
+    <div class="helix-label label-backbone">
+      Sugar-phosphate backbone
+    </div>
+
+    <div class="helix-label label-base">
+      Nitrogenous base
+    </div>
+
+    <div class="helix-label label-basepair">
+      Complementary base pair
+    </div>
+
+    <div class="helix-label label-hydrogen">
+      Hydrogen bonds
+    </div>
+
+    <div class="helix-label label-phosphodiester">
+      Covalent / phosphodiester bond
+    </div>
+
+
+    <svg
+      id="final-double-helix-svg"
+      viewBox="0 0 700 820"
+      role="img"
+      aria-label="Fully labelled DNA double helix"
+    >
+
+      <!-- Backbone curves -->
+
+      <path
+        id="final-backbone-left"
+        d="M210 40
+           C520 130 520 250 210 340
+           C-50 430 40 610 250 780"
+        class="final-helix-backbone"
+      />
+
+      <path
+        id="final-backbone-right"
+        d="M490 40
+           C180 130 180 250 490 340
+           C750 430 660 610 450 780"
+        class="final-helix-backbone"
+      />
+
+
+      <!-- Base-pair rungs -->
+
+      <g id="final-base-pairs">
+
+        <line x1="250" y1="95" x2="450" y2="95" class="final-base-rung"/>
+        <line x1="325" y1="175" x2="375" y2="175" class="final-base-rung"/>
+        <line x1="445" y1="255" x2="255" y2="255" class="final-base-rung"/>
+        <line x1="415" y1="335" x2="285" y2="335" class="final-base-rung"/>
+        <line x1="235" y1="430" x2="465" y2="430" class="final-base-rung"/>
+        <line x1="285" y1="525" x2="415" y2="525" class="final-base-rung"/>
+        <line x1="460" y1="620" x2="240" y2="620" class="final-base-rung"/>
+        <line x1="425" y1="715" x2="275" y2="715" class="final-base-rung"/>
+
+      </g>
+
+
+      <!-- Direction labels -->
+
+      <text x="185" y="30" class="helix-direction">5′</text>
+      <text x="500" y="30" class="helix-direction">3′</text>
+
+      <text x="235" y="810" class="helix-direction">3′</text>
+      <text x="455" y="810" class="helix-direction">5′</text>
+
+    </svg>
+
+  </div>
+
+
+  <div class="final-structure-summary">
+
+    <div>
+      <strong>Nucleotide</strong>
+      <span>Phosphate + deoxyribose + nitrogenous base</span>
+    </div>
+
+    <div>
+      <strong>Complementary</strong>
+      <span>A–T and C–G base pairing</span>
+    </div>
+
+    <div>
+      <strong>Antiparallel</strong>
+      <span>Opposite 5′ and 3′ strand orientations</span>
+    </div>
+
+    <div>
+      <strong>Hydrogen bonding</strong>
+      <span>A–T = 2 bonds; C–G = 3 bonds</span>
+    </div>
+
+    <div>
+      <strong>Backbone</strong>
+      <span>Alternating sugar and phosphate groups</span>
+    </div>
+
+    <div>
+      <strong>Double helix</strong>
+      <span>Two complementary antiparallel strands</span>
+    </div>
+
+  </div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -224,6 +359,10 @@
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
