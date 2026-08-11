@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 5 | Diagnose the DNA</title>
 
-<title>Stage 5 | Antiparallel DNA</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body data-page="stage5">
 
@@ -26,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -38,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 5 of 6</span>
-    <strong>Antiparallel DNA</strong>
+    <strong>Diagnose the DNA</strong>
   </div>
 
   <div class="progress-bar">
@@ -52,132 +49,138 @@
 
 <section class="stage-heading">
 
-  <span class="stage-number">
-    STAGE 05
-  </span>
+  <span class="stage-number">STAGE 05</span>
 
-  <h1>
-    Orient the DNA Strands
-  </h1>
+  <h1>Diagnose and Repair the DNA</h1>
 
   <p>
-    Your DNA molecule has complementary base pairs.
-    Now make sure the two strands are antiparallel.
+    A student constructed the DNA model below and claimed it is correct.
+    Examine the molecule carefully. More than one structural feature may
+    need attention.
   </p>
 
 </section>
 
 
+<section class="lab-panel diagnostic-panel">
 
-<section class="orientation-lab">
-
-  <div class="orientation-controls">
-
-    <h2>Direction Labels</h2>
-
-    <button
-      class="direction-piece"
-      draggable="true"
-      data-direction="5"
-    >
-      5′
-    </button>
-
-    <button
-      class="direction-piece"
-      draggable="true"
-      data-direction="3"
-    >
-      3′
-    </button>
-
-  </div>
+  <div class="diagnostic-model">
 
 
+    <div class="diagnostic-strand">
 
-  <div class="orientation-model">
-
-    <div class="orientation-row">
-
-      <div
-        class="direction-drop"
-        id="top-left-direction"
+      <button
+        class="direction-control"
+        id="stage5-top-left"
+        type="button"
       >
-        ?
-      </div>
+        5′
+      </button>
 
-      <div class="strand-sequence">
-        A — T — G — C — C — A
-      </div>
+      <span class="dna-base base-a">A</span>
+      <span class="dna-base base-t">T</span>
+      <span class="dna-base base-g">G</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-a">A</span>
 
-      <div
-        class="direction-drop"
-        id="top-right-direction"
+      <button
+        class="direction-control"
+        id="stage5-top-right"
+        type="button"
       >
-        ?
-      </div>
+        3′
+      </button>
 
     </div>
 
 
-    <div class="paired-strand-lines">
-
-      <span>│</span>
-      <span>│</span>
-      <span>│</span>
-      <span>│</span>
-      <span>│</span>
-      <span>│</span>
-
+    <div class="diagnostic-bonds">
+      <span>··</span>
+      <span>··</span>
+      <span>···</span>
+      <span>···</span>
+      <span>··</span>
+      <span>··</span>
     </div>
 
 
-    <div class="orientation-row">
+    <div class="diagnostic-strand">
 
-      <div
-        class="direction-drop"
-        id="bottom-left-direction"
+      <button
+        class="direction-control"
+        id="stage5-bottom-left"
+        type="button"
       >
-        ?
-      </div>
+        5′
+      </button>
 
-      <div class="strand-sequence">
-        T — A — C — G — G — T
-      </div>
+      <button class="diagnostic-base base-t" data-position="0">T</button>
+      <button class="diagnostic-base base-a" data-position="1">A</button>
+      <button class="diagnostic-base base-c" data-position="2">C</button>
+      <button class="diagnostic-base base-g" data-position="3">G</button>
+      <button class="diagnostic-base base-t" data-position="4">T</button>
+      <button class="diagnostic-base base-t" data-position="5">T</button>
 
-      <div
-        class="direction-drop"
-        id="bottom-right-direction"
+      <button
+        class="direction-control"
+        id="stage5-bottom-right"
+        type="button"
       >
-        ?
-      </div>
+        3′
+      </button>
 
     </div>
 
   </div>
 
 
-  <button id="check-stage5" class="check-button">
-    Check Strand Orientation
+  <div class="diagnostic-tools">
+
+    <p>
+      Select any part of the model you believe is incorrect
+      and repair it.
+    </p>
+
+    <div class="base-bank">
+
+      <button class="base-bank-button base-a" data-base="A" type="button">A</button>
+      <button class="base-bank-button base-t" data-base="T" type="button">T</button>
+      <button class="base-bank-button base-c" data-base="C" type="button">C</button>
+      <button class="base-bank-button base-g" data-base="G" type="button">G</button>
+
+    </div>
+
+  </div>
+
+
+  <button
+    id="check-stage5-repair"
+    class="check-button"
+    type="button"
+  >
+    Test My Repairs
   </button>
 
 
   <div
     id="stage5-feedback"
     class="feedback-box"
-    aria-live="polite"
   ></div>
 
 </section>
 
 
+<section class="analysis-section">
 
-<section class="lab-notebook">
+  <span class="panel-label">ERROR ANALYSIS</span>
 
-  <h2>Lab Notebook</h2>
+  <h2>Explain the problem with the original model.</h2>
 
-  <label for="stage5-note">
-    Explain what antiparallel means in a DNA molecule.
+
+  <label for="stage5-note" class="response-label">
+    Identify at least two structural errors and explain why each
+    would prevent the original diagram from representing normal DNA.
   </label>
 
   <textarea
@@ -185,8 +188,22 @@
     data-save-field="stage5Note"
   ></textarea>
 
-</section>
 
+  <button
+    id="check-stage5-analysis"
+    class="check-button"
+    type="button"
+  >
+    Submit Error Analysis
+  </button>
+
+
+  <div
+    id="stage5-analysis-feedback"
+    class="feedback-box"
+  ></div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -206,6 +223,10 @@
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
