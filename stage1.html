@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body data-page="stage1">
 
 <header class="site-header">
+
   <div class="header-inner">
-    <div class="course-label">BIOLOGY 30</div>
-    <div class="site-title">DNA Builder</div>
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span id="save-status">✓ Saved</span>
+    </div>
+
   </div>
+
 </header>
 
 
@@ -23,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 1 of 6</span>
-    <span>Build a Nucleotide</span>
+    <strong>Build a Nucleotide</strong>
   </div>
 
   <div class="progress-bar">
@@ -33,153 +45,290 @@
 </div>
 
 
-<main class="activity-page">
+<main class="lab-page">
 
-  <section class="stage-heading">
+<section class="stage-heading">
 
-    <span class="stage-number">STAGE 01</span>
+  <span class="stage-number">
+    STAGE 01
+  </span>
 
-    <h1>Build a DNA Nucleotide</h1>
+  <h1>
+    Build a DNA Nucleotide
+  </h1>
+
+  <p>
+    Every DNA molecule is built from repeating nucleotide units.
+    Construct one nucleotide by placing the correct three components
+    into the workspace.
+  </p>
+
+</section>
+
+
+
+<section class="lab-workspace">
+
+  <aside class="parts-tray">
+
+    <h2>Parts Tray</h2>
 
     <p>
-      DNA is built from repeating units called nucleotides.
-      Your first task is to determine which components belong
-      in one DNA nucleotide.
+      Drag the correct components into the construction area.
     </p>
 
-  </section>
+
+    <!-- PHOSPHATE -->
+
+    <button
+      class="molecule-piece"
+      data-piece="phosphate"
+      draggable="true"
+    >
+
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+
+        <circle
+          cx="60"
+          cy="60"
+          r="42"
+          class="phosphate-shape"
+        />
+
+        <text
+          x="60"
+          y="68"
+          text-anchor="middle"
+          class="molecule-symbol"
+        >
+          P
+        </text>
+
+      </svg>
+
+      <span>Phosphate Group</span>
+
+    </button>
 
 
-  <section class="challenge-panel">
 
-    <div class="challenge-header">
-      <span class="challenge-label">YOUR TASK</span>
+    <!-- DEOXYRIBOSE -->
 
-      <h2>Select the three components of a DNA nucleotide.</h2>
+    <button
+      class="molecule-piece"
+      data-piece="deoxyribose"
+      draggable="true"
+    >
 
-      <p>
-        Choose carefully. Some options belong to other biological molecules.
-      </p>
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+
+        <polygon
+          points="60,15 105,48 88,103 32,103 15,48"
+          class="sugar-shape"
+        />
+
+        <text
+          x="60"
+          y="67"
+          text-anchor="middle"
+          class="molecule-symbol"
+        >
+          D
+        </text>
+
+      </svg>
+
+      <span>Deoxyribose</span>
+
+    </button>
+
+
+
+    <!-- NITROGENOUS BASE -->
+
+    <button
+      class="molecule-piece"
+      data-piece="base"
+      draggable="true"
+    >
+
+      <svg viewBox="0 0 150 100" aria-hidden="true">
+
+        <rect
+          x="15"
+          y="20"
+          width="120"
+          height="60"
+          rx="18"
+          class="base-shape base-a"
+        />
+
+        <text
+          x="75"
+          y="59"
+          text-anchor="middle"
+          class="molecule-symbol"
+        >
+          A
+        </text>
+
+      </svg>
+
+      <span>Adenine</span>
+
+    </button>
+
+
+
+    <!-- DISTRACTOR -->
+
+    <button
+      class="molecule-piece distractor-piece"
+      data-piece="ribose"
+      draggable="true"
+    >
+
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+
+        <polygon
+          points="60,15 105,48 88,103 32,103 15,48"
+          class="distractor-shape"
+        />
+
+        <text
+          x="60"
+          y="67"
+          text-anchor="middle"
+          class="molecule-symbol"
+        >
+          R
+        </text>
+
+      </svg>
+
+      <span>Ribose</span>
+
+    </button>
+
+  </aside>
+
+
+
+  <section class="construction-zone">
+
+    <div class="workspace-label">
+      Nucleotide Construction Area
     </div>
 
 
-    <div class="component-options">
+    <div class="nucleotide-workbench">
 
-      <button class="component-option" data-component="phosphate">
-        <span class="component-symbol phosphate-symbol">P</span>
-        <span>Phosphate Group</span>
-      </button>
-
-      <button class="component-option" data-component="deoxyribose">
-        <span class="component-symbol sugar-symbol">D</span>
-        <span>Deoxyribose Sugar</span>
-      </button>
-
-      <button class="component-option" data-component="adenine">
-        <span class="component-symbol base-symbol">A</span>
-        <span>Nitrogenous Base</span>
-      </button>
-
-      <button class="component-option distractor" data-component="ribose">
-        <span class="component-symbol">R</span>
-        <span>Ribose Sugar</span>
-      </button>
-
-      <button class="component-option distractor" data-component="amino-acid">
-        <span class="component-symbol">AA</span>
-        <span>Amino Acid</span>
-      </button>
-
-      <button class="component-option distractor" data-component="fatty-acid">
-        <span class="component-symbol">FA</span>
-        <span>Fatty Acid</span>
-      </button>
-
-    </div>
+      <div
+        class="molecule-drop-zone phosphate-drop"
+        data-accept="phosphate"
+      >
+        <span>Drop phosphate here</span>
+      </div>
 
 
-    <div class="nucleotide-build-area">
+      <div class="connection-point">
+        +
+      </div>
 
-      <h3>Your Nucleotide</h3>
 
-      <div class="nucleotide-slots">
+      <div
+        class="molecule-drop-zone sugar-drop"
+        data-accept="deoxyribose"
+      >
+        <span>Drop sugar here</span>
+      </div>
 
-        <div class="build-slot" id="phosphate-slot">
-          <span>?</span>
-          <small>Component 1</small>
-        </div>
 
-        <div class="bond-line"></div>
+      <div class="connection-point">
+        +
+      </div>
 
-        <div class="build-slot" id="sugar-slot">
-          <span>?</span>
-          <small>Component 2</small>
-        </div>
 
-        <div class="bond-line"></div>
-
-        <div class="build-slot" id="base-slot">
-          <span>?</span>
-          <small>Component 3</small>
-        </div>
-
+      <div
+        class="molecule-drop-zone base-drop"
+        data-accept="base"
+      >
+        <span>Drop base here</span>
       </div>
 
     </div>
 
 
-    <div class="action-row">
-      <button id="check-stage1" class="check-button">
-        Check My Nucleotide
-      </button>
-
-      <button id="reset-stage1" class="secondary-button">
-        Reset
-      </button>
-    </div>
+    <div
+      id="stage1-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
 
 
-    <div id="feedback-stage1"
-         class="feedback-box"
-         aria-live="polite">
-    </div>
-
-  </section>
-
-
-  <section class="remember-card">
-
-    <span class="remember-label">REMEMBER</span>
-
-    <p>
-      A DNA nucleotide contains a phosphate group,
-      a deoxyribose sugar and one nitrogenous base.
-    </p>
+    <button
+      id="check-stage1"
+      type="button"
+      class="check-button"
+    >
+      Test My Nucleotide
+    </button>
 
   </section>
 
+</section>
 
-  <nav class="stage-navigation">
 
-    <a href="index.html" class="nav-button back-button">
-      ← Home
-    </a>
 
-    <a href="stage2.html"
-       id="stage1-next"
-       class="nav-button next-button locked"
-       aria-disabled="true">
-      Stage 2 →
-    </a>
+<section class="lab-notebook">
 
-  </nav>
+  <div class="notebook-heading">
+
+    <span class="notebook-icon">✎</span>
+
+    <div>
+      <h2>Lab Notebook</h2>
+      <p>Your response will be included in your final lab record.</p>
+    </div>
+
+  </div>
+
+
+  <label for="stage1-note">
+    What three components make up every DNA nucleotide?
+  </label>
+
+  <textarea
+    id="stage1-note"
+    data-save-field="stage1Note"
+    placeholder="Record your observation..."
+  ></textarea>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a
+    href="index.html"
+    class="nav-button back-button"
+  >
+    ← Lab Home
+  </a>
+
+  <a
+    href="stage2.html"
+    id="stage1-next"
+    class="nav-button next-button locked"
+    aria-disabled="true"
+  >
+    Continue to Stage 2 →
+  </a>
+
+</nav>
 
 </main>
-
-
-<footer>
-  Biology 30 • DNA Structure
-</footer>
 
 <script src="script.js"></script>
 
