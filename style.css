@@ -64,7 +64,7 @@
 
 
 /* =========================================================
-   2. GLOBAL RESET
+   2. GLOBAL
    ========================================================= */
 
 * {
@@ -386,16 +386,10 @@ h3 {
 
 .hero-dna-svg {
   width: min(100%, 410px);
-
-  filter:
-    drop-shadow(
-      0 16px 18px rgba(7, 21, 33, 0.11)
-    );
 }
 
 .helix-backbone {
   fill: none;
-
   stroke: var(--navy-700);
   stroke-width: 17;
   stroke-linecap: round;
@@ -446,18 +440,6 @@ h3 {
 
   background: var(--white);
   box-shadow: var(--shadow-sm);
-
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.route-card:hover {
-  transform: translateY(-3px);
-
-  border-color: var(--teal-300);
-  box-shadow: var(--shadow-md);
 }
 
 .route-number {
@@ -477,7 +459,6 @@ h3 {
 
 .route-card p {
   margin-bottom: 0;
-
   color: var(--grey-500);
 }
 
@@ -501,10 +482,6 @@ h3 {
     );
 
   box-shadow: var(--shadow-sm);
-}
-
-.final-challenge-preview > div {
-  max-width: 800px;
 }
 
 
@@ -534,7 +511,6 @@ h3 {
   overflow: hidden;
 
   border-radius: 999px;
-
   background: var(--grey-200);
 }
 
@@ -651,8 +627,7 @@ h3 {
     transform var(--transition),
     box-shadow var(--transition),
     background var(--transition),
-    border-color var(--transition),
-    opacity var(--transition);
+    border-color var(--transition);
 }
 
 .primary-button,
@@ -680,18 +655,6 @@ h3 {
   color: var(--navy-900);
 }
 
-.secondary-button:hover {
-  transform: translateY(-2px);
-  border-color: var(--navy-700);
-}
-
-.model-select-button {
-  border: 2px solid var(--navy-700);
-
-  background: var(--white);
-  color: var(--navy-900);
-}
-
 
 /* =========================================================
    15. FORMS
@@ -710,10 +673,6 @@ select {
   color: var(--grey-900);
 
   outline: none;
-
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
 }
 
 input[type="text"]:focus,
@@ -748,51 +707,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   16. CHOICE CARDS
-   ========================================================= */
-
-.choice-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-
-  margin: 20px 0 22px;
-}
-
-.choice-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 15px;
-
-  border: 2px solid var(--grey-200);
-  border-radius: 12px;
-
-  background: var(--grey-50);
-}
-
-.choice-card:has(input:checked) {
-  border-color: var(--teal-500);
-  background: var(--teal-100);
-}
-
-
-/* =========================================================
-   17. ACTIONS
-   ========================================================= */
-
-.lab-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  margin-top: 20px;
-}
-
-
-/* =========================================================
-   18. FEEDBACK
+   16. FEEDBACK
    ========================================================= */
 
 .feedback-box {
@@ -834,7 +749,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   19. VERIFIED / HIDDEN
+   17. HIDDEN / VERIFIED
    ========================================================= */
 
 .hidden-content {
@@ -855,17 +770,9 @@ input[type="number"] {
   background: var(--green-100);
 }
 
-.verified-term-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-
-  margin-top: 16px;
-}
-
 
 /* =========================================================
-   20. STAGE 1
+   18. STAGE 1
    ========================================================= */
 
 .investigation-grid {
@@ -877,11 +784,6 @@ input[type="number"] {
   gap: 28px;
 
   margin-bottom: 30px;
-}
-
-.parts-panel,
-.construction-panel {
-  margin-bottom: 0;
 }
 
 .molecular-parts-grid {
@@ -901,19 +803,6 @@ input[type="number"] {
   border-radius: 16px;
 
   background: var(--white);
-
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.molecule-card:hover,
-.molecule-card:focus-visible {
-  transform: translateY(-3px);
-
-  border-color: var(--teal-500);
-  box-shadow: var(--shadow-sm);
 }
 
 .molecule-card.selected-piece {
@@ -949,20 +838,6 @@ input[type="number"] {
   height: 135px;
 }
 
-.atom {
-  stroke-width: 3;
-}
-
-.atom.phosphorus {
-  fill: var(--gold-200);
-  stroke: var(--gold-500);
-}
-
-.atom.oxygen {
-  fill: #f7fbff;
-  stroke: var(--blue-500);
-}
-
 .bond {
   stroke: var(--navy-700);
   stroke-width: 4;
@@ -981,23 +856,12 @@ input[type="number"] {
   stroke-width: 5;
 }
 
-.base-symbol {
-  fill: var(--navy-900);
-  font-size: 28px;
-  font-weight: 900;
-}
-
 .carbon-label,
 .group-label {
   fill: var(--navy-900);
   font-size: 14px;
   font-weight: 800;
 }
-
-
-/* =========================================================
-   21. STAGE 1 WORKSPACE
-   ========================================================= */
 
 .nucleotide-workspace {
   min-height: 350px;
@@ -1038,12 +902,6 @@ input[type="number"] {
   text-align: center;
 }
 
-.nucleotide-site.drag-over,
-.nucleotide-site.active-site {
-  border-color: var(--teal-500);
-  background: var(--teal-100);
-}
-
 .nucleotide-site.correct-site {
   border-style: solid;
   border-color: var(--green-500);
@@ -1059,13 +917,12 @@ input[type="number"] {
   height: 5px;
 
   border-radius: 999px;
-
   background: var(--grey-300);
 }
 
 
 /* =========================================================
-   22. STAGE 2 — MOLECULAR STRUCTURES
+   19. STAGE 2 — REAL MOLECULAR STRUCTURES
    ========================================================= */
 
 .advanced-base-grid {
@@ -1096,72 +953,32 @@ input[type="number"] {
 }
 
 .molecule-frame {
+  min-height: 260px;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  min-height: 235px;
-
   margin-bottom: 18px;
-  padding: 10px;
+  padding: 18px;
 
   border: 1px solid var(--grey-200);
   border-radius: 14px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #f8fafb
-    );
+  background: #ffffff;
 }
 
-.advanced-base-svg {
+.real-molecule-image {
+  display: block;
+
   width: 100%;
-  height: 215px;
+  max-width: 330px;
+  height: 225px;
+
+  margin: 0 auto;
+
+  object-fit: contain;
 }
-
-
-/* Main chemical bond */
-
-.chem-bond {
-  stroke: var(--navy-800);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-
-/* Second line used for double bonds */
-
-.chem-double {
-  stroke: var(--navy-800);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-}
-
-
-/* Atomic labels */
-
-.chem-atom {
-  fill: var(--navy-950);
-
-  font-size: 17px;
-  font-weight: 900;
-}
-
-
-/* Functional groups */
-
-.chem-group {
-  fill: var(--navy-950);
-
-  font-size: 16px;
-  font-weight: 850;
-}
-
-
-/* Stage 2 controls */
 
 .base-analysis-controls {
   display: grid;
@@ -1183,7 +1000,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   23. STAGE 2 APPLICATION
+   20. STAGE 2 APPLICATION
    ========================================================= */
 
 .stage2-application-grid {
@@ -1225,10 +1042,6 @@ input[type="number"] {
   background: var(--white);
 
   cursor: pointer;
-
-  transition:
-    border-color var(--transition),
-    background var(--transition);
 }
 
 .application-question label:hover {
@@ -1242,7 +1055,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   24. STAGE 2 DATA
+   21. STAGE 2 CALCULATIONS
    ========================================================= */
 
 .stage2-data-box {
@@ -1284,7 +1097,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   25. STAGE 2 SUMMARY
+   22. STAGE 2 SUMMARY
    ========================================================= */
 
 .stage2-summary-grid {
@@ -1316,7 +1129,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   26. STAGE 3
+   23. STAGE 3
    ========================================================= */
 
 .target-banner {
@@ -1332,21 +1145,6 @@ input[type="number"] {
   border-radius: 10px;
 
   background: var(--teal-100);
-}
-
-.target-banner > span {
-  color: var(--teal-600);
-
-  font-size: 0.75rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-}
-
-.target-banner strong {
-  color: var(--navy-900);
-
-  font-family: "Courier New", monospace;
-  font-size: 1.1rem;
 }
 
 .nucleotide-bank,
@@ -1439,13 +1237,6 @@ input[type="number"] {
   background: var(--grey-50);
 }
 
-.strand-end {
-  color: var(--navy-900);
-  font-size: 1.2rem;
-  font-weight: 900;
-  text-align: center;
-}
-
 .strand-build-slots {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1467,7 +1258,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   27. DNA BASE COLOURS
+   24. BASE COLOURS
    ========================================================= */
 
 .base-a {
@@ -1518,7 +1309,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   28. STAGE 4
+   25. STAGE 4
    ========================================================= */
 
 .dna-ladder-workspace {
@@ -1588,7 +1379,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   29. STAGE 5
+   26. STAGE 5
    ========================================================= */
 
 .diagnostic-panel {
@@ -1649,7 +1440,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   30. STAGE 6
+   27. STAGE 6
    ========================================================= */
 
 .model-comparison-grid {
@@ -1735,7 +1526,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   31. FINAL CHALLENGE
+   28. FINAL CHALLENGE
    ========================================================= */
 
 .final-build-panel {
@@ -1778,7 +1569,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   32. FINAL HELIX
+   29. FINAL HELIX
    ========================================================= */
 
 .completed-helix-section {
@@ -1851,61 +1642,9 @@ input[type="number"] {
   font-weight: 800;
 }
 
-.label-phosphate {
-  top: 9%;
-  left: 2%;
-}
-
-.label-sugar {
-  top: 22%;
-  right: 2%;
-}
-
-.label-backbone {
-  top: 38%;
-  left: 0;
-}
-
-.label-base {
-  top: 50%;
-  right: 0;
-}
-
-.label-basepair {
-  top: 61%;
-  left: 2%;
-}
-
-.label-hydrogen {
-  top: 72%;
-  right: 2%;
-}
-
-.label-phosphodiester {
-  top: 84%;
-  left: 4%;
-}
-
-.final-structure-summary {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-
-  margin-top: 25px;
-}
-
-.final-structure-summary > div {
-  padding: 16px;
-
-  border: 1px solid var(--grey-200);
-  border-radius: 11px;
-
-  background: var(--grey-50);
-}
-
 
 /* =========================================================
-   33. NAVIGATION
+   30. NAVIGATION
    ========================================================= */
 
 .stage-navigation {
@@ -1934,11 +1673,6 @@ input[type="number"] {
   color: var(--white);
 }
 
-.nav-button:hover:not(.locked) {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
 .locked {
   pointer-events: none;
 
@@ -1948,15 +1682,11 @@ input[type="number"] {
 
 
 /* =========================================================
-   34. CLICK / DRAG STATES
+   31. INTERACTION STATES
    ========================================================= */
 
 [draggable="true"] {
   cursor: grab;
-}
-
-[draggable="true"]:active {
-  cursor: grabbing;
 }
 
 .dragging {
@@ -1973,43 +1703,9 @@ input[type="number"] {
   background: var(--teal-100) !important;
 }
 
-.correct-piece {
-  border-color: var(--green-500) !important;
-}
-
-.incorrect-piece {
-  border-color: var(--red-500) !important;
-
-  animation: shake 300ms ease;
-}
-
-@keyframes shake {
-
-  0% {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(-5px);
-  }
-
-  50% {
-    transform: translateX(5px);
-  }
-
-  75% {
-    transform: translateX(-3px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-
-}
-
 
 /* =========================================================
-   35. FOOTER
+   32. FOOTER
    ========================================================= */
 
 footer {
@@ -2026,18 +1722,13 @@ footer {
 
 
 /* =========================================================
-   36. RESPONSIVE — TABLET
+   33. RESPONSIVE
    ========================================================= */
 
 @media (max-width: 1000px) {
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .hero-dna-visual {
-    min-height: 390px;
   }
 
   .route-grid {
@@ -2052,16 +1743,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .final-structure-summary {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
 }
 
-
-/* =========================================================
-   37. RESPONSIVE — STAGE 2
-   ========================================================= */
 
 @media (max-width: 900px) {
 
@@ -2076,48 +1759,23 @@ footer {
 }
 
 
-/* =========================================================
-   38. RESPONSIVE — SMALL TABLET
-   ========================================================= */
-
 @media (max-width: 760px) {
 
   .header-inner {
-    min-height: 78px;
-
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 6px;
 
     padding: 12px 0;
   }
 
-  .save-status {
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    min-height: auto;
-    padding-top: 38px;
-  }
-
   .route-grid,
-  .choice-grid,
   .calculation-grid,
-  .evidence-check-grid,
-  .verified-term-grid,
-  .final-structure-summary {
+  .evidence-check-grid {
     grid-template-columns: 1fr;
-  }
-
-  .molecular-parts-grid {
-    grid-template-columns: 1fr 1fr;
   }
 
   .nucleotide-workspace {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
 
   .structure-connector {
@@ -2125,15 +1783,6 @@ footer {
     height: 38px;
 
     margin: auto;
-  }
-
-  .nucleotide-site {
-    width: min(100%, 300px);
-    margin: auto;
-  }
-
-  .strand-build-slots {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .stage-navigation {
@@ -2147,10 +1796,6 @@ footer {
 }
 
 
-/* =========================================================
-   39. RESPONSIVE — STAGE 2 MOBILE
-   ========================================================= */
-
 @media (max-width: 650px) {
 
   .advanced-base-grid,
@@ -2160,24 +1805,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .advanced-base-card {
-    padding: 17px;
-  }
-
-  .molecule-frame {
-    min-height: 210px;
-  }
-
-  .advanced-base-svg {
-    height: 195px;
+  .real-molecule-image {
+    max-width: 280px;
+    height: 200px;
   }
 
 }
 
-
-/* =========================================================
-   40. RESPONSIVE — PHONE
-   ========================================================= */
 
 @media (max-width: 520px) {
 
@@ -2198,19 +1832,11 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .saved-work-actions {
-    flex-direction: column;
-  }
-
-  .saved-work-actions button {
-    width: 100%;
-  }
-
 }
 
 
 /* =========================================================
-   41. PRINT
+   34. PRINT
    ========================================================= */
 
 @media print {
@@ -2226,19 +1852,11 @@ footer {
     display: none !important;
   }
 
-  .lab-panel,
-  .analysis-section,
-  .completed-helix-section {
-    box-shadow: none;
-
-    break-inside: avoid;
-  }
-
 }
 
 
 /* =========================================================
-   42. REDUCED MOTION
+   35. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
