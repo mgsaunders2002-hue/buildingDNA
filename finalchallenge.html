@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Final Challenge | DNA Construction Lab</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body data-page="challenge">
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span>✓ Saved</span>
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="lab-page">
+
+<section class="stage-heading final-heading">
+
+  <span class="stage-number">
+    FINAL LAB CHALLENGE
+  </span>
+
+  <h1>
+    Build DNA Independently
+  </h1>
+
+  <p>
+    This time, the scaffolding is gone.
+    Complete and analyze the molecule using everything you have learned.
+  </p>
+
+</section>
+
+
+
+<section class="final-lab-workspace">
+
+  <div class="final-dna-builder">
+
+    <div class="final-template">
+
+      <span>5′</span>
+
+      <span class="dna-base base-g">G</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-a">A</span>
+      <span class="dna-base base-t">T</span>
+      <span class="dna-base base-t">T</span>
+      <span class="dna-base base-g">G</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-c">C</span>
+
+      <span>3′</span>
+
+    </div>
+
+
+    <div
+      id="final-complement-builder"
+      class="final-complement-builder"
+    >
+
+      <div class="final-end-drop" data-position="left">
+        ?
+      </div>
+
+      <div class="final-base-slot" data-position="0"></div>
+      <div class="final-base-slot" data-position="1"></div>
+      <div class="final-base-slot" data-position="2"></div>
+      <div class="final-base-slot" data-position="3"></div>
+      <div class="final-base-slot" data-position="4"></div>
+      <div class="final-base-slot" data-position="5"></div>
+      <div class="final-base-slot" data-position="6"></div>
+      <div class="final-base-slot" data-position="7"></div>
+
+      <div class="final-end-drop" data-position="right">
+        ?
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="analysis-panel">
+
+    <h2>Analyze Your Molecule</h2>
+
+
+    <label for="final-at">
+      Number of A–T base pairs
+    </label>
+
+    <input
+      type="number"
+      id="final-at"
+      data-save-field="finalAT"
+    >
+
+
+    <label for="final-gc">
+      Number of G–C base pairs
+    </label>
+
+    <input
+      type="number"
+      id="final-gc"
+      data-save-field="finalGC"
+    >
+
+
+    <label for="final-hydrogen">
+      Total hydrogen bonds
+    </label>
+
+    <input
+      type="number"
+      id="final-hydrogen"
+      data-save-field="finalHydrogen"
+    >
+
+
+    <label for="final-relationship">
+      The two DNA strands are:
+    </label>
+
+    <select
+      id="final-relationship"
+      data-save-field="finalRelationship"
+    >
+
+      <option value="">Choose...</option>
+
+      <option value="parallel">
+        Parallel
+      </option>
+
+      <option value="antiparallel">
+        Complementary and antiparallel
+      </option>
+
+      <option value="identical">
+        Identical
+      </option>
+
+    </select>
+
+  </div>
+
+
+
+  <section class="lab-notebook final-reflection">
+
+    <h2>Final Lab Reflection</h2>
+
+    <label for="final-note">
+      Describe how the different parts of DNA work together to create
+      a stable molecule capable of storing genetic information.
+    </label>
+
+    <textarea
+      id="final-note"
+      data-save-field="finalNote"
+    ></textarea>
+
+  </section>
+
+
+  <button
+    id="submit-final"
+    class="check-button final-submit"
+  >
+    Submit My DNA Molecule
+  </button>
+
+
+  <div
+    id="final-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a href="stage6.html" class="nav-button back-button">
+    ← Stage 6
+  </a>
+
+  <a
+    href="complete.html"
+    id="final-next"
+    class="nav-button next-button locked"
+  >
+    View My Lab Record →
+  </a>
+
+</nav>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
