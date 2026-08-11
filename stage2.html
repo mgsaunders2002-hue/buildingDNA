@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stage 2 | Know Your Bases</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="course-label">BIOLOGY 30</div>
+    <div class="site-title">DNA Builder</div>
+  </div>
+</header>
+
+
+<div class="progress-wrapper">
+
+  <div class="progress-label">
+    <span>Stage 2 of 6</span>
+    <span>Know Your Bases</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill progress-2"></div>
+  </div>
+
+</div>
+
+
+<main class="activity-page">
+
+  <section class="stage-heading">
+
+    <span class="stage-number">STAGE 02</span>
+
+    <h1>Know Your Bases</h1>
+
+    <p>
+      DNA contains four nitrogenous bases. Sort each one according
+      to its molecular structure.
+    </p>
+
+  </section>
+
+
+  <section class="challenge-panel">
+
+    <div class="challenge-header">
+
+      <span class="challenge-label">YOUR TASK</span>
+
+      <h2>Sort the four DNA bases.</h2>
+
+      <p>
+        Place each base into the correct category:
+        <strong>purine</strong> or <strong>pyrimidine</strong>.
+      </p>
+
+    </div>
+
+
+    <div class="base-bank">
+
+      <button class="base-card" data-base="adenine">
+        <span class="base-letter">A</span>
+        <span>Adenine</span>
+      </button>
+
+      <button class="base-card" data-base="guanine">
+        <span class="base-letter">G</span>
+        <span>Guanine</span>
+      </button>
+
+      <button class="base-card" data-base="cytosine">
+        <span class="base-letter">C</span>
+        <span>Cytosine</span>
+      </button>
+
+      <button class="base-card" data-base="thymine">
+        <span class="base-letter">T</span>
+        <span>Thymine</span>
+      </button>
+
+    </div>
+
+
+    <div class="classification-grid">
+
+      <div class="classification-zone" data-category="purine">
+
+        <div class="classification-title">
+          <h3>Purines</h3>
+          <p>Double-ring bases</p>
+        </div>
+
+        <div class="classification-drop-area"
+             id="purine-zone">
+          <span>Place bases here</span>
+        </div>
+
+      </div>
+
+
+      <div class="classification-zone" data-category="pyrimidine">
+
+        <div class="classification-title">
+          <h3>Pyrimidines</h3>
+          <p>Single-ring bases</p>
+        </div>
+
+        <div class="classification-drop-area"
+             id="pyrimidine-zone">
+          <span>Place bases here</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="action-row">
+
+      <button id="check-stage2" class="check-button">
+        Check My Classification
+      </button>
+
+      <button id="reset-stage2" class="secondary-button">
+        Reset
+      </button>
+
+    </div>
+
+
+    <div id="feedback-stage2"
+         class="feedback-box"
+         aria-live="polite">
+    </div>
+
+  </section>
+
+
+  <section class="remember-card">
+
+    <span class="remember-label">REMEMBER</span>
+
+    <p>
+      Purines are adenine and guanine.
+      Pyrimidines are cytosine and thymine.
+    </p>
+
+  </section>
+
+
+  <nav class="stage-navigation">
+
+    <a href="stage1.html" class="nav-button back-button">
+      ← Stage 1
+    </a>
+
+    <a href="stage3.html"
+       id="stage2-next"
+       class="nav-button next-button locked"
+       aria-disabled="true">
+      Stage 3 →
+    </a>
+
+  </nav>
+
+</main>
+
+
+<footer>
+  Biology 30 • DNA Structure
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
