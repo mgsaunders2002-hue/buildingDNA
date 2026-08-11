@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stage 6 | Form the Double Helix</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body data-page="stage6">
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span>✓ Saved</span>
+    </div>
+
+  </div>
+
+</header>
+
+
+<div class="progress-wrapper">
+
+  <div class="progress-label">
+    <span>Stage 6 of 6</span>
+    <strong>Form the Double Helix</strong>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill progress-6"></div>
+  </div>
+
+</div>
+
+
+<main class="lab-page">
+
+<section class="stage-heading">
+
+  <span class="stage-number">
+    STAGE 06
+  </span>
+
+  <h1>
+    Form the DNA Double Helix
+  </h1>
+
+  <p>
+    You have constructed two complementary, antiparallel strands.
+    Now observe how the DNA ladder becomes a double helix.
+  </p>
+
+</section>
+
+
+
+<section class="helix-lab">
+
+  <div
+    id="dna-transform-model"
+    class="dna-transform-model ladder-mode"
+  >
+
+    <svg
+      viewBox="0 0 500 600"
+      class="transform-svg"
+      role="img"
+      aria-label="DNA structure transforming from ladder to double helix"
+    >
+
+      <g id="ladder-structure">
+
+        <line x1="130" y1="50" x2="130" y2="550" class="dna-backbone-line"/>
+        <line x1="370" y1="50" x2="370" y2="550" class="dna-backbone-line"/>
+
+        <line x1="130" y1="100" x2="370" y2="100" class="base-pair-line"/>
+        <line x1="130" y1="180" x2="370" y2="180" class="base-pair-line"/>
+        <line x1="130" y1="260" x2="370" y2="260" class="base-pair-line"/>
+        <line x1="130" y1="340" x2="370" y2="340" class="base-pair-line"/>
+        <line x1="130" y1="420" x2="370" y2="420" class="base-pair-line"/>
+        <line x1="130" y1="500" x2="370" y2="500" class="base-pair-line"/>
+
+      </g>
+
+
+      <g id="helix-structure">
+
+        <path
+          d="M150 40
+             C380 120 380 200 150 280
+             C-20 350 30 470 180 560"
+          class="dna-helix-path"
+        />
+
+        <path
+          d="M350 40
+             C120 120 120 200 350 280
+             C520 350 470 470 320 560"
+          class="dna-helix-path"
+        />
+
+      </g>
+
+    </svg>
+
+  </div>
+
+
+
+  <button
+    id="form-helix"
+    class="primary-button"
+  >
+    Form the Double Helix
+  </button>
+
+
+
+  <div class="structure-identification">
+
+    <h2>Identify the Structures</h2>
+
+
+    <label for="label-backbone">
+      The outside of the molecule is the:
+    </label>
+
+    <select id="label-backbone">
+      <option value="">Choose...</option>
+      <option value="backbone">Sugar-phosphate backbone</option>
+      <option value="bases">Nitrogenous bases</option>
+      <option value="hydrogen">Hydrogen bonds</option>
+    </select>
+
+
+    <label for="label-centre">
+      The paired structures in the centre are:
+    </label>
+
+    <select id="label-centre">
+      <option value="">Choose...</option>
+      <option value="bases">Complementary nitrogenous bases</option>
+      <option value="sugars">Deoxyribose sugars</option>
+      <option value="phosphates">Phosphate groups</option>
+    </select>
+
+
+    <label for="label-bonds">
+      The two strands are held together by:
+    </label>
+
+    <select id="label-bonds">
+      <option value="">Choose...</option>
+      <option value="hydrogen">Hydrogen bonds</option>
+      <option value="peptide">Peptide bonds</option>
+      <option value="ionic">Ionic bonds</option>
+    </select>
+
+  </div>
+
+
+  <button
+    id="check-stage6"
+    class="check-button"
+  >
+    Complete DNA Construction
+  </button>
+
+
+  <div
+    id="stage6-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
+
+</section>
+
+
+
+<section class="lab-notebook">
+
+  <h2>Lab Notebook</h2>
+
+  <label for="stage6-note">
+    How does the structure of DNA help it store genetic information?
+  </label>
+
+  <textarea
+    id="stage6-note"
+    data-save-field="stage6Note"
+  ></textarea>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a href="stage5.html" class="nav-button back-button">
+    ← Stage 5
+  </a>
+
+  <a
+    href="challenge.html"
+    id="stage6-next"
+    class="nav-button next-button locked"
+  >
+    Enter Final Lab Challenge →
+  </a>
+
+</nav>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
