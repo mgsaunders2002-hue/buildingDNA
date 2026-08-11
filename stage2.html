@@ -2,14 +2,12 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Stage 2 | Explore the Bases</title>
+  <title>Stage 2 | Analyze the Nitrogenous Bases</title>
 
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body data-page="stage2">
@@ -25,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -37,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 2 of 6</span>
-    <strong>Explore the Bases</strong>
+    <strong>Analyze the Nitrogenous Bases</strong>
   </div>
 
   <div class="progress-bar">
@@ -51,215 +49,275 @@
 
 <section class="stage-heading">
 
-  <span class="stage-number">
-    STAGE 02
-  </span>
+  <span class="stage-number">STAGE 02</span>
 
-  <h1>
-    Explore the Nitrogenous Bases
-  </h1>
+  <h1>Analyze the Nitrogenous Bases</h1>
 
   <p>
-    Examine the simplified molecular structures of the four DNA bases.
-    Sort them according to whether they are purines or pyrimidines.
+    Examine the four DNA bases. Determine a structural pattern that
+    allows them to be divided into two groups.
   </p>
 
 </section>
 
 
+<section class="lab-panel">
 
-<section class="base-lab">
+  <div class="panel-heading">
 
-  <div class="base-parts-tray">
+    <span class="panel-label">BASE ANALYSIS</span>
+
+    <h2>Examine the structures.</h2>
+
+    <p>
+      The category names have been hidden until you identify
+      the structural relationship.
+    </p>
+
+  </div>
+
+
+  <div class="base-analysis-grid">
+
 
     <!-- ADENINE -->
 
     <button
-      class="visual-base-card"
-      data-base="adenine"
+      type="button"
+      class="analysis-base-card"
       draggable="true"
+      data-base="adenine"
     >
 
-      <svg viewBox="0 0 180 130">
+      <span class="base-name">Adenine</span>
+
+      <svg viewBox="0 0 220 150">
 
         <polygon
-          points="35,35 75,15 110,40 100,82 55,90 28,65"
-          class="ring-shape"
+          points="45,52 83,28 123,49 113,94 68,105 37,79"
+          class="base-ring"
         />
 
         <polygon
-          points="110,40 145,30 165,62 140,95 100,82"
-          class="ring-shape"
+          points="123,49 158,39 182,72 155,109 113,94"
+          class="base-ring"
         />
+
+        <text x="109" y="78" text-anchor="middle" class="base-symbol">
+          A
+        </text>
 
       </svg>
 
-      <strong>Adenine</strong>
-      <span>A</span>
-
     </button>
-
 
 
     <!-- GUANINE -->
 
     <button
-      class="visual-base-card"
-      data-base="guanine"
+      type="button"
+      class="analysis-base-card"
       draggable="true"
+      data-base="guanine"
     >
 
-      <svg viewBox="0 0 180 130">
+      <span class="base-name">Guanine</span>
+
+      <svg viewBox="0 0 220 150">
 
         <polygon
-          points="35,35 75,15 110,40 100,82 55,90 28,65"
-          class="ring-shape"
+          points="45,52 83,28 123,49 113,94 68,105 37,79"
+          class="base-ring"
         />
 
         <polygon
-          points="110,40 145,30 165,62 140,95 100,82"
-          class="ring-shape"
+          points="123,49 158,39 182,72 155,109 113,94"
+          class="base-ring"
         />
+
+        <text x="109" y="78" text-anchor="middle" class="base-symbol">
+          G
+        </text>
 
       </svg>
 
-      <strong>Guanine</strong>
-      <span>G</span>
-
     </button>
-
 
 
     <!-- CYTOSINE -->
 
     <button
-      class="visual-base-card"
-      data-base="cytosine"
+      type="button"
+      class="analysis-base-card"
       draggable="true"
+      data-base="cytosine"
     >
 
-      <svg viewBox="0 0 180 130">
+      <span class="base-name">Cytosine</span>
+
+      <svg viewBox="0 0 220 150">
 
         <polygon
-          points="50,25 115,25 145,65 115,105 50,105 22,65"
-          class="ring-shape"
+          points="65,30 136,30 168,77 136,121 65,121 34,77"
+          class="base-ring"
         />
+
+        <text x="101" y="84" text-anchor="middle" class="base-symbol">
+          C
+        </text>
 
       </svg>
 
-      <strong>Cytosine</strong>
-      <span>C</span>
-
     </button>
-
 
 
     <!-- THYMINE -->
 
     <button
-      class="visual-base-card"
-      data-base="thymine"
+      type="button"
+      class="analysis-base-card"
       draggable="true"
+      data-base="thymine"
     >
 
-      <svg viewBox="0 0 180 130">
+      <span class="base-name">Thymine</span>
+
+      <svg viewBox="0 0 220 150">
 
         <polygon
-          points="50,25 115,25 145,65 115,105 50,105 22,65"
-          class="ring-shape"
+          points="65,30 136,30 168,77 136,121 65,121 34,77"
+          class="base-ring"
         />
 
-      </svg>
+        <text x="101" y="84" text-anchor="middle" class="base-symbol">
+          T
+        </text>
 
-      <strong>Thymine</strong>
-      <span>T</span>
+      </svg>
 
     </button>
 
   </div>
 
 
+  <div class="classification-grid">
 
-  <div class="classification-workspace">
+    <section class="classification-box">
 
-    <div
-      class="classification-zone"
-      data-category="purine"
-    >
-
-      <h2>Purines</h2>
-
-      <div class="ring-key">
-        Two-ring structure
-      </div>
+      <h3>Group 1</h3>
 
       <div
-        class="base-drop-area"
-        id="purine-drop"
+        id="stage2-group1"
+        class="classification-dropzone"
+        data-group="group1"
       >
-        Drop bases here
+        Place two bases here
       </div>
 
-    </div>
+    </section>
 
 
-    <div
-      class="classification-zone"
-      data-category="pyrimidine"
-    >
+    <section class="classification-box">
 
-      <h2>Pyrimidines</h2>
-
-      <div class="ring-key">
-        One-ring structure
-      </div>
+      <h3>Group 2</h3>
 
       <div
-        class="base-drop-area"
-        id="pyrimidine-drop"
+        id="stage2-group2"
+        class="classification-dropzone"
+        data-group="group2"
       >
-        Drop bases here
+        Place two bases here
       </div>
 
-    </div>
+    </section>
 
   </div>
 
 
   <button
-    id="check-stage2"
+    id="check-stage2-groups"
     class="check-button"
+    type="button"
   >
-    Check My Classification
+    Analyze My Grouping
   </button>
 
 
   <div
-    id="stage2-feedback"
+    id="stage2-group-feedback"
     class="feedback-box"
-    aria-live="polite"
   ></div>
 
 </section>
 
 
+<section class="analysis-section">
 
-<section class="lab-notebook">
+  <span class="panel-label">PATTERN ANALYSIS</span>
 
-  <h2>Lab Notebook</h2>
+  <h2>What structural feature separates the groups?</h2>
 
-  <label for="stage2-note">
-    What structural difference separates purines from pyrimidines?
+
+  <div class="choice-grid">
+
+    <label class="choice-card">
+      <input type="radio" name="stage2-pattern" value="size">
+      <span>Overall size of the base</span>
+    </label>
+
+    <label class="choice-card">
+      <input type="radio" name="stage2-pattern" value="rings">
+      <span>Number of rings</span>
+    </label>
+
+    <label class="choice-card">
+      <input type="radio" name="stage2-pattern" value="oxygen">
+      <span>Number of oxygen atoms</span>
+    </label>
+
+  </div>
+
+
+  <label for="stage2-note" class="response-label">
+    Explain the structural pattern you used to classify the bases.
   </label>
 
   <textarea
     id="stage2-note"
     data-save-field="stage2Note"
-    placeholder="Record your observation..."
   ></textarea>
 
-</section>
 
+  <button
+    id="check-stage2-analysis"
+    class="check-button"
+    type="button"
+  >
+    Submit Base Analysis
+  </button>
+
+
+  <div
+    id="stage2-analysis-feedback"
+    class="feedback-box"
+  ></div>
+
+
+  <div
+    id="stage2-term-reveal"
+    class="verified-model hidden-content"
+  >
+
+    <h3>Classification revealed</h3>
+
+    <p>
+      Adenine and guanine are <strong>purines</strong>.
+      Cytosine and thymine are <strong>pyrimidines</strong>.
+    </p>
+
+  </div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -279,6 +337,10 @@
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
