@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Stage 4 | Antiparallel DNA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Stage 4 | Build the Complementary Strand</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+
+<body data-page="stage4">
 
 <header class="site-header">
+
   <div class="header-inner">
-    <div class="course-label">BIOLOGY 30</div>
-    <div class="site-title">DNA Builder</div>
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span>✓ Saved</span>
+    </div>
+
   </div>
+
 </header>
 
 
@@ -23,7 +38,7 @@
 
   <div class="progress-label">
     <span>Stage 4 of 6</span>
-    <span>Antiparallel DNA</span>
+    <strong>Build the Complementary Strand</strong>
   </div>
 
   <div class="progress-bar">
@@ -33,195 +48,182 @@
 </div>
 
 
-<main class="activity-page">
+<main class="lab-page">
 
-  <section class="stage-heading">
+<section class="stage-heading">
 
-    <span class="stage-number">STAGE 04</span>
+  <span class="stage-number">
+    STAGE 04
+  </span>
 
-    <h1>Make the Strands Antiparallel</h1>
+  <h1>
+    Build the Complementary Strand
+  </h1>
 
-    <p>
-      The bases are correctly paired, but the strand directions are missing.
-      Your job is to correctly identify the 5′ and 3′ ends.
-    </p>
+  <p>
+    Use complementary base pairing to construct the second DNA strand.
+    Correct base pairs will form hydrogen bonds.
+  </p>
 
-  </section>
+</section>
 
 
-  <section class="challenge-panel">
 
-    <div class="challenge-header">
+<section class="double-strand-lab">
 
-      <span class="challenge-label">YOUR TASK</span>
+  <div class="dna-ladder-builder">
 
-      <h2>Label the ends of both DNA strands.</h2>
-
-      <p>
-        Remember: complementary describes the base pairing.
-        Antiparallel describes the direction of the strands.
-      </p>
-
+    <div class="strand-end-labels">
+      <span>5′</span>
+      <span>3′</span>
     </div>
 
 
-    <div class="antiparallel-builder">
+    <div class="template-dna-row">
 
-      <div class="orientation-row">
-
-        <select id="top-left-end" class="orientation-select">
-          <option value="">?</option>
-          <option value="5">5′</option>
-          <option value="3">3′</option>
-        </select>
-
-        <div class="sequence-display">
-          A T G C C A T G
-        </div>
-
-        <select id="top-right-end" class="orientation-select">
-          <option value="">?</option>
-          <option value="5">5′</option>
-          <option value="3">3′</option>
-        </select>
-
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-a">A</span>
       </div>
 
-
-      <div class="strand-connection">
-        │ │ │ │ │ │ │ │
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-t">T</span>
       </div>
 
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-g">G</span>
+      </div>
 
-      <div class="orientation-row">
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-c">C</span>
+      </div>
 
-        <select id="bottom-left-end" class="orientation-select">
-          <option value="">?</option>
-          <option value="5">5′</option>
-          <option value="3">3′</option>
-        </select>
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-c">C</span>
+      </div>
 
-        <div class="sequence-display">
-          T A C G G T A C
-        </div>
-
-        <select id="bottom-right-end" class="orientation-select">
-          <option value="">?</option>
-          <option value="5">5′</option>
-          <option value="3">3′</option>
-        </select>
-
+      <div class="built-nucleotide">
+        <span class="backbone-unit">P</span>
+        <span class="backbone-unit sugar">D</span>
+        <span class="dna-base base-a">A</span>
       </div>
 
     </div>
 
 
-    <div class="concept-check">
 
-      <h3>Explain Your Thinking</h3>
+    <div class="hydrogen-bond-layer">
 
-      <p>
-        Why are these strands described as <strong>antiparallel</strong>?
-      </p>
-
-      <div class="multiple-choice">
-
-        <label>
-          <input type="radio"
-                 name="antiparallel-reason"
-                 value="bases">
-          They contain different nitrogenous bases.
-        </label>
-
-        <label>
-          <input type="radio"
-                 name="antiparallel-reason"
-                 value="opposite">
-          They run in opposite 5′ to 3′ directions.
-        </label>
-
-        <label>
-          <input type="radio"
-                 name="antiparallel-reason"
-                 value="hydrogen">
-          They are joined by hydrogen bonds.
-        </label>
-
-        <label>
-          <input type="radio"
-                 name="antiparallel-reason"
-                 value="twist">
-          They twist around one another.
-        </label>
-
-      </div>
+      <div class="bond-zone" data-position="0"></div>
+      <div class="bond-zone" data-position="1"></div>
+      <div class="bond-zone" data-position="2"></div>
+      <div class="bond-zone" data-position="3"></div>
+      <div class="bond-zone" data-position="4"></div>
+      <div class="bond-zone" data-position="5"></div>
 
     </div>
 
 
-    <div class="action-row">
 
-      <button id="check-stage4" class="check-button">
-        Check My DNA
-      </button>
+    <div
+      id="complementary-strand-builder"
+      class="complementary-strand-builder"
+    >
 
-      <button id="reset-stage4" class="secondary-button">
-        Reset
-      </button>
+      <div class="complement-slot" data-position="0"></div>
+      <div class="complement-slot" data-position="1"></div>
+      <div class="complement-slot" data-position="2"></div>
+      <div class="complement-slot" data-position="3"></div>
+      <div class="complement-slot" data-position="4"></div>
+      <div class="complement-slot" data-position="5"></div>
 
     </div>
 
-
-    <div id="feedback-stage4"
-         class="feedback-box"
-         aria-live="polite">
-    </div>
-
-  </section>
+  </div>
 
 
-  <section class="concept-comparison">
 
-    <div class="concept-card">
-      <span class="concept-word">COMPLEMENTARY</span>
-      <p>
-        Describes which nitrogenous bases pair:
-        A–T and C–G.
-      </p>
-    </div>
+  <div class="nucleotide-bank">
 
-    <div class="concept-card">
-      <span class="concept-word">ANTIPARALLEL</span>
-      <p>
-        Describes the opposite 5′ and 3′ orientation
-        of the two DNA strands.
-      </p>
-    </div>
+    <h2>Available Nucleotides</h2>
 
-  </section>
+    <button class="base-choice base-a" data-base="A">
+      A
+    </button>
+
+    <button class="base-choice base-t" data-base="T">
+      T
+    </button>
+
+    <button class="base-choice base-c" data-base="C">
+      C
+    </button>
+
+    <button class="base-choice base-g" data-base="G">
+      G
+    </button>
+
+  </div>
 
 
-  <nav class="stage-navigation">
+  <button id="check-stage4" class="check-button">
+    Test My Base Pairing
+  </button>
 
-    <a href="stage3.html" class="nav-button back-button">
-      ← Stage 3
-    </a>
 
-    <a href="stage5.html"
-       id="stage4-next"
-       class="nav-button next-button locked"
-       aria-disabled="true">
-      Stage 5 →
-    </a>
+  <div
+    id="stage4-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
 
-  </nav>
+</section>
+
+
+
+<section class="lab-notebook">
+
+  <h2>Lab Notebook</h2>
+
+  <label for="stage4-note">
+    Why is the second DNA strand described as complementary?
+  </label>
+
+  <textarea
+    id="stage4-note"
+    data-save-field="stage4Note"
+  ></textarea>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a href="stage3.html" class="nav-button back-button">
+    ← Stage 3
+  </a>
+
+  <a
+    href="stage5.html"
+    id="stage4-next"
+    class="nav-button next-button locked"
+  >
+    Continue to Stage 5 →
+  </a>
+
+</nav>
 
 </main>
-
-
-<footer>
-  Biology 30 • DNA Structure
-</footer>
 
 <script src="script.js"></script>
 
