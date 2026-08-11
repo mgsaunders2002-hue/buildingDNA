@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Final Challenge | DNA Builder</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="course-label">BIOLOGY 30</div>
+    <div class="site-title">DNA Builder</div>
+  </div>
+</header>
+
+
+<div class="progress-wrapper">
+
+  <div class="progress-label">
+    <span>Stage 6 of 6</span>
+    <span>Final Challenge</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill progress-6"></div>
+  </div>
+
+</div>
+
+
+<main class="activity-page">
+
+  <section class="stage-heading final-heading">
+
+    <span class="stage-number">FINAL CHALLENGE</span>
+
+    <h1>Build DNA Without the Training Wheels</h1>
+
+    <p>
+      This time, you will need to combine everything you have learned.
+      Complete the DNA molecule and then analyze its structure.
+    </p>
+
+  </section>
+
+
+  <section class="challenge-panel final-challenge-panel">
+
+    <div class="challenge-header">
+
+      <span class="challenge-label">PART A</span>
+
+      <h2>Construct the complementary strand.</h2>
+
+      <p>
+        Complete the strand and correctly identify its direction.
+      </p>
+
+    </div>
+
+
+    <div class="final-sequence">
+
+      <div class="sequence-row template-strand">
+
+        <span class="end-label">5′</span>
+
+        <div class="dna-base guanine">G</div>
+        <div class="dna-base cytosine">C</div>
+        <div class="dna-base adenine">A</div>
+        <div class="dna-base thymine">T</div>
+        <div class="dna-base thymine">T</div>
+        <div class="dna-base guanine">G</div>
+        <div class="dna-base cytosine">C</div>
+        <div class="dna-base cytosine">C</div>
+        <div class="dna-base adenine">A</div>
+        <div class="dna-base thymine">T</div>
+
+        <span class="end-label">3′</span>
+
+      </div>
+
+
+      <div class="sequence-row student-strand final-student-strand">
+
+        <select id="challenge-left-end"
+                class="orientation-select">
+          <option value="">?</option>
+          <option value="5">5′</option>
+          <option value="3">3′</option>
+        </select>
+
+        <button class="challenge-base-slot" data-position="0">?</button>
+        <button class="challenge-base-slot" data-position="1">?</button>
+        <button class="challenge-base-slot" data-position="2">?</button>
+        <button class="challenge-base-slot" data-position="3">?</button>
+        <button class="challenge-base-slot" data-position="4">?</button>
+        <button class="challenge-base-slot" data-position="5">?</button>
+        <button class="challenge-base-slot" data-position="6">?</button>
+        <button class="challenge-base-slot" data-position="7">?</button>
+        <button class="challenge-base-slot" data-position="8">?</button>
+        <button class="challenge-base-slot" data-position="9">?</button>
+
+        <select id="challenge-right-end"
+                class="orientation-select">
+          <option value="">?</option>
+          <option value="5">5′</option>
+          <option value="3">3′</option>
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="base-selector">
+
+      <p>Select a base:</p>
+
+      <button class="selector-base" data-letter="A">A</button>
+      <button class="selector-base" data-letter="T">T</button>
+      <button class="selector-base" data-letter="C">C</button>
+      <button class="selector-base" data-letter="G">G</button>
+
+    </div>
+
+
+    <div class="challenge-divider"></div>
+
+
+    <div class="challenge-header">
+
+      <span class="challenge-label">PART B</span>
+
+      <h2>Analyze your DNA molecule.</h2>
+
+    </div>
+
+
+    <div class="analysis-grid">
+
+      <div class="analysis-question">
+
+        <label for="challenge-at">
+          How many A–T base pairs are present?
+        </label>
+
+        <input type="number"
+               id="challenge-at"
+               min="0">
+
+      </div>
+
+
+      <div class="analysis-question">
+
+        <label for="challenge-gc">
+          How many G–C base pairs are present?
+        </label>
+
+        <input type="number"
+               id="challenge-gc"
+               min="0">
+
+      </div>
+
+
+      <div class="analysis-question">
+
+        <label for="challenge-hbonds">
+          How many hydrogen bonds hold the two strands together?
+        </label>
+
+        <input type="number"
+               id="challenge-hbonds"
+               min="0">
+
+      </div>
+
+
+      <div class="analysis-question">
+
+        <label for="challenge-direction">
+          The two strands are:
+        </label>
+
+        <select id="challenge-direction">
+          <option value="">Choose...</option>
+          <option value="identical">Identical</option>
+          <option value="parallel">Parallel</option>
+          <option value="antiparallel">Antiparallel</option>
+          <option value="unrelated">Unrelated</option>
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="action-row">
+
+      <button id="check-challenge" class="check-button">
+        Submit Final Challenge
+      </button>
+
+      <button id="reset-challenge" class="secondary-button">
+        Reset
+      </button>
+
+    </div>
+
+
+    <div id="feedback-challenge"
+         class="feedback-box"
+         aria-live="polite">
+    </div>
+
+  </section>
+
+
+  <nav class="stage-navigation">
+
+    <a href="stage5.html"
+       class="nav-button back-button">
+      ← Stage 5
+    </a>
+
+    <a href="complete.html"
+       id="challenge-next"
+       class="nav-button next-button locked"
+       aria-disabled="true">
+      See My Results →
+    </a>
+
+  </nav>
+
+</main>
+
+
+<footer>
+  Biology 30 • DNA Structure
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
