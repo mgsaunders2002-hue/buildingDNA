@@ -1,149 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DNA Builder Complete</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>DNA Lab Complete</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+
+<body data-page="complete">
 
 <header class="site-header">
+
   <div class="header-inner">
-    <div class="course-label">BIOLOGY 30</div>
-    <div class="site-title">DNA Builder</div>
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
   </div>
+
 </header>
 
 
 <main class="completion-page">
 
-  <section class="completion-hero">
+<section class="completion-hero">
 
-    <div class="completion-icon">✓</div>
+  <div class="completion-symbol">
+    ✓
+  </div>
 
-    <span class="completion-label">
-      DNA BUILDER COMPLETE
-    </span>
+  <span class="completion-label">
+    LAB COMPLETE
+  </span>
 
-    <h1>You Built the Molecule.</h1>
+  <h1>
+    DNA Constructed Successfully
+  </h1>
 
-    <p>
-      You have worked from the structure of a single nucleotide
-      to the construction and analysis of a double-stranded DNA molecule.
-    </p>
+  <p id="completion-student"></p>
 
-  </section>
-
-
-  <section class="mastery-panel">
-
-    <h2>What You Applied</h2>
-
-    <div class="mastery-list">
-
-      <div class="mastery-item">
-        <span class="mastery-check">✓</span>
-
-        <div>
-          <h3>Nucleotide Structure</h3>
-          <p>
-            Phosphate + deoxyribose + nitrogenous base
-          </p>
-        </div>
-      </div>
+</section>
 
 
-      <div class="mastery-item">
-        <span class="mastery-check">✓</span>
 
-        <div>
-          <h3>Purines & Pyrimidines</h3>
-          <p>
-            A and G are purines; C and T are pyrimidines.
-          </p>
-        </div>
-      </div>
+<section class="lab-record">
+
+  <h2>Your Lab Record</h2>
 
 
-      <div class="mastery-item">
-        <span class="mastery-check">✓</span>
+  <div class="record-grid">
 
-        <div>
-          <h3>Complementary Base Pairing</h3>
-          <p>
-            Adenine pairs with thymine and cytosine pairs with guanine.
-          </p>
-        </div>
-      </div>
-
-
-      <div class="mastery-item">
-        <span class="mastery-check">✓</span>
-
-        <div>
-          <h3>Antiparallel Strands</h3>
-          <p>
-            The two DNA strands run in opposite 5′ and 3′ directions.
-          </p>
-        </div>
-      </div>
-
-
-      <div class="mastery-item">
-        <span class="mastery-check">✓</span>
-
-        <div>
-          <h3>DNA Structure</h3>
-          <p>
-            You identified the backbone, base pairs and bonds
-            that form a DNA molecule.
-          </p>
-        </div>
-      </div>
-
+    <div class="record-item">
+      <span>Stage 1</span>
+      <strong>DNA Nucleotide ✓</strong>
     </div>
 
-  </section>
+    <div class="record-item">
+      <span>Stage 2</span>
+      <strong>Purines & Pyrimidines ✓</strong>
+    </div>
 
+    <div class="record-item">
+      <span>Stage 3</span>
+      <strong>DNA Strand ✓</strong>
+    </div>
 
-  <section class="next-step-card">
+    <div class="record-item">
+      <span>Stage 4</span>
+      <strong>Complementary Strand ✓</strong>
+    </div>
 
-    <span class="next-step-label">COMING NEXT</span>
+    <div class="record-item">
+      <span>Stage 5</span>
+      <strong>Antiparallel Orientation ✓</strong>
+    </div>
 
-    <h2>If DNA can separate, could each strand be copied?</h2>
-
-    <p>
-      That question leads directly into our next topic:
-      <strong>DNA replication.</strong>
-    </p>
-
-  </section>
-
-
-  <div class="completion-actions">
-
-    <a href="challenge.html"
-       class="secondary-button">
-      Retry Final Challenge
-    </a>
-
-    <a href="index.html"
-       class="primary-button">
-      Return to Start
-    </a>
+    <div class="record-item">
+      <span>Stage 6</span>
+      <strong>Double Helix ✓</strong>
+    </div>
 
   </div>
 
+</section>
+
+
+
+<section class="final-result-panel">
+
+  <h2>Final DNA Molecule</h2>
+
+  <div id="final-sequence-display"></div>
+
+</section>
+
+
+
+<section class="notebook-record">
+
+  <h2>Lab Notebook Responses</h2>
+
+  <div id="notebook-output"></div>
+
+</section>
+
+
+
+<div class="completion-actions">
+
+  <button
+    id="download-report"
+    type="button"
+    class="primary-button"
+  >
+    Download My Lab Record
+  </button>
+
+
+  <button
+    id="print-report"
+    type="button"
+    class="secondary-button"
+  >
+    Print / Save as PDF
+  </button>
+
+
+  <button
+    id="start-over"
+    type="button"
+    class="danger-button"
+  >
+    Start Lab Again
+  </button>
+
+</div>
+
+
+
+<section class="next-step-card">
+
+  <span>NEXT LESSON</span>
+
+  <h2>
+    How does DNA make a copy of itself?
+  </h2>
+
+  <p>
+    Your completed molecule leads directly into DNA replication.
+  </p>
+
+</section>
+
 </main>
 
-
-<footer>
-  Biology 30 • DNA Structure
-</footer>
 
 <script src="script.js"></script>
 
