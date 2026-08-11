@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stage 1 | Build a Nucleotide</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="course-label">BIOLOGY 30</div>
+    <div class="site-title">DNA Builder</div>
+  </div>
+</header>
+
+
+<div class="progress-wrapper">
+
+  <div class="progress-label">
+    <span>Stage 1 of 6</span>
+    <span>Build a Nucleotide</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill progress-1"></div>
+  </div>
+
+</div>
+
+
+<main class="activity-page">
+
+  <section class="stage-heading">
+
+    <span class="stage-number">STAGE 01</span>
+
+    <h1>Build a DNA Nucleotide</h1>
+
+    <p>
+      DNA is built from repeating units called nucleotides.
+      Your first task is to determine which components belong
+      in one DNA nucleotide.
+    </p>
+
+  </section>
+
+
+  <section class="challenge-panel">
+
+    <div class="challenge-header">
+      <span class="challenge-label">YOUR TASK</span>
+
+      <h2>Select the three components of a DNA nucleotide.</h2>
+
+      <p>
+        Choose carefully. Some options belong to other biological molecules.
+      </p>
+    </div>
+
+
+    <div class="component-options">
+
+      <button class="component-option" data-component="phosphate">
+        <span class="component-symbol phosphate-symbol">P</span>
+        <span>Phosphate Group</span>
+      </button>
+
+      <button class="component-option" data-component="deoxyribose">
+        <span class="component-symbol sugar-symbol">D</span>
+        <span>Deoxyribose Sugar</span>
+      </button>
+
+      <button class="component-option" data-component="adenine">
+        <span class="component-symbol base-symbol">A</span>
+        <span>Nitrogenous Base</span>
+      </button>
+
+      <button class="component-option distractor" data-component="ribose">
+        <span class="component-symbol">R</span>
+        <span>Ribose Sugar</span>
+      </button>
+
+      <button class="component-option distractor" data-component="amino-acid">
+        <span class="component-symbol">AA</span>
+        <span>Amino Acid</span>
+      </button>
+
+      <button class="component-option distractor" data-component="fatty-acid">
+        <span class="component-symbol">FA</span>
+        <span>Fatty Acid</span>
+      </button>
+
+    </div>
+
+
+    <div class="nucleotide-build-area">
+
+      <h3>Your Nucleotide</h3>
+
+      <div class="nucleotide-slots">
+
+        <div class="build-slot" id="phosphate-slot">
+          <span>?</span>
+          <small>Component 1</small>
+        </div>
+
+        <div class="bond-line"></div>
+
+        <div class="build-slot" id="sugar-slot">
+          <span>?</span>
+          <small>Component 2</small>
+        </div>
+
+        <div class="bond-line"></div>
+
+        <div class="build-slot" id="base-slot">
+          <span>?</span>
+          <small>Component 3</small>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="action-row">
+      <button id="check-stage1" class="check-button">
+        Check My Nucleotide
+      </button>
+
+      <button id="reset-stage1" class="secondary-button">
+        Reset
+      </button>
+    </div>
+
+
+    <div id="feedback-stage1"
+         class="feedback-box"
+         aria-live="polite">
+    </div>
+
+  </section>
+
+
+  <section class="remember-card">
+
+    <span class="remember-label">REMEMBER</span>
+
+    <p>
+      A DNA nucleotide contains a phosphate group,
+      a deoxyribose sugar and one nitrogenous base.
+    </p>
+
+  </section>
+
+
+  <nav class="stage-navigation">
+
+    <a href="index.html" class="nav-button back-button">
+      ← Home
+    </a>
+
+    <a href="stage2.html"
+       id="stage1-next"
+       class="nav-button next-button locked"
+       aria-disabled="true">
+      Stage 2 →
+    </a>
+
+  </nav>
+
+</main>
+
+
+<footer>
+  Biology 30 • DNA Structure
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
