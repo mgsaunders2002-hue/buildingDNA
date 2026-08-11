@@ -47,6 +47,11 @@
 
 <main class="lab-page">
 
+
+<!-- =====================================================
+     HEADING
+     ===================================================== -->
+
 <section class="stage-heading">
 
   <span class="stage-number">STAGE 02</span>
@@ -54,275 +59,597 @@
   <h1>Analyze the Nitrogenous Bases</h1>
 
   <p>
-    Examine the four DNA bases. Determine a structural pattern that
-    allows them to be divided into two groups.
+    The four DNA bases differ in molecular structure.
+    Analyze those differences, then use them to solve problems
+    involving base pairing and DNA composition.
   </p>
 
 </section>
 
 
+
+<!-- =====================================================
+     PART A — STRUCTURAL ANALYSIS
+     ===================================================== -->
+
 <section class="lab-panel">
 
   <div class="panel-heading">
 
-    <span class="panel-label">BASE ANALYSIS</span>
+    <span class="panel-label">
+      PART A — STRUCTURAL ANALYSIS
+    </span>
 
-    <h2>Examine the structures.</h2>
+    <h2>Compare the four DNA bases.</h2>
 
     <p>
-      The category names have been hidden until you identify
-      the structural relationship.
+      Use the molecular structures as evidence.
+      Classify each base without relying only on its name or letter.
     </p>
 
   </div>
 
 
-  <div class="base-analysis-grid">
+  <div class="advanced-base-grid">
 
 
     <!-- ADENINE -->
 
-    <button
-      type="button"
-      class="analysis-base-card"
-      draggable="true"
-      data-base="adenine"
-    >
+    <article class="advanced-base-card">
 
-      <span class="base-name">Adenine</span>
+      <h3>Adenine</h3>
 
-      <svg viewBox="0 0 220 150">
+      <svg viewBox="0 0 240 170" class="advanced-base-svg">
 
         <polygon
-          points="45,52 83,28 123,49 113,94 68,105 37,79"
-          class="base-ring"
+          points="40,62 78,35 122,54 116,101 70,116 35,89"
+          class="chemical-ring"
         />
 
         <polygon
-          points="123,49 158,39 182,72 155,109 113,94"
-          class="base-ring"
+          points="122,54 161,43 187,76 160,115 116,101"
+          class="chemical-ring"
         />
 
-        <text x="109" y="78" text-anchor="middle" class="base-symbol">
-          A
-        </text>
+        <text x="52" y="78" class="atom-label">N</text>
+        <text x="93" y="45" class="atom-label">N</text>
+        <text x="147" y="63" class="atom-label">N</text>
+        <text x="151" y="109" class="atom-label">N</text>
+
+        <text x="118" y="28" class="substituent-label">NH₂</text>
 
       </svg>
 
-    </button>
+      <div class="base-analysis-controls">
+
+        <label>
+          Structural family
+
+          <select id="stage2-adenine-family">
+            <option value="">Choose...</option>
+            <option value="purine">Purine</option>
+            <option value="pyrimidine">Pyrimidine</option>
+          </select>
+        </label>
+
+        <label>
+          Ring system
+
+          <select id="stage2-adenine-rings">
+            <option value="">Choose...</option>
+            <option value="1">One ring</option>
+            <option value="2">Two rings</option>
+          </select>
+        </label>
+
+      </div>
+
+    </article>
+
 
 
     <!-- GUANINE -->
 
-    <button
-      type="button"
-      class="analysis-base-card"
-      draggable="true"
-      data-base="guanine"
-    >
+    <article class="advanced-base-card">
 
-      <span class="base-name">Guanine</span>
+      <h3>Guanine</h3>
 
-      <svg viewBox="0 0 220 150">
+      <svg viewBox="0 0 240 170" class="advanced-base-svg">
 
         <polygon
-          points="45,52 83,28 123,49 113,94 68,105 37,79"
-          class="base-ring"
+          points="40,62 78,35 122,54 116,101 70,116 35,89"
+          class="chemical-ring"
         />
 
         <polygon
-          points="123,49 158,39 182,72 155,109 113,94"
-          class="base-ring"
+          points="122,54 161,43 187,76 160,115 116,101"
+          class="chemical-ring"
         />
 
-        <text x="109" y="78" text-anchor="middle" class="base-symbol">
-          G
-        </text>
+        <text x="52" y="78" class="atom-label">N</text>
+        <text x="93" y="45" class="atom-label">N</text>
+        <text x="147" y="63" class="atom-label">N</text>
+        <text x="151" y="109" class="atom-label">N</text>
+
+        <text x="117" y="29" class="substituent-label">O</text>
+        <text x="55" y="137" class="substituent-label">NH₂</text>
 
       </svg>
 
-    </button>
+      <div class="base-analysis-controls">
+
+        <label>
+          Structural family
+
+          <select id="stage2-guanine-family">
+            <option value="">Choose...</option>
+            <option value="purine">Purine</option>
+            <option value="pyrimidine">Pyrimidine</option>
+          </select>
+        </label>
+
+        <label>
+          Ring system
+
+          <select id="stage2-guanine-rings">
+            <option value="">Choose...</option>
+            <option value="1">One ring</option>
+            <option value="2">Two rings</option>
+          </select>
+        </label>
+
+      </div>
+
+    </article>
+
 
 
     <!-- CYTOSINE -->
 
-    <button
-      type="button"
-      class="analysis-base-card"
-      draggable="true"
-      data-base="cytosine"
-    >
+    <article class="advanced-base-card">
 
-      <span class="base-name">Cytosine</span>
+      <h3>Cytosine</h3>
 
-      <svg viewBox="0 0 220 150">
+      <svg viewBox="0 0 240 170" class="advanced-base-svg">
 
         <polygon
-          points="65,30 136,30 168,77 136,121 65,121 34,77"
-          class="base-ring"
+          points="75,38 150,38 185,86 150,134 75,134 41,86"
+          class="chemical-ring"
         />
 
-        <text x="101" y="84" text-anchor="middle" class="base-symbol">
-          C
-        </text>
+        <text x="57" y="93" class="atom-label">N</text>
+        <text x="130" y="128" class="atom-label">N</text>
+
+        <text x="95" y="28" class="substituent-label">NH₂</text>
+        <text x="159" y="54" class="substituent-label">O</text>
 
       </svg>
 
-    </button>
+      <div class="base-analysis-controls">
+
+        <label>
+          Structural family
+
+          <select id="stage2-cytosine-family">
+            <option value="">Choose...</option>
+            <option value="purine">Purine</option>
+            <option value="pyrimidine">Pyrimidine</option>
+          </select>
+        </label>
+
+        <label>
+          Ring system
+
+          <select id="stage2-cytosine-rings">
+            <option value="">Choose...</option>
+            <option value="1">One ring</option>
+            <option value="2">Two rings</option>
+          </select>
+        </label>
+
+      </div>
+
+    </article>
+
 
 
     <!-- THYMINE -->
 
-    <button
-      type="button"
-      class="analysis-base-card"
-      draggable="true"
-      data-base="thymine"
-    >
+    <article class="advanced-base-card">
 
-      <span class="base-name">Thymine</span>
+      <h3>Thymine</h3>
 
-      <svg viewBox="0 0 220 150">
+      <svg viewBox="0 0 240 170" class="advanced-base-svg">
 
         <polygon
-          points="65,30 136,30 168,77 136,121 65,121 34,77"
-          class="base-ring"
+          points="75,38 150,38 185,86 150,134 75,134 41,86"
+          class="chemical-ring"
         />
 
-        <text x="101" y="84" text-anchor="middle" class="base-symbol">
-          T
-        </text>
+        <text x="57" y="93" class="atom-label">N</text>
+        <text x="130" y="128" class="atom-label">N</text>
+
+        <text x="101" y="28" class="substituent-label">O</text>
+        <text x="158" y="126" class="substituent-label">O</text>
+        <text x="157" y="52" class="substituent-label">CH₃</text>
 
       </svg>
 
-    </button>
+      <div class="base-analysis-controls">
 
-  </div>
+        <label>
+          Structural family
 
+          <select id="stage2-thymine-family">
+            <option value="">Choose...</option>
+            <option value="purine">Purine</option>
+            <option value="pyrimidine">Pyrimidine</option>
+          </select>
+        </label>
 
-  <div class="classification-grid">
+        <label>
+          Ring system
 
-    <section class="classification-box">
+          <select id="stage2-thymine-rings">
+            <option value="">Choose...</option>
+            <option value="1">One ring</option>
+            <option value="2">Two rings</option>
+          </select>
+        </label>
 
-      <h3>Group 1</h3>
-
-      <div
-        id="stage2-group1"
-        class="classification-dropzone"
-        data-group="group1"
-      >
-        Place two bases here
       </div>
 
-    </section>
-
-
-    <section class="classification-box">
-
-      <h3>Group 2</h3>
-
-      <div
-        id="stage2-group2"
-        class="classification-dropzone"
-        data-group="group2"
-      >
-        Place two bases here
-      </div>
-
-    </section>
+    </article>
 
   </div>
 
 
   <button
-    id="check-stage2-groups"
+    id="check-stage2-structures"
     class="check-button"
     type="button"
   >
-    Analyze My Grouping
+    Check Structural Analysis
   </button>
 
 
   <div
-    id="stage2-group-feedback"
+    id="stage2-structure-feedback"
     class="feedback-box"
   ></div>
 
 </section>
 
 
+
+<!-- =====================================================
+     PART B — APPLY STRUCTURE TO DNA
+     ===================================================== -->
+
 <section class="analysis-section">
 
-  <span class="panel-label">PATTERN ANALYSIS</span>
+  <span class="panel-label">
+    PART B — APPLY THE STRUCTURE
+  </span>
 
-  <h2>What structural feature separates the groups?</h2>
+  <h2>Predict how base structure affects DNA.</h2>
+
+  <p>
+    A normal DNA double helix maintains a relatively consistent
+    width along the molecule. Use the structures above and your
+    knowledge of complementary base pairing to analyze the
+    proposed combinations.
+  </p>
 
 
-  <div class="choice-grid">
+  <div class="stage2-application-grid">
 
-    <label class="choice-card">
-      <input type="radio" name="stage2-pattern" value="size">
-      <span>Overall size of the base</span>
-    </label>
 
-    <label class="choice-card">
-      <input type="radio" name="stage2-pattern" value="rings">
-      <span>Number of rings</span>
-    </label>
+    <!-- WIDEST -->
 
-    <label class="choice-card">
-      <input type="radio" name="stage2-pattern" value="oxygen">
-      <span>Number of oxygen atoms</span>
-    </label>
+    <div class="application-question">
+
+      <h3>1. Which proposed base pair would be widest?</h3>
+
+      <label>
+        <input type="radio" name="stage2-widest" value="AT">
+        A–T
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-widest" value="GC">
+        G–C
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-widest" value="AG">
+        A–G
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-widest" value="CT">
+        C–T
+      </label>
+
+    </div>
+
+
+    <!-- NARROWEST -->
+
+    <div class="application-question">
+
+      <h3>2. Which proposed base pair would be narrowest?</h3>
+
+      <label>
+        <input type="radio" name="stage2-narrowest" value="AT">
+        A–T
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-narrowest" value="GC">
+        G–C
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-narrowest" value="AG">
+        A–G
+      </label>
+
+      <label>
+        <input type="radio" name="stage2-narrowest" value="CT">
+        C–T
+      </label>
+
+    </div>
+
+
+    <!-- NORMAL DNA -->
+
+    <div class="application-question">
+
+      <h3>3. Which pairings normally occur in DNA?</h3>
+
+      <p class="small-note">
+        Select all that apply.
+      </p>
+
+      <label>
+        <input
+          type="checkbox"
+          class="stage2-normal-pair"
+          value="AT"
+        >
+        A–T
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          class="stage2-normal-pair"
+          value="GC"
+        >
+        G–C
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          class="stage2-normal-pair"
+          value="AG"
+        >
+        A–G
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          class="stage2-normal-pair"
+          value="CT"
+        >
+        C–T
+      </label>
+
+    </div>
 
   </div>
 
 
-  <label for="stage2-note" class="response-label">
-    Explain the structural pattern you used to classify the bases.
-  </label>
-
-  <textarea
-    id="stage2-note"
-    data-save-field="stage2Note"
-  ></textarea>
-
-
   <button
-    id="check-stage2-analysis"
+    id="check-stage2-application"
     class="check-button"
     type="button"
   >
-    Submit Base Analysis
+    Check Structural Predictions
   </button>
 
 
   <div
-    id="stage2-analysis-feedback"
+    id="stage2-application-feedback"
     class="feedback-box"
   ></div>
 
+</section>
 
-  <div
-    id="stage2-term-reveal"
-    class="verified-model hidden-content"
-  >
 
-    <h3>Classification revealed</h3>
+
+<!-- =====================================================
+     PART C — CHARGAFF INTEGRATION
+     ===================================================== -->
+
+<section class="analysis-section">
+
+  <span class="panel-label">
+    PART C — BASE COMPOSITION
+  </span>
+
+  <h2>Apply Chargaff's rules.</h2>
+
+  <div class="stage2-data-box">
 
     <p>
-      Adenine and guanine are <strong>purines</strong>.
-      Cytosine and thymine are <strong>pyrimidines</strong>.
+      A double-stranded DNA molecule contains
+      <strong>240 nitrogenous bases</strong>.
+    </p>
+
+    <p>
+      Analysis shows that
+      <strong>72 of the bases are adenine.</strong>
     </p>
 
   </div>
 
+
+  <div class="calculation-grid stage2-calculation-grid">
+
+    <label>
+      Number of thymine bases
+
+      <input
+        id="stage2-thymine-count"
+        type="number"
+        min="0"
+      >
+    </label>
+
+
+    <label>
+      Number of guanine bases
+
+      <input
+        id="stage2-guanine-count"
+        type="number"
+        min="0"
+      >
+    </label>
+
+
+    <label>
+      Number of cytosine bases
+
+      <input
+        id="stage2-cytosine-count"
+        type="number"
+        min="0"
+      >
+    </label>
+
+
+    <label>
+      Total number of purines
+
+      <input
+        id="stage2-purine-count"
+        type="number"
+        min="0"
+      >
+    </label>
+
+  </div>
+
+
+  <button
+    id="check-stage2-calculations"
+    class="check-button"
+    type="button"
+  >
+    Check Calculations
+  </button>
+
+
+  <div
+    id="stage2-calculation-feedback"
+    class="feedback-box"
+  ></div>
+
 </section>
+
+
+
+<!-- =====================================================
+     FINAL REASONING
+     ===================================================== -->
+
+<section class="analysis-section">
+
+  <span class="panel-label">
+    STAGE 2 SYNTHESIS
+  </span>
+
+  <h2>Connect molecular structure to DNA structure.</h2>
+
+
+  <label for="stage2-note" class="response-label">
+
+    Explain why normal DNA pairing between a purine and a
+    pyrimidine helps maintain a relatively consistent width
+    in the double helix. Use an A–G pairing or a C–T pairing
+    as a comparison in your explanation.
+
+  </label>
+
+
+  <textarea
+    id="stage2-note"
+    data-save-field="stage2Note"
+    placeholder="Use structural evidence from the bases above..."
+  ></textarea>
+
+
+  <button
+    id="check-stage2-synthesis"
+    class="check-button"
+    type="button"
+  >
+    Complete Stage 2
+  </button>
+
+
+  <div
+    id="stage2-synthesis-feedback"
+    class="feedback-box"
+  ></div>
+
+
+  <div
+    id="stage2-summary"
+    class="verified-model hidden-content"
+  >
+
+    <span class="verified-label">
+      STRUCTURAL PATTERN CONFIRMED
+    </span>
+
+    <div class="stage2-summary-grid">
+
+      <div>
+        <strong>Purines</strong>
+        <span>Adenine and guanine</span>
+      </div>
+
+      <div>
+        <strong>Pyrimidines</strong>
+        <span>Cytosine and thymine</span>
+      </div>
+
+      <div>
+        <strong>Normal DNA pairing</strong>
+        <span>Purine + pyrimidine</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <nav class="stage-navigation">
 
-  <a href="stage1.html" class="nav-button back-button">
+  <a
+    href="stage1.html"
+    class="nav-button back-button"
+  >
     ← Stage 1
   </a>
 
@@ -330,6 +657,7 @@
     href="stage3.html"
     id="stage2-next"
     class="nav-button next-button locked"
+    aria-disabled="true"
   >
     Continue to Stage 3 →
   </a>
@@ -338,9 +666,11 @@
 
 </main>
 
+
 <footer>
   Biology 30 • Molecular Genetics
 </footer>
+
 
 <script src="script.js"></script>
 
