@@ -32,6 +32,11 @@
 
 <main class="home-page">
 
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
   <section class="hero">
 
     <div class="hero-content">
@@ -45,87 +50,110 @@
       </h1>
 
       <p class="hero-intro">
-        In this lab, you will construct DNA one piece at a time.
-        You will begin with the components of a nucleotide and finish
-        by building and analyzing a complete double-stranded DNA molecule.
+        In this virtual lab, you will construct DNA one component
+        at a time. You will begin by building a nucleotide and finish
+        by constructing, analyzing, and defending a complete
+        double-stranded DNA molecule.
       </p>
 
 
+      <!-- =================================================
+           START / SAVED WORK CARD
+           ================================================= -->
+
       <div class="student-start-card">
 
-  <!-- SAVED WORK PANEL -->
-  <div id="saved-work-panel" hidden>
 
-    <div class="saved-work-badge">
-      Saved lab found
+        <!-- SAVED LAB FOUND -->
+
+        <div
+          id="saved-work-panel"
+          hidden
+        >
+
+          <div class="saved-work-badge">
+            Saved lab found
+          </div>
+
+          <h2>
+            Continue your DNA lab?
+          </h2>
+
+          <p>
+            Saved work was found for:
+            <strong id="saved-student-name"></strong>
+          </p>
+
+          <p class="small-note">
+            Continue the saved lab from where it was left,
+            or begin a new lab for another student.
+          </p>
+
+
+          <div class="saved-work-actions">
+
+            <button
+              type="button"
+              id="continue-lab"
+              class="primary-button"
+            >
+              Continue Saved Lab →
+            </button>
+
+
+            <button
+              type="button"
+              id="new-lab"
+              class="secondary-button"
+            >
+              Start New Lab
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- NEW STUDENT -->
+
+        <div id="new-student-panel">
+
+          <label for="student-name">
+            Student name
+          </label>
+
+          <input
+            type="text"
+            id="student-name"
+            placeholder="Enter your first and last name"
+            autocomplete="name"
+          >
+
+
+          <button
+            type="button"
+            id="start-lab"
+            class="primary-button"
+          >
+            Enter the Lab →
+          </button>
+
+
+          <p class="small-note">
+            Your progress will save automatically on this browser
+            while you work.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <h2>Continue your DNA lab?</h2>
 
-    <p>
-      Saved work was found for:
-      <strong id="saved-student-name"></strong>
-    </p>
-
-    <p class="small-note">
-      Continue the saved lab, or start a new lab for another student.
-    </p>
-
-    <div class="saved-work-actions">
-
-      <button
-        type="button"
-        id="continue-lab"
-        class="primary-button"
-      >
-        Continue Saved Lab →
-      </button>
-
-      <button
-        type="button"
-        id="new-lab"
-        class="secondary-button"
-      >
-        Start New Lab
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- NEW STUDENT PANEL -->
-  <div id="new-student-panel">
-
-    <label for="student-name">
-      Student name
-    </label>
-
-    <input
-      type="text"
-      id="student-name"
-      placeholder="Enter your first and last name"
-      autocomplete="name"
-    >
-
-    <button
-      type="button"
-      id="start-lab"
-      class="primary-button"
-    >
-      Enter the Lab →
-    </button>
-
-    <p class="small-note">
-      Your progress will be saved on this browser as you work.
-    </p>
-
-  </div>
-
-</div>
-
-    </div>
-
+    <!-- =================================================
+         DNA VISUAL
+         ================================================= -->
 
     <div class="hero-dna-visual">
 
@@ -138,22 +166,85 @@
 
         <path
           class="helix-backbone"
-          d="M120 20 C300 90 300 170 120 240 C-20 310 0 390 150 500"
+          d="
+            M120 20
+            C300 90 300 170 120 240
+            C-20 310 0 390 150 500
+          "
         />
 
         <path
           class="helix-backbone"
-          d="M300 20 C120 90 120 170 300 240 C440 310 420 390 270 500"
+          d="
+            M300 20
+            C120 90 120 170 300 240
+            C440 310 420 390 270 500
+          "
         />
 
-        <line x1="145" y1="55" x2="275" y2="55" class="helix-rung"/>
-        <line x1="205" y1="110" x2="215" y2="110" class="helix-rung"/>
-        <line x1="270" y1="165" x2="150" y2="165" class="helix-rung"/>
-        <line x1="250" y1="220" x2="170" y2="220" class="helix-rung"/>
-        <line x1="135" y1="280" x2="285" y2="280" class="helix-rung"/>
-        <line x1="185" y1="340" x2="235" y2="340" class="helix-rung"/>
-        <line x1="275" y1="400" x2="145" y2="400" class="helix-rung"/>
-        <line x1="245" y1="460" x2="175" y2="460" class="helix-rung"/>
+        <line
+          x1="145"
+          y1="55"
+          x2="275"
+          y2="55"
+          class="helix-rung"
+        />
+
+        <line
+          x1="205"
+          y1="110"
+          x2="215"
+          y2="110"
+          class="helix-rung"
+        />
+
+        <line
+          x1="270"
+          y1="165"
+          x2="150"
+          y2="165"
+          class="helix-rung"
+        />
+
+        <line
+          x1="250"
+          y1="220"
+          x2="170"
+          y2="220"
+          class="helix-rung"
+        />
+
+        <line
+          x1="135"
+          y1="280"
+          x2="285"
+          y2="280"
+          class="helix-rung"
+        />
+
+        <line
+          x1="185"
+          y1="340"
+          x2="235"
+          y2="340"
+          class="helix-rung"
+        />
+
+        <line
+          x1="275"
+          y1="400"
+          x2="145"
+          y2="400"
+          class="helix-rung"
+        />
+
+        <line
+          x1="245"
+          y1="460"
+          x2="175"
+          y2="460"
+          class="helix-rung"
+        />
 
       </svg>
 
@@ -163,60 +254,196 @@
 
 
 
+  <!-- =====================================================
+       LAB ROUTE
+       ===================================================== -->
+
   <section class="lab-route">
 
-    <h2>Your Lab Route</h2>
+    <div class="route-heading">
+
+      <span class="eyebrow">
+        YOUR INVESTIGATION
+      </span>
+
+      <h2>
+        Your Lab Route
+      </h2>
+
+      <p>
+        Each stage increases in difficulty.
+        You will move from molecular construction to analysis,
+        error diagnosis, and evidence-based evaluation.
+      </p>
+
+    </div>
+
 
     <div class="route-grid">
 
-      <article class="route-card">
-        <span class="route-number">01</span>
-        <h3>Build a Nucleotide</h3>
-        <p>Assemble phosphate, deoxyribose and a nitrogenous base.</p>
-      </article>
+
+      <!-- STAGE 1 -->
 
       <article class="route-card">
-        <span class="route-number">02</span>
-        <h3>Explore the Bases</h3>
-        <p>Compare the structures of purines and pyrimidines.</p>
+
+        <span class="route-number">
+          01
+        </span>
+
+        <h3>
+          Construct a Nucleotide
+        </h3>
+
+        <p>
+          Identify and assemble the correct molecular components
+          of a DNA nucleotide.
+        </p>
+
       </article>
 
-      <article class="route-card">
-        <span class="route-number">03</span>
-        <h3>Build a DNA Strand</h3>
-        <p>Connect nucleotides into a sugar-phosphate backbone.</p>
-      </article>
+
+      <!-- STAGE 2 -->
 
       <article class="route-card">
-        <span class="route-number">04</span>
-        <h3>Build the Complement</h3>
-        <p>Add the correct complementary nucleotides.</p>
+
+        <span class="route-number">
+          02
+        </span>
+
+        <h3>
+          Analyze the Bases
+        </h3>
+
+        <p>
+          Investigate nitrogenous-base structures and determine
+          how the four DNA bases can be classified.
+        </p>
+
       </article>
 
-      <article class="route-card">
-        <span class="route-number">05</span>
-        <h3>Make It Antiparallel</h3>
-        <p>Correctly orient the 5′ and 3′ ends.</p>
-      </article>
+
+      <!-- STAGE 3 -->
 
       <article class="route-card">
-        <span class="route-number">06</span>
-        <h3>Form the Double Helix</h3>
-        <p>Turn the completed DNA ladder into a double helix.</p>
+
+        <span class="route-number">
+          03
+        </span>
+
+        <h3>
+          Construct a DNA Strand
+        </h3>
+
+        <p>
+          Build a polynucleotide strand and analyze the
+          sugar-phosphate backbone.
+        </p>
+
+      </article>
+
+
+      <!-- STAGE 4 -->
+
+      <article class="route-card">
+
+        <span class="route-number">
+          04
+        </span>
+
+        <h3>
+          Construct the Complement
+        </h3>
+
+        <p>
+          Build the complementary strand and analyze
+          base pairing and hydrogen bonding.
+        </p>
+
+      </article>
+
+
+      <!-- STAGE 5 -->
+
+      <article class="route-card">
+
+        <span class="route-number">
+          05
+        </span>
+
+        <h3>
+          Diagnose the DNA
+        </h3>
+
+        <p>
+          Locate and repair structural errors in a
+          double-stranded DNA model.
+        </p>
+
+      </article>
+
+
+      <!-- STAGE 6 -->
+
+      <article class="route-card">
+
+        <span class="route-number">
+          06
+        </span>
+
+        <h3>
+          Investigate DNA Structure
+        </h3>
+
+        <p>
+          Evaluate competing DNA models using multiple
+          pieces of molecular evidence.
+        </p>
+
       </article>
 
     </div>
 
   </section>
 
+
+
+  <!-- =====================================================
+       FINAL CHALLENGE PREVIEW
+       ===================================================== -->
+
+  <section class="final-challenge-preview">
+
+    <div>
+
+      <span class="eyebrow">
+        FINAL CHALLENGE
+      </span>
+
+      <h2>
+        Construct and defend a complete DNA molecule.
+      </h2>
+
+      <p>
+        At the end of the investigation, you will combine everything
+        you have learned to build a biologically valid DNA molecule,
+        analyze its structure, and reveal a fully labelled double helix.
+      </p>
+
+    </div>
+
+  </section>
+
+
 </main>
 
 
 <footer>
-  Biology 30 • Molecular Genetics
+  Biology 30 • Molecular Genetics • Virtual DNA Construction Lab
 </footer>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
