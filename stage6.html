@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 6 | DNA Structural Investigation</title>
 
-<title>Stage 6 | Form the Double Helix</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body data-page="stage6">
 
@@ -26,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -38,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 6 of 6</span>
-    <strong>Form the Double Helix</strong>
+    <strong>DNA Structural Investigation</strong>
   </div>
 
   <div class="progress-bar">
@@ -52,152 +49,213 @@
 
 <section class="stage-heading">
 
-  <span class="stage-number">
-    STAGE 06
-  </span>
+  <span class="stage-number">STAGE 06</span>
 
-  <h1>
-    Form the DNA Double Helix
-  </h1>
+  <h1>DNA Structural Investigation</h1>
 
   <p>
-    You have constructed two complementary, antiparallel strands.
-    Now observe how the DNA ladder becomes a double helix.
+    Three molecular models have been proposed as possible DNA structures.
+    Evaluate each model using evidence from everything you have learned.
   </p>
 
 </section>
 
 
+<section class="model-comparison-grid">
 
-<section class="helix-lab">
 
-  <div
-    id="dna-transform-model"
-    class="dna-transform-model ladder-mode"
-  >
+  <!-- MODEL A -->
 
-    <svg
-      viewBox="0 0 500 600"
-      class="transform-svg"
-      role="img"
-      aria-label="DNA structure transforming from ladder to double helix"
+  <article class="candidate-model" data-model="A">
+
+    <span class="model-id">MODEL A</span>
+
+    <div class="candidate-dna">
+
+      <div class="candidate-strand">
+        <span>5′</span>
+        <span>A</span>
+        <span>T</span>
+        <span>G</span>
+        <span>C</span>
+        <span>3′</span>
+      </div>
+
+      <div class="candidate-pairs">
+        <span>··</span>
+        <span>··</span>
+        <span>···</span>
+        <span>···</span>
+      </div>
+
+      <div class="candidate-strand">
+        <span>3′</span>
+        <span>T</span>
+        <span>A</span>
+        <span>C</span>
+        <span>G</span>
+        <span>5′</span>
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="model-select-button"
+      data-model="A"
     >
+      Select Model A
+    </button>
 
-      <g id="ladder-structure">
-
-        <line x1="130" y1="50" x2="130" y2="550" class="dna-backbone-line"/>
-        <line x1="370" y1="50" x2="370" y2="550" class="dna-backbone-line"/>
-
-        <line x1="130" y1="100" x2="370" y2="100" class="base-pair-line"/>
-        <line x1="130" y1="180" x2="370" y2="180" class="base-pair-line"/>
-        <line x1="130" y1="260" x2="370" y2="260" class="base-pair-line"/>
-        <line x1="130" y1="340" x2="370" y2="340" class="base-pair-line"/>
-        <line x1="130" y1="420" x2="370" y2="420" class="base-pair-line"/>
-        <line x1="130" y1="500" x2="370" y2="500" class="base-pair-line"/>
-
-      </g>
+  </article>
 
 
-      <g id="helix-structure">
+  <!-- MODEL B -->
 
-        <path
-          d="M150 40
-             C380 120 380 200 150 280
-             C-20 350 30 470 180 560"
-          class="dna-helix-path"
-        />
+  <article class="candidate-model" data-model="B">
 
-        <path
-          d="M350 40
-             C120 120 120 200 350 280
-             C520 350 470 470 320 560"
-          class="dna-helix-path"
-        />
+    <span class="model-id">MODEL B</span>
 
-      </g>
+    <div class="candidate-dna">
 
-    </svg>
+      <div class="candidate-strand">
+        <span>5′</span>
+        <span>A</span>
+        <span>T</span>
+        <span>G</span>
+        <span>C</span>
+        <span>3′</span>
+      </div>
 
-  </div>
+      <div class="candidate-pairs">
+        <span>···</span>
+        <span>··</span>
+        <span>··</span>
+        <span>···</span>
+      </div>
 
+      <div class="candidate-strand">
+        <span>3′</span>
+        <span>G</span>
+        <span>A</span>
+        <span>T</span>
+        <span>G</span>
+        <span>5′</span>
+      </div>
 
+    </div>
 
-  <button
-    id="form-helix"
-    class="primary-button"
-  >
-    Form the Double Helix
-  </button>
+    <button
+      type="button"
+      class="model-select-button"
+      data-model="B"
+    >
+      Select Model B
+    </button>
 
-
-
-  <div class="structure-identification">
-
-    <h2>Identify the Structures</h2>
-
-
-    <label for="label-backbone">
-      The outside of the molecule is the:
-    </label>
-
-    <select id="label-backbone">
-      <option value="">Choose...</option>
-      <option value="backbone">Sugar-phosphate backbone</option>
-      <option value="bases">Nitrogenous bases</option>
-      <option value="hydrogen">Hydrogen bonds</option>
-    </select>
+  </article>
 
 
-    <label for="label-centre">
-      The paired structures in the centre are:
-    </label>
+  <!-- MODEL C -->
 
-    <select id="label-centre">
-      <option value="">Choose...</option>
-      <option value="bases">Complementary nitrogenous bases</option>
-      <option value="sugars">Deoxyribose sugars</option>
-      <option value="phosphates">Phosphate groups</option>
-    </select>
+  <article class="candidate-model" data-model="C">
 
+    <span class="model-id">MODEL C</span>
 
-    <label for="label-bonds">
-      The two strands are held together by:
-    </label>
+    <div class="candidate-dna">
 
-    <select id="label-bonds">
-      <option value="">Choose...</option>
-      <option value="hydrogen">Hydrogen bonds</option>
-      <option value="peptide">Peptide bonds</option>
-      <option value="ionic">Ionic bonds</option>
-    </select>
+      <div class="candidate-strand">
+        <span>5′</span>
+        <span>A</span>
+        <span>T</span>
+        <span>G</span>
+        <span>C</span>
+        <span>3′</span>
+      </div>
 
-  </div>
+      <div class="candidate-pairs">
+        <span>··</span>
+        <span>··</span>
+        <span>···</span>
+        <span>···</span>
+      </div>
 
+      <div class="candidate-strand">
+        <span>5′</span>
+        <span>T</span>
+        <span>A</span>
+        <span>C</span>
+        <span>G</span>
+        <span>3′</span>
+      </div>
 
-  <button
-    id="check-stage6"
-    class="check-button"
-  >
-    Complete DNA Construction
-  </button>
+    </div>
 
+    <button
+      type="button"
+      class="model-select-button"
+      data-model="C"
+    >
+      Select Model C
+    </button>
 
-  <div
-    id="stage6-feedback"
-    class="feedback-box"
-    aria-live="polite"
-  ></div>
+  </article>
 
 </section>
 
 
+<section class="analysis-section">
 
-<section class="lab-notebook">
+  <span class="panel-label">EVIDENCE-BASED EVALUATION</span>
 
-  <h2>Lab Notebook</h2>
+  <h2>Defend your model selection.</h2>
 
-  <label for="stage6-note">
-    How does the structure of DNA help it store genetic information?
+
+  <div class="evidence-check-grid">
+
+    <label>
+      <input
+        type="checkbox"
+        value="complementary"
+        class="stage6-evidence"
+      >
+      Complementary base pairing
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        value="antiparallel"
+        class="stage6-evidence"
+      >
+      Antiparallel strand orientation
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        value="hydrogen"
+        class="stage6-evidence"
+      >
+      Appropriate hydrogen bonding
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        value="backbone"
+        class="stage6-evidence"
+      >
+      Continuous sugar-phosphate backbone
+    </label>
+
+  </div>
+
+
+  <label for="stage6-note" class="response-label">
+    Explain why your selected model is biologically plausible
+    and why at least one competing model is not.
+    Use multiple pieces of molecular evidence.
   </label>
 
   <textarea
@@ -205,8 +263,22 @@
     data-save-field="stage6Note"
   ></textarea>
 
-</section>
 
+  <button
+    id="check-stage6-investigation"
+    class="check-button"
+    type="button"
+  >
+    Submit Investigation
+  </button>
+
+
+  <div
+    id="stage6-feedback"
+    class="feedback-box"
+  ></div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -220,12 +292,16 @@
     id="stage6-next"
     class="nav-button next-button locked"
   >
-    Enter Final Lab Challenge →
+    Enter Final Challenge →
   </a>
 
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
