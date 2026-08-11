@@ -53,30 +53,76 @@
 
       <div class="student-start-card">
 
-        <label for="student-name">
-          Student name
-        </label>
+  <!-- SAVED WORK PANEL -->
+  <div id="saved-work-panel" hidden>
 
-        <input
-          type="text"
-          id="student-name"
-          placeholder="Enter your first and last name"
-          autocomplete="name"
-        >
+    <div class="saved-work-badge">
+      Saved lab found
+    </div>
 
-        <button
-          type="button"
-          id="start-lab"
-          class="primary-button"
-        >
-          Enter the Lab →
-        </button>
+    <h2>Continue your DNA lab?</h2>
 
-        <p class="small-note">
-          Your progress will be saved on this browser as you work.
-        </p>
+    <p>
+      Saved work was found for:
+      <strong id="saved-student-name"></strong>
+    </p>
 
-      </div>
+    <p class="small-note">
+      Continue the saved lab, or start a new lab for another student.
+    </p>
+
+    <div class="saved-work-actions">
+
+      <button
+        type="button"
+        id="continue-lab"
+        class="primary-button"
+      >
+        Continue Saved Lab →
+      </button>
+
+      <button
+        type="button"
+        id="new-lab"
+        class="secondary-button"
+      >
+        Start New Lab
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- NEW STUDENT PANEL -->
+  <div id="new-student-panel">
+
+    <label for="student-name">
+      Student name
+    </label>
+
+    <input
+      type="text"
+      id="student-name"
+      placeholder="Enter your first and last name"
+      autocomplete="name"
+    >
+
+    <button
+      type="button"
+      id="start-lab"
+      class="primary-button"
+    >
+      Enter the Lab →
+    </button>
+
+    <p class="small-note">
+      Your progress will be saved on this browser as you work.
+    </p>
+
+  </div>
+
+</div>
 
     </div>
 
