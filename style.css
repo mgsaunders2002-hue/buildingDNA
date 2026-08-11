@@ -1079,6 +1079,24 @@ input[type="number"] {
   text-anchor: middle;
 }
 
+.diff-mark {
+  stroke-width: 2.5;
+}
+
+.diff-mark.mark-a {
+  fill: rgba(185, 137, 46, 0.14);
+  stroke: var(--amber-500);
+}
+
+.diff-mark.mark-b {
+  fill: rgba(43, 183, 169, 0.14);
+  stroke: var(--teal-500);
+}
+
+.group-label.diff-label {
+  font-size: 16px;
+}
+
 
 /* =========================================================
    22. STAGE 1 — NUCLEOTIDE WORKSPACE
