@@ -1,171 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bio 30 DNA Builder</title>
+  <title>Biology 30 | Virtual DNA Construction Lab</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body data-page="home">
 
-  <header class="site-header">
-    <div class="header-inner">
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <div>
       <div class="course-label">BIOLOGY 30</div>
-      <div class="site-title">DNA Builder</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
     </div>
-  </header>
+
+    <div class="save-status" id="save-status">
+      Progress saves automatically
+    </div>
+
+  </div>
+
+</header>
 
 
-  <main class="home-page">
+<main class="home-page">
 
-    <section class="hero">
+  <section class="hero">
 
-      <div class="hero-text">
+    <div class="hero-content">
 
-        <span class="eyebrow">Major Application Activity</span>
+      <span class="eyebrow">
+        MOLECULAR GENETICS • VIRTUAL LAB
+      </span>
 
-        <h1>Can You Build DNA?</h1>
+      <h1>
+        Build DNA from the molecule up.
+      </h1>
 
-        <p class="hero-intro">
-          You have learned what DNA is made of. Now it is time to put
-          everything together.
+      <p class="hero-intro">
+        In this lab, you will construct DNA one piece at a time.
+        You will begin with the components of a nucleotide and finish
+        by building and analyzing a complete double-stranded DNA molecule.
+      </p>
+
+
+      <div class="student-start-card">
+
+        <label for="student-name">
+          Student name
+        </label>
+
+        <input
+          type="text"
+          id="student-name"
+          placeholder="Enter your first and last name"
+          autocomplete="name"
+        >
+
+        <button
+          type="button"
+          id="start-lab"
+          class="primary-button"
+        >
+          Enter the Lab →
+        </button>
+
+        <p class="small-note">
+          Your progress will be saved on this browser as you work.
         </p>
 
-        <p>
-          Work through each stage to construct, organize and interpret
-          a DNA molecule. Each challenge builds on the previous one,
-          and you will receive feedback as you work.
-        </p>
-
-        <a href="stage1.html" class="primary-button">
-          Start DNA Builder →
-        </a>
-
       </div>
 
-
-      <div class="dna-preview" aria-label="DNA molecule illustration">
-
-        <div class="dna-label">YOUR MISSION</div>
-
-        <div class="mission-card">
-          <span class="mission-number">01</span>
-          <p>Build a nucleotide</p>
-        </div>
-
-        <div class="mission-card">
-          <span class="mission-number">02</span>
-          <p>Classify the bases</p>
-        </div>
-
-        <div class="mission-card">
-          <span class="mission-number">03</span>
-          <p>Build a complementary strand</p>
-        </div>
-
-        <div class="mission-card">
-          <span class="mission-number">04</span>
-          <p>Make DNA antiparallel</p>
-        </div>
-
-        <div class="mission-card">
-          <span class="mission-number">05</span>
-          <p>Identify DNA structure</p>
-        </div>
-
-        <div class="mission-card final-card">
-          <span class="mission-number">★</span>
-          <p>Complete the final challenge</p>
-        </div>
-
-      </div>
-
-    </section>
+    </div>
 
 
-    <section class="before-you-begin">
+    <div class="hero-dna-visual">
 
-      <h2>Before You Begin</h2>
+      <svg
+        viewBox="0 0 420 520"
+        class="hero-dna-svg"
+        role="img"
+        aria-label="Simplified DNA double helix"
+      >
 
-      <div class="instruction-grid">
+        <path
+          class="helix-backbone"
+          d="M120 20 C300 90 300 170 120 240 C-20 310 0 390 150 500"
+        />
 
-        <div class="instruction-card">
-          <div class="instruction-icon">✓</div>
-          <h3>Work Carefully</h3>
-          <p>
-            Read each instruction before making your selections.
-          </p>
-        </div>
+        <path
+          class="helix-backbone"
+          d="M300 20 C120 90 120 170 300 240 C440 310 420 390 270 500"
+        />
 
-        <div class="instruction-card">
-          <div class="instruction-icon">↻</div>
-          <h3>Learn From Feedback</h3>
-          <p>
-            Incorrect answers will give you a hint. Use it to correct
-            your own work.
-          </p>
-        </div>
+        <line x1="145" y1="55" x2="275" y2="55" class="helix-rung"/>
+        <line x1="205" y1="110" x2="215" y2="110" class="helix-rung"/>
+        <line x1="270" y1="165" x2="150" y2="165" class="helix-rung"/>
+        <line x1="250" y1="220" x2="170" y2="220" class="helix-rung"/>
+        <line x1="135" y1="280" x2="285" y2="280" class="helix-rung"/>
+        <line x1="185" y1="340" x2="235" y2="340" class="helix-rung"/>
+        <line x1="275" y1="400" x2="145" y2="400" class="helix-rung"/>
+        <line x1="245" y1="460" x2="175" y2="460" class="helix-rung"/>
 
-        <div class="instruction-card">
-          <div class="instruction-icon">→</div>
-          <h3>Complete Every Stage</h3>
-          <p>
-            Each stage prepares you for the final DNA construction
-            challenge.
-          </p>
-        </div>
+      </svg>
 
-      </div>
+    </div>
 
-    </section>
+  </section>
 
 
-    <section class="learning-targets">
 
-      <h2>By the End, You Should Be Able To...</h2>
+  <section class="lab-route">
 
-      <div class="target-list">
+    <h2>Your Lab Route</h2>
 
-        <div class="target">
-          <span>01</span>
-          <p>Identify the parts of a DNA nucleotide.</p>
-        </div>
+    <div class="route-grid">
 
-        <div class="target">
-          <span>02</span>
-          <p>Distinguish purines from pyrimidines.</p>
-        </div>
+      <article class="route-card">
+        <span class="route-number">01</span>
+        <h3>Build a Nucleotide</h3>
+        <p>Assemble phosphate, deoxyribose and a nitrogenous base.</p>
+      </article>
 
-        <div class="target">
-          <span>03</span>
-          <p>Apply complementary base-pairing rules.</p>
-        </div>
+      <article class="route-card">
+        <span class="route-number">02</span>
+        <h3>Explore the Bases</h3>
+        <p>Compare the structures of purines and pyrimidines.</p>
+      </article>
 
-        <div class="target">
-          <span>04</span>
-          <p>Recognize complementary and antiparallel DNA strands.</p>
-        </div>
+      <article class="route-card">
+        <span class="route-number">03</span>
+        <h3>Build a DNA Strand</h3>
+        <p>Connect nucleotides into a sugar-phosphate backbone.</p>
+      </article>
 
-        <div class="target">
-          <span>05</span>
-          <p>Identify the major structural features of DNA.</p>
-        </div>
+      <article class="route-card">
+        <span class="route-number">04</span>
+        <h3>Build the Complement</h3>
+        <p>Add the correct complementary nucleotides.</p>
+      </article>
 
-      </div>
+      <article class="route-card">
+        <span class="route-number">05</span>
+        <h3>Make It Antiparallel</h3>
+        <p>Correctly orient the 5′ and 3′ ends.</p>
+      </article>
 
-    </section>
+      <article class="route-card">
+        <span class="route-number">06</span>
+        <h3>Form the Double Helix</h3>
+        <p>Turn the completed DNA ladder into a double helix.</p>
+      </article>
 
-  </main>
+    </div>
+
+  </section>
+
+</main>
 
 
-  <footer>
-    Biology 30 • DNA Structure
-  </footer>
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
