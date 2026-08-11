@@ -95,20 +95,28 @@
 
         <span class="piece-id">A</span>
 
-        <svg viewBox="0 0 180 140" class="molecule-svg">
+        <svg viewBox="0 0 200 200" class="molecule-svg" aria-label="Phosphate group: one phosphorus atom bonded to four oxygen atoms">
 
-          <circle cx="90" cy="70" r="19" class="atom phosphorus"/>
-          <text x="90" y="76" text-anchor="middle">P</text>
+          <!-- bonds drawn first so atoms sit on top -->
+          <line x1="100" y1="95" x2="100" y2="45" class="bond"/>
+          <line x1="100" y1="95" x2="100" y2="145" class="bond"/>
+          <line x1="100" y1="95" x2="52" y2="95" class="bond"/>
+          <line x1="100" y1="95" x2="148" y2="95" class="bond"/>
 
-          <circle cx="90" cy="22" r="14" class="atom oxygen"/>
-          <circle cx="90" cy="118" r="14" class="atom oxygen"/>
-          <circle cx="42" cy="70" r="14" class="atom oxygen"/>
-          <circle cx="138" cy="70" r="14" class="atom oxygen"/>
+          <circle cx="100" cy="45" r="19" class="atom oxygen"/>
+          <text x="100" y="45" class="atom-symbol">O</text>
 
-          <line x1="90" y1="50" x2="90" y2="36" class="bond"/>
-          <line x1="90" y1="90" x2="90" y2="104" class="bond"/>
-          <line x1="70" y1="70" x2="56" y2="70" class="bond"/>
-          <line x1="110" y1="70" x2="124" y2="70" class="bond"/>
+          <circle cx="100" cy="145" r="19" class="atom oxygen"/>
+          <text x="100" y="145" class="atom-symbol">O</text>
+
+          <circle cx="52" cy="95" r="19" class="atom oxygen"/>
+          <text x="52" y="95" class="atom-symbol">O</text>
+
+          <circle cx="148" cy="95" r="19" class="atom oxygen"/>
+          <text x="148" y="95" class="atom-symbol">O</text>
+
+          <circle cx="100" cy="95" r="26" class="atom phosphorus"/>
+          <text x="100" y="96" text-anchor="middle" dominant-baseline="middle" class="base-symbol" font-size="22">P</text>
 
         </svg>
 
@@ -127,20 +135,29 @@
 
         <span class="piece-id">B</span>
 
-        <svg viewBox="0 0 200 150" class="molecule-svg sugar-diagram">
+        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Deoxyribose sugar ring with a hydrogen at the 2 prime carbon and a hydroxyl at the 3 prime carbon">
 
           <polygon
-            points="65,35 125,35 153,85 104,125 48,88"
+            points="78,42 148,42 178,97 122,144 58,102"
             class="sugar-ring"
           />
 
-          <text x="48" y="95" class="carbon-label">1′</text>
-          <text x="90" y="137" class="carbon-label">2′</text>
-          <text x="145" y="102" class="carbon-label">3′</text>
-          <text x="135" y="30" class="carbon-label">4′</text>
+          <!-- ring oxygen -->
+          <text x="78" y="28" class="carbon-label">O</text>
 
-          <text x="78" y="128" class="group-label">H</text>
-          <text x="152" y="120" class="group-label">OH</text>
+          <!-- carbon position numbers, set just outside each ring vertex -->
+          <text x="150" y="26" class="carbon-label">4′</text>
+          <text x="196" y="76" class="carbon-label">3′</text>
+          <text x="96" y="164" class="carbon-label">2′</text>
+          <text x="28" y="94" class="carbon-label">1′</text>
+
+          <!-- 3' substituent: hydroxyl (both sugars) -->
+          <line x1="178" y1="97" x2="204" y2="120" class="bond bond-thin"/>
+          <text x="207" y="134" text-anchor="start" class="group-label">OH</text>
+
+          <!-- 2' substituent: hydrogen only — the defining "deoxy" feature -->
+          <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
+          <text x="122" y="192" class="group-label">H</text>
 
         </svg>
 
@@ -159,20 +176,27 @@
 
         <span class="piece-id">C</span>
 
-        <svg viewBox="0 0 200 150" class="molecule-svg sugar-diagram">
+        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Ribose sugar ring with hydroxyl groups at both the 2 prime and 3 prime carbons">
 
           <polygon
-            points="65,35 125,35 153,85 104,125 48,88"
+            points="78,42 148,42 178,97 122,144 58,102"
             class="sugar-ring"
           />
 
-          <text x="48" y="95" class="carbon-label">1′</text>
-          <text x="90" y="137" class="carbon-label">2′</text>
-          <text x="145" y="102" class="carbon-label">3′</text>
-          <text x="135" y="30" class="carbon-label">4′</text>
+          <text x="78" y="28" class="carbon-label">O</text>
 
-          <text x="71" y="128" class="group-label">OH</text>
-          <text x="152" y="120" class="group-label">OH</text>
+          <text x="150" y="26" class="carbon-label">4′</text>
+          <text x="196" y="76" class="carbon-label">3′</text>
+          <text x="96" y="164" class="carbon-label">2′</text>
+          <text x="28" y="94" class="carbon-label">1′</text>
+
+          <!-- 3' substituent: hydroxyl -->
+          <line x1="178" y1="97" x2="204" y2="120" class="bond bond-thin"/>
+          <text x="207" y="134" text-anchor="start" class="group-label">OH</text>
+
+          <!-- 2' substituent: hydroxyl — ribose keeps the oxygen deoxyribose lacks -->
+          <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
+          <text x="122" y="192" class="group-label">OH</text>
 
         </svg>
 
@@ -191,25 +215,22 @@
 
         <span class="piece-id">D</span>
 
-        <svg viewBox="0 0 210 150" class="molecule-svg">
+        <svg viewBox="0 0 220 200" class="molecule-svg" aria-label="Adenine: a fused six-membered and five-membered ring with an amino group">
 
           <polygon
-            points="44,53 83,28 122,50 112,94 68,105 37,79"
+            points="95,52 140,77 140,127 95,152 50,127 50,77"
             class="base-ring"
           />
 
           <polygon
-            points="122,50 157,40 180,72 154,108 112,94"
+            points="140,77 140,127 170,147 200,107 170,62"
             class="base-ring"
           />
 
-          <text x="109" y="77" text-anchor="middle" class="base-symbol">
-            A
-          </text>
+          <line x1="95" y1="52" x2="95" y2="26" class="bond bond-thin"/>
+          <text x="95" y="15" class="group-label">NH₂</text>
 
-          <text x="105" y="20" class="group-label">
-            NH₂
-          </text>
+          <text x="95" y="102" class="base-symbol">A</text>
 
         </svg>
 
@@ -228,19 +249,20 @@
 
         <span class="piece-id">E</span>
 
-        <svg viewBox="0 0 200 150" class="molecule-svg">
+        <svg viewBox="0 0 200 210" class="molecule-svg" aria-label="Uracil: a single six-membered ring with two oxygen groups">
 
           <polygon
-            points="61,33 129,33 159,76 128,118 61,118 31,76"
+            points="100,44 148,72 148,126 100,154 52,126 52,72"
             class="base-ring"
           />
 
-          <text x="95" y="80" text-anchor="middle" class="base-symbol">
-            U
-          </text>
+          <line x1="52" y1="72" x2="26" y2="52" class="bond bond-thin"/>
+          <text x="18" y="38" text-anchor="middle" class="group-label">O</text>
 
-          <text x="72" y="25" class="group-label">O</text>
-          <text x="137" y="129" class="group-label">O</text>
+          <line x1="100" y1="154" x2="100" y2="182" class="bond bond-thin"/>
+          <text x="100" y="198" class="group-label">O</text>
+
+          <text x="100" y="100" class="base-symbol">U</text>
 
         </svg>
 
@@ -259,17 +281,19 @@
 
         <span class="piece-id">F</span>
 
-        <svg viewBox="0 0 220 150" class="molecule-svg">
+        <svg viewBox="0 0 220 200" class="molecule-svg" aria-label="Generic amino acid: a central carbon bonded to an amino group, a carboxyl group, hydrogen, and an R group">
 
-          <line x1="110" y1="70" x2="58" y2="70" class="bond"/>
-          <line x1="110" y1="70" x2="165" y2="70" class="bond"/>
-          <line x1="110" y1="70" x2="110" y2="27" class="bond"/>
-          <line x1="110" y1="70" x2="110" y2="115" class="bond"/>
+          <line x1="110" y1="100" x2="110" y2="46" class="bond"/>
+          <line x1="110" y1="100" x2="110" y2="154" class="bond"/>
+          <line x1="110" y1="100" x2="56" y2="100" class="bond"/>
+          <line x1="110" y1="100" x2="164" y2="100" class="bond"/>
 
-          <text x="20" y="77" class="group-label">NH₂</text>
-          <text x="166" y="77" class="group-label">COOH</text>
-          <text x="103" y="22" class="group-label">H</text>
-          <text x="102" y="137" class="group-label">R</text>
+          <circle cx="110" cy="100" r="7" class="atom phosphorus"/>
+
+          <text x="110" y="30" class="group-label">H</text>
+          <text x="110" y="182" class="group-label">R</text>
+          <text x="40" y="105" text-anchor="end" class="group-label">H₂N</text>
+          <text x="180" y="105" text-anchor="start" class="group-label">COOH</text>
 
         </svg>
 
