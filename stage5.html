@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Stage 5 | DNA Structure</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Stage 5 | Antiparallel DNA</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+
+<body data-page="stage5">
 
 <header class="site-header">
+
   <div class="header-inner">
-    <div class="course-label">BIOLOGY 30</div>
-    <div class="site-title">DNA Builder</div>
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span>✓ Saved</span>
+    </div>
+
   </div>
+
 </header>
 
 
@@ -23,7 +38,7 @@
 
   <div class="progress-label">
     <span>Stage 5 of 6</span>
-    <span>DNA Structure</span>
+    <strong>Antiparallel DNA</strong>
   </div>
 
   <div class="progress-bar">
@@ -33,227 +48,164 @@
 </div>
 
 
-<main class="activity-page">
+<main class="lab-page">
 
-  <section class="stage-heading">
+<section class="stage-heading">
 
-    <span class="stage-number">STAGE 05</span>
+  <span class="stage-number">
+    STAGE 05
+  </span>
 
-    <h1>Identify the DNA Structure</h1>
+  <h1>
+    Orient the DNA Strands
+  </h1>
 
-    <p>
-      You now have the pieces. Identify how those pieces are organized
-      within a complete DNA molecule.
-    </p>
+  <p>
+    Your DNA molecule has complementary base pairs.
+    Now make sure the two strands are antiparallel.
+  </p>
 
-  </section>
-
-
-  <section class="challenge-panel">
-
-    <div class="challenge-header">
-
-      <span class="challenge-label">YOUR TASK</span>
-
-      <h2>Label the important structures.</h2>
-
-      <p>
-        Use what you know about nucleotides, bonds and the
-        sugar-phosphate backbone.
-      </p>
-
-    </div>
+</section>
 
 
-    <div class="dna-structure-model">
 
-      <div class="model-heading">
-        Simplified DNA Structure
+<section class="orientation-lab">
+
+  <div class="orientation-controls">
+
+    <h2>Direction Labels</h2>
+
+    <button
+      class="direction-piece"
+      draggable="true"
+      data-direction="5"
+    >
+      5′
+    </button>
+
+    <button
+      class="direction-piece"
+      draggable="true"
+      data-direction="3"
+    >
+      3′
+    </button>
+
+  </div>
+
+
+
+  <div class="orientation-model">
+
+    <div class="orientation-row">
+
+      <div
+        class="direction-drop"
+        id="top-left-direction"
+      >
+        ?
       </div>
 
-      <div class="dna-ladder">
+      <div class="strand-sequence">
+        A — T — G — C — C — A
+      </div>
 
-        <div class="backbone left-backbone">
-
-          <div class="phosphate">P</div>
-          <div class="sugar">D</div>
-
-          <div class="phosphate">P</div>
-          <div class="sugar">D</div>
-
-          <div class="phosphate">P</div>
-          <div class="sugar">D</div>
-
-          <div class="phosphate">P</div>
-          <div class="sugar">D</div>
-
-        </div>
-
-
-        <div class="base-pair-column">
-
-          <div class="base-pair">
-            <span class="dna-base adenine">A</span>
-            <span class="hydrogen-bonds">··</span>
-            <span class="dna-base thymine">T</span>
-          </div>
-
-          <div class="base-pair">
-            <span class="dna-base guanine">G</span>
-            <span class="hydrogen-bonds">···</span>
-            <span class="dna-base cytosine">C</span>
-          </div>
-
-          <div class="base-pair">
-            <span class="dna-base thymine">T</span>
-            <span class="hydrogen-bonds">··</span>
-            <span class="dna-base adenine">A</span>
-          </div>
-
-          <div class="base-pair">
-            <span class="dna-base cytosine">C</span>
-            <span class="hydrogen-bonds">···</span>
-            <span class="dna-base guanine">G</span>
-          </div>
-
-        </div>
-
-
-        <div class="backbone right-backbone">
-
-          <div class="sugar">D</div>
-          <div class="phosphate">P</div>
-
-          <div class="sugar">D</div>
-          <div class="phosphate">P</div>
-
-          <div class="sugar">D</div>
-          <div class="phosphate">P</div>
-
-          <div class="sugar">D</div>
-          <div class="phosphate">P</div>
-
-        </div>
-
+      <div
+        class="direction-drop"
+        id="top-right-direction"
+      >
+        ?
       </div>
 
     </div>
 
 
-    <div class="structure-questions">
+    <div class="paired-strand-lines">
 
-      <div class="structure-question">
-
-        <label for="structure-q1">
-          1. What do the repeating sugar and phosphate groups form?
-        </label>
-
-        <select id="structure-q1">
-          <option value="">Choose...</option>
-          <option value="base-pairs">Base pairs</option>
-          <option value="backbone">Sugar-phosphate backbone</option>
-          <option value="gene">Gene</option>
-          <option value="helix">Hydrogen bonds</option>
-        </select>
-
-      </div>
-
-
-      <div class="structure-question">
-
-        <label for="structure-q2">
-          2. What holds complementary bases together?
-        </label>
-
-        <select id="structure-q2">
-          <option value="">Choose...</option>
-          <option value="hydrogen">Hydrogen bonds</option>
-          <option value="phosphodiester">Phosphodiester bonds</option>
-          <option value="ionic">Ionic bonds</option>
-          <option value="peptide">Peptide bonds</option>
-        </select>
-
-      </div>
-
-
-      <div class="structure-question">
-
-        <label for="structure-q3">
-          3. What joins nucleotides along one DNA strand?
-        </label>
-
-        <select id="structure-q3">
-          <option value="">Choose...</option>
-          <option value="hydrogen">Hydrogen bonds</option>
-          <option value="phosphodiester">Covalent phosphodiester bonds</option>
-          <option value="peptide">Peptide bonds</option>
-          <option value="base">Base pairing</option>
-        </select>
-
-      </div>
-
-
-      <div class="structure-question">
-
-        <label for="structure-q4">
-          4. Which part of DNA carries the genetic information?
-        </label>
-
-        <select id="structure-q4">
-          <option value="">Choose...</option>
-          <option value="phosphate">Phosphate sequence</option>
-          <option value="sugar">Sugar sequence</option>
-          <option value="bases">Nitrogenous-base sequence</option>
-          <option value="hydrogen">Hydrogen bonds</option>
-        </select>
-
-      </div>
+      <span>│</span>
+      <span>│</span>
+      <span>│</span>
+      <span>│</span>
+      <span>│</span>
+      <span>│</span>
 
     </div>
 
 
-    <div class="action-row">
+    <div class="orientation-row">
 
-      <button id="check-stage5" class="check-button">
-        Check My Answers
-      </button>
+      <div
+        class="direction-drop"
+        id="bottom-left-direction"
+      >
+        ?
+      </div>
 
-      <button id="reset-stage5" class="secondary-button">
-        Reset
-      </button>
+      <div class="strand-sequence">
+        T — A — C — G — G — T
+      </div>
+
+      <div
+        class="direction-drop"
+        id="bottom-right-direction"
+      >
+        ?
+      </div>
 
     </div>
 
-
-    <div id="feedback-stage5"
-         class="feedback-box"
-         aria-live="polite">
-    </div>
-
-  </section>
+  </div>
 
 
-  <nav class="stage-navigation">
+  <button id="check-stage5" class="check-button">
+    Check Strand Orientation
+  </button>
 
-    <a href="stage4.html" class="nav-button back-button">
-      ← Stage 4
-    </a>
 
-    <a href="challenge.html"
-       id="stage5-next"
-       class="nav-button next-button locked"
-       aria-disabled="true">
-      Final Challenge →
-    </a>
+  <div
+    id="stage5-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
 
-  </nav>
+</section>
+
+
+
+<section class="lab-notebook">
+
+  <h2>Lab Notebook</h2>
+
+  <label for="stage5-note">
+    Explain what antiparallel means in a DNA molecule.
+  </label>
+
+  <textarea
+    id="stage5-note"
+    data-save-field="stage5Note"
+  ></textarea>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a href="stage4.html" class="nav-button back-button">
+    ← Stage 4
+  </a>
+
+  <a
+    href="stage6.html"
+    id="stage5-next"
+    class="nav-button next-button locked"
+  >
+    Continue to Stage 6 →
+  </a>
+
+</nav>
 
 </main>
-
-
-<footer>
-  Biology 30 • DNA Structure
-</footer>
 
 <script src="script.js"></script>
 
