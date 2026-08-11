@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Stage 2 | Know Your Bases</title>
+  <title>Stage 2 | Explore the Bases</title>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body data-page="stage2">
 
 <header class="site-header">
+
   <div class="header-inner">
-    <div class="course-label">BIOLOGY 30</div>
-    <div class="site-title">DNA Builder</div>
+
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
+
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span>✓ Saved</span>
+    </div>
+
   </div>
+
 </header>
 
 
@@ -23,7 +37,7 @@
 
   <div class="progress-label">
     <span>Stage 2 of 6</span>
-    <span>Know Your Bases</span>
+    <strong>Explore the Bases</strong>
   </div>
 
   <div class="progress-bar">
@@ -33,151 +47,238 @@
 </div>
 
 
-<main class="activity-page">
+<main class="lab-page">
 
-  <section class="stage-heading">
+<section class="stage-heading">
 
-    <span class="stage-number">STAGE 02</span>
+  <span class="stage-number">
+    STAGE 02
+  </span>
 
-    <h1>Know Your Bases</h1>
+  <h1>
+    Explore the Nitrogenous Bases
+  </h1>
 
-    <p>
-      DNA contains four nitrogenous bases. Sort each one according
-      to its molecular structure.
-    </p>
+  <p>
+    Examine the simplified molecular structures of the four DNA bases.
+    Sort them according to whether they are purines or pyrimidines.
+  </p>
 
-  </section>
-
-
-  <section class="challenge-panel">
-
-    <div class="challenge-header">
-
-      <span class="challenge-label">YOUR TASK</span>
-
-      <h2>Sort the four DNA bases.</h2>
-
-      <p>
-        Place each base into the correct category:
-        <strong>purine</strong> or <strong>pyrimidine</strong>.
-      </p>
-
-    </div>
+</section>
 
 
-    <div class="base-bank">
 
-      <button class="base-card" data-base="adenine">
-        <span class="base-letter">A</span>
-        <span>Adenine</span>
-      </button>
+<section class="base-lab">
 
-      <button class="base-card" data-base="guanine">
-        <span class="base-letter">G</span>
-        <span>Guanine</span>
-      </button>
+  <div class="base-parts-tray">
 
-      <button class="base-card" data-base="cytosine">
-        <span class="base-letter">C</span>
-        <span>Cytosine</span>
-      </button>
+    <!-- ADENINE -->
 
-      <button class="base-card" data-base="thymine">
-        <span class="base-letter">T</span>
-        <span>Thymine</span>
-      </button>
+    <button
+      class="visual-base-card"
+      data-base="adenine"
+      draggable="true"
+    >
 
-    </div>
+      <svg viewBox="0 0 180 130">
+
+        <polygon
+          points="35,35 75,15 110,40 100,82 55,90 28,65"
+          class="ring-shape"
+        />
+
+        <polygon
+          points="110,40 145,30 165,62 140,95 100,82"
+          class="ring-shape"
+        />
+
+      </svg>
+
+      <strong>Adenine</strong>
+      <span>A</span>
+
+    </button>
 
 
-    <div class="classification-grid">
 
-      <div class="classification-zone" data-category="purine">
+    <!-- GUANINE -->
 
-        <div class="classification-title">
-          <h3>Purines</h3>
-          <p>Double-ring bases</p>
-        </div>
+    <button
+      class="visual-base-card"
+      data-base="guanine"
+      draggable="true"
+    >
 
-        <div class="classification-drop-area"
-             id="purine-zone">
-          <span>Place bases here</span>
-        </div>
+      <svg viewBox="0 0 180 130">
 
+        <polygon
+          points="35,35 75,15 110,40 100,82 55,90 28,65"
+          class="ring-shape"
+        />
+
+        <polygon
+          points="110,40 145,30 165,62 140,95 100,82"
+          class="ring-shape"
+        />
+
+      </svg>
+
+      <strong>Guanine</strong>
+      <span>G</span>
+
+    </button>
+
+
+
+    <!-- CYTOSINE -->
+
+    <button
+      class="visual-base-card"
+      data-base="cytosine"
+      draggable="true"
+    >
+
+      <svg viewBox="0 0 180 130">
+
+        <polygon
+          points="50,25 115,25 145,65 115,105 50,105 22,65"
+          class="ring-shape"
+        />
+
+      </svg>
+
+      <strong>Cytosine</strong>
+      <span>C</span>
+
+    </button>
+
+
+
+    <!-- THYMINE -->
+
+    <button
+      class="visual-base-card"
+      data-base="thymine"
+      draggable="true"
+    >
+
+      <svg viewBox="0 0 180 130">
+
+        <polygon
+          points="50,25 115,25 145,65 115,105 50,105 22,65"
+          class="ring-shape"
+        />
+
+      </svg>
+
+      <strong>Thymine</strong>
+      <span>T</span>
+
+    </button>
+
+  </div>
+
+
+
+  <div class="classification-workspace">
+
+    <div
+      class="classification-zone"
+      data-category="purine"
+    >
+
+      <h2>Purines</h2>
+
+      <div class="ring-key">
+        Two-ring structure
       </div>
 
-
-      <div class="classification-zone" data-category="pyrimidine">
-
-        <div class="classification-title">
-          <h3>Pyrimidines</h3>
-          <p>Single-ring bases</p>
-        </div>
-
-        <div class="classification-drop-area"
-             id="pyrimidine-zone">
-          <span>Place bases here</span>
-        </div>
-
+      <div
+        class="base-drop-area"
+        id="purine-drop"
+      >
+        Drop bases here
       </div>
 
     </div>
 
 
-    <div class="action-row">
+    <div
+      class="classification-zone"
+      data-category="pyrimidine"
+    >
 
-      <button id="check-stage2" class="check-button">
-        Check My Classification
-      </button>
+      <h2>Pyrimidines</h2>
 
-      <button id="reset-stage2" class="secondary-button">
-        Reset
-      </button>
+      <div class="ring-key">
+        One-ring structure
+      </div>
+
+      <div
+        class="base-drop-area"
+        id="pyrimidine-drop"
+      >
+        Drop bases here
+      </div>
 
     </div>
 
-
-    <div id="feedback-stage2"
-         class="feedback-box"
-         aria-live="polite">
-    </div>
-
-  </section>
+  </div>
 
 
-  <section class="remember-card">
-
-    <span class="remember-label">REMEMBER</span>
-
-    <p>
-      Purines are adenine and guanine.
-      Pyrimidines are cytosine and thymine.
-    </p>
-
-  </section>
+  <button
+    id="check-stage2"
+    class="check-button"
+  >
+    Check My Classification
+  </button>
 
 
-  <nav class="stage-navigation">
+  <div
+    id="stage2-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
 
-    <a href="stage1.html" class="nav-button back-button">
-      ← Stage 1
-    </a>
+</section>
 
-    <a href="stage3.html"
-       id="stage2-next"
-       class="nav-button next-button locked"
-       aria-disabled="true">
-      Stage 3 →
-    </a>
 
-  </nav>
+
+<section class="lab-notebook">
+
+  <h2>Lab Notebook</h2>
+
+  <label for="stage2-note">
+    What structural difference separates purines from pyrimidines?
+  </label>
+
+  <textarea
+    id="stage2-note"
+    data-save-field="stage2Note"
+    placeholder="Record your observation..."
+  ></textarea>
+
+</section>
+
+
+
+<nav class="stage-navigation">
+
+  <a href="stage1.html" class="nav-button back-button">
+    ← Stage 1
+  </a>
+
+  <a
+    href="stage3.html"
+    id="stage2-next"
+    class="nav-button next-button locked"
+  >
+    Continue to Stage 3 →
+  </a>
+
+</nav>
 
 </main>
-
-
-<footer>
-  Biology 30 • DNA Structure
-</footer>
 
 <script src="script.js"></script>
 
