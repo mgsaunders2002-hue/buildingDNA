@@ -2463,3 +2463,236 @@ footer {
   }
 
 }
+/* =========================================================
+   REVISED STAGE 2 — ADVANCED BASE ANALYSIS
+   ========================================================= */
+
+.advanced-base-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  margin-bottom: 26px;
+}
+
+
+.advanced-base-card {
+  padding: 22px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+
+.advanced-base-card h3 {
+  margin-bottom: 8px;
+
+  text-align: center;
+}
+
+
+.advanced-base-svg {
+  width: 100%;
+  height: 185px;
+
+  margin-bottom: 15px;
+}
+
+
+.chemical-ring {
+  fill: rgba(128, 102, 188, 0.08);
+
+  stroke: var(--navy-700);
+  stroke-width: 4;
+
+  stroke-linejoin: round;
+}
+
+
+.atom-label {
+  fill: var(--navy-950);
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+
+.substituent-label {
+  fill: var(--navy-900);
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+.base-analysis-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+.base-analysis-controls label {
+  color: var(--navy-900);
+
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+
+.base-analysis-controls select {
+  width: 100%;
+
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   STAGE 2 APPLICATION
+   ========================================================= */
+
+.stage2-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  margin: 24px 0;
+}
+
+
+.application-question {
+  padding: 20px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+
+.application-question h3 {
+  min-height: 48px;
+
+  margin-bottom: 16px;
+
+  font-size: 1rem;
+}
+
+
+.application-question label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 9px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 9px;
+
+  background: var(--white);
+
+  cursor: pointer;
+}
+
+
+.application-question label:has(input:checked) {
+  border-color: var(--teal-500);
+
+  background: var(--teal-100);
+}
+
+
+/* =========================================================
+   STAGE 2 CHARGAFF DATA
+   ========================================================= */
+
+.stage2-data-box {
+  max-width: 760px;
+
+  margin: 20px 0;
+  padding: 18px 20px;
+
+  border-left: 5px solid var(--blue-500);
+  border-radius: 10px;
+
+  background: rgba(76, 143, 216, 0.09);
+}
+
+
+.stage2-data-box p:last-child {
+  margin-bottom: 0;
+}
+
+
+.stage2-calculation-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* =========================================================
+   STAGE 2 SUMMARY
+   ========================================================= */
+
+.stage2-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+
+.stage2-summary-grid > div {
+  padding: 14px;
+
+  border: 1px solid rgba(63, 158, 112, 0.25);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+
+.stage2-summary-grid strong {
+  display: block;
+
+  margin-bottom: 4px;
+}
+
+
+.stage2-summary-grid span {
+  color: var(--grey-700);
+
+  font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   STAGE 2 RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .stage2-application-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage2-calculation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .advanced-base-grid,
+  .base-analysis-controls,
+  .stage2-calculation-grid,
+  .stage2-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
