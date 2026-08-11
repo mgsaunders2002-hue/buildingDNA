@@ -2300,3 +2300,424 @@ footer {
   }
 
 }
+/* =========================================================
+   REVISED STAGE 1 — ADVANCED NUCLEOTIDE INVESTIGATION
+   ========================================================= */
+
+.stage1-investigation {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.4fr);
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.molecular-parts-panel,
+.nucleotide-construction-panel {
+  padding: 26px;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-md);
+}
+
+.panel-heading {
+  margin-bottom: 24px;
+}
+
+.panel-label,
+.analysis-label,
+.reveal-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--teal-500);
+  font-size: 0.73rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.panel-heading h2 {
+  margin-bottom: 8px;
+  color: var(--navy-900);
+}
+
+.panel-heading p {
+  margin-bottom: 0;
+  color: var(--grey-500);
+  font-size: 0.9rem;
+}
+
+.molecular-parts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.unknown-molecule-piece {
+  position: relative;
+  min-height: 175px;
+  padding: 18px 12px 12px;
+
+  border: 2px solid var(--grey-200);
+  border-radius: 16px;
+
+  background: var(--white);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.unknown-molecule-piece:hover,
+.unknown-molecule-piece:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--teal-500);
+  box-shadow: var(--shadow-sm);
+}
+
+.unknown-molecule-piece.selected-piece {
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 4px rgba(43, 183, 169, 0.13);
+}
+
+.unknown-molecule-piece svg {
+  width: 100%;
+  height: 120px;
+}
+
+.piece-letter {
+  position: absolute;
+  top: 10px;
+  left: 11px;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--navy-900);
+  color: var(--white);
+
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.molecule-small-label {
+  fill: var(--navy-900);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.ribose-shape {
+  fill: var(--coral-200);
+  stroke: var(--coral-500);
+  stroke-width: 5;
+}
+
+.base-ring-shape {
+  fill: var(--purple-200);
+  stroke: var(--purple-500);
+  stroke-width: 5;
+}
+
+.uracil-shape {
+  fill: var(--grey-200);
+  stroke: var(--grey-500);
+  stroke-width: 5;
+}
+
+.structure-line {
+  stroke: var(--navy-700);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+
+/* Construction area */
+
+.advanced-nucleotide-bench {
+  min-height: 350px;
+
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 70px minmax(120px, 1fr) 70px minmax(120px, 1fr);
+  align-items: center;
+
+  padding: 30px;
+
+  border: 2px dashed var(--grey-300);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(43, 183, 169, 0.06),
+      transparent 55%
+    ),
+    var(--grey-50);
+}
+
+.nucleotide-position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.position-number {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+
+  border-radius: 50%;
+
+  background: var(--navy-900);
+  color: var(--white);
+
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.advanced-drop-zone {
+  width: 100%;
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+
+  border: 3px dashed var(--grey-300);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--grey-500);
+
+  text-align: center;
+
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.advanced-drop-zone.drag-over {
+  transform: scale(1.03);
+  border-color: var(--teal-500);
+  background: rgba(43, 183, 169, 0.08);
+}
+
+.advanced-drop-zone.model-correct {
+  border-style: solid;
+  border-color: var(--green-500);
+  background: var(--green-100);
+}
+
+.advanced-drop-zone.model-error {
+  border-color: var(--red-500);
+  background: var(--red-100);
+}
+
+.molecular-connection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.molecular-connection span {
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--grey-300);
+}
+
+.nucleotide-construction-panel.model-verified
+.molecular-connection span {
+  background: var(--navy-700);
+}
+
+.construction-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+/* Correct model reveal */
+
+.structure-reveal {
+  margin-top: 24px;
+  padding: 22px;
+
+  border-left: 5px solid var(--green-500);
+  border-radius: 12px;
+
+  background: var(--green-100);
+}
+
+.hidden-content {
+  display: none;
+}
+
+.structure-reveal.visible {
+  display: block;
+}
+
+.structure-reveal h3 {
+  margin-bottom: 18px;
+  color: #245f41;
+}
+
+.verified-components {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.verified-component {
+  padding: 15px;
+
+  border: 1px solid rgba(76, 168, 120, 0.25);
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.verified-component strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy-900);
+}
+
+.verified-component span {
+  color: var(--grey-700);
+  font-size: 0.84rem;
+}
+
+
+/* Analysis section */
+
+.stage-analysis {
+  margin: 30px 0;
+  padding: 28px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.analysis-heading {
+  margin-bottom: 20px;
+}
+
+.analysis-heading h2 {
+  margin-bottom: 0;
+  color: var(--navy-900);
+}
+
+.analysis-question-card {
+  max-width: 900px;
+}
+
+.analysis-question {
+  margin-bottom: 20px;
+
+  color: var(--grey-700);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.analysis-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.analysis-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 15px;
+
+  border: 2px solid var(--grey-200);
+  border-radius: 12px;
+
+  background: var(--grey-50);
+
+  cursor: pointer;
+}
+
+.analysis-option:has(input:checked) {
+  border-color: var(--teal-500);
+  background: rgba(43, 183, 169, 0.08);
+}
+
+.reasoning-label {
+  display: block;
+  margin-bottom: 9px;
+
+  color: var(--navy-900);
+  font-weight: 750;
+}
+
+
+/* Stage 1 responsiveness */
+
+@media (max-width: 980px) {
+
+  .stage1-investigation {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 760px) {
+
+  .advanced-nucleotide-bench {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .molecular-connection {
+    width: 6px;
+    height: 38px;
+    margin: auto;
+  }
+
+  .molecular-connection span {
+    width: 5px;
+    height: 100%;
+  }
+
+  .advanced-drop-zone {
+    width: min(100%, 300px);
+  }
+
+  .analysis-options,
+  .verified-components {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .molecular-parts-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
