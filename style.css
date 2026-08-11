@@ -944,9 +944,9 @@ input[type="number"] {
 .molecule-card {
   position: relative;
 
-  min-height: 190px;
+  min-height: 216px;
 
-  padding: 18px 12px 12px;
+  padding: 20px 14px 14px;
 
   border: 2px solid var(--grey-200);
   border-radius: 16px;
@@ -978,6 +978,7 @@ input[type="number"] {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 1;
 
   width: 30px;
   height: 30px;
@@ -997,11 +998,16 @@ input[type="number"] {
 
 .molecule-svg {
   width: 100%;
-  height: 135px;
+  height: 160px;
+  margin-top: 6px;
+
+  overflow: visible;
 }
 
 .atom {
   stroke-width: 3;
+
+  filter: drop-shadow(0 2px 3px rgba(7, 21, 33, 0.12));
 }
 
 .atom.phosphorus {
@@ -1014,35 +1020,63 @@ input[type="number"] {
   stroke: var(--blue-500);
 }
 
+.atom-symbol {
+  fill: var(--navy-800);
+  font-size: 13px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
 .bond {
   stroke: var(--navy-700);
   stroke-width: 4;
   stroke-linecap: round;
 }
 
+.bond.bond-thin {
+  stroke: var(--grey-500);
+  stroke-width: 3;
+}
+
 .sugar-ring {
   fill: var(--blue-200);
   stroke: var(--blue-500);
   stroke-width: 5;
+  stroke-linejoin: round;
+
+  filter: drop-shadow(0 3px 4px rgba(7, 21, 33, 0.10));
 }
 
 .base-ring {
   fill: var(--purple-200);
   stroke: var(--purple-500);
   stroke-width: 5;
+  stroke-linejoin: round;
+
+  filter: drop-shadow(0 3px 4px rgba(7, 21, 33, 0.10));
 }
 
 .base-symbol {
   fill: var(--navy-900);
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 900;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
 
-.carbon-label,
+.carbon-label {
+  fill: var(--grey-500);
+  font-size: 12px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
 .group-label {
   fill: var(--navy-900);
   font-size: 14px;
   font-weight: 800;
+  text-anchor: middle;
 }
 
 
