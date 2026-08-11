@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stage 3 | Build the Complement</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="course-label">BIOLOGY 30</div>
+    <div class="site-title">DNA Builder</div>
+  </div>
+</header>
+
+
+<div class="progress-wrapper">
+
+  <div class="progress-label">
+    <span>Stage 3 of 6</span>
+    <span>Complementary Base Pairing</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill progress-3"></div>
+  </div>
+
+</div>
+
+
+<main class="activity-page">
+
+  <section class="stage-heading">
+
+    <span class="stage-number">STAGE 03</span>
+
+    <h1>Build the Complementary Strand</h1>
+
+    <p>
+      One DNA strand has already been constructed.
+      Use the base-pairing rules to build its complementary strand.
+    </p>
+
+  </section>
+
+
+  <section class="challenge-panel">
+
+    <div class="challenge-header">
+
+      <span class="challenge-label">YOUR TASK</span>
+
+      <h2>Complete the second DNA strand.</h2>
+
+      <p>
+        Select the correct complementary base for each position.
+      </p>
+
+    </div>
+
+
+    <div class="pairing-reminder">
+
+      <span>A ↔ T</span>
+      <span>C ↔ G</span>
+
+    </div>
+
+
+    <div class="dna-sequence-builder">
+
+      <div class="strand-label">
+        Original Strand
+      </div>
+
+
+      <div class="sequence-row template-strand">
+
+        <span class="end-label">5′</span>
+
+        <div class="dna-base adenine">A</div>
+        <div class="dna-base thymine">T</div>
+        <div class="dna-base guanine">G</div>
+        <div class="dna-base cytosine">C</div>
+        <div class="dna-base cytosine">C</div>
+        <div class="dna-base adenine">A</div>
+        <div class="dna-base thymine">T</div>
+        <div class="dna-base guanine">G</div>
+
+        <span class="end-label">3′</span>
+
+      </div>
+
+
+      <div class="hydrogen-bond-row">
+
+        <span></span>
+
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+        <span class="bond-marker">⋮</span>
+
+        <span></span>
+
+      </div>
+
+
+      <div class="strand-label">
+        Your Complementary Strand
+      </div>
+
+
+      <div class="sequence-row student-strand">
+
+        <span class="end-label">3′</span>
+
+        <button class="base-slot empty-base"
+                data-position="0">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="1">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="2">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="3">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="4">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="5">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="6">?</button>
+
+        <button class="base-slot empty-base"
+                data-position="7">?</button>
+
+        <span class="end-label">5′</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="base-selector">
+
+      <p>Select a base:</p>
+
+      <button class="selector-base" data-letter="A">A</button>
+      <button class="selector-base" data-letter="T">T</button>
+      <button class="selector-base" data-letter="C">C</button>
+      <button class="selector-base" data-letter="G">G</button>
+
+    </div>
+
+
+    <div class="action-row">
+
+      <button id="check-stage3" class="check-button">
+        Check My Strand
+      </button>
+
+      <button id="reset-stage3" class="secondary-button">
+        Reset
+      </button>
+
+    </div>
+
+
+    <div id="feedback-stage3"
+         class="feedback-box"
+         aria-live="polite">
+    </div>
+
+  </section>
+
+
+  <nav class="stage-navigation">
+
+    <a href="stage2.html" class="nav-button back-button">
+      ← Stage 2
+    </a>
+
+    <a href="stage4.html"
+       id="stage3-next"
+       class="nav-button next-button locked"
+       aria-disabled="true">
+      Stage 4 →
+    </a>
+
+  </nav>
+
+</main>
+
+
+<footer>
+  Biology 30 • DNA Structure
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
