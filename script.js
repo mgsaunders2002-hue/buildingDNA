@@ -24,10 +24,20 @@ const defaultLabData = {
   },
 
   stage1: {
-    phosphate: false,
-    deoxyribose: false,
-    base: false
+  model: {
+    phosphate: "",
+    deoxyribose: "",
+    base: ""
   },
+
+  attempts: 0,
+
+  modelVerified: false,
+
+  analysisCorrect: false,
+
+  variableComponent: ""
+},
 
   stage2: {
     adenine: "",
