@@ -1148,15 +1148,17 @@ function setupStage1() {
         labData.stage1.model;
 
 
+      const slotChecks = {
+        phosphate: model.phosphate === "phosphate",
+        sugar: model.sugar === "deoxyribose",
+        base: model.base === "dna-base"
+      };
+
+
       const correct =
-        model.phosphate ===
-          "phosphate" &&
-
-        model.sugar ===
-          "deoxyribose" &&
-
-        model.base ===
-          "dna-base";
+        slotChecks.phosphate &&
+        slotChecks.sugar &&
+        slotChecks.base;
 
 
       if (correct) {
@@ -1207,8 +1209,86 @@ function setupStage1() {
         saveLabData();
 
 
-        showStage1Hint(
-          modelFeedback
+        /* Mark exactly which site(s) are wrong */
+
+        sites.forEach(site => {
+
+          const siteName =
+            site.dataset.site;
+
+
+          const isEmpty =
+            !model[siteName];
+
+
+          const isWrong =
+            !isEmpty &&
+            !slotChecks[siteName];
+
+
+          site.classList.toggle(
+            "error-site",
+            isWrong
+          );
+
+
+          site.classList.remove(
+            "correct-site"
+          );
+
+        });
+
+
+        const wrongSlots =
+          Object.entries(slotChecks)
+            .filter(([, ok]) => !ok)
+            .map(([slot]) => slot);
+
+
+        const slotLabels = {
+          phosphate: "phosphate site",
+          sugar: "sugar site",
+          base: "base site"
+        };
+
+
+        const namedWrong =
+          wrongSlots
+            .filter(slot => model[slot])
+            .map(slot => slotLabels[slot]);
+
+
+        const namedEmpty =
+          wrongSlots
+            .filter(slot => !model[slot])
+            .map(slot => slotLabels[slot]);
+
+
+        let specificMessage = "";
+
+
+        if (namedWrong.length) {
+
+          specificMessage +=
+            `The structure in your <strong>${namedWrong.join(" and ")}</strong> is incorrect.<br>`;
+
+        }
+
+
+        if (namedEmpty.length) {
+
+          specificMessage +=
+            `Your <strong>${namedEmpty.join(" and ")}</strong> ${namedEmpty.length > 1 ? "are" : "is"} still empty.<br>`;
+
+        }
+
+
+        showFeedback(
+          modelFeedback,
+          "hint",
+          specificMessage +
+          "<br>" +
+          getStage1SlotHint(labData.stage1.attempts)
         );
 
       }
@@ -1556,70 +1636,26 @@ function restoreStage1Model() {
 
 
 
-function showStage1Hint(
-  feedback
+function getStage1SlotHint(
+  attempt
 ) {
 
-  const attempt =
-    labData.stage1.attempts;
+  if (attempt <= 2) {
 
+    return `
+      Reconsider the structure in the site marked in red above.
+    `;
 
-  if (attempt === 1) {
-
-    showFeedback(
-      feedback,
-      "hint",
-      `
-        Your model contains at least one incorrect component
-        or connection. Reconsider which three types of
-        structure make up a DNA nucleotide.
-      `
-    );
-
-    return;
   }
 
 
-  if (attempt === 2) {
-
-    showFeedback(
-      feedback,
-      "hint",
-      `
-        Examine the two five-carbon sugars carefully.
-        Look specifically at the group attached to the
-        <strong>2′ carbon</strong>.
-      `
-    );
-
-    return;
-  }
-
-
-  if (attempt === 3) {
-
-    showFeedback(
-      feedback,
-      "hint",
-      `
-        One nitrogenous base in the parts tray belongs to RNA
-        rather than DNA.
-      `
-    );
-
-    return;
-  }
-
-
-  showFeedback(
-    feedback,
-    "hint",
-    `
-      A DNA nucleotide requires a phosphate group,
-      the five-carbon sugar found in DNA, and one of
-      the nitrogenous bases found in DNA.
-    `
-  );
+  return `
+    Remember: the sugar found in DNA has an
+    <strong>H</strong> at the 2′ carbon (not an
+    <strong>OH</strong> — that sugar is ribose, found in RNA),
+    and the base must be one of the four nitrogenous bases
+    found in DNA (not uracil, which is found only in RNA).
+  `;
 
 }
 
