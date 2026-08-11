@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 4 | Construct the Complementary Strand</title>
 
-<title>Stage 4 | Build the Complementary Strand</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body data-page="stage4">
 
@@ -26,7 +23,7 @@
 
     <div class="save-status">
       <span id="student-display"></span>
-      <span>✓ Saved</span>
+      <span id="save-status">✓ Saved</span>
     </div>
 
   </div>
@@ -38,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 4 of 6</span>
-    <strong>Build the Complementary Strand</strong>
+    <strong>Construct the Complementary Strand</strong>
   </div>
 
   <div class="progress-bar">
@@ -52,150 +49,145 @@
 
 <section class="stage-heading">
 
-  <span class="stage-number">
-    STAGE 04
-  </span>
+  <span class="stage-number">STAGE 04</span>
 
-  <h1>
-    Build the Complementary Strand
-  </h1>
+  <h1>Construct the Complementary Strand</h1>
 
   <p>
-    Use complementary base pairing to construct the second DNA strand.
-    Correct base pairs will form hydrogen bonds.
+    Use the existing DNA strand as a template.
+    Build the second strand using the molecular relationships
+    you learned in class.
   </p>
 
 </section>
 
 
+<section class="lab-panel">
 
-<section class="double-strand-lab">
-
-  <div class="dna-ladder-builder">
-
-    <div class="strand-end-labels">
-      <span>5′</span>
-      <span>3′</span>
-    </div>
+  <div class="dna-ladder-workspace">
 
 
-    <div class="template-dna-row">
+    <!-- TOP STRAND -->
 
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-a">A</span>
-      </div>
+    <div class="strand-row template-row">
 
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-t">T</span>
-      </div>
+      <span class="strand-end-label">5′</span>
 
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-g">G</span>
-      </div>
+      <span class="dna-base base-a">A</span>
+      <span class="dna-base base-t">T</span>
+      <span class="dna-base base-g">G</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-c">C</span>
+      <span class="dna-base base-a">A</span>
 
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-c">C</span>
-      </div>
-
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-c">C</span>
-      </div>
-
-      <div class="built-nucleotide">
-        <span class="backbone-unit">P</span>
-        <span class="backbone-unit sugar">D</span>
-        <span class="dna-base base-a">A</span>
-      </div>
+      <span class="strand-end-label">3′</span>
 
     </div>
 
 
+    <!-- BOND ZONES -->
 
-    <div class="hydrogen-bond-layer">
+    <div class="bond-row">
 
-      <div class="bond-zone" data-position="0"></div>
-      <div class="bond-zone" data-position="1"></div>
-      <div class="bond-zone" data-position="2"></div>
-      <div class="bond-zone" data-position="3"></div>
-      <div class="bond-zone" data-position="4"></div>
-      <div class="bond-zone" data-position="5"></div>
+      <div class="hydrogen-bond-zone" data-position="0"></div>
+      <div class="hydrogen-bond-zone" data-position="1"></div>
+      <div class="hydrogen-bond-zone" data-position="2"></div>
+      <div class="hydrogen-bond-zone" data-position="3"></div>
+      <div class="hydrogen-bond-zone" data-position="4"></div>
+      <div class="hydrogen-bond-zone" data-position="5"></div>
 
     </div>
 
 
+    <!-- STUDENT STRAND -->
 
-    <div
-      id="complementary-strand-builder"
-      class="complementary-strand-builder"
-    >
+    <div class="strand-row student-complement-row">
 
-      <div class="complement-slot" data-position="0"></div>
-      <div class="complement-slot" data-position="1"></div>
-      <div class="complement-slot" data-position="2"></div>
-      <div class="complement-slot" data-position="3"></div>
-      <div class="complement-slot" data-position="4"></div>
-      <div class="complement-slot" data-position="5"></div>
+      <span class="strand-end-label pending-direction">?</span>
+
+      <button class="complement-position" data-position="0" type="button">?</button>
+      <button class="complement-position" data-position="1" type="button">?</button>
+      <button class="complement-position" data-position="2" type="button">?</button>
+      <button class="complement-position" data-position="3" type="button">?</button>
+      <button class="complement-position" data-position="4" type="button">?</button>
+      <button class="complement-position" data-position="5" type="button">?</button>
+
+      <span class="strand-end-label pending-direction">?</span>
 
     </div>
 
   </div>
 
 
+  <div class="base-bank">
 
-  <div class="nucleotide-bank">
-
-    <h2>Available Nucleotides</h2>
-
-    <button class="base-choice base-a" data-base="A">
-      A
-    </button>
-
-    <button class="base-choice base-t" data-base="T">
-      T
-    </button>
-
-    <button class="base-choice base-c" data-base="C">
-      C
-    </button>
-
-    <button class="base-choice base-g" data-base="G">
-      G
-    </button>
+    <button type="button" class="base-bank-button base-a" data-base="A">A</button>
+    <button type="button" class="base-bank-button base-t" data-base="T">T</button>
+    <button type="button" class="base-bank-button base-c" data-base="C">C</button>
+    <button type="button" class="base-bank-button base-g" data-base="G">G</button>
 
   </div>
 
 
-  <button id="check-stage4" class="check-button">
-    Test My Base Pairing
+  <button
+    id="check-stage4-complement"
+    class="check-button"
+    type="button"
+  >
+    Validate Complementary Pairing
   </button>
 
 
   <div
     id="stage4-feedback"
     class="feedback-box"
-    aria-live="polite"
   ></div>
 
 </section>
 
 
+<section class="analysis-section">
 
-<section class="lab-notebook">
+  <span class="panel-label">MOLECULAR ANALYSIS</span>
 
-  <h2>Lab Notebook</h2>
+  <h2>Analyze the bonds in your molecule.</h2>
 
-  <label for="stage4-note">
-    Why is the second DNA strand described as complementary?
+
+  <div class="calculation-grid">
+
+    <label>
+      A–T base pairs
+      <input
+        id="stage4-at-pairs"
+        type="number"
+        min="0"
+      >
+    </label>
+
+    <label>
+      G–C base pairs
+      <input
+        id="stage4-gc-pairs"
+        type="number"
+        min="0"
+      >
+    </label>
+
+    <label>
+      Total hydrogen bonds
+      <input
+        id="stage4-hydrogen-bonds"
+        type="number"
+        min="0"
+      >
+    </label>
+
+  </div>
+
+
+  <label for="stage4-note" class="response-label">
+    Explain why a DNA region containing more G–C pairs
+    would generally require more energy to separate.
   </label>
 
   <textarea
@@ -203,8 +195,22 @@
     data-save-field="stage4Note"
   ></textarea>
 
-</section>
 
+  <button
+    id="check-stage4-analysis"
+    class="check-button"
+    type="button"
+  >
+    Submit Molecular Analysis
+  </button>
+
+
+  <div
+    id="stage4-analysis-feedback"
+    class="feedback-box"
+  ></div>
+
+</section>
 
 
 <nav class="stage-navigation">
@@ -224,6 +230,10 @@
 </nav>
 
 </main>
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
 
 <script src="script.js"></script>
 
