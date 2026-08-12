@@ -1129,75 +1129,81 @@ input[type="number"] {
 
 
 /* =========================================================
-   23. STAGE 3
+   /* =========================================================
+   STAGE 3 — ADVANCED STRAND CONSTRUCTION
    ========================================================= */
 
-.target-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+.stage3-parts-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 
-  margin-bottom: 24px;
-  padding: 16px 20px;
-
-  border-left: 5px solid var(--teal-500);
-  border-radius: 10px;
-
-  background: var(--teal-100);
+  margin: 24px 0 30px;
 }
 
-.nucleotide-bank,
-.base-bank {
+.stage3-bank-section {
+  padding: 18px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+.stage3-bank-section h3 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.stage3-bank-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-
-  margin: 22px 0;
+  gap: 10px;
 }
 
-.whole-nucleotide {
-  display: grid;
-  grid-template-columns: 42px 42px 42px;
+.stage3-part {
+  min-width: 58px;
+  height: 58px;
+
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
 
-  padding: 12px;
-
-  border: 2px solid var(--grey-200);
-  border-radius: 13px;
+  border: 2px solid var(--grey-300);
+  border-radius: 11px;
 
   background: var(--white);
+
+  font-weight: 900;
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
-.nt-phosphate {
-  width: 40px;
-  height: 40px;
+.stage3-part:hover,
+.stage3-part.selected-piece {
+  transform: translateY(-2px);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-color: var(--teal-500);
+  box-shadow: var(--shadow-sm);
+}
 
-  border: 3px solid var(--gold-500);
+.phosphate-part {
   border-radius: 50%;
 
+  border-color: var(--gold-500);
   background: var(--gold-200);
 
-  font-weight: 900;
+  color: #735517;
 }
 
-.nt-sugar {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+.sugar-part {
+  border-color: var(--blue-500);
   background: var(--blue-200);
 
-  font-weight: 900;
+  color: #2d6598;
 
   clip-path:
     polygon(
@@ -1209,51 +1215,386 @@ input[type="number"] {
     );
 }
 
-.nt-base {
-  width: 42px;
-  height: 42px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* =========================================================
+   STAGE 3 — STRAND BUILDER
+   ========================================================= */
 
-  border: 2px solid;
-  border-radius: 9px;
-
-  font-weight: 900;
-}
-
-.strand-construction-area {
+.stage3-strand-builder {
   display: grid;
   grid-template-columns: 55px minmax(0, 1fr) 55px;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 
-  padding: 25px;
+  padding: 26px 20px;
 
   border: 2px dashed var(--grey-300);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
 
   background: var(--grey-50);
 }
 
-.strand-build-slots {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+.stage3-direction {
+  color: var(--navy-900);
+
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
 }
 
-.strand-build-slot {
-  min-height: 130px;
+.stage3-nucleotide-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.stage3-nucleotide-slot {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+
+  padding: 9px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
+
+  background: var(--white);
+}
+
+.stage3-component-slot {
+  min-height: 48px;
+
+  border: 2px dashed var(--grey-300);
+  border-radius: 9px;
+
+  background: var(--grey-25);
+  color: var(--grey-500);
+
+  font-weight: 800;
+}
+
+.stage3-component-slot.active-site {
+  border-color: var(--teal-500);
+
+  background: var(--teal-100);
+}
+
+.stage3-component-slot.filled-phosphate {
+  border-style: solid;
+  border-color: var(--gold-500);
+
+  background: var(--gold-200);
+  color: #735517;
+}
+
+.stage3-component-slot.filled-sugar {
+  border-style: solid;
+  border-color: var(--blue-500);
+
+  background: var(--blue-200);
+  color: #2d6598;
+}
+
+.stage3-component-slot.filled-base {
+  border-style: solid;
+}
+
+
+/* =========================================================
+   STAGE 3 — BOND ANALYSIS
+   ========================================================= */
+
+.stage3-bond-model {
+  max-width: 700px;
+
+  display: grid;
+  grid-template-columns: 1fr 110px 1fr;
+  align-items: center;
+  gap: 14px;
+
+  margin: 24px auto;
+
+  padding: 24px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+.mini-nucleotide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.mini-phosphate,
+.mini-sugar,
+.mini-base {
+  width: 46px;
+  height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+}
+
+.mini-phosphate {
+  border: 3px solid var(--gold-500);
+  border-radius: 50%;
+
+  background: var(--gold-200);
+}
+
+.mini-sugar {
+  background: var(--blue-200);
+
+  clip-path:
+    polygon(
+      50% 0%,
+      100% 38%,
+      82% 100%,
+      18% 100%,
+      0% 38%
+    );
+}
+
+.mini-base {
+  border: 2px solid;
+  border-radius: 9px;
+}
+
+.stage3-bond-target {
+  min-height: 46px;
+
+  border: 3px dashed var(--grey-300);
+  border-radius: 10px;
+
+  background: var(--white);
+  color: var(--grey-500);
+
+  font-weight: 800;
+}
+
+.stage3-bond-target.selected-bond {
+  border-style: solid;
+  border-color: var(--teal-500);
+
+  background: var(--teal-100);
+  color: var(--teal-600);
+}
+
+
+/* =========================================================
+   STAGE 3 — MODEL DIAGNOSIS
+   ========================================================= */
+
+.stage3-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  margin: 24px 0;
+}
+
+.stage3-model-card {
+  padding: 20px;
+
+  border: 2px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+.stage3-model-card.selected-model {
+  border-color: var(--teal-500);
+
+  box-shadow:
+    0 0 0 4px rgba(43, 183, 169, 0.12);
+}
+
+.stage3-model-line {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+
+  margin: 20px 0 10px;
+}
+
+.stage3-model-line span,
+.stage3-attached-bases span,
+.stage3-side-phosphates span {
+  min-height: 40px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 3px dashed var(--grey-300);
-  border-radius: 12px;
+  border-radius: 8px;
+
+  font-weight: 900;
+}
+
+.model-p {
+  border: 2px solid var(--gold-500);
+
+  background: var(--gold-200);
+}
+
+.model-d {
+  background: var(--blue-200);
+}
+
+.model-base {
+  border: 2px solid var(--purple-500);
+
+  background: var(--purple-200);
+}
+
+.stage3-attached-bases,
+.stage3-side-phosphates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin-bottom: 16px;
+}
+
+.stage3-attached-bases span {
+  border: 2px solid var(--purple-500);
+
+  background: var(--purple-200);
+}
+
+.stage3-side-phosphates span {
+  border: 2px solid var(--gold-500);
+  border-radius: 50%;
+
+  background: var(--gold-200);
+}
+
+.model-warning {
+  min-height: 48px;
+
+  color: var(--grey-500);
+
+  font-size: 0.82rem;
+}
+
+.stage3-model-select {
+  width: 100%;
+
+  min-height: 44px;
+
+  border: 2px solid var(--navy-700);
+  border-radius: 10px;
 
   background: var(--white);
+  color: var(--navy-900);
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   STAGE 3 — SEQUENCE CHANGE
+   ========================================================= */
+
+.stage3-sequence-change {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 18px;
+
+  margin: 22px 0;
+
+  padding: 20px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+}
+
+.stage3-sequence-change > div:not(.sequence-arrow) {
+  padding: 18px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 11px;
+
+  background: var(--white);
+}
+
+.stage3-sequence-change span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--grey-500);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stage3-sequence-change strong {
+  color: var(--navy-900);
+
+  font-family: "Courier New", monospace;
+}
+
+.sequence-arrow {
+  color: var(--teal-500);
+
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+
+/* =========================================================
+   STAGE 3 — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .stage3-parts-bank,
+  .stage3-model-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage3-nucleotide-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .stage3-strand-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .stage3-direction {
+    display: none;
+  }
+
+  .stage3-nucleotide-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stage3-bond-model,
+  .stage3-sequence-change {
+    grid-template-columns: 1fr;
+  }
+
+  .sequence-arrow {
+    transform: rotate(90deg);
+  }
+
 }
 
 
