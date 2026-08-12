@@ -60,26 +60,27 @@ const defaultLabData = {
   },
 
   stage3: {
-    components: [
-      { phosphate: "", sugar: "", base: "" },
-      { phosphate: "", sugar: "", base: "" },
-      { phosphate: "", sugar: "", base: "" },
-      { phosphate: "", sugar: "", base: "" },
-      { phosphate: "", sugar: "", base: "" },
-      { phosphate: "", sugar: "", base: "" }
-    ],
+  components: [
+    { phosphate: "", sugar: "", base: "" },
+    { phosphate: "", sugar: "", base: "" },
+    { phosphate: "", sugar: "", base: "" },
+    { phosphate: "", sugar: "", base: "" },
+    { phosphate: "", sugar: "", base: "" },
+    { phosphate: "", sugar: "", base: "" }
+  ],
 
-    buildCorrect: false,
+  buildCorrect: false,
 
-    bondSelected: false,
-    bondAnswer: "",
-    bondCorrect: false,
+  bondChoice: "",
+  bondAnswer: "",
+  bondCorrect: false,
 
-    selectedModel: "",
-    diagnosisCorrect: false,
+  errorAnswer: "",
+  consequenceAnswer: "",
+  diagnosisCorrect: false,
 
-    analysisCorrect: false
-  },
+  analysisCorrect: false
+},
 
   stage4: {
     sequence: ["", "", "", "", "", ""],
@@ -2337,41 +2338,91 @@ function setupStage3() {
     "A"
   ];
 
+
   const parts =
     document.querySelectorAll(
       ".stage3-part"
     );
+
 
   const componentSlots =
     document.querySelectorAll(
       ".stage3-component-slot"
     );
 
+
   const buildFeedback =
     document.querySelector(
       "#stage3-build-feedback"
     );
+
 
   const bondFeedback =
     document.querySelector(
       "#stage3-bond-feedback"
     );
 
+
   const diagnosisFeedback =
     document.querySelector(
       "#stage3-diagnosis-feedback"
     );
+
 
   const analysisFeedback =
     document.querySelector(
       "#stage3-analysis-feedback"
     );
 
-  const bondTarget =
-    document.querySelector(
-      "#stage3-bond-target"
-    );
 
+  /* =====================================================
+     MAKE OLD SAVED DATA COMPATIBLE WITH NEW STAGE 3
+     ===================================================== */
+
+  if (
+    typeof labData.stage3.bondChoice !==
+    "string"
+  ) {
+
+    labData.stage3.bondChoice = "";
+
+  }
+
+
+  if (
+    typeof labData.stage3.bondAnswer !==
+    "string"
+  ) {
+
+    labData.stage3.bondAnswer = "";
+
+  }
+
+
+  if (
+    typeof labData.stage3.errorAnswer !==
+    "string"
+  ) {
+
+    labData.stage3.errorAnswer = "";
+
+  }
+
+
+  if (
+    typeof labData.stage3.consequenceAnswer !==
+    "string"
+  ) {
+
+    labData.stage3.consequenceAnswer = "";
+
+  }
+
+
+
+  /* =====================================================
+     PART A — BUILD THE STRAND
+     ===================================================== */
 
   if (
     !Array.isArray(
@@ -2410,6 +2461,7 @@ function setupStage3() {
     const componentType =
       part.dataset.partType;
 
+
     const componentValue =
       part.dataset.partValue ||
       part.dataset.base ||
@@ -2420,6 +2472,7 @@ function setupStage3() {
             ? "deoxyribose"
             : ""
       );
+
 
     const partData = {
       type: "stage3-component",
@@ -2456,8 +2509,11 @@ function setupStage3() {
           data.type !==
           "stage3-component"
         ) {
+
           return;
+
         }
+
 
         placeStage3Component(
           slot,
@@ -2483,6 +2539,7 @@ function setupStage3() {
           const selectedType =
             selectedPiece.dataset.partType;
 
+
           const selectedValue =
             selectedPiece.dataset.partValue ||
             selectedPiece.dataset.base ||
@@ -2501,6 +2558,7 @@ function setupStage3() {
             selectedValue
           );
 
+
           clearSelectedPiece();
 
           return;
@@ -2512,6 +2570,7 @@ function setupStage3() {
           Number(
             slot.dataset.position
           );
+
 
         const component =
           slot.dataset.component;
@@ -2527,9 +2586,11 @@ function setupStage3() {
             position
           ][component] = "";
 
+
           resetStage3CompletionFrom(
             "build"
           );
+
 
           saveLabData();
 
@@ -2548,6 +2609,7 @@ function setupStage3() {
 
 
   renderStage3Build();
+
 
 
   document
@@ -2575,6 +2637,7 @@ function setupStage3() {
 
           saveLabData();
 
+
           showFeedback(
             buildFeedback,
             "hint",
@@ -2599,8 +2662,10 @@ function setupStage3() {
             if (
               component.phosphate !==
                 "phosphate" ||
+
               component.sugar !==
                 "deoxyribose" ||
+
               component.base !==
                 targetBases[index]
             ) {
@@ -2623,6 +2688,7 @@ function setupStage3() {
             false;
 
           saveLabData();
+
 
           showFeedback(
             buildFeedback,
@@ -2647,9 +2713,11 @@ function setupStage3() {
         labData.stage3.buildCorrect =
           true;
 
+
         saveLabData();
 
         renderStage3Build();
+
 
         showFeedback(
           buildFeedback,
@@ -2663,6 +2731,7 @@ function setupStage3() {
 
       }
     );
+
 
 
   document
@@ -2680,11 +2749,14 @@ function setupStage3() {
             base: ""
           }));
 
+
         resetStage3CompletionFrom(
           "build"
         );
 
+
         clearSelectedPiece();
+
 
         saveLabData();
 
@@ -2698,63 +2770,85 @@ function setupStage3() {
     );
 
 
-  if (
-    labData.stage3.bondSelected
-  ) {
 
-    bondTarget?.classList.add(
-      "selected-bond"
+  /* =====================================================
+     PART B — IDENTIFY BACKBONE CONNECTION
+     ===================================================== */
+
+  const bondChoices =
+    document.querySelectorAll(
+      ".stage3-bond-choice"
     );
 
-    if (bondTarget) {
 
-      bondTarget.textContent =
-        "Bond selected ✓";
+  function renderStage3BondChoice() {
 
-    }
+    bondChoices.forEach(button => {
+
+      const selected =
+        button.dataset.bondChoice ===
+        labData.stage3.bondChoice;
+
+
+      button.classList.toggle(
+        "selected-bond",
+        selected
+      );
+
+
+      button.setAttribute(
+        "aria-pressed",
+        selected
+          ? "true"
+          : "false"
+      );
+
+    });
 
   }
 
 
-  bondTarget?.addEventListener(
-    "click",
-    () => {
+  bondChoices.forEach(button => {
 
-      labData.stage3.bondSelected =
-        !labData.stage3.bondSelected;
+    button.addEventListener(
+      "click",
+      () => {
 
-      labData.stage3.bondCorrect =
-        false;
+        labData.stage3.bondChoice =
+          button.dataset.bondChoice || "";
 
-      labData.stage3.diagnosisCorrect =
-        false;
 
-      labData.stage3.analysisCorrect =
-        false;
+        labData.stage3.bondCorrect =
+          false;
 
-      labData.completedStages.stage3 =
-        false;
+        labData.stage3.diagnosisCorrect =
+          false;
 
-      bondTarget.classList.toggle(
-        "selected-bond",
-        labData.stage3.bondSelected
-      );
+        labData.stage3.analysisCorrect =
+          false;
 
-      bondTarget.textContent =
-        labData.stage3.bondSelected
-          ? "Bond selected ✓"
-          : "Select bond";
+        labData.completedStages.stage3 =
+          false;
 
-      saveLabData();
 
-      lockStage3Next();
+        saveLabData();
 
-      clearFeedback(
-        bondFeedback
-      );
+        renderStage3BondChoice();
 
-    }
-  );
+        lockStage3Next();
+
+        clearFeedback(
+          bondFeedback
+        );
+
+      }
+    );
+
+  });
+
+
+  renderStage3BondChoice();
+
 
 
   document
@@ -2767,12 +2861,14 @@ function setupStage3() {
         option.value ===
         labData.stage3.bondAnswer;
 
+
       option.addEventListener(
         "change",
         () => {
 
           labData.stage3.bondAnswer =
             option.value;
+
 
           labData.stage3.bondCorrect =
             false;
@@ -2786,6 +2882,7 @@ function setupStage3() {
           labData.completedStages.stage3 =
             false;
 
+
           saveLabData();
 
           lockStage3Next();
@@ -2798,6 +2895,7 @@ function setupStage3() {
       );
 
     });
+
 
 
   document
@@ -2817,7 +2915,7 @@ function setupStage3() {
             "hint",
             `
               Validate your molecular strand in Part A before
-              analysing how adjacent nucleotides are connected.
+              analysing the bonds between adjacent nucleotides.
             `
           );
 
@@ -2827,16 +2925,58 @@ function setupStage3() {
 
 
         if (
-          !labData.stage3.bondSelected
+          !labData.stage3.bondChoice
         ) {
 
           showFeedback(
             bondFeedback,
             "hint",
             `
-              Select the connection between the two neighbouring
-              nucleotides in the model before identifying the
-              structures involved.
+              Select Connection A, B or C on the model first.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          labData.stage3.bondChoice !==
+          "backbone"
+        ) {
+
+          labData.stage3.bondCorrect =
+            false;
+
+          saveLabData();
+
+
+          showFeedback(
+            bondFeedback,
+            "hint",
+            `
+              That connection does not join one nucleotide
+              to the next in the sugar-phosphate backbone.
+              Re-examine the model and try another connection.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !labData.stage3.bondAnswer
+        ) {
+
+          showFeedback(
+            bondFeedback,
+            "hint",
+            `
+              You identified the correct location.
+              Now identify the type of bond that forms this linkage.
             `
           );
 
@@ -2855,14 +2995,15 @@ function setupStage3() {
 
           saveLabData();
 
+
           showFeedback(
             bondFeedback,
             "hint",
             `
-              That connection is not correct. Think about the
-              repeating sugar–phosphate backbone of a single
-              DNA strand and distinguish it from hydrogen bonding
-              between complementary bases.
+              You selected the correct backbone connection,
+              but the bond type is not correct.
+              Think about the covalent linkage that connects
+              successive DNA nucleotides.
             `
           );
 
@@ -2874,17 +3015,18 @@ function setupStage3() {
         labData.stage3.bondCorrect =
           true;
 
+
         saveLabData();
+
 
         showFeedback(
           bondFeedback,
           "success",
           `
             <strong>Bond analysis correct.</strong><br>
-            Adjacent nucleotides within one DNA strand are joined
-            by covalent phosphodiester bonds involving the sugar
-            of one nucleotide and the phosphate associated with
-            the next nucleotide.
+            Connection B continues the sugar-phosphate backbone.
+            Adjacent DNA nucleotides are linked by covalent
+            phosphodiester bonds.
           `
         );
 
@@ -2892,18 +3034,29 @@ function setupStage3() {
     );
 
 
+
+  /* =====================================================
+     PART C — STRUCTURAL ERROR ANALYSIS
+     ===================================================== */
+
   document
     .querySelectorAll(
-      ".stage3-model-select"
+      'input[name="stage3-error-answer"]'
     )
-    .forEach(button => {
+    .forEach(option => {
 
-      button.addEventListener(
-        "click",
+      option.checked =
+        option.value ===
+        labData.stage3.errorAnswer;
+
+
+      option.addEventListener(
+        "change",
         () => {
 
-          labData.stage3.selectedModel =
-            button.dataset.model || "";
+          labData.stage3.errorAnswer =
+            option.value;
+
 
           labData.stage3.diagnosisCorrect =
             false;
@@ -2914,9 +3067,8 @@ function setupStage3() {
           labData.completedStages.stage3 =
             false;
 
-          saveLabData();
 
-          renderStage3ModelSelection();
+          saveLabData();
 
           lockStage3Next();
 
@@ -2930,7 +3082,49 @@ function setupStage3() {
     });
 
 
-  renderStage3ModelSelection();
+
+  document
+    .querySelectorAll(
+      'input[name="stage3-consequence-answer"]'
+    )
+    .forEach(option => {
+
+      option.checked =
+        option.value ===
+        labData.stage3.consequenceAnswer;
+
+
+      option.addEventListener(
+        "change",
+        () => {
+
+          labData.stage3.consequenceAnswer =
+            option.value;
+
+
+          labData.stage3.diagnosisCorrect =
+            false;
+
+          labData.stage3.analysisCorrect =
+            false;
+
+          labData.completedStages.stage3 =
+            false;
+
+
+          saveLabData();
+
+          lockStage3Next();
+
+          clearFeedback(
+            diagnosisFeedback
+          );
+
+        }
+      );
+
+    });
+
 
 
   document
@@ -2950,7 +3144,7 @@ function setupStage3() {
             "hint",
             `
               Complete the bond analysis in Part B before
-              submitting your model diagnosis.
+              submitting your structural diagnosis.
             `
           );
 
@@ -2960,15 +3154,14 @@ function setupStage3() {
 
 
         if (
-          !labData.stage3.selectedModel
+          !labData.stage3.errorAnswer
         ) {
 
           showFeedback(
             diagnosisFeedback,
             "hint",
             `
-              Select the model you think correctly represents
-              one DNA strand.
+              Identify the structural error in the DNA model first.
             `
           );
 
@@ -2978,8 +3171,8 @@ function setupStage3() {
 
 
         if (
-          labData.stage3.selectedModel !==
-          "A"
+          labData.stage3.errorAnswer !==
+          "missing-phosphate"
         ) {
 
           labData.stage3.diagnosisCorrect =
@@ -2987,14 +3180,57 @@ function setupStage3() {
 
           saveLabData();
 
+
           showFeedback(
             diagnosisFeedback,
             "hint",
             `
-              Re-examine the organization of the backbone.
-              In a DNA strand, sugars and phosphates repeat along
-              the outside of the molecule, while each nitrogenous
-              base is attached to a deoxyribose sugar.
+              Re-examine the backbone rather than the base sequence.
+              Compare the repeating pattern with the strand
+              you constructed in Part A.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !labData.stage3.consequenceAnswer
+        ) {
+
+          showFeedback(
+            diagnosisFeedback,
+            "hint",
+            `
+              You found the structural error.
+              Now predict its most direct consequence.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          labData.stage3.consequenceAnswer !==
+          "backbone-disrupted"
+        ) {
+
+          labData.stage3.diagnosisCorrect =
+            false;
+
+          saveLabData();
+
+
+          showFeedback(
+            diagnosisFeedback,
+            "hint",
+            `
+              Think about what the missing phosphate does
+              to the continuity of the sugar-phosphate backbone.
             `
           );
 
@@ -3012,7 +3248,7 @@ function setupStage3() {
         if (
           !requireReasoning(
             explanation,
-            80
+            70
           )
         ) {
 
@@ -3020,10 +3256,10 @@ function setupStage3() {
             diagnosisFeedback,
             "hint",
             `
-              Your model choice is correct, but the diagnosis
-              needs more evidence. Explain why the selected model
-              is correct and identify the structural problem in
-              <strong>both</strong> incorrect models.
+              Your diagnosis is correct, but your explanation
+              needs more evidence. Explain how phosphate groups
+              and phosphodiester bonds maintain the continuity
+              of a DNA strand.
             `
           );
 
@@ -3035,21 +3271,29 @@ function setupStage3() {
         labData.stage3.diagnosisCorrect =
           true;
 
+
         saveLabData();
+
 
         showFeedback(
           diagnosisFeedback,
           "success",
           `
-            <strong>Model diagnosis accepted.</strong><br>
-            Model A shows the repeating sugar–phosphate backbone
-            with nitrogenous bases attached to the sugars.
+            <strong>Structural diagnosis accepted.</strong><br>
+            The missing phosphate interrupts the normal
+            sugar-phosphate backbone and prevents the expected
+            phosphodiester linkage between neighbouring nucleotides.
           `
         );
 
       }
     );
 
+
+
+  /* =====================================================
+     PART D — TRANSFER
+     ===================================================== */
 
   document
     .querySelector(
@@ -3098,7 +3342,7 @@ function setupStage3() {
             `
               Expand your explanation. Identify what changes when
               the base sequence changes and what remains constant
-              in the sugar–phosphate backbone.
+              in the sugar-phosphate backbone.
             `
           );
 
@@ -3110,10 +3354,13 @@ function setupStage3() {
         labData.stage3.analysisCorrect =
           true;
 
+
         labData.completedStages.stage3 =
           true;
 
+
         saveLabData();
+
 
         showFeedback(
           analysisFeedback,
@@ -3125,6 +3372,7 @@ function setupStage3() {
             phosphate components of the backbone remain the same.
           `
         );
+
 
         unlockNext(
           "#stage3-next"
@@ -3145,8 +3393,6 @@ function setupStage3() {
   }
 
 }
-
-
 function placeStage3Component(
   slot,
   componentType,
