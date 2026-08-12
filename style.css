@@ -2215,60 +2215,23 @@ footer {
 
 }
 /* =========================================================
-   STAGE 1 — MAKE DEOXYRIBOSE VS RIBOSE VISUALLY DISTINCT
+   STAGE 1 — DEOXYRIBOSE VS RIBOSE
    ========================================================= */
 
-.sugar-diagram {
-  width: 100%;
-  max-width: 190px;
-  margin: 0 auto;
-}
-
-.sugar-ring {
-  fill: #d9ebff;
-  stroke: #4a90e2;
-  stroke-width: 4;
-}
-
-.sugar-atom-label {
-  font-size: 18px;
+.sugar-difference {
+  font-size: 20px;
   font-weight: 800;
-  fill: #0b2239;
+  fill: #17324d;
 }
 
-.carbon-label {
-  font-size: 15px;
-  font-weight: 800;
-  fill: #0b2239;
+.sugar-candidate .sugar-ring {
+  fill: #dbeafe;
+  stroke: #4f86c6;
+  stroke-width: 3;
 }
 
-.sugar-group-label {
-  font-size: 22px;
-  font-weight: 900;
-  fill: #0b2239;
-}
-
-.sugar-candidate .bond-thin {
-  stroke: #0b2239;
-  stroke-width: 4;
+.sugar-candidate .bond {
+  stroke: #17324d;
+  stroke-width: 3;
   stroke-linecap: round;
-}
-
-/* make the 2′ group stand out */
-.sugar-candidate text.sugar-group-label {
-  paint-order: stroke;
-  stroke: #ffffff;
-  stroke-width: 5px;
-}
-
-/* B — deoxyribose */
-.molecule-card[data-piece="deoxyribose"] .sugar-group-label {
-  font-size: 24px;
-  font-weight: 900;
-}
-
-/* C — ribose */
-.molecule-card[data-piece="ribose"] .sugar-group-label {
-  font-size: 24px;
-  font-weight: 900;
 }
