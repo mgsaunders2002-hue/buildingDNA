@@ -143,7 +143,6 @@
       </div>
 
 
-
       <!-- PHOSPHATE -->
 
       <button
@@ -253,7 +252,6 @@
       </button>
 
 
-
       <!-- DEOXYRIBOSE -->
 
       <button
@@ -347,7 +345,6 @@
         </span>
 
       </button>
-
 
 
       <!-- RIBOSE DISTRACTOR -->
@@ -445,7 +442,6 @@
       </button>
 
 
-
       <!-- ADENINE -->
 
       <button
@@ -477,7 +473,6 @@
         </span>
 
       </button>
-
 
 
       <!-- THYMINE -->
@@ -513,7 +508,6 @@
       </button>
 
 
-
       <!-- CYTOSINE -->
 
       <button
@@ -545,7 +539,6 @@
         </span>
 
       </button>
-
 
 
       <!-- GUANINE -->
@@ -583,7 +576,6 @@
         </span>
 
       </button>
-
 
 
       <!-- URACIL DISTRACTOR -->
@@ -707,7 +699,6 @@
         </div>
 
 
-
         <!-- NUCLEOTIDE 2 -->
 
         <div
@@ -750,7 +741,6 @@
           </button>
 
         </div>
-
 
 
         <!-- NUCLEOTIDE 3 -->
@@ -797,7 +787,6 @@
         </div>
 
 
-
         <!-- NUCLEOTIDE 4 -->
 
         <div
@@ -842,7 +831,6 @@
         </div>
 
 
-
         <!-- NUCLEOTIDE 5 -->
 
         <div
@@ -885,7 +873,6 @@
           </button>
 
         </div>
-
 
 
         <!-- NUCLEOTIDE 6 -->
@@ -983,22 +970,32 @@
     </span>
 
     <h2>
-      How are nucleotides connected within one strand?
+      What connects adjacent nucleotides within one DNA strand?
     </h2>
 
     <p>
-      Examine the connection between two neighbouring nucleotides.
-      Select the bond in the model and identify which molecular
-      structures participate in this connection.
+      The model below shows part of a <strong>single DNA strand</strong>.
+      Examine the sugar-phosphate backbone and select the connection
+      between two neighbouring nucleotides.
+    </p>
+
+    <p class="small-note">
+      This is a bond <strong>within one strand</strong>, not the
+      hydrogen bonds that form between complementary bases on
+      opposite strands.
     </p>
 
 
-    <div class="stage3-bond-model">
+    <div class="stage3-single-strand-model">
 
-      <div class="mini-nucleotide">
+      <div class="stage3-backbone-unit">
 
         <span class="mini-phosphate">
           P
+        </span>
+
+        <span class="mini-backbone-line">
+          —
         </span>
 
         <span class="mini-sugar">
@@ -1016,15 +1013,20 @@
         type="button"
         id="stage3-bond-target"
         class="stage3-bond-target"
+        aria-label="Select the connection between adjacent nucleotides"
       >
-        Select bond
+        Select this connection
       </button>
 
 
-      <div class="mini-nucleotide">
+      <div class="stage3-backbone-unit">
 
         <span class="mini-phosphate">
           P
+        </span>
+
+        <span class="mini-backbone-line">
+          —
         </span>
 
         <span class="mini-sugar">
@@ -1040,22 +1042,12 @@
     </div>
 
 
+    <h3>
+      Which type of bond forms this connection?
+    </h3>
+
+
     <div class="choice-grid">
-
-      <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="bases"
-        >
-
-        <span>
-          Two nitrogenous bases
-        </span>
-
-      </label>
-
 
       <label class="choice-card">
 
@@ -1066,22 +1058,7 @@
         >
 
         <span>
-          A phosphate group and sugars of adjacent nucleotides
-        </span>
-
-      </label>
-
-
-      <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="phosphates"
-        >
-
-        <span>
-          Two phosphate groups
+          Phosphodiester bond
         </span>
 
       </label>
@@ -1096,7 +1073,37 @@
         >
 
         <span>
-          Complementary nitrogenous bases
+          Hydrogen bond
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="bases"
+        >
+
+        <span>
+          Glycosidic bond between two nitrogenous bases
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="phosphates"
+        >
+
+        <span>
+          Covalent bond directly between two phosphate groups
         </span>
 
       </label>
@@ -1138,9 +1145,15 @@
     </h2>
 
     <p>
-      Evaluate all three models. Only one correctly represents
-      the relationship between the sugar-phosphate backbone and
-      the nitrogenous bases.
+      Examine all three models carefully. Only one correctly represents
+      the relationship between the sugar-phosphate backbone and the
+      nitrogenous bases.
+    </p>
+
+    <p class="small-note">
+      Use the structure of a DNA nucleotide and the repeating backbone
+      pattern as evidence. No model has been labelled as correct or
+      incorrect.
     </p>
 
 
@@ -1157,6 +1170,7 @@
         <span class="model-id">
           MODEL A
         </span>
+
 
         <div class="stage3-model-line">
 
@@ -1186,6 +1200,7 @@
 
         </div>
 
+
         <div class="stage3-attached-bases">
 
           <span>A</span>
@@ -1193,6 +1208,7 @@
           <span>G</span>
 
         </div>
+
 
         <button
           type="button"
@@ -1216,6 +1232,7 @@
         <span class="model-id">
           MODEL B
         </span>
+
 
         <div class="stage3-model-line">
 
@@ -1245,6 +1262,7 @@
 
         </div>
 
+
         <div class="stage3-side-phosphates">
 
           <span>P</span>
@@ -1252,6 +1270,7 @@
           <span>P</span>
 
         </div>
+
 
         <button
           type="button"
@@ -1275,6 +1294,7 @@
         <span class="model-id">
           MODEL C
         </span>
+
 
         <div class="stage3-model-line">
 
@@ -1304,6 +1324,7 @@
 
         </div>
 
+
         <div class="stage3-attached-bases incorrect-attachment">
 
           <span>A</span>
@@ -1311,6 +1332,7 @@
           <span>G</span>
 
         </div>
+
 
         <button
           type="button"
@@ -1337,7 +1359,7 @@
     <textarea
       id="stage3-diagnosis-note"
       data-save-field="stage3DiagnosisNote"
-      placeholder="Use the organization of the sugar-phosphate backbone and base attachment as evidence..."
+      placeholder="Use the organization of the sugar-phosphate backbone and the location of the nitrogenous bases as evidence..."
     ></textarea>
 
 
