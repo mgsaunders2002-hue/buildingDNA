@@ -1128,7 +1128,6 @@ input[type="number"] {
 }
 
 
-/* =========================================================
    /* =========================================================
    STAGE 3 — ADVANCED STRAND CONSTRUCTION
    ========================================================= */
@@ -2234,4 +2233,137 @@ footer {
   stroke: #17324d;
   stroke-width: 3;
   stroke-linecap: round;
+}
+/* =========================================================
+   STAGE 3 — PART B BOND DIAGRAM
+   ========================================================= */
+
+.stage3-bond-diagram {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: 760px;
+  margin: 28px auto;
+  padding: 32px;
+  background: #f7fafc;
+  border: 1px solid #d7e1e8;
+  border-radius: 16px;
+}
+
+.bond-diagram-nucleotide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bond-backbone-row,
+.error-backbone-row {
+  display: flex;
+  align-items: center;
+}
+
+.bond-line {
+  display: inline-block;
+  width: 34px;
+  height: 3px;
+  background: #17384d;
+  border-radius: 3px;
+}
+
+.bond-base-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 56px;
+}
+
+.bond-base-branch::before {
+  content: "";
+  width: 3px;
+  height: 18px;
+  background: #17384d;
+}
+
+.bond-hotspot {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  padding: 0;
+  border: 2px solid #189c96;
+  border-radius: 50%;
+  background: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.bond-hotspot:hover,
+.bond-hotspot.selected-bond {
+  background: #dff5f2;
+  border-color: #11857f;
+}
+
+.between-nucleotides {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 19px;
+}
+
+.long-bond-line {
+  width: 80px;
+}
+
+.backbone-hotspot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   STAGE 3 — PART C ERROR DIAGRAM
+   ========================================================= */
+
+.stage3-error-diagram {
+  max-width: 900px;
+  margin: 28px auto 32px;
+  padding: 36px;
+  background: #f7fafc;
+  border: 1px solid #d7e1e8;
+  border-radius: 16px;
+}
+
+.error-backbone {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.error-backbone-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-base {
+  margin-top: 16px;
+}
+
+.error-backbone-unit::after {
+  content: "";
+}
+
+.error-connector {
+  width: 40px;
+  margin-top: 19px;
+}
+
+.backbone-gap {
+  display: inline-block;
+  width: 70px;
+  height: 3px;
+  margin-top: 19px;
+  border-top: 3px dashed #a3afb8;
 }
