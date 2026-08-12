@@ -1,18 +1,6 @@
-/* =========================================================
-   BIOLOGY 30 — VIRTUAL DNA CONSTRUCTION LAB
-   FULL SCRIPT.JS
-   ========================================================= */
-
-
-/* =========================================================
-   1. STORAGE
-   ========================================================= */
-
 const STORAGE_KEY = "bio30_dna_virtual_lab";
 
-
 const defaultLabData = {
-
   studentName: "",
 
   completedStages: {
@@ -25,13 +13,7 @@ const defaultLabData = {
     challenge: false
   },
 
-
-  /* =====================================================
-     STAGE 1
-     ===================================================== */
-
   stage1: {
-
     model: {
       phosphate: "",
       sugar: "",
@@ -45,13 +27,7 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-
-  /* =====================================================
-     STAGE 2
-     ===================================================== */
-
   stage2: {
-
     families: {
       adenine: "",
       guanine: "",
@@ -80,17 +56,10 @@ const defaultLabData = {
     purineCount: "",
 
     calculationsCorrect: false,
-
     synthesisCorrect: false
   },
 
-
-  /* =====================================================
-     STAGE 3
-     ===================================================== */
-
   stage3: {
-
     components: [
       { phosphate: "", sugar: "", base: "" },
       { phosphate: "", sugar: "", base: "" },
@@ -112,13 +81,7 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-
-  /* =====================================================
-     STAGE 4
-     ===================================================== */
-
   stage4: {
-
     sequence: ["", "", "", "", "", ""],
 
     complementCorrect: false,
@@ -130,13 +93,7 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-
-  /* =====================================================
-     STAGE 5
-     ===================================================== */
-
   stage5: {
-
     topLeft: "5",
     topRight: "3",
 
@@ -162,31 +119,16 @@ const defaultLabData = {
     ],
 
     repairsCorrect: false,
-
     analysisCorrect: false
   },
-
-
-  /* =====================================================
-     STAGE 6
-     ===================================================== */
 
   stage6: {
-
     selectedModel: "",
-
     evidence: [],
-
     analysisCorrect: false
   },
 
-
-  /* =====================================================
-     FINAL CHALLENGE
-     ===================================================== */
-
   challenge: {
-
     sequence: [
       "",
       "",
@@ -209,13 +151,7 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-
-  /* =====================================================
-     NOTEBOOK
-     ===================================================== */
-
   notebook: {
-
     stage1Note: "",
     stage2Note: "",
     stage3Note: "",
@@ -225,14 +161,8 @@ const defaultLabData = {
     stage6Note: "",
     finalNote: ""
   }
-
 };
 
-
-
-/* =========================================================
-   2. CLONE DEFAULT DATA
-   ========================================================= */
 
 function cloneDefaultData() {
 
@@ -243,67 +173,61 @@ function cloneDefaultData() {
 }
 
 
-
-/* =========================================================
-   3. MERGE SAVED DATA
-   ========================================================= */
-
-function mergeObjects(target, source) {
+function mergeObjects(
+  target,
+  source
+) {
 
   if (!source) {
     return target;
   }
 
 
-  Object.keys(source).forEach(key => {
+  Object.keys(source)
+    .forEach(key => {
 
-    const sourceValue =
-      source[key];
+      const sourceValue =
+        source[key];
 
-
-    if (
-      sourceValue &&
-      typeof sourceValue === "object" &&
-      !Array.isArray(sourceValue)
-    ) {
 
       if (
-        !target[key] ||
-        typeof target[key] !== "object" ||
-        Array.isArray(target[key])
+        sourceValue &&
+        typeof sourceValue === "object" &&
+        !Array.isArray(sourceValue)
       ) {
 
-        target[key] = {};
+        if (
+          !target[key] ||
+          typeof target[key] !== "object" ||
+          Array.isArray(target[key])
+        ) {
+
+          target[key] = {};
+
+        }
+
+
+        mergeObjects(
+          target[key],
+          sourceValue
+        );
 
       }
 
+      else {
 
-      mergeObjects(
-        target[key],
-        sourceValue
-      );
+        target[key] =
+          sourceValue;
 
-    }
+      }
 
-    else {
-
-      target[key] =
-        sourceValue;
-
-    }
-
-  });
+    });
 
 
   return target;
 
 }
 
-
-
-/* =========================================================
-   4. LOAD SAVED DATA
-   ========================================================= */
 
 function loadLabData() {
 
@@ -348,15 +272,9 @@ function loadLabData() {
 }
 
 
-
 let labData =
   loadLabData();
 
-
-
-/* =========================================================
-   5. SAVE DATA
-   ========================================================= */
 
 function saveLabData() {
 
@@ -370,11 +288,6 @@ function saveLabData() {
 
 }
 
-
-
-/* =========================================================
-   6. SAVE STATUS
-   ========================================================= */
 
 function showSaveStatus() {
 
@@ -414,11 +327,6 @@ function showSaveStatus() {
 
 }
 
-
-
-/* =========================================================
-   7. PAGE INITIALIZATION
-   ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -478,11 +386,6 @@ document.addEventListener(
   }
 );
 
-
-
-/* =========================================================
-   8. HOME PAGE
-   ========================================================= */
 
 function setupHomePage() {
 
@@ -600,6 +503,7 @@ function setupHomePage() {
         savedPanel.hidden = true;
       }
 
+
       if (newPanel) {
         newPanel.hidden = false;
       }
@@ -630,6 +534,7 @@ function setupHomePage() {
         window.alert(
           "Please enter your first and last name before beginning the lab."
         );
+
 
         nameInput?.focus();
 
@@ -673,11 +578,6 @@ function setupHomePage() {
 
 }
 
-
-
-/* =========================================================
-   9. NEXT INCOMPLETE PAGE
-   ========================================================= */
 
 function getNextIncompletePage() {
 
@@ -723,13 +623,6 @@ function getNextIncompletePage() {
   return "complete.html";
 
 }
-
-
-
-/* =========================================================
-   10. STUDENT NAME
-   ========================================================= */
-
 function displayStudentName() {
 
   document
@@ -751,11 +644,6 @@ function displayStudentName() {
 
 }
 
-
-
-/* =========================================================
-   11. NOTEBOOK AUTO-SAVE
-   ========================================================= */
 
 function setupSavedTextFields() {
 
@@ -796,11 +684,6 @@ function setupSavedTextFields() {
 }
 
 
-
-/* =========================================================
-   12. RESTORE NOTEBOOK
-   ========================================================= */
-
 function restoreSavedTextFields() {
 
   document
@@ -830,11 +713,6 @@ function restoreSavedTextFields() {
 }
 
 
-
-/* =========================================================
-   13. SHARED INTERACTION HELPERS
-   ========================================================= */
-
 let selectedPiece = null;
 
 
@@ -852,7 +730,6 @@ function selectPiece(element) {
   );
 
 }
-
 
 
 function clearSelectedPiece() {
@@ -875,11 +752,6 @@ function clearSelectedPiece() {
 }
 
 
-
-/* =========================================================
-   14. FEEDBACK
-   ========================================================= */
-
 function showFeedback(
   element,
   type,
@@ -901,7 +773,6 @@ function showFeedback(
 }
 
 
-
 function clearFeedback(element) {
 
   if (!element) {
@@ -918,11 +789,6 @@ function clearFeedback(element) {
 
 }
 
-
-
-/* =========================================================
-   15. UNLOCK NEXT
-   ========================================================= */
 
 function unlockNext(selector) {
 
@@ -950,11 +816,6 @@ function unlockNext(selector) {
 }
 
 
-
-/* =========================================================
-   16. WRITTEN REASONING CHECK
-   ========================================================= */
-
 function requireReasoning(
   text,
   minimumCharacters
@@ -967,11 +828,6 @@ function requireReasoning(
 
 }
 
-
-
-/* =========================================================
-   17. DRAG SUPPORT
-   ========================================================= */
 
 function makeDraggable(
   element,
@@ -993,10 +849,34 @@ function makeDraggable(
       );
 
 
+      event.dataTransfer.effectAllowed =
+        "copy";
+
+
+      const payload =
+        JSON.stringify(data);
+
+
       event.dataTransfer.setData(
-        "application/json",
-        JSON.stringify(data)
+        "text/plain",
+        payload
       );
+
+
+      try {
+
+        event.dataTransfer.setData(
+          "application/json",
+          payload
+        );
+
+      }
+
+      catch (error) {
+
+        /* no action needed */
+
+      }
 
     }
   );
@@ -1016,18 +896,13 @@ function makeDraggable(
 }
 
 
-
-/* =========================================================
-   18. DROP TARGET
-   ========================================================= */
-
 function setupDropTarget(
   element,
   callback
 ) {
 
   element.addEventListener(
-    "dragover",
+    "dragenter",
     event => {
 
       event.preventDefault();
@@ -1042,12 +917,39 @@ function setupDropTarget(
 
 
   element.addEventListener(
-    "dragleave",
-    () => {
+    "dragover",
+    event => {
 
-      element.classList.remove(
+      event.preventDefault();
+
+
+      event.dataTransfer.dropEffect =
+        "copy";
+
+
+      element.classList.add(
         "drag-over"
       );
+
+    }
+  );
+
+
+  element.addEventListener(
+    "dragleave",
+    event => {
+
+      if (
+        !element.contains(
+          event.relatedTarget
+        )
+      ) {
+
+        element.classList.remove(
+          "drag-over"
+        );
+
+      }
 
     }
   );
@@ -1065,14 +967,37 @@ function setupDropTarget(
       );
 
 
+      let raw =
+        event.dataTransfer.getData(
+          "text/plain"
+        );
+
+
+      if (!raw) {
+
+        raw =
+          event.dataTransfer.getData(
+            "application/json"
+          );
+
+      }
+
+
+      if (!raw) {
+
+        console.warn(
+          "Drop occurred, but no drag data was available."
+        );
+
+        return;
+
+      }
+
+
       try {
 
         const data =
-          JSON.parse(
-            event.dataTransfer.getData(
-              "application/json"
-            )
-          );
+          JSON.parse(raw);
 
 
         callback(data);
@@ -1094,12 +1019,6 @@ function setupDropTarget(
 }
 
 
-
-/* =========================================================
-   19. STAGE 1
-   CONSTRUCT A NUCLEOTIDE
-   ========================================================= */
-
 function setupStage1() {
 
   const cards =
@@ -1107,35 +1026,42 @@ function setupStage1() {
       ".molecule-card"
     );
 
+
   const sites =
     document.querySelectorAll(
       ".nucleotide-site"
     );
+
 
   const checkModel =
     document.querySelector(
       "#check-stage1-model"
     );
 
+
   const clearModel =
     document.querySelector(
       "#clear-stage1-model"
     );
+
 
   const modelFeedback =
     document.querySelector(
       "#stage1-model-feedback"
     );
 
+
   const reveal =
     document.querySelector(
       "#stage1-model-reveal"
     );
 
+
   const checkAnalysis =
     document.querySelector(
       "#check-stage1-analysis"
     );
+
 
   const analysisFeedback =
     document.querySelector(
@@ -1296,6 +1222,7 @@ function setupStage1() {
             "error-site"
           );
 
+
           site.classList.add(
             "correct-site"
           );
@@ -1434,6 +1361,7 @@ function setupStage1() {
           `
         );
 
+
         return;
 
       }
@@ -1467,6 +1395,7 @@ function setupStage1() {
           `
         );
 
+
         return;
 
       }
@@ -1487,6 +1416,7 @@ function setupStage1() {
             explanation needs more reasoning.
           `
         );
+
 
         return;
 
@@ -1554,9 +1484,6 @@ function setupStage1() {
   }
 
 }
-
-
-
 function placeStage1Piece(
   site,
   piece
@@ -1587,7 +1514,6 @@ function placeStage1Piece(
 }
 
 
-
 function renderStage1Site(
   site,
   piece
@@ -1605,7 +1531,6 @@ function renderStage1Site(
       "<span>Connection site</span>";
 
     return;
-
   }
 
 
@@ -1636,7 +1561,6 @@ function renderStage1Site(
 
 
     return;
-
   }
 
 
@@ -1644,7 +1568,6 @@ function renderStage1Site(
     piece;
 
 }
-
 
 
 function restoreStage1Model() {
@@ -1675,7 +1598,6 @@ function restoreStage1Model() {
 }
 
 
-
 function showStage1Hint(
   feedback
 ) {
@@ -1698,7 +1620,6 @@ function showStage1Hint(
     );
 
     return;
-
   }
 
 
@@ -1717,7 +1638,6 @@ function showStage1Hint(
     );
 
     return;
-
   }
 
 
@@ -1735,7 +1655,6 @@ function showStage1Hint(
     );
 
     return;
-
   }
 
 
@@ -1750,12 +1669,6 @@ function showStage1Hint(
 
 }
 
-
-
-/* =========================================================
-   24. STAGE 2
-   ADVANCED BASE ANALYSIS
-   ========================================================= */
 
 function setupStage2() {
 
@@ -2087,7 +2000,6 @@ function setupStage2() {
           );
 
           return;
-
         }
 
 
@@ -2326,7 +2238,6 @@ function setupStage2() {
           );
 
           return;
-
         }
 
 
@@ -2354,7 +2265,6 @@ function setupStage2() {
           );
 
           return;
-
         }
 
 
@@ -2416,14 +2326,6 @@ function setupStage2() {
   }
 
 }
-
-
-
-/* =========================================================
-   25. STAGE 3
-   CONSTRUCT A POLYNUCLEOTIDE STRAND
-   ========================================================= */
-
 function setupStage3() {
 
   const targetBases = [
@@ -2493,8 +2395,10 @@ function setupStage3() {
       component => ({
         phosphate:
           component?.phosphate || "",
+
         sugar:
           component?.sugar || "",
+
         base:
           component?.base || ""
       })
@@ -2503,12 +2407,24 @@ function setupStage3() {
 
   parts.forEach(part => {
 
+    const componentType =
+      part.dataset.partType;
+
+    const componentValue =
+      part.dataset.partValue ||
+      part.dataset.base ||
+      (
+        componentType === "phosphate"
+          ? "phosphate"
+          : componentType === "sugar"
+            ? "deoxyribose"
+            : ""
+      );
+
     const partData = {
       type: "stage3-component",
-      component:
-        part.dataset.partType,
-      base:
-        part.dataset.base || ""
+      component: componentType,
+      value: componentValue
     };
 
 
@@ -2543,11 +2459,10 @@ function setupStage3() {
           return;
         }
 
-
         placeStage3Component(
           slot,
           data.component,
-          data.base
+          data.value
         );
 
       }
@@ -2565,12 +2480,26 @@ function setupStage3() {
           )
         ) {
 
+          const selectedType =
+            selectedPiece.dataset.partType;
+
+          const selectedValue =
+            selectedPiece.dataset.partValue ||
+            selectedPiece.dataset.base ||
+            (
+              selectedType === "phosphate"
+                ? "phosphate"
+                : selectedType === "sugar"
+                  ? "deoxyribose"
+                  : ""
+            );
+
+
           placeStage3Component(
             slot,
-            selectedPiece.dataset.partType,
-            selectedPiece.dataset.base || ""
+            selectedType,
+            selectedValue
           );
-
 
           clearSelectedPiece();
 
@@ -2583,7 +2512,6 @@ function setupStage3() {
           Number(
             slot.dataset.position
           );
-
 
         const component =
           slot.dataset.component;
@@ -2599,17 +2527,13 @@ function setupStage3() {
             position
           ][component] = "";
 
-
           resetStage3CompletionFrom(
             "build"
           );
 
-
           saveLabData();
 
-
           renderStage3Build();
-
 
           clearFeedback(
             buildFeedback
@@ -2637,6 +2561,7 @@ function setupStage3() {
         const complete =
           labData.stage3.components.every(
             component =>
+
               component.phosphate &&
               component.sugar &&
               component.base
@@ -2648,9 +2573,7 @@ function setupStage3() {
           labData.stage3.buildCorrect =
             false;
 
-
           saveLabData();
-
 
           showFeedback(
             buildFeedback,
@@ -2661,7 +2584,6 @@ function setupStage3() {
               components before the strand can be validated.
             `
           );
-
 
           return;
 
@@ -2678,7 +2600,7 @@ function setupStage3() {
               component.phosphate !==
                 "phosphate" ||
               component.sugar !==
-                "sugar" ||
+                "deoxyribose" ||
               component.base !==
                 targetBases[index]
             ) {
@@ -2700,9 +2622,7 @@ function setupStage3() {
           labData.stage3.buildCorrect =
             false;
 
-
           saveLabData();
-
 
           showFeedback(
             buildFeedback,
@@ -2719,7 +2639,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -2728,12 +2647,9 @@ function setupStage3() {
         labData.stage3.buildCorrect =
           true;
 
-
         saveLabData();
 
-
         renderStage3Build();
-
 
         showFeedback(
           buildFeedback,
@@ -2764,20 +2680,15 @@ function setupStage3() {
             base: ""
           }));
 
-
         resetStage3CompletionFrom(
           "build"
         );
 
-
         clearSelectedPiece();
-
 
         saveLabData();
 
-
         renderStage3Build();
-
 
         clearFeedback(
           buildFeedback
@@ -2794,7 +2705,6 @@ function setupStage3() {
     bondTarget?.classList.add(
       "selected-bond"
     );
-
 
     if (bondTarget) {
 
@@ -2813,40 +2723,31 @@ function setupStage3() {
       labData.stage3.bondSelected =
         !labData.stage3.bondSelected;
 
-
       labData.stage3.bondCorrect =
         false;
-
 
       labData.stage3.diagnosisCorrect =
         false;
 
-
       labData.stage3.analysisCorrect =
         false;
 
-
       labData.completedStages.stage3 =
         false;
-
 
       bondTarget.classList.toggle(
         "selected-bond",
         labData.stage3.bondSelected
       );
 
-
       bondTarget.textContent =
         labData.stage3.bondSelected
           ? "Bond selected ✓"
           : "Select bond";
 
-
       saveLabData();
 
-
       lockStage3Next();
-
 
       clearFeedback(
         bondFeedback
@@ -2866,7 +2767,6 @@ function setupStage3() {
         option.value ===
         labData.stage3.bondAnswer;
 
-
       option.addEventListener(
         "change",
         () => {
@@ -2874,28 +2774,21 @@ function setupStage3() {
           labData.stage3.bondAnswer =
             option.value;
 
-
           labData.stage3.bondCorrect =
             false;
-
 
           labData.stage3.diagnosisCorrect =
             false;
 
-
           labData.stage3.analysisCorrect =
             false;
-
 
           labData.completedStages.stage3 =
             false;
 
-
           saveLabData();
 
-
           lockStage3Next();
-
 
           clearFeedback(
             bondFeedback
@@ -2928,7 +2821,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -2948,7 +2840,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -2962,9 +2853,7 @@ function setupStage3() {
           labData.stage3.bondCorrect =
             false;
 
-
           saveLabData();
-
 
           showFeedback(
             bondFeedback,
@@ -2977,7 +2866,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -2986,9 +2874,7 @@ function setupStage3() {
         labData.stage3.bondCorrect =
           true;
 
-
         saveLabData();
-
 
         showFeedback(
           bondFeedback,
@@ -3019,27 +2905,20 @@ function setupStage3() {
           labData.stage3.selectedModel =
             button.dataset.model || "";
 
-
           labData.stage3.diagnosisCorrect =
             false;
-
 
           labData.stage3.analysisCorrect =
             false;
 
-
           labData.completedStages.stage3 =
             false;
 
-
           saveLabData();
-
 
           renderStage3ModelSelection();
 
-
           lockStage3Next();
-
 
           clearFeedback(
             diagnosisFeedback
@@ -3075,7 +2954,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -3094,7 +2972,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -3108,9 +2985,7 @@ function setupStage3() {
           labData.stage3.diagnosisCorrect =
             false;
 
-
           saveLabData();
-
 
           showFeedback(
             diagnosisFeedback,
@@ -3122,7 +2997,6 @@ function setupStage3() {
               base is attached to a deoxyribose sugar.
             `
           );
-
 
           return;
 
@@ -3153,7 +3027,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -3162,9 +3035,7 @@ function setupStage3() {
         labData.stage3.diagnosisCorrect =
           true;
 
-
         saveLabData();
-
 
         showFeedback(
           diagnosisFeedback,
@@ -3203,7 +3074,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -3232,7 +3102,6 @@ function setupStage3() {
             `
           );
 
-
           return;
 
         }
@@ -3241,13 +3110,10 @@ function setupStage3() {
         labData.stage3.analysisCorrect =
           true;
 
-
         labData.completedStages.stage3 =
           true;
 
-
         saveLabData();
-
 
         showFeedback(
           analysisFeedback,
@@ -3259,7 +3125,6 @@ function setupStage3() {
             phosphate components of the backbone remain the same.
           `
         );
-
 
         unlockNext(
           "#stage3-next"
@@ -3282,18 +3147,16 @@ function setupStage3() {
 }
 
 
-
 function placeStage3Component(
   slot,
   componentType,
-  base
+  componentValue
 ) {
 
   const position =
     Number(
       slot.dataset.position
     );
-
 
   const requiredComponent =
     slot.dataset.component;
@@ -3320,7 +3183,6 @@ function placeStage3Component(
         "#stage3-build-feedback"
       );
 
-
     showFeedback(
       feedback,
       "hint",
@@ -3330,11 +3192,9 @@ function placeStage3Component(
       `
     );
 
-
     slot.classList.add(
       "error-site"
     );
-
 
     setTimeout(
       () =>
@@ -3344,13 +3204,15 @@ function placeStage3Component(
       700
     );
 
-
     return;
 
   }
 
 
-  let value = "";
+  let value =
+    String(
+      componentValue || ""
+    );
 
 
   if (
@@ -3358,20 +3220,20 @@ function placeStage3Component(
     "phosphate"
   ) {
 
-    value = "phosphate";
+    value =
+      value || "phosphate";
 
   }
-
 
   else if (
     componentType ===
     "sugar"
   ) {
 
-    value = "sugar";
+    value =
+      value || "deoxyribose";
 
   }
-
 
   else if (
     componentType ===
@@ -3379,13 +3241,16 @@ function placeStage3Component(
   ) {
 
     value =
-      String(base || "")
-        .toUpperCase();
-
+      value.toUpperCase();
 
     if (
-      !["A", "T", "G", "C"]
-        .includes(value)
+      ![
+        "A",
+        "T",
+        "G",
+        "C",
+        "U"
+      ].includes(value)
     ) {
 
       return;
@@ -3393,7 +3258,6 @@ function placeStage3Component(
     }
 
   }
-
 
   else {
 
@@ -3407,17 +3271,13 @@ function placeStage3Component(
   ][requiredComponent] =
     value;
 
-
   resetStage3CompletionFrom(
     "build"
   );
 
-
   saveLabData();
 
-
   renderStage3Build();
-
 
   clearFeedback(
     document.querySelector(
@@ -3426,7 +3286,6 @@ function placeStage3Component(
   );
 
 }
-
 
 
 function renderStage3Build() {
@@ -3442,10 +3301,8 @@ function renderStage3Build() {
           slot.dataset.position
         );
 
-
       const component =
         slot.dataset.component;
-
 
       const value =
         labData.stage3.components[
@@ -3466,35 +3323,12 @@ function renderStage3Build() {
 
       if (!value) {
 
-        if (
-          component ===
-          "phosphate"
-        ) {
+        slot.textContent = "?";
 
-          slot.textContent =
-            "P?";
-
-        }
-
-
-        else if (
-          component ===
-          "sugar"
-        ) {
-
-          slot.textContent =
-            "D?";
-
-        }
-
-
-        else {
-
-          slot.textContent =
-            "Base?";
-
-        }
-
+        slot.setAttribute(
+          "aria-label",
+          `Empty molecular attachment site in nucleotide ${position + 1}`
+        );
 
         return;
 
@@ -3506,39 +3340,72 @@ function renderStage3Build() {
       );
 
 
-      if (
-        component ===
-        "phosphate"
-      ) {
+      const visualSource =
+        Array.from(
+          document.querySelectorAll(
+            ".stage3-part"
+          )
+        )
+        .find(part => {
 
-        slot.textContent =
-          "P";
+          const sourceType =
+            part.dataset.partType;
+
+          const sourceValue =
+            part.dataset.partValue ||
+            part.dataset.base ||
+            (
+              sourceType === "phosphate"
+                ? "phosphate"
+                : sourceType === "sugar"
+                  ? "deoxyribose"
+                  : ""
+            );
+
+          return (
+            sourceType ===
+              component &&
+            String(
+              sourceValue
+            ).toUpperCase() ===
+              String(
+                value
+              ).toUpperCase()
+          );
+
+        });
+
+
+      if (visualSource) {
+
+        slot.innerHTML =
+          visualSource.innerHTML;
 
       }
-
-
-      else if (
-        component ===
-        "sugar"
-      ) {
-
-        slot.textContent =
-          "D";
-
-      }
-
 
       else {
 
         slot.textContent =
           value;
 
+      }
+
+
+      if (
+        component === "base"
+      ) {
 
         slot.classList.add(
           `base-${value.toLowerCase()}`
         );
 
       }
+
+
+      slot.setAttribute(
+        "aria-label",
+        `Placed molecular component in nucleotide ${position + 1}`
+      );
 
 
       if (
@@ -3556,7 +3423,6 @@ function renderStage3Build() {
 }
 
 
-
 function renderStage3ModelSelection() {
 
   document
@@ -3568,7 +3434,6 @@ function renderStage3ModelSelection() {
       const selected =
         card.dataset.model ===
         labData.stage3.selectedModel;
-
 
       card.classList.toggle(
         "selected-model",
@@ -3588,7 +3453,6 @@ function renderStage3ModelSelection() {
         button.dataset.model ===
         labData.stage3.selectedModel;
 
-
       button.textContent =
         selected
           ? `Model ${button.dataset.model} selected ✓`
@@ -3597,7 +3461,6 @@ function renderStage3ModelSelection() {
     });
 
 }
-
 
 
 function resetStage3CompletionFrom(
@@ -3611,29 +3474,23 @@ function resetStage3CompletionFrom(
     labData.stage3.buildCorrect =
       false;
 
-
     labData.stage3.bondCorrect =
       false;
 
-
     labData.stage3.diagnosisCorrect =
       false;
-
 
     labData.stage3.analysisCorrect =
       false;
 
   }
 
-
   labData.completedStages.stage3 =
     false;
-
 
   lockStage3Next();
 
 }
-
 
 
 function lockStage3Next() {
@@ -3643,16 +3500,13 @@ function lockStage3Next() {
       "#stage3-next"
     );
 
-
   if (!link) {
     return;
   }
 
-
   link.classList.add(
     "locked"
   );
-
 
   link.setAttribute(
     "aria-disabled",
@@ -3660,2447 +3514,1472 @@ function lockStage3Next() {
   );
 
 }
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Stage 3 | Construct a DNA Strand</title>
 
-/* =========================================================
-   STAGE 4
-   ========================================================= */
+  <link rel="stylesheet" href="style.css">
+</head>
 
-function setupStage4() {
+<body data-page="stage3">
 
-  const bankButtons =
-    document.querySelectorAll(
-      ".base-bank-button"
-    );
+<header class="site-header">
 
-  const positions =
-    document.querySelectorAll(
-      ".complement-position"
-    );
+  <div class="header-inner">
 
-  const feedback =
-    document.querySelector(
-      "#stage4-feedback"
-    );
+    <div>
+      <div class="course-label">BIOLOGY 30</div>
+      <div class="site-title">Virtual DNA Construction Lab</div>
+    </div>
 
-  const analysisFeedback =
-    document.querySelector(
-      "#stage4-analysis-feedback"
-    );
+    <div class="save-status">
+      <span id="student-display"></span>
+      <span id="save-status">✓ Saved</span>
+    </div>
 
+  </div>
 
-  const correctComplement =
-    [
-      "T",
-      "A",
-      "C",
-      "G",
-      "G",
-      "T"
-    ];
+</header>
 
 
-  bankButtons.forEach(button => {
+<div class="progress-wrapper">
 
-    makeDraggable(
-      button,
-      {
-        type: "dna-base",
-        base: button.dataset.base
-      }
-    );
+  <div class="progress-label">
+    <span>Stage 3 of 6</span>
+    <strong>Construct a Polynucleotide Strand</strong>
+  </div>
 
+  <div class="progress-bar">
+    <div class="progress-fill progress-3"></div>
+  </div>
 
-    button.addEventListener(
-      "click",
-      () => {
+</div>
 
-        selectPiece(
-          button
-        );
 
-      }
-    );
+<main class="lab-page">
 
-  });
 
+  <!-- =====================================================
+       HEADING
+       ===================================================== -->
 
-  positions.forEach(position => {
+  <section class="stage-heading">
 
-    setupDropTarget(
-      position,
-      data => {
+    <span class="stage-number">
+      STAGE 03
+    </span>
 
-        if (
-          data.type !==
-          "dna-base"
-        ) {
-          return;
-        }
+    <h1>
+      Construct a DNA Strand
+    </h1>
 
+    <p>
+      A DNA strand is more than a sequence of letters.
+      Use your knowledge of nucleotide structure to construct
+      a strand from molecular components, identify how neighbouring
+      nucleotides are connected, and evaluate different models
+      of DNA structure.
+    </p>
 
-        placeStage4Base(
-          position,
-          data.base
-        );
+  </section>
 
-      }
-    );
 
 
-    position.addEventListener(
-      "click",
-      () => {
+  <!-- =====================================================
+       PART A
+       ===================================================== -->
 
-        if (
-          selectedPiece &&
-          selectedPiece.classList.contains(
-            "base-bank-button"
-          )
-        ) {
+  <section class="lab-panel">
 
-          placeStage4Base(
-            position,
-            selectedPiece.dataset.base
-          );
+    <div class="panel-heading">
 
+      <span class="panel-label">
+        PART A — MOLECULAR CONSTRUCTION
+      </span>
 
-          clearSelectedPiece();
+      <h2>
+        Build the required DNA strand.
+      </h2>
 
-          return;
+      <p>
+        Select molecular components from the tray and place them
+        into the six nucleotide positions. Some components do not
+        belong in DNA and should not be used.
+      </p>
 
-        }
+      <p class="small-note">
+        You may drag a component into the model or click a component
+        and then click its destination.
+      </p>
 
+    </div>
 
-        const index =
-          Number(
-            position.dataset.position
-          );
 
+    <div class="target-banner">
 
-        labData.stage4.sequence[
-          index
-        ] =
-          "";
+      <span>
+        REQUIRED STRAND
+      </span>
 
+      <strong>
+        5′ — A T G C C A — 3′
+      </strong>
 
-        labData.stage4.complementCorrect =
-          false;
+    </div>
 
 
-        saveLabData();
 
+    <!-- =====================================================
+         MOLECULAR PARTS TRAY
+         ===================================================== -->
 
-        renderStage4();
+    <div class="stage3-parts-bank advanced-parts-bank">
 
-      }
-    );
+      <div class="stage3-bank-intro">
 
-  });
+        <h3>
+          Molecular Parts Tray
+        </h3>
 
+        <p>
+          Identify each structure before deciding whether and where
+          it belongs in the strand.
+        </p>
 
-  restoreStage4Calculations();
-
-
-  renderStage4();
-
-
-  document
-    .querySelector(
-      "#check-stage4-complement"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        const wrongIndex =
-          correctComplement.findIndex(
-            (base, index) =>
-
-              labData.stage4.sequence[
-                index
-              ] !== base
-          );
-
-
-        if (
-          wrongIndex === -1
-        ) {
-
-          labData.stage4.complementCorrect =
-            true;
-
-
-          saveLabData();
-
-
-          renderStage4();
-
-
-          showFeedback(
-            feedback,
-            "success",
-            `
-              <strong>Complementary strand validated.</strong>
-            `
-          );
-
-        }
-
-
-        else {
-
-          labData.stage4.complementCorrect =
-            false;
-
-
-          saveLabData();
-
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              At least one base pair is incorrect.
-              Re-examine position ${wrongIndex + 1}.
-            `
-          );
-
-        }
-
-      }
-    );
-
-
-  const atInput =
-    document.querySelector(
-      "#stage4-at-pairs"
-    );
-
-
-  const gcInput =
-    document.querySelector(
-      "#stage4-gc-pairs"
-    );
-
-
-  const hydrogenInput =
-    document.querySelector(
-      "#stage4-hydrogen-bonds"
-    );
-
-
-  atInput?.addEventListener(
-    "input",
-    () => {
-
-      labData.stage4.atPairs =
-        atInput.value;
-
-
-      saveLabData();
-
-    }
-  );
-
-
-  gcInput?.addEventListener(
-    "input",
-    () => {
-
-      labData.stage4.gcPairs =
-        gcInput.value;
-
-
-      saveLabData();
-
-    }
-  );
-
-
-  hydrogenInput?.addEventListener(
-    "input",
-    () => {
-
-      labData.stage4.hydrogenBonds =
-        hydrogenInput.value;
-
-
-      saveLabData();
-
-    }
-  );
-
-
-  document
-    .querySelector(
-      "#check-stage4-analysis"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        if (
-          !labData.stage4.complementCorrect
-        ) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Validate the complementary strand first.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        const countsCorrect =
-
-          Number(
-            labData.stage4.atPairs
-          ) === 3 &&
-
-          Number(
-            labData.stage4.gcPairs
-          ) === 3 &&
-
-          Number(
-            labData.stage4.hydrogenBonds
-          ) === 15;
-
-
-        if (!countsCorrect) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Recheck your calculations.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        const explanation =
-          document.querySelector(
-            "#stage4-note"
-          )?.value || "";
-
-
-        if (
-          !requireReasoning(
-            explanation,
-            45
-          )
-        ) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Expand your explanation.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        labData.stage4.analysisCorrect =
-          true;
-
-
-        labData.completedStages.stage4 =
-          true;
-
-
-        saveLabData();
-
-
-        showFeedback(
-          analysisFeedback,
-          "success",
-          `
-            <strong>Stage 4 complete.</strong>
-          `
-        );
-
-
-        unlockNext(
-          "#stage4-next"
-        );
-
-      }
-    );
-
-
-  if (
-    labData.completedStages.stage4
-  ) {
-
-    unlockNext(
-      "#stage4-next"
-    );
-
-  }
-
-}
-
-
-
-function placeStage4Base(
-  element,
-  base
-) {
-
-  const position =
-    Number(
-      element.dataset.position
-    );
-
-
-  labData.stage4.sequence[
-    position
-  ] =
-    base;
-
-
-  labData.stage4.complementCorrect =
-    false;
-
-
-  saveLabData();
-
-
-  renderStage4();
-
-}
-
-
-
-function renderStage4() {
-
-  const template =
-    [
-      "A",
-      "T",
-      "G",
-      "C",
-      "C",
-      "A"
-    ];
-
-
-  const complements = {
-    A: "T",
-    T: "A",
-    G: "C",
-    C: "G"
-  };
-
-
-  document
-    .querySelectorAll(
-      ".complement-position"
-    )
-    .forEach(element => {
-
-      const position =
-        Number(
-          element.dataset.position
-        );
-
-
-      const base =
-        labData.stage4.sequence[
-          position
-        ];
-
-
-      if (!base) {
-
-        element.className =
-          "complement-position";
-
-
-        element.textContent =
-          "?";
-
-
-        return;
-
-      }
-
-
-      element.className =
-        `complement-position dna-base base-${base.toLowerCase()}`;
-
-
-      element.textContent =
-        base;
-
-    });
-
-
-  document
-    .querySelectorAll(
-      ".hydrogen-bond-zone"
-    )
-    .forEach(element => {
-
-      const position =
-        Number(
-          element.dataset.position
-        );
-
-
-      const templateBase =
-        template[position];
-
-
-      const placed =
-        labData.stage4.sequence[
-          position
-        ];
-
-
-      const correct =
-        placed ===
-        complements[
-          templateBase
-        ];
-
-
-      element.classList.toggle(
-        "connected",
-        correct
-      );
-
-
-      if (!correct) {
-
-        element.textContent =
-          "";
-
-
-        return;
-
-      }
-
-
-      element.textContent =
-        (
-          templateBase === "G" ||
-          templateBase === "C"
-        )
-          ? "···"
-          : "··";
-
-    });
-
-}
-
-
-
-function restoreStage4Calculations() {
-
-  const at =
-    document.querySelector(
-      "#stage4-at-pairs"
-    );
-
-
-  const gc =
-    document.querySelector(
-      "#stage4-gc-pairs"
-    );
-
-
-  const hydrogen =
-    document.querySelector(
-      "#stage4-hydrogen-bonds"
-    );
-
-
-  if (at) {
-
-    at.value =
-      labData.stage4.atPairs;
-
-  }
-
-
-  if (gc) {
-
-    gc.value =
-      labData.stage4.gcPairs;
-
-  }
-
-
-  if (hydrogen) {
-
-    hydrogen.value =
-      labData.stage4.hydrogenBonds;
-
-  }
-
-}
-
-
-
-/* =========================================================
-   STAGE 5
-   ========================================================= */
-
-function setupStage5() {
-
-  const baseBank =
-    document.querySelectorAll(
-      ".base-bank-button"
-    );
-
-
-  const diagnosticBases =
-    document.querySelectorAll(
-      ".diagnostic-base"
-    );
-
-
-  const directionButtons = {
-
-    topLeft:
-      document.querySelector(
-        "#stage5-top-left"
-      ),
-
-    topRight:
-      document.querySelector(
-        "#stage5-top-right"
-      ),
-
-    bottomLeft:
-      document.querySelector(
-        "#stage5-bottom-left"
-      ),
-
-    bottomRight:
-      document.querySelector(
-        "#stage5-bottom-right"
-      )
-
-  };
-
-
-  const bondElements =
-    document.querySelectorAll(
-      ".diagnostic-bonds span"
-    );
-
-
-  const feedback =
-    document.querySelector(
-      "#stage5-feedback"
-    );
-
-
-  const analysisFeedback =
-    document.querySelector(
-      "#stage5-analysis-feedback"
-    );
-
-
-  baseBank.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        selectPiece(
-          button
-        );
-
-      }
-    );
-
-  });
-
-
-  diagnosticBases.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        if (
-          !selectedPiece ||
-          !selectedPiece.classList.contains(
-            "base-bank-button"
-          )
-        ) {
-          return;
-        }
-
-
-        const position =
-          Number(
-            button.dataset.position
-          );
-
-
-        labData.stage5.sequence[
-          position
-        ] =
-          selectedPiece.dataset.base;
-
-
-        labData.stage5.repairsCorrect =
-          false;
-
-
-        saveLabData();
-
-
-        clearSelectedPiece();
-
-
-        renderStage5Model();
-
-      }
-    );
-
-  });
-
-
-  Object.entries(
-    directionButtons
-  )
-  .forEach(
-    ([key, button]) => {
-
-      button?.addEventListener(
-        "click",
-        () => {
-
-          labData.stage5[key] =
-            labData.stage5[key] === "5"
-              ? "3"
-              : "5";
-
-
-          labData.stage5.repairsCorrect =
-            false;
-
-
-          saveLabData();
-
-
-          renderStage5Model();
-
-        }
-      );
-
-    }
-  );
-
-
-  bondElements.forEach(
-    (bond, index) => {
-
-      bond.style.cursor =
-        "pointer";
-
-
-      bond.addEventListener(
-        "click",
-        () => {
-
-          labData.stage5.bondCounts[
-            index
-          ] =
-            labData.stage5.bondCounts[
-              index
-            ] === 2
-              ? 3
-              : 2;
-
-
-          labData.stage5.repairsCorrect =
-            false;
-
-
-          saveLabData();
-
-
-          renderStage5Model();
-
-        }
-      );
-
-    }
-  );
-
-
-  renderStage5Model();
-
-
-  document
-    .querySelector(
-      "#check-stage5-repair"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        const correctSequence = [
-          "T",
-          "A",
-          "C",
-          "G",
-          "G",
-          "T"
-        ];
-
-
-        const correctBonds = [
-          2,
-          2,
-          3,
-          3,
-          3,
-          2
-        ];
-
-
-        const directionsCorrect =
-
-          labData.stage5.topLeft === "5" &&
-
-          labData.stage5.topRight === "3" &&
-
-          labData.stage5.bottomLeft === "3" &&
-
-          labData.stage5.bottomRight === "5";
-
-
-        const sequenceCorrect =
-          correctSequence.every(
-            (base, index) =>
-
-              labData.stage5.sequence[
-                index
-              ] === base
-          );
-
-
-        const bondsCorrect =
-          correctBonds.every(
-            (count, index) =>
-
-              labData.stage5.bondCounts[
-                index
-              ] === count
-          );
-
-
-        if (
-          directionsCorrect &&
-          sequenceCorrect &&
-          bondsCorrect
-        ) {
-
-          labData.stage5.repairsCorrect =
-            true;
-
-
-          saveLabData();
-
-
-          showFeedback(
-            feedback,
-            "success",
-            `
-              <strong>Repairs validated.</strong>
-            `
-          );
-
-        }
-
-
-        else {
-
-          const hints = [];
-
-
-          if (!directionsCorrect) {
-
-            hints.push(
-              "Check whether the strands are antiparallel."
-            );
-
-          }
-
-
-          if (!sequenceCorrect) {
-
-            hints.push(
-              "At least one complementary base is incorrect."
-            );
-
-          }
-
-
-          if (!bondsCorrect) {
-
-            hints.push(
-              "Check the hydrogen bond counts."
-            );
-
-          }
-
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              <strong>The model still contains an error.</strong><br>
-              ${hints.join("<br>")}
-            `
-          );
-
-        }
-
-      }
-    );
-
-
-  document
-    .querySelector(
-      "#check-stage5-analysis"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        if (
-          !labData.stage5.repairsCorrect
-        ) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Repair the model first.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        const explanation =
-          document.querySelector(
-            "#stage5-note"
-          )?.value || "";
-
-
-        if (
-          !requireReasoning(
-            explanation,
-            80
-          )
-        ) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Expand your explanation to identify
-              at least two structural errors.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        labData.stage5.analysisCorrect =
-          true;
-
-
-        labData.completedStages.stage5 =
-          true;
-
-
-        saveLabData();
-
-
-        showFeedback(
-          analysisFeedback,
-          "success",
-          `
-            <strong>Stage 5 complete.</strong>
-          `
-        );
-
-
-        unlockNext(
-          "#stage5-next"
-        );
-
-      }
-    );
-
-
-  if (
-    labData.completedStages.stage5
-  ) {
-
-    unlockNext(
-      "#stage5-next"
-    );
-
-  }
-
-}
-
-
-
-function renderStage5Model() {
-
-  const directionMap = {
-
-    topLeft:
-      "#stage5-top-left",
-
-    topRight:
-      "#stage5-top-right",
-
-    bottomLeft:
-      "#stage5-bottom-left",
-
-    bottomRight:
-      "#stage5-bottom-right"
-
-  };
-
-
-  Object.entries(
-    directionMap
-  )
-  .forEach(
-    ([key, selector]) => {
-
-      const element =
-        document.querySelector(
-          selector
-        );
-
-
-      if (element) {
-
-        element.textContent =
-          labData.stage5[key] +
-          "′";
-
-      }
-
-    }
-  );
-
-
-  document
-    .querySelectorAll(
-      ".diagnostic-base"
-    )
-    .forEach(button => {
-
-      const position =
-        Number(
-          button.dataset.position
-        );
-
-
-      const base =
-        labData.stage5.sequence[
-          position
-        ];
-
-
-      button.className =
-        `diagnostic-base base-${base.toLowerCase()}`;
-
-
-      button.textContent =
-        base;
-
-    });
-
-
-  document
-    .querySelectorAll(
-      ".diagnostic-bonds span"
-    )
-    .forEach(
-      (element, index) => {
-
-        element.textContent =
-          labData.stage5.bondCounts[
-            index
-          ] === 3
-            ? "···"
-            : "··";
-
-      }
-    );
-
-}
-
-
-
-/* =========================================================
-   STAGE 6
-   ========================================================= */
-
-function setupStage6() {
-
-  const models =
-    document.querySelectorAll(
-      ".candidate-model"
-    );
-
-
-  const selectButtons =
-    document.querySelectorAll(
-      ".model-select-button"
-    );
-
-
-  const evidence =
-    document.querySelectorAll(
-      ".stage6-evidence"
-    );
-
-
-  const feedback =
-    document.querySelector(
-      "#stage6-feedback"
-    );
-
-
-  if (
-    labData.stage6.selectedModel
-  ) {
-
-    models.forEach(model => {
-
-      model.classList.toggle(
-        "selected-model",
-        model.dataset.model ===
-          labData.stage6.selectedModel
-      );
-
-    });
-
-  }
-
-
-  selectButtons.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        labData.stage6.selectedModel =
-          button.dataset.model;
-
-
-        saveLabData();
-
-
-        models.forEach(model => {
-
-          model.classList.toggle(
-            "selected-model",
-            model.dataset.model ===
-              labData.stage6.selectedModel
-          );
-
-        });
-
-      }
-    );
-
-  });
-
-
-  evidence.forEach(box => {
-
-    box.checked =
-      labData.stage6.evidence.includes(
-        box.value
-      );
-
-
-    box.addEventListener(
-      "change",
-      () => {
-
-        labData.stage6.evidence =
-          Array.from(
-            document.querySelectorAll(
-              ".stage6-evidence:checked"
-            )
-          )
-          .map(
-            checked =>
-              checked.value
-          );
-
-
-        saveLabData();
-
-      }
-    );
-
-  });
-
-
-  document
-    .querySelector(
-      "#check-stage6-investigation"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        const explanation =
-          document.querySelector(
-            "#stage6-note"
-          )?.value || "";
-
-
-        if (
-          !labData.stage6.selectedModel
-        ) {
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              Select a model first.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        if (
-          labData.stage6.selectedModel !==
-          "A"
-        ) {
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              Your selected model contains a structural problem.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        const requiredEvidence = [
-          "complementary",
-          "antiparallel",
-          "hydrogen"
-        ];
-
-
-        const missingEvidence =
-          requiredEvidence.some(
-            item =>
-              !labData.stage6.evidence.includes(
-                item
-              )
-          );
-
-
-        if (missingEvidence) {
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              Your evidence is incomplete.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        if (
-          !requireReasoning(
-            explanation,
-            120
-          )
-        ) {
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              Expand your written evaluation.
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        labData.stage6.analysisCorrect =
-          true;
-
-
-        labData.completedStages.stage6 =
-          true;
-
-
-        saveLabData();
-
-
-        showFeedback(
-          feedback,
-          "success",
-          `
-            <strong>Stage 6 complete.</strong>
-          `
-        );
-
-
-        unlockNext(
-          "#stage6-next"
-        );
-
-      }
-    );
-
-
-  if (
-    labData.completedStages.stage6
-  ) {
-
-    unlockNext(
-      "#stage6-next"
-    );
-
-  }
-
-}
-
-
-
-/* =========================================================
-   FINAL CHALLENGE
-   ========================================================= */
-
-function setupChallenge() {
-
-  const baseBank =
-    document.querySelectorAll(
-      ".base-bank-button"
-    );
-
-
-  const slots =
-    document.querySelectorAll(
-      ".final-base-slot"
-    );
-
-
-  const leftDirection =
-    document.querySelector(
-      "#final-left-direction"
-    );
-
-
-  const rightDirection =
-    document.querySelector(
-      "#final-right-direction"
-    );
-
-
-  const feedback =
-    document.querySelector(
-      "#final-feedback"
-    );
-
-
-  const completedHelix =
-    document.querySelector(
-      "#completed-double-helix"
-    );
-
-
-  baseBank.forEach(button => {
-
-    makeDraggable(
-      button,
-      {
-        type: "challenge-base",
-        base: button.dataset.base
-      }
-    );
-
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        selectPiece(
-          button
-        );
-
-      }
-    );
-
-  });
-
-
-  slots.forEach(slot => {
-
-    setupDropTarget(
-      slot,
-      data => {
-
-        if (
-          data.type !==
-          "challenge-base"
-        ) {
-          return;
-        }
-
-
-        placeChallengeBase(
-          slot,
-          data.base
-        );
-
-      }
-    );
-
-
-    slot.addEventListener(
-      "click",
-      () => {
-
-        if (
-          selectedPiece &&
-          selectedPiece.classList.contains(
-            "base-bank-button"
-          )
-        ) {
-
-          placeChallengeBase(
-            slot,
-            selectedPiece.dataset.base
-          );
-
-
-          clearSelectedPiece();
-
-
-          return;
-
-        }
-
-
-        const position =
-          Number(
-            slot.dataset.position
-          );
-
-
-        labData.challenge.sequence[
-          position
-        ] =
-          "";
-
-
-        labData.challenge.analysisCorrect =
-          false;
-
-
-        saveLabData();
-
-
-        renderChallenge();
-
-      }
-    );
-
-  });
-
-
-  leftDirection?.addEventListener(
-    "click",
-    () => {
-
-      labData.challenge.leftDirection =
-        cycleDirection(
-          labData.challenge.leftDirection
-        );
-
-
-      saveLabData();
-
-
-      renderChallenge();
-
-    }
-  );
-
-
-  rightDirection?.addEventListener(
-    "click",
-    () => {
-
-      labData.challenge.rightDirection =
-        cycleDirection(
-          labData.challenge.rightDirection
-        );
-
-
-      saveLabData();
-
-
-      renderChallenge();
-
-    }
-  );
-
-
-  setupChallengeCalculationSaving();
-
-
-  restoreChallengeCalculations();
-
-
-  renderChallenge();
-
-
-  document
-    .querySelector(
-      "#submit-final-challenge"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        const complement = [
-          "C",
-          "G",
-          "T",
-          "A",
-          "A",
-          "C",
-          "G",
-          "G"
-        ];
-
-
-        const sequenceCorrect =
-          complement.every(
-            (base, index) =>
-
-              labData.challenge.sequence[
-                index
-              ] === base
-          );
-
-
-        const directionsCorrect =
-
-          labData.challenge.leftDirection ===
-            "3" &&
-
-          labData.challenge.rightDirection ===
-            "5";
-
-
-        const calculationsCorrect =
-
-          Number(
-            labData.challenge.atPairs
-          ) === 3 &&
-
-          Number(
-            labData.challenge.gcPairs
-          ) === 5 &&
-
-          Number(
-            labData.challenge.hydrogenBonds
-          ) === 21 &&
-
-          Number(
-            labData.challenge.purines
-          ) === 3;
-
-
-        const explanation =
-          document.querySelector(
-            "#final-note"
-          )?.value || "";
-
-
-        const issues = [];
-
-
-        if (!sequenceCorrect) {
-
-          issues.push(
-            "The complementary strand contains at least one incorrect base."
-          );
-
-        }
-
-
-        if (!directionsCorrect) {
-
-          issues.push(
-            "The strand orientations are not yet antiparallel."
-          );
-
-        }
-
-
-        if (!calculationsCorrect) {
-
-          issues.push(
-            "At least one structural calculation is incorrect."
-          );
-
-        }
-
-
-        if (
-          !requireReasoning(
-            explanation,
-            160
-          )
-        ) {
-
-          issues.push(
-            "Your defence needs more evidence and explanation."
-          );
-
-        }
-
-
-        if (
-          issues.length > 0
-        ) {
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              <strong>Your DNA model has not yet passed validation.</strong><br>
-              ${issues.join("<br>")}
-            `
-          );
-
-
-          return;
-
-        }
-
-
-        labData.challenge.analysisCorrect =
-          true;
-
-
-        labData.completedStages.challenge =
-          true;
-
-
-        saveLabData();
-
-
-        renderChallenge();
-
-
-        completedHelix?.classList.add(
-          "visible"
-        );
-
-
-        showFeedback(
-          feedback,
-          "success",
-          `
-            <strong>DNA molecule validated.</strong><br>
-            The completed double helix has been unlocked below.
-          `
-        );
-
-
-        unlockNext(
-          "#final-next"
-        );
-
-
-        setTimeout(
-          () => {
-
-            completedHelix?.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          },
-          350
-        );
-
-      }
-    );
-
-
-  if (
-    labData.completedStages.challenge
-  ) {
-
-    completedHelix?.classList.add(
-      "visible"
-    );
-
-
-    unlockNext(
-      "#final-next"
-    );
-
-  }
-
-}
-
-
-
-function cycleDirection(
-  current
-) {
-
-  if (!current) {
-    return "3";
-  }
-
-
-  if (
-    current === "3"
-  ) {
-
-    return "5";
-
-  }
-
-
-  return "";
-
-}
-
-
-
-function placeChallengeBase(
-  slot,
-  base
-) {
-
-  const position =
-    Number(
-      slot.dataset.position
-    );
-
-
-  labData.challenge.sequence[
-    position
-  ] =
-    base;
-
-
-  labData.challenge.analysisCorrect =
-    false;
-
-
-  saveLabData();
-
-
-  renderChallenge();
-
-}
-
-
-
-function renderChallenge() {
-
-  const template = [
-    "G",
-    "C",
-    "A",
-    "T",
-    "T",
-    "G",
-    "C",
-    "C"
-  ];
-
-
-  const correctPairs = {
-    A: "T",
-    T: "A",
-    C: "G",
-    G: "C"
-  };
-
-
-  document
-    .querySelectorAll(
-      ".final-base-slot"
-    )
-    .forEach(slot => {
-
-      const position =
-        Number(
-          slot.dataset.position
-        );
-
-
-      const base =
-        labData.challenge.sequence[
-          position
-        ];
-
-
-      if (!base) {
-
-        slot.className =
-          "final-base-slot";
-
-
-        slot.textContent =
-          "?";
-
-
-        return;
-
-      }
-
-
-      slot.className =
-        `final-base-slot dna-base base-${base.toLowerCase()}`;
-
-
-      slot.textContent =
-        base;
-
-    });
-
-
-  document
-    .querySelectorAll(
-      ".final-bond-row > div"
-    )
-    .forEach(
-      (bond, position) => {
-
-        const topBase =
-          template[position];
-
-
-        const bottomBase =
-          labData.challenge.sequence[
-            position
-          ];
-
-
-        const correct =
-          bottomBase ===
-          correctPairs[
-            topBase
-          ];
-
-
-        if (!correct) {
-
-          bond.textContent =
-            "";
-
-
-          return;
-
-        }
-
-
-        bond.textContent =
-          (
-            topBase === "G" ||
-            topBase === "C"
-          )
-            ? "···"
-            : "··";
-
-      }
-    );
-
-
-  const left =
-    document.querySelector(
-      "#final-left-direction"
-    );
-
-
-  const right =
-    document.querySelector(
-      "#final-right-direction"
-    );
-
-
-  if (left) {
-
-    left.textContent =
-      labData.challenge.leftDirection
-        ? labData.challenge.leftDirection + "′"
-        : "?";
-
-  }
-
-
-  if (right) {
-
-    right.textContent =
-      labData.challenge.rightDirection
-        ? labData.challenge.rightDirection + "′"
-        : "?";
-
-  }
-
-}
-
-
-
-function setupChallengeCalculationSaving() {
-
-  const map = {
-
-    "#final-at":
-      "atPairs",
-
-    "#final-gc":
-      "gcPairs",
-
-    "#final-hydrogen":
-      "hydrogenBonds",
-
-    "#final-purines":
-      "purines"
-
-  };
-
-
-  Object.entries(
-    map
-  )
-  .forEach(
-    ([selector, key]) => {
-
-      const input =
-        document.querySelector(
-          selector
-        );
-
-
-      input?.addEventListener(
-        "input",
-        () => {
-
-          labData.challenge[
-            key
-          ] =
-            input.value;
-
-
-          saveLabData();
-
-        }
-      );
-
-    }
-  );
-
-}
-
-
-
-function restoreChallengeCalculations() {
-
-  const map = {
-
-    "#final-at":
-      labData.challenge.atPairs,
-
-    "#final-gc":
-      labData.challenge.gcPairs,
-
-    "#final-hydrogen":
-      labData.challenge.hydrogenBonds,
-
-    "#final-purines":
-      labData.challenge.purines
-
-  };
-
-
-  Object.entries(
-    map
-  )
-  .forEach(
-    ([selector, value]) => {
-
-      const input =
-        document.querySelector(
-          selector
-        );
-
-
-      if (input) {
-
-        input.value =
-          value || "";
-
-      }
-
-    }
-  );
-
-}
-
-
-
-/* =========================================================
-   COMPLETION PAGE
-   ========================================================= */
-
-function setupCompletionPage() {
-
-  const student =
-    document.querySelector(
-      "#completion-student"
-    );
-
-
-  const sequence =
-    document.querySelector(
-      "#final-sequence-display"
-    );
-
-
-  const notebook =
-    document.querySelector(
-      "#notebook-output"
-    );
-
-
-  if (student) {
-
-    student.textContent =
-      labData.studentName
-        ? `${labData.studentName}, you completed the Biology 30 Virtual DNA Construction Lab.`
-        : "Biology 30 Virtual DNA Construction Lab completed.";
-
-  }
-
-
-  if (sequence) {
-
-    sequence.innerHTML = `
-
-      <div>
-        5′ — G C A T T G C C — 3′
       </div>
 
-      <div>
-        3′ — ${labData.challenge.sequence.join(" ")} — 5′
-      </div>
-
-    `;
-
-  }
 
 
-  if (notebook) {
+      <!-- PHOSPHATE -->
 
-    notebook.innerHTML =
-      buildNotebookHTML();
+      <button
+        type="button"
+        class="stage3-part molecular-part-card phosphate-part"
+        data-part-type="phosphate"
+        data-part-value="phosphate"
+        aria-label="Molecular structure option"
+      >
 
-  }
+        <svg
+          class="stage3-molecule-svg phosphate-svg"
+          viewBox="0 0 140 110"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="70"
+            cy="55"
+            r="22"
+            class="molecule-central-atom"
+          />
+
+          <text
+            x="70"
+            y="62"
+            text-anchor="middle"
+            class="molecule-symbol"
+          >
+            P
+          </text>
+
+          <line
+            x1="70"
+            y1="33"
+            x2="70"
+            y2="10"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="70"
+            y1="77"
+            x2="70"
+            y2="100"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="48"
+            y1="55"
+            x2="20"
+            y2="55"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="92"
+            y1="55"
+            x2="120"
+            y2="55"
+            class="molecule-bond"
+          />
+
+          <text
+            x="70"
+            y="9"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="70"
+            y="109"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="14"
+            y="60"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="126"
+            y="60"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 1
+        </span>
+
+      </button>
 
 
-  document
-    .querySelector(
-      "#download-report"
-    )
-    ?.addEventListener(
-      "click",
-      downloadLabReport
-    );
+
+      <!-- DEOXYRIBOSE -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card sugar-part"
+        data-part-type="sugar"
+        data-part-value="deoxyribose"
+        aria-label="Molecular structure option"
+      >
+
+        <svg
+          class="stage3-molecule-svg sugar-svg"
+          viewBox="0 0 150 120"
+          aria-hidden="true"
+        >
+
+          <polygon
+            points="75,16 125,50 106,104 44,104 25,50"
+            class="sugar-ring"
+          />
+
+          <text
+            x="76"
+            y="14"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="18"
+            y="48"
+            class="molecule-carbon-label"
+          >
+            1′
+          </text>
+
+          <text
+            x="31"
+            y="110"
+            class="molecule-carbon-label"
+          >
+            2′
+          </text>
+
+          <text
+            x="106"
+            y="111"
+            class="molecule-carbon-label"
+          >
+            3′
+          </text>
+
+          <text
+            x="126"
+            y="49"
+            class="molecule-carbon-label"
+          >
+            4′
+          </text>
+
+          <text
+            x="130"
+            y="79"
+            class="molecule-small-label"
+          >
+            CH₂OH
+          </text>
+
+          <text
+            x="43"
+            y="91"
+            class="molecule-small-label"
+          >
+            H
+          </text>
+
+          <text
+            x="93"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 2
+        </span>
+
+      </button>
 
 
-  document
-    .querySelector(
-      "#print-report"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
 
-        window.print();
+      <!-- RIBOSE DISTRACTOR -->
 
-      }
-    );
+      <button
+        type="button"
+        class="stage3-part molecular-part-card sugar-part distractor-part"
+        data-part-type="sugar"
+        data-part-value="ribose"
+        aria-label="Molecular structure option"
+      >
+
+        <svg
+          class="stage3-molecule-svg sugar-svg"
+          viewBox="0 0 150 120"
+          aria-hidden="true"
+        >
+
+          <polygon
+            points="75,16 125,50 106,104 44,104 25,50"
+            class="sugar-ring"
+          />
+
+          <text
+            x="76"
+            y="14"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="18"
+            y="48"
+            class="molecule-carbon-label"
+          >
+            1′
+          </text>
+
+          <text
+            x="31"
+            y="110"
+            class="molecule-carbon-label"
+          >
+            2′
+          </text>
+
+          <text
+            x="106"
+            y="111"
+            class="molecule-carbon-label"
+          >
+            3′
+          </text>
+
+          <text
+            x="126"
+            y="49"
+            class="molecule-carbon-label"
+          >
+            4′
+          </text>
+
+          <text
+            x="130"
+            y="79"
+            class="molecule-small-label"
+          >
+            CH₂OH
+          </text>
+
+          <text
+            x="37"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+          <text
+            x="93"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 3
+        </span>
+
+      </button>
 
 
-  document
-    .querySelector(
-      "#start-over"
-    )
-    ?.addEventListener(
-      "click",
-      startLabAgain
-    );
 
-}
+      <!-- ADENINE -->
 
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="A"
+        aria-label="Molecular structure option"
+      >
 
+        <div class="simplified-base purine-structure">
 
-function buildNotebookHTML() {
+          <span class="ring ring-six">
+            N
+          </span>
 
-  const responses = [
+          <span class="ring ring-five">
+            N
+          </span>
 
-    [
-      "Stage 1 — Nucleotide Structure",
-      labData.notebook.stage1Note
-    ],
-
-    [
-      "Stage 2 — Nitrogenous Bases",
-      labData.notebook.stage2Note
-    ],
-
-    [
-      "Stage 3 — DNA Strand",
-      labData.notebook.stage3Note
-    ],
-
-    [
-      "Stage 4 — Complementary DNA",
-      labData.notebook.stage4Note
-    ],
-
-    [
-      "Stage 5 — Error Analysis",
-      labData.notebook.stage5Note
-    ],
-
-    [
-      "Stage 6 — Structural Investigation",
-      labData.notebook.stage6Note
-    ],
-
-    [
-      "Final Challenge — Model Defence",
-      labData.notebook.finalNote
-    ]
-
-  ];
-
-
-  return responses
-    .map(
-      ([title, response]) => `
-
-        <div class="record-item">
-
-          <strong>
-            ${escapeHTML(title)}
-          </strong>
-
-          <p>
-            ${escapeHTML(
-              response ||
-              "No response recorded."
-            )}
-          </p>
+          <span class="base-feature">
+            NH₂
+          </span>
 
         </div>
 
-      `
-    )
-    .join("");
+        <span class="molecular-part-code">
+          STRUCTURE 4
+        </span>
 
-}
+      </button>
 
 
 
-function downloadLabReport() {
+      <!-- THYMINE -->
 
-  const date =
-    new Date()
-      .toLocaleDateString();
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="T"
+        aria-label="Molecular structure option"
+      >
 
+        <div class="simplified-base pyrimidine-structure">
 
-  const report = `BIOLOGY 30
-VIRTUAL DNA CONSTRUCTION LAB
+          <span class="ring ring-six">
+            N
+          </span>
 
-Student:
-${labData.studentName || "Not recorded"}
+          <span class="base-feature feature-top">
+            CH₃
+          </span>
 
-Date:
-${date}
+          <span class="base-feature feature-bottom">
+            O
+          </span>
 
-==================================================
-LAB COMPLETION
-==================================================
+        </div>
 
-Stage 1 — Construct a DNA Nucleotide
-${completionText(labData.completedStages.stage1)}
+        <span class="molecular-part-code">
+          STRUCTURE 5
+        </span>
 
-Stage 2 — Analyze the Nitrogenous Bases
-${completionText(labData.completedStages.stage2)}
+      </button>
 
-Stage 3 — Construct a DNA Strand
-${completionText(labData.completedStages.stage3)}
 
-Stage 4 — Construct the Complementary Strand
-${completionText(labData.completedStages.stage4)}
 
-Stage 5 — Diagnose and Repair DNA
-${completionText(labData.completedStages.stage5)}
+      <!-- CYTOSINE -->
 
-Stage 6 — DNA Structural Investigation
-${completionText(labData.completedStages.stage6)}
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="C"
+        aria-label="Molecular structure option"
+      >
 
-Final Challenge
-${completionText(labData.completedStages.challenge)}
+        <div class="simplified-base pyrimidine-structure">
 
+          <span class="ring ring-six">
+            N
+          </span>
 
-==================================================
-FINAL DNA MOLECULE
-==================================================
+          <span class="base-feature feature-top">
+            NH₂
+          </span>
 
-5′ — G C A T T G C C — 3′
-3′ — ${labData.challenge.sequence.join(" ")} — 5′
+          <span class="base-feature feature-bottom">
+            O
+          </span>
 
-A–T base pairs:
-${labData.challenge.atPairs}
+        </div>
 
-G–C base pairs:
-${labData.challenge.gcPairs}
+        <span class="molecular-part-code">
+          STRUCTURE 6
+        </span>
 
-Total hydrogen bonds:
-${labData.challenge.hydrogenBonds}
+      </button>
 
-Purines in original strand:
-${labData.challenge.purines}
 
 
-==================================================
-LAB NOTEBOOK
-==================================================
+      <!-- GUANINE -->
 
-STAGE 1 — NUCLEOTIDE STRUCTURE
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="G"
+        aria-label="Molecular structure option"
+      >
 
-${labData.notebook.stage1Note || "No response recorded."}
+        <div class="simplified-base purine-structure">
 
+          <span class="ring ring-six">
+            N
+          </span>
 
-STAGE 2 — NITROGENOUS BASES
+          <span class="ring ring-five">
+            N
+          </span>
 
-${labData.notebook.stage2Note || "No response recorded."}
+          <span class="base-feature feature-top">
+            O
+          </span>
 
+          <span class="base-feature feature-bottom">
+            NH₂
+          </span>
 
-STAGE 3 — DNA STRAND
+        </div>
 
-${labData.notebook.stage3Note || "No response recorded."}
+        <span class="molecular-part-code">
+          STRUCTURE 7
+        </span>
 
+      </button>
 
-STAGE 4 — COMPLEMENTARY DNA
 
-${labData.notebook.stage4Note || "No response recorded."}
 
+      <!-- URACIL DISTRACTOR -->
 
-STAGE 5 — ERROR ANALYSIS
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part distractor-part"
+        data-part-type="base"
+        data-part-value="U"
+        aria-label="Molecular structure option"
+      >
 
-${labData.notebook.stage5Note || "No response recorded."}
+        <div class="simplified-base pyrimidine-structure">
 
+          <span class="ring ring-six">
+            N
+          </span>
 
-STAGE 6 — STRUCTURAL INVESTIGATION
+          <span class="base-feature feature-top">
+            O
+          </span>
 
-${labData.notebook.stage6Note || "No response recorded."}
+          <span class="base-feature feature-bottom">
+            O
+          </span>
 
+        </div>
 
-FINAL MODEL DEFENCE
+        <span class="molecular-part-code">
+          STRUCTURE 8
+        </span>
 
-${labData.notebook.finalNote || "No response recorded."}
+      </button>
 
+    </div>
 
-==================================================
-END OF LAB RECORD
-==================================================
-`;
 
 
-  const blob =
-    new Blob(
-      [report],
-      {
-        type:
-          "text/plain;charset=utf-8"
-      }
-    );
+    <div class="stage3-construction-instructions">
 
+      <strong>
+        Construction rules
+      </strong>
 
-  const url =
-    URL.createObjectURL(
-      blob
-    );
+      <p>
+        Build six DNA nucleotides in the required 5′ → 3′ sequence.
+        Each nucleotide has three molecular attachment sites.
+        Decide which type of structure belongs in each position.
+      </p>
 
+    </div>
 
-  const link =
-    document.createElement(
-      "a"
-    );
 
 
-  const safeName =
-    (
-      labData.studentName ||
-      "student"
-    )
-      .trim()
-      .replace(
-        /\s+/g,
-        "_"
-      )
-      .replace(
-        /[^a-zA-Z0-9_-]/g,
-        ""
-      );
+    <!-- =====================================================
+         STRAND BUILD AREA
+         ===================================================== -->
 
+    <div class="stage3-strand-builder">
 
-  link.href =
-    url;
+      <span class="stage3-direction">
+        5′
+      </span>
 
 
-  link.download =
-    `${safeName}_DNA_Lab_Record.txt`;
+      <div class="stage3-nucleotide-grid">
 
 
-  document.body.appendChild(
-    link
-  );
+        <!-- NUCLEOTIDE 1 -->
 
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="0"
+        >
 
-  link.click();
+          <span class="nucleotide-number">
+            1
+          </span>
 
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="0"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 1"
+          >
+            ?
+          </button>
 
-  link.remove();
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="0"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 1"
+          >
+            ?
+          </button>
 
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="0"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 1"
+          >
+            ?
+          </button>
 
-  URL.revokeObjectURL(
-    url
-  );
+        </div>
 
-}
 
 
+        <!-- NUCLEOTIDE 2 -->
 
-function startLabAgain() {
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="1"
+        >
 
-  const confirmed =
-    window.confirm(
-      "Start a new lab? This will permanently erase the saved work currently stored on this browser."
-    );
+          <span class="nucleotide-number">
+            2
+          </span>
 
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="1"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 2"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="1"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 2"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="1"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 2"
+          >
+            ?
+          </button>
 
-  if (!confirmed) {
-    return;
-  }
+        </div>
 
 
-  localStorage.removeItem(
-    STORAGE_KEY
-  );
 
+        <!-- NUCLEOTIDE 3 -->
 
-  labData =
-    cloneDefaultData();
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="2"
+        >
 
+          <span class="nucleotide-number">
+            3
+          </span>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="2"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 3"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="2"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 3"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="2"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 3"
+          >
+            ?
+          </button>
+
+        </div>
+
+
+
+        <!-- NUCLEOTIDE 4 -->
+
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="3"
+        >
+
+          <span class="nucleotide-number">
+            4
+          </span>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="3"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 4"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="3"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 4"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="3"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 4"
+          >
+            ?
+          </button>
+
+        </div>
+
+
+
+        <!-- NUCLEOTIDE 5 -->
+
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="4"
+        >
+
+          <span class="nucleotide-number">
+            5
+          </span>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="4"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 5"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="4"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 5"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="4"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 5"
+          >
+            ?
+          </button>
+
+        </div>
+
+
+
+        <!-- NUCLEOTIDE 6 -->
+
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="5"
+        >
+
+          <span class="nucleotide-number">
+            6
+          </span>
 
-  window.location.href =
-    "index.html";
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="5"
+            data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 6"
+          >
+            ?
+          </button>
+
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="5"
+            data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 6"
+          >
+            ?
+          </button>
 
-}
+          <button
+            type="button"
+            class="stage3-component-slot"
+            data-position="5"
+            data-component="base"
+            aria-label="Empty molecular site in nucleotide 6"
+          >
+            ?
+          </button>
 
+        </div>
 
+      </div>
 
-function completionText(
-  completed
-) {
 
-  return completed
-    ? "Completed ✓"
-    : "Not completed";
+      <span class="stage3-direction">
+        3′
+      </span>
 
-}
+    </div>
 
 
+    <div class="lab-actions">
 
-function escapeHTML(text) {
+      <button
+        id="check-stage3-build"
+        class="check-button"
+        type="button"
+      >
+        Validate My Strand
+      </button>
 
-  const div =
-    document.createElement(
-      "div"
-    );
+      <button
+        id="clear-stage3-build"
+        class="secondary-button"
+        type="button"
+      >
+        Clear Strand
+      </button>
 
+    </div>
 
-  div.textContent =
-    String(text);
 
+    <div
+      id="stage3-build-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
 
-  return div.innerHTML;
+  </section>
 
-}
+
+
+  <!-- =====================================================
+       PART B
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART B — BOND ANALYSIS
+    </span>
+
+    <h2>
+      How are nucleotides connected within one strand?
+    </h2>
+
+    <p>
+      Examine the connection between two neighbouring nucleotides.
+      Select the bond in the model and identify which molecular
+      structures participate in this connection.
+    </p>
+
+
+    <div class="stage3-bond-model">
+
+      <div class="mini-nucleotide">
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+        <span class="mini-base base-a">
+          A
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="stage3-bond-target"
+        class="stage3-bond-target"
+      >
+        Select bond
+      </button>
+
+
+      <div class="mini-nucleotide">
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+        <span class="mini-base base-t">
+          T
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="bases"
+        >
+
+        <span>
+          Two nitrogenous bases
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="sugar-phosphate"
+        >
+
+        <span>
+          A phosphate group and sugars of adjacent nucleotides
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="phosphates"
+        >
+
+        <span>
+          Two phosphate groups
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-bond-answer"
+          value="hydrogen"
+        >
+
+        <span>
+          Complementary nitrogenous bases
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <button
+      id="check-stage3-bond"
+      class="check-button"
+      type="button"
+    >
+      Check Bond Analysis
+    </button>
+
+
+    <div
+      id="stage3-bond-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART C
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART C — MODEL DIAGNOSIS
+    </span>
+
+    <h2>
+      Which model correctly represents one DNA strand?
+    </h2>
+
+    <p>
+      Evaluate all three models. Only one correctly represents
+      the relationship between the sugar-phosphate backbone and
+      the nitrogenous bases.
+    </p>
+
+
+    <div class="stage3-model-grid">
+
+
+      <!-- MODEL A -->
+
+      <article
+        class="stage3-model-card"
+        data-model="A"
+      >
+
+        <span class="model-id">
+          MODEL A
+        </span>
+
+        <div class="stage3-model-line">
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+        </div>
+
+        <div class="stage3-attached-bases">
+
+          <span>A</span>
+          <span>T</span>
+          <span>G</span>
+
+        </div>
+
+        <button
+          type="button"
+          class="stage3-model-select"
+          data-model="A"
+        >
+          Select Model A
+        </button>
+
+      </article>
+
+
+
+      <!-- MODEL B -->
+
+      <article
+        class="stage3-model-card"
+        data-model="B"
+      >
+
+        <span class="model-id">
+          MODEL B
+        </span>
+
+        <div class="stage3-model-line">
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            A
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            T
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            G
+          </span>
+
+        </div>
+
+        <div class="stage3-side-phosphates">
+
+          <span>P</span>
+          <span>P</span>
+          <span>P</span>
+
+        </div>
+
+        <button
+          type="button"
+          class="stage3-model-select"
+          data-model="B"
+        >
+          Select Model B
+        </button>
+
+      </article>
+
+
+
+      <!-- MODEL C -->
+
+      <article
+        class="stage3-model-card"
+        data-model="C"
+      >
+
+        <span class="model-id">
+          MODEL C
+        </span>
+
+        <div class="stage3-model-line">
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+        </div>
+
+        <div class="stage3-attached-bases incorrect-attachment">
+
+          <span>A</span>
+          <span>T</span>
+          <span>G</span>
+
+        </div>
+
+        <button
+          type="button"
+          class="stage3-model-select"
+          data-model="C"
+        >
+          Select Model C
+        </button>
+
+      </article>
+
+    </div>
+
+
+    <label
+      for="stage3-diagnosis-note"
+      class="response-label"
+    >
+      Explain why your selected model is correct and identify
+      the structural problem in each incorrect model.
+    </label>
+
+
+    <textarea
+      id="stage3-diagnosis-note"
+      data-save-field="stage3DiagnosisNote"
+      placeholder="Use the organization of the sugar-phosphate backbone and base attachment as evidence..."
+    ></textarea>
+
+
+    <button
+      id="check-stage3-diagnosis"
+      class="check-button"
+      type="button"
+    >
+      Submit Model Diagnosis
+    </button>
+
+
+    <div
+      id="stage3-diagnosis-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART D
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART D — APPLY YOUR MODEL
+    </span>
+
+    <h2>
+      Predict what changes and what stays the same.
+    </h2>
+
+
+    <div class="stage3-sequence-change">
+
+      <div>
+
+        <span>
+          Original strand
+        </span>
+
+        <strong>
+          5′ — A T G C C A — 3′
+        </strong>
+
+      </div>
+
+
+      <div class="sequence-arrow">
+        →
+      </div>
+
+
+      <div>
+
+        <span>
+          Changed strand
+        </span>
+
+        <strong>
+          5′ — G C T A T G — 3′
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <label
+      for="stage3-note"
+      class="response-label"
+    >
+      If the base sequence changes from the first strand to the
+      second, which parts of the molecular structure change and
+      which parts remain unchanged? Explain your reasoning.
+    </label>
+
+
+    <textarea
+      id="stage3-note"
+      data-save-field="stage3Note"
+      placeholder="Consider the bases, sugars, phosphates, and overall backbone..."
+    ></textarea>
+
+
+    <button
+      id="check-stage3-analysis"
+      class="check-button"
+      type="button"
+    >
+      Complete Stage 3
+    </button>
+
+
+    <div
+      id="stage3-analysis-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <nav class="stage-navigation">
+
+    <a
+      href="stage2.html"
+      class="nav-button back-button"
+    >
+      ← Stage 2
+    </a>
+
+    <a
+      href="stage4.html"
+      id="stage3-next"
+      class="nav-button next-button locked"
+      aria-disabled="true"
+    >
+      Continue to Stage 4 →
+    </a>
+
+  </nav>
+
+</main>
+
+
+<footer>
+  Biology 30 • Molecular Genetics
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
