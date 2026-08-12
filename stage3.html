@@ -54,15 +54,20 @@
 
   <section class="stage-heading">
 
-    <span class="stage-number">STAGE 03</span>
+    <span class="stage-number">
+      STAGE 03
+    </span>
 
-    <h1>Construct a DNA Strand</h1>
+    <h1>
+      Construct a DNA Strand
+    </h1>
 
     <p>
       A DNA strand is more than a sequence of letters.
-      Build the strand from its molecular components, identify
-      how neighbouring nucleotides are connected, and evaluate
-      whether different models correctly represent DNA structure.
+      Use your knowledge of nucleotide structure to construct
+      a strand from molecular components, identify how neighbouring
+      nucleotides are connected, and evaluate different models
+      of DNA structure.
     </p>
 
   </section>
@@ -70,7 +75,7 @@
 
 
   <!-- =====================================================
-       PART A — BUILD THE STRAND
+       PART A
        ===================================================== -->
 
   <section class="lab-panel">
@@ -81,12 +86,24 @@
         PART A — MOLECULAR CONSTRUCTION
       </span>
 
-      <h2>Build the required DNA strand.</h2>
+      <h2>
+        Build the required DNA strand.
+      </h2>
 
       <p>
-        Construct each nucleotide from a phosphate group,
-        deoxyribose sugar, and nitrogenous base.
-        Then place the completed nucleotides in the correct order.
+        Select molecular components from the tray and use them to construct
+        the six nucleotides in the required DNA strand.
+        <strong>Build each nucleotide vertically, working down one numbered
+        column at a time.</strong>
+        Each numbered column represents one complete nucleotide.
+        Complete nucleotide 1 before moving across to nucleotide 2,
+        and continue until all six nucleotides are built.
+      </p>
+
+      <p class="small-note">
+        You may drag a component into the model or click a component
+        and then click its destination. Do not build horizontally across
+        the rows.
       </p>
 
     </div>
@@ -94,7 +111,9 @@
 
     <div class="target-banner">
 
-      <span>REQUIRED STRAND</span>
+      <span>
+        REQUIRED STRAND
+      </span>
 
       <strong>
         5′ — A T G C C A — 3′
@@ -103,131 +122,536 @@
     </div>
 
 
-    <!-- PARTS BANK -->
 
-    <div class="stage3-parts-bank">
+    <!-- =====================================================
+         MOLECULAR PARTS TRAY
+         ===================================================== -->
 
-      <div class="stage3-bank-section">
+    <div class="stage3-parts-bank advanced-parts-bank">
 
-        <h3>Phosphate groups</h3>
+      <div class="stage3-bank-intro">
 
-        <div class="stage3-bank-row">
+        <h3>
+          Molecular Parts Tray
+        </h3>
 
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-        </div>
-
-        <p class="small-note">
-          Parts may be reused.
+        <p>
+          Identify each structure before deciding whether and where
+          it belongs in the strand.
         </p>
 
       </div>
 
 
-      <div class="stage3-bank-section">
 
-        <h3>Deoxyribose sugars</h3>
+      <!-- PHOSPHATE -->
 
-        <div class="stage3-bank-row">
+      <button
+        type="button"
+        class="stage3-part molecular-part-card phosphate-part"
+        data-part-type="phosphate"
+        data-part-value="phosphate"
+        aria-label="Molecular structure option"
+      >
 
-          <button
-            type="button"
-            class="stage3-part sugar-part"
-            data-part-type="sugar"
+        <svg
+          class="stage3-molecule-svg phosphate-svg"
+          viewBox="0 0 140 110"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="70"
+            cy="55"
+            r="22"
+            class="molecule-central-atom"
+          />
+
+          <text
+            x="70"
+            y="62"
+            text-anchor="middle"
+            class="molecule-symbol"
           >
-            D
-          </button>
+            P
+          </text>
 
-          <button
-            type="button"
-            class="stage3-part sugar-part"
-            data-part-type="sugar"
+          <line
+            x1="70"
+            y1="33"
+            x2="70"
+            y2="10"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="70"
+            y1="77"
+            x2="70"
+            y2="100"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="48"
+            y1="55"
+            x2="20"
+            y2="55"
+            class="molecule-bond"
+          />
+
+          <line
+            x1="92"
+            y1="55"
+            x2="120"
+            y2="55"
+            class="molecule-bond"
+          />
+
+          <text
+            x="70"
+            y="9"
+            text-anchor="middle"
+            class="molecule-small-label"
           >
-            D
-          </button>
+            O
+          </text>
+
+          <text
+            x="70"
+            y="109"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="14"
+            y="60"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="126"
+            y="60"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 1
+        </span>
+
+      </button>
+
+
+
+      <!-- DEOXYRIBOSE -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card sugar-part"
+        data-part-type="sugar"
+        data-part-value="deoxyribose"
+        aria-label="Molecular structure option"
+      >
+
+        <svg
+          class="stage3-molecule-svg sugar-svg"
+          viewBox="0 0 150 120"
+          aria-hidden="true"
+        >
+
+          <polygon
+            points="75,16 125,50 106,104 44,104 25,50"
+            class="sugar-ring"
+          />
+
+          <text
+            x="76"
+            y="14"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="18"
+            y="48"
+            class="molecule-carbon-label"
+          >
+            1′
+          </text>
+
+          <text
+            x="31"
+            y="110"
+            class="molecule-carbon-label"
+          >
+            2′
+          </text>
+
+          <text
+            x="106"
+            y="111"
+            class="molecule-carbon-label"
+          >
+            3′
+          </text>
+
+          <text
+            x="126"
+            y="49"
+            class="molecule-carbon-label"
+          >
+            4′
+          </text>
+
+          <text
+            x="130"
+            y="79"
+            class="molecule-small-label"
+          >
+            CH₂OH
+          </text>
+
+          <text
+            x="43"
+            y="91"
+            class="molecule-small-label"
+          >
+            H
+          </text>
+
+          <text
+            x="93"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 2
+        </span>
+
+      </button>
+
+
+
+      <!-- RIBOSE DISTRACTOR -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card sugar-part distractor-part"
+        data-part-type="sugar"
+        data-part-value="ribose"
+        aria-label="Molecular structure option"
+      >
+
+        <svg
+          class="stage3-molecule-svg sugar-svg"
+          viewBox="0 0 150 120"
+          aria-hidden="true"
+        >
+
+          <polygon
+            points="75,16 125,50 106,104 44,104 25,50"
+            class="sugar-ring"
+          />
+
+          <text
+            x="76"
+            y="14"
+            text-anchor="middle"
+            class="molecule-small-label"
+          >
+            O
+          </text>
+
+          <text
+            x="18"
+            y="48"
+            class="molecule-carbon-label"
+          >
+            1′
+          </text>
+
+          <text
+            x="31"
+            y="110"
+            class="molecule-carbon-label"
+          >
+            2′
+          </text>
+
+          <text
+            x="106"
+            y="111"
+            class="molecule-carbon-label"
+          >
+            3′
+          </text>
+
+          <text
+            x="126"
+            y="49"
+            class="molecule-carbon-label"
+          >
+            4′
+          </text>
+
+          <text
+            x="130"
+            y="79"
+            class="molecule-small-label"
+          >
+            CH₂OH
+          </text>
+
+          <text
+            x="37"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+          <text
+            x="93"
+            y="91"
+            class="molecule-small-label"
+          >
+            OH
+          </text>
+
+        </svg>
+
+        <span class="molecular-part-code">
+          STRUCTURE 3
+        </span>
+
+      </button>
+
+
+
+      <!-- ADENINE -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="A"
+        aria-label="Molecular structure option"
+      >
+
+        <div class="simplified-base purine-structure">
+
+          <span class="ring ring-six">
+            N
+          </span>
+
+          <span class="ring ring-five">
+            N
+          </span>
+
+          <span class="base-feature">
+            NH₂
+          </span>
 
         </div>
 
-        <p class="small-note">
-          Parts may be reused.
-        </p>
+        <span class="molecular-part-code">
+          STRUCTURE 4
+        </span>
 
-      </div>
+      </button>
 
 
-      <div class="stage3-bank-section">
 
-        <h3>Nitrogenous bases</h3>
+      <!-- THYMINE -->
 
-        <div class="stage3-bank-row">
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="T"
+        aria-label="Molecular structure option"
+      >
 
-          <button
-            type="button"
-            class="stage3-part base-part base-a"
-            data-part-type="base"
-            data-base="A"
-          >
-            A
-          </button>
+        <div class="simplified-base pyrimidine-structure">
 
-          <button
-            type="button"
-            class="stage3-part base-part base-t"
-            data-part-type="base"
-            data-base="T"
-          >
-            T
-          </button>
+          <span class="ring ring-six">
+            N
+          </span>
 
-          <button
-            type="button"
-            class="stage3-part base-part base-c"
-            data-part-type="base"
-            data-base="C"
-          >
-            C
-          </button>
+          <span class="base-feature feature-top">
+            CH₃
+          </span>
 
-          <button
-            type="button"
-            class="stage3-part base-part base-g"
-            data-part-type="base"
-            data-base="G"
-          >
-            G
-          </button>
+          <span class="base-feature feature-bottom">
+            O
+          </span>
 
         </div>
 
-      </div>
+        <span class="molecular-part-code">
+          STRUCTURE 5
+        </span>
+
+      </button>
+
+
+
+      <!-- CYTOSINE -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="C"
+        aria-label="Molecular structure option"
+      >
+
+        <div class="simplified-base pyrimidine-structure">
+
+          <span class="ring ring-six">
+            N
+          </span>
+
+          <span class="base-feature feature-top">
+            NH₂
+          </span>
+
+          <span class="base-feature feature-bottom">
+            O
+          </span>
+
+        </div>
+
+        <span class="molecular-part-code">
+          STRUCTURE 6
+        </span>
+
+      </button>
+
+
+
+      <!-- GUANINE -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part"
+        data-part-type="base"
+        data-part-value="G"
+        aria-label="Molecular structure option"
+      >
+
+        <div class="simplified-base purine-structure">
+
+          <span class="ring ring-six">
+            N
+          </span>
+
+          <span class="ring ring-five">
+            N
+          </span>
+
+          <span class="base-feature feature-top">
+            O
+          </span>
+
+          <span class="base-feature feature-bottom">
+            NH₂
+          </span>
+
+        </div>
+
+        <span class="molecular-part-code">
+          STRUCTURE 7
+        </span>
+
+      </button>
+
+
+
+      <!-- URACIL DISTRACTOR -->
+
+      <button
+        type="button"
+        class="stage3-part molecular-part-card base-part distractor-part"
+        data-part-type="base"
+        data-part-value="U"
+        aria-label="Molecular structure option"
+      >
+
+        <div class="simplified-base pyrimidine-structure">
+
+          <span class="ring ring-six">
+            N
+          </span>
+
+          <span class="base-feature feature-top">
+            O
+          </span>
+
+          <span class="base-feature feature-bottom">
+            O
+          </span>
+
+        </div>
+
+        <span class="molecular-part-code">
+          STRUCTURE 8
+        </span>
+
+      </button>
 
     </div>
 
 
 
-    <!-- STRAND BUILD AREA -->
+    <!-- =====================================================
+         CONSTRUCTION DIRECTIONS
+         ===================================================== -->
+
+    <div class="stage3-construction-instructions">
+
+      <strong>
+        How to build your strand
+      </strong>
+
+      <p>
+        Work <strong>down each numbered column</strong>.
+        Each column represents one nucleotide and contains three
+        molecular attachment sites. Decide which molecular structure
+        belongs in each site.
+      </p>
+
+      <p>
+        Complete all three sites in <strong>nucleotide 1</strong>,
+        then move across to nucleotide 2 and repeat the process.
+        Continue this pattern until all six nucleotides have been built.
+      </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         STRAND BUILD AREA
+         ===================================================== -->
 
     <div class="stage3-strand-builder">
 
@@ -241,15 +665,23 @@
 
         <!-- NUCLEOTIDE 1 -->
 
-        <div class="stage3-nucleotide-slot" data-position="0">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="0"
+        >
+
+          <span class="nucleotide-number">
+            1
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="0"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 1"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -257,8 +689,9 @@
             class="stage3-component-slot"
             data-position="0"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 1"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -266,24 +699,34 @@
             class="stage3-component-slot"
             data-position="0"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 1"
           >
-            Base?
+            ?
           </button>
 
         </div>
+
 
 
         <!-- NUCLEOTIDE 2 -->
 
-        <div class="stage3-nucleotide-slot" data-position="1">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="1"
+        >
+
+          <span class="nucleotide-number">
+            2
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="1"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 2"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -291,8 +734,9 @@
             class="stage3-component-slot"
             data-position="1"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 2"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -300,24 +744,34 @@
             class="stage3-component-slot"
             data-position="1"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 2"
           >
-            Base?
+            ?
           </button>
 
         </div>
+
 
 
         <!-- NUCLEOTIDE 3 -->
 
-        <div class="stage3-nucleotide-slot" data-position="2">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="2"
+        >
+
+          <span class="nucleotide-number">
+            3
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="2"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 3"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -325,8 +779,9 @@
             class="stage3-component-slot"
             data-position="2"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 3"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -334,24 +789,34 @@
             class="stage3-component-slot"
             data-position="2"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 3"
           >
-            Base?
+            ?
           </button>
 
         </div>
+
 
 
         <!-- NUCLEOTIDE 4 -->
 
-        <div class="stage3-nucleotide-slot" data-position="3">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="3"
+        >
+
+          <span class="nucleotide-number">
+            4
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="3"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 4"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -359,8 +824,9 @@
             class="stage3-component-slot"
             data-position="3"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 4"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -368,24 +834,34 @@
             class="stage3-component-slot"
             data-position="3"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 4"
           >
-            Base?
+            ?
           </button>
 
         </div>
+
 
 
         <!-- NUCLEOTIDE 5 -->
 
-        <div class="stage3-nucleotide-slot" data-position="4">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="4"
+        >
+
+          <span class="nucleotide-number">
+            5
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="4"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 5"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -393,8 +869,9 @@
             class="stage3-component-slot"
             data-position="4"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 5"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -402,24 +879,34 @@
             class="stage3-component-slot"
             data-position="4"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 5"
           >
-            Base?
+            ?
           </button>
 
         </div>
 
 
+
         <!-- NUCLEOTIDE 6 -->
 
-        <div class="stage3-nucleotide-slot" data-position="5">
+        <div
+          class="stage3-nucleotide-slot"
+          data-position="5"
+        >
+
+          <span class="nucleotide-number">
+            6
+          </span>
 
           <button
             type="button"
             class="stage3-component-slot"
             data-position="5"
             data-component="phosphate"
+            aria-label="Empty molecular site in nucleotide 6"
           >
-            P?
+            ?
           </button>
 
           <button
@@ -427,8 +914,9 @@
             class="stage3-component-slot"
             data-position="5"
             data-component="sugar"
+            aria-label="Empty molecular site in nucleotide 6"
           >
-            D?
+            ?
           </button>
 
           <button
@@ -436,8 +924,9 @@
             class="stage3-component-slot"
             data-position="5"
             data-component="base"
+            aria-label="Empty molecular site in nucleotide 6"
           >
-            Base?
+            ?
           </button>
 
         </div>
@@ -484,7 +973,7 @@
 
 
   <!-- =====================================================
-       PART B — PHOSPHODIESTER BONDS
+       PART B
        ===================================================== -->
 
   <section class="analysis-section">
@@ -493,21 +982,35 @@
       PART B — BOND ANALYSIS
     </span>
 
-    <h2>How are nucleotides connected within one strand?</h2>
+    <h2>
+      How are nucleotides connected within one strand?
+    </h2>
 
     <p>
-      The completed strand contains covalent phosphodiester bonds
-      between neighbouring nucleotides.
+      Examine the connection between two neighbouring nucleotides.
+      Select the bond in the model and identify which molecular
+      structures participate in this connection.
     </p>
 
 
     <div class="stage3-bond-model">
 
       <div class="mini-nucleotide">
-        <span class="mini-phosphate">P</span>
-        <span class="mini-sugar">D</span>
-        <span class="mini-base base-a">A</span>
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+        <span class="mini-base base-a">
+          A
+        </span>
+
       </div>
+
 
       <button
         type="button"
@@ -517,10 +1020,21 @@
         Select bond
       </button>
 
+
       <div class="mini-nucleotide">
-        <span class="mini-phosphate">P</span>
-        <span class="mini-sugar">D</span>
-        <span class="mini-base base-t">T</span>
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+        <span class="mini-base base-t">
+          T
+        </span>
+
       </div>
 
     </div>
@@ -529,50 +1043,62 @@
     <div class="choice-grid">
 
       <label class="choice-card">
+
         <input
           type="radio"
           name="stage3-bond-answer"
           value="bases"
         >
+
         <span>
           Two nitrogenous bases
         </span>
+
       </label>
 
 
       <label class="choice-card">
+
         <input
           type="radio"
           name="stage3-bond-answer"
           value="sugar-phosphate"
         >
+
         <span>
           A phosphate group and sugars of adjacent nucleotides
         </span>
+
       </label>
 
 
       <label class="choice-card">
+
         <input
           type="radio"
           name="stage3-bond-answer"
           value="phosphates"
         >
+
         <span>
           Two phosphate groups
         </span>
+
       </label>
 
 
       <label class="choice-card">
+
         <input
           type="radio"
           name="stage3-bond-answer"
           value="hydrogen"
         >
+
         <span>
           Complementary nitrogenous bases
         </span>
+
       </label>
 
     </div>
@@ -598,7 +1124,7 @@
 
 
   <!-- =====================================================
-       PART C — MODEL DIAGNOSIS
+       PART C
        ===================================================== -->
 
   <section class="analysis-section">
@@ -607,11 +1133,14 @@
       PART C — MODEL DIAGNOSIS
     </span>
 
-    <h2>Which model correctly represents one DNA strand?</h2>
+    <h2>
+      Which model correctly represents one DNA strand?
+    </h2>
 
     <p>
-      Evaluate all three models. Only one shows the correct
-      relationship between the backbone and the nitrogenous bases.
+      Evaluate all three models. Only one correctly represents
+      the relationship between the sugar-phosphate backbone and
+      the nitrogenous bases.
     </p>
 
 
@@ -620,7 +1149,10 @@
 
       <!-- MODEL A -->
 
-      <article class="stage3-model-card" data-model="A">
+      <article
+        class="stage3-model-card"
+        data-model="A"
+      >
 
         <span class="model-id">
           MODEL A
@@ -628,12 +1160,29 @@
 
         <div class="stage3-model-line">
 
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
 
         </div>
 
@@ -656,9 +1205,13 @@
       </article>
 
 
+
       <!-- MODEL B -->
 
-      <article class="stage3-model-card" data-model="B">
+      <article
+        class="stage3-model-card"
+        data-model="B"
+      >
 
         <span class="model-id">
           MODEL B
@@ -666,12 +1219,29 @@
 
         <div class="stage3-model-line">
 
-          <span class="model-d">D</span>
-          <span class="model-base">A</span>
-          <span class="model-d">D</span>
-          <span class="model-base">T</span>
-          <span class="model-d">D</span>
-          <span class="model-base">G</span>
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            A
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            T
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-base">
+            G
+          </span>
 
         </div>
 
@@ -694,9 +1264,13 @@
       </article>
 
 
+
       <!-- MODEL C -->
 
-      <article class="stage3-model-card" data-model="C">
+      <article
+        class="stage3-model-card"
+        data-model="C"
+      >
 
         <span class="model-id">
           MODEL C
@@ -704,12 +1278,29 @@
 
         <div class="stage3-model-line">
 
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
-          <span class="model-p">P</span>
-          <span class="model-d">D</span>
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
+
+          <span class="model-p">
+            P
+          </span>
+
+          <span class="model-d">
+            D
+          </span>
 
         </div>
 
@@ -720,10 +1311,6 @@
           <span>G</span>
 
         </div>
-
-        <p class="model-warning">
-          One base is attached to a phosphate instead of a sugar.
-        </p>
 
         <button
           type="button"
@@ -774,7 +1361,7 @@
 
 
   <!-- =====================================================
-       PART D — TRANSFER
+       PART D
        ===================================================== -->
 
   <section class="analysis-section">
@@ -783,27 +1370,41 @@
       PART D — APPLY YOUR MODEL
     </span>
 
-    <h2>Predict what changes and what stays the same.</h2>
+    <h2>
+      Predict what changes and what stays the same.
+    </h2>
 
 
     <div class="stage3-sequence-change">
 
       <div>
-        <span>Original strand</span>
+
+        <span>
+          Original strand
+        </span>
+
         <strong>
           5′ — A T G C C A — 3′
         </strong>
+
       </div>
+
 
       <div class="sequence-arrow">
         →
       </div>
 
+
       <div>
-        <span>Changed strand</span>
+
+        <span>
+          Changed strand
+        </span>
+
         <strong>
           5′ — G C T A T G — 3′
         </strong>
+
       </div>
 
     </div>
@@ -880,4 +1481,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
