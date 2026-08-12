@@ -123,7 +123,7 @@
       </button>
 
 
-      <!-- B — DEOXYRIBOSE -->
+            <!-- B — DEOXYRIBOSE -->
 
       <button
         class="molecule-card sugar-candidate"
@@ -135,17 +135,70 @@
 
         <span class="piece-id">B</span>
 
-        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Deoxyribose sugar ring with a hydrogen group attached">
+        <svg
+          viewBox="0 0 240 210"
+          class="molecule-svg sugar-diagram"
+          aria-label="Five-carbon deoxyribose sugar"
+        >
 
+          <!-- Deoxyribose ring -->
           <polygon
-            points="78,42 148,42 178,97 122,144 58,102"
+            points="75,58 135,42 180,82 160,140 95,145 58,100"
             class="sugar-ring"
           />
 
-          <!-- the one detail that matters for this lab: no -OH here -->
-          <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
-          <circle cx="122" cy="188" r="21" class="diff-mark mark-a"/>
-          <text x="122" y="193" class="group-label diff-label">H</text>
+          <!-- Oxygen in ring -->
+          <text
+            x="137"
+            y="56"
+            class="sugar-atom-label"
+          >O</text>
+
+          <!-- Carbon position labels -->
+          <text x="172" y="78" class="carbon-label">1′</text>
+          <text x="162" y="157" class="carbon-label">2′</text>
+          <text x="84" y="162" class="carbon-label">3′</text>
+          <text x="45" y="101" class="carbon-label">4′</text>
+
+          <!-- 5' carbon -->
+          <line
+            x1="75"
+            y1="58"
+            x2="55"
+            y2="30"
+            class="bond bond-thin"
+          />
+          <text x="39" y="27" class="carbon-label">5′</text>
+
+          <!-- 2' substituent -->
+          <line
+            x1="160"
+            y1="140"
+            x2="180"
+            y2="174"
+            class="bond bond-thin"
+          />
+
+          <text
+            x="192"
+            y="187"
+            class="sugar-group-label"
+          >H</text>
+
+          <!-- 3' hydroxyl -->
+          <line
+            x1="95"
+            y1="145"
+            x2="78"
+            y2="177"
+            class="bond bond-thin"
+          />
+
+          <text
+            x="61"
+            y="193"
+            class="sugar-group-label"
+          >OH</text>
 
         </svg>
 
@@ -164,17 +217,70 @@
 
         <span class="piece-id">C</span>
 
-        <svg viewBox="0 0 220 210" class="molecule-svg sugar-diagram" aria-label="Ribose sugar ring with a hydroxyl group attached">
+        <svg
+          viewBox="0 0 240 210"
+          class="molecule-svg sugar-diagram"
+          aria-label="Five-carbon ribose sugar"
+        >
 
+          <!-- Ribose ring -->
           <polygon
-            points="78,42 148,42 178,97 122,144 58,102"
+            points="75,58 135,42 180,82 160,140 95,145 58,100"
             class="sugar-ring"
           />
 
-          <!-- the one detail that matters for this lab: an -OH here -->
-          <line x1="122" y1="144" x2="122" y2="176" class="bond bond-thin"/>
-          <circle cx="122" cy="188" r="21" class="diff-mark mark-b"/>
-          <text x="122" y="193" class="group-label diff-label">OH</text>
+          <!-- Oxygen in ring -->
+          <text
+            x="137"
+            y="56"
+            class="sugar-atom-label"
+          >O</text>
+
+          <!-- Carbon position labels -->
+          <text x="172" y="78" class="carbon-label">1′</text>
+          <text x="162" y="157" class="carbon-label">2′</text>
+          <text x="84" y="162" class="carbon-label">3′</text>
+          <text x="45" y="101" class="carbon-label">4′</text>
+
+          <!-- 5' carbon -->
+          <line
+            x1="75"
+            y1="58"
+            x2="55"
+            y2="30"
+            class="bond bond-thin"
+          />
+          <text x="39" y="27" class="carbon-label">5′</text>
+
+          <!-- 2' hydroxyl -->
+          <line
+            x1="160"
+            y1="140"
+            x2="180"
+            y2="174"
+            class="bond bond-thin"
+          />
+
+          <text
+            x="193"
+            y="187"
+            class="sugar-group-label"
+          >OH</text>
+
+          <!-- 3' hydroxyl -->
+          <line
+            x1="95"
+            y1="145"
+            x2="78"
+            y2="177"
+            class="bond bond-thin"
+          />
+
+          <text
+            x="61"
+            y="193"
+            class="sugar-group-label"
+          >OH</text>
 
         </svg>
 
