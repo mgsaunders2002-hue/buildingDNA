@@ -546,47 +546,56 @@
 
   <section class="analysis-section">
 
-    <span class="panel-label">
-      PART B — BOND ANALYSIS
-    </span>
+  <span class="panel-label">
+    PART B — BOND ANALYSIS
+  </span>
 
-    <h2>
-      Which connection joins one nucleotide to the next?
-    </h2>
+  <h2>
+    Which connection joins one nucleotide to the next?
+  </h2>
 
-    <p>
-      The simplified model below shows two adjacent nucleotides
-      within a <strong>single DNA strand</strong>.
-      Three different connections have been labelled.
-    </p>
-
-    <p>
-      First, identify the connection that continues the
-      sugar-phosphate backbone from one nucleotide to the next.
-      Then identify the type of bond involved.
-    </p>
+  <p>
+    The model below shows two adjacent nucleotides in a
+    <strong>single DNA strand</strong>.
+    Select the connection that allows the sugar-phosphate
+    backbone to continue from one nucleotide to the next.
+  </p>
 
 
-    <!-- TWO-NUCLEOTIDE MODEL -->
+  <!-- SINGLE-STRAND BOND MODEL -->
 
-    <div class="stage3-bond-investigation">
+  <div class="stage3-bond-diagram">
 
 
-      <!-- NUCLEOTIDE 1 -->
+    <!-- NUCLEOTIDE 1 -->
 
-      <div class="bond-analysis-nucleotide">
+    <div class="bond-diagram-nucleotide">
 
-        <div class="bond-analysis-backbone">
+      <div class="bond-backbone-row">
 
-          <span class="mini-phosphate">
-            P
-          </span>
+        <span class="mini-phosphate">
+          P
+        </span>
 
-          <span class="mini-sugar">
-            D
-          </span>
+        <span class="bond-line"></span>
 
-        </div>
+        <span class="mini-sugar">
+          D
+        </span>
+
+      </div>
+
+
+      <div class="bond-base-branch">
+
+        <button
+          type="button"
+          class="stage3-bond-choice bond-hotspot"
+          data-bond-choice="base-attachment"
+          aria-label="Connection A"
+        >
+          A
+        </button>
 
         <span class="mini-base base-a">
           A
@@ -594,37 +603,58 @@
 
       </div>
 
+    </div>
 
-      <!-- BACKBONE LINK TO NEXT NUCLEOTIDE -->
 
-      <div class="bond-choice-wrapper">
 
-        <button
-          type="button"
-          class="stage3-bond-choice"
-          data-bond-choice="backbone"
-        >
-          Connection B
-        </button>
+    <!-- CONNECTION BETWEEN NUCLEOTIDES -->
+
+    <div class="between-nucleotides">
+
+      <span class="bond-line long-bond-line"></span>
+
+      <button
+        type="button"
+        class="stage3-bond-choice bond-hotspot backbone-hotspot"
+        data-bond-choice="backbone"
+        aria-label="Connection B"
+      >
+        B
+      </button>
+
+    </div>
+
+
+
+    <!-- NUCLEOTIDE 2 -->
+
+    <div class="bond-diagram-nucleotide">
+
+      <div class="bond-backbone-row">
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="bond-line"></span>
+
+        <span class="mini-sugar">
+          D
+        </span>
 
       </div>
 
 
-      <!-- NUCLEOTIDE 2 -->
+      <div class="bond-base-branch">
 
-      <div class="bond-analysis-nucleotide">
-
-        <div class="bond-analysis-backbone">
-
-          <span class="mini-phosphate">
-            P
-          </span>
-
-          <span class="mini-sugar">
-            D
-          </span>
-
-        </div>
+        <button
+          type="button"
+          class="stage3-bond-choice bond-hotspot"
+          data-bond-choice="second-base-attachment"
+          aria-label="Connection C"
+        >
+          C
+        </button>
 
         <span class="mini-base base-t">
           T
@@ -634,143 +664,100 @@
 
     </div>
 
+  </div>
 
 
-    <!-- OTHER CONNECTION CHOICES -->
+  <p class="small-note">
+    Click <strong>A, B, or C directly on the model</strong>.
+    Then identify the type of bond that forms the selected linkage.
+  </p>
 
-    <div class="stage3-bond-choice-row">
 
-      <button
-        type="button"
-        class="stage3-bond-choice"
-        data-bond-choice="base-attachment"
+  <h3>
+    What type of bond links adjacent nucleotides in the DNA backbone?
+  </h3>
+
+
+  <div class="choice-grid">
+
+    <label class="choice-card">
+
+      <input
+        type="radio"
+        name="stage3-bond-answer"
+        value="sugar-phosphate"
       >
-        Connection A
-        <span>
-          Sugar ↔ Base
-        </span>
-      </button>
+
+      <span>
+        Phosphodiester bond
+      </span>
+
+    </label>
 
 
-      <button
-        type="button"
-        class="stage3-bond-choice"
-        data-bond-choice="backbone"
+    <label class="choice-card">
+
+      <input
+        type="radio"
+        name="stage3-bond-answer"
+        value="hydrogen"
       >
-        Connection B
-        <span>
-          Between adjacent nucleotides
-        </span>
-      </button>
+
+      <span>
+        Hydrogen bond
+      </span>
+
+    </label>
 
 
-      <button
-        type="button"
-        class="stage3-bond-choice"
-        data-bond-choice="second-base-attachment"
+    <label class="choice-card">
+
+      <input
+        type="radio"
+        name="stage3-bond-answer"
+        value="glycosidic"
       >
-        Connection C
-        <span>
-          Sugar ↔ Base
-        </span>
-      </button>
 
-    </div>
+      <span>
+        Glycosidic bond
+      </span>
 
-
-    <p class="small-note">
-      Select the connection that allows the backbone to continue
-      from the first nucleotide into the second nucleotide.
-    </p>
+    </label>
 
 
+    <label class="choice-card">
 
-    <h3>
-      What type of bond forms this linkage?
-    </h3>
+      <input
+        type="radio"
+        name="stage3-bond-answer"
+        value="peptide"
+      >
 
+      <span>
+        Peptide bond
+      </span>
 
-    <div class="choice-grid">
+    </label>
 
-      <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="sugar-phosphate"
-        >
-
-        <span>
-          Phosphodiester bond
-        </span>
-
-      </label>
+  </div>
 
 
-      <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="hydrogen"
-        >
-
-        <span>
-          Hydrogen bond
-        </span>
-
-      </label>
+  <button
+    id="check-stage3-bond"
+    class="check-button"
+    type="button"
+  >
+    Check Bond Analysis
+  </button>
 
 
-      <label class="choice-card">
+  <div
+    id="stage3-bond-feedback"
+    class="feedback-box"
+    aria-live="polite"
+  ></div>
 
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="glycosidic"
-        >
-
-        <span>
-          Glycosidic bond
-        </span>
-
-      </label>
-
-
-      <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-bond-answer"
-          value="phosphate-phosphate"
-        >
-
-        <span>
-          Direct covalent bond between phosphate groups
-        </span>
-
-      </label>
-
-    </div>
-
-
-    <button
-      id="check-stage3-bond"
-      class="check-button"
-      type="button"
-    >
-      Check Bond Analysis
-    </button>
-
-
-    <div
-      id="stage3-bond-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
-
-  </section>
-
+</section>
 
 
   <!-- =====================================================
@@ -800,75 +787,133 @@
 
 
 
-    <!-- FLAWED MODEL -->
+   <!-- FLAWED DNA STRAND MODEL -->
 
-    <div class="stage3-error-model">
+<div class="stage3-error-diagram">
 
-      <div class="error-model-unit">
+  <div class="error-backbone">
 
-        <span class="model-p">
+
+    <!-- NUCLEOTIDE 1 -->
+
+    <div class="error-backbone-unit">
+
+      <div class="error-backbone-row">
+
+        <span class="mini-phosphate">
           P
         </span>
 
-        <span class="model-d">
+        <span class="bond-line"></span>
+
+        <span class="mini-sugar">
           D
         </span>
 
-        <span class="model-base base-a">
-          A
-        </span>
-
       </div>
 
-
-      <div class="error-model-link">
-        —
-      </div>
-
-
-      <div class="error-model-unit">
-
-        <span class="model-d">
-          D
-        </span>
-
-        <span class="model-base base-t">
-          T
-        </span>
-
-      </div>
-
-
-      <div class="error-model-link">
-        —
-      </div>
-
-
-      <div class="error-model-unit">
-
-        <span class="model-p">
-          P
-        </span>
-
-        <span class="model-d">
-          D
-        </span>
-
-        <span class="model-base base-g">
-          G
-        </span>
-
-      </div>
+      <span class="mini-base base-a error-base">
+        A
+      </span>
 
     </div>
 
 
-    <p class="small-note">
-      The nitrogenous bases are not the source of the error.
-      Focus on the continuity of the backbone.
-    </p>
+
+    <!-- NORMAL LINK -->
+
+    <span class="bond-line error-connector"></span>
 
 
+
+    <!-- NUCLEOTIDE 2 -->
+
+    <div class="error-backbone-unit">
+
+      <div class="error-backbone-row">
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="bond-line"></span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+      </div>
+
+      <span class="mini-base base-t error-base">
+        T
+      </span>
+
+    </div>
+
+
+
+    <!-- STRUCTURAL GAP -->
+
+    <span
+      class="backbone-gap"
+      aria-label="Gap in the DNA backbone"
+    ></span>
+
+
+
+    <!-- SUGAR WITH NO PHOSPHATE BEFORE IT -->
+
+    <div class="error-backbone-unit">
+
+      <div class="error-backbone-row">
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+      </div>
+
+      <span class="mini-base base-g error-base">
+        G
+      </span>
+
+    </div>
+
+
+
+    <!-- NORMAL LINK -->
+
+    <span class="bond-line error-connector"></span>
+
+
+
+    <!-- NUCLEOTIDE 4 -->
+
+    <div class="error-backbone-unit">
+
+      <div class="error-backbone-row">
+
+        <span class="mini-phosphate">
+          P
+        </span>
+
+        <span class="bond-line"></span>
+
+        <span class="mini-sugar">
+          D
+        </span>
+
+      </div>
+
+      <span class="mini-base base-c error-base">
+        C
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
 
     <!-- ERROR IDENTIFICATION -->
 
