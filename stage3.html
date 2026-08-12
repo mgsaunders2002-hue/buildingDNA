@@ -64,9 +64,9 @@
 
     <p>
       A DNA strand is more than a sequence of letters.
-      Build the strand from its molecular components, identify
-      how neighbouring nucleotides are connected, and evaluate
-      whether different models correctly represent DNA structure.
+      Build the strand from its molecular components, analyze
+      how neighbouring nucleotides are connected, and use
+      structural evidence to diagnose a problem in a DNA model.
     </p>
 
   </section>
@@ -127,7 +127,7 @@
     <div class="stage3-parts-bank">
 
 
-      <!-- PHOSPHATES -->
+      <!-- PHOSPHATE GROUPS -->
 
       <div class="stage3-bank-section">
 
@@ -171,7 +171,7 @@
 
 
 
-      <!-- SUGARS -->
+      <!-- DEOXYRIBOSE SUGARS -->
 
       <div class="stage3-bank-section">
 
@@ -207,7 +207,7 @@
 
 
 
-      <!-- BASES -->
+      <!-- NITROGENOUS BASES -->
 
       <div class="stage3-bank-section">
 
@@ -541,7 +541,7 @@
 
 
   <!-- =====================================================
-       PART B — PHOSPHODIESTER BOND ANALYSIS
+       PART B — BACKBONE BOND ANALYSIS
        ===================================================== -->
 
   <section class="analysis-section">
@@ -551,31 +551,42 @@
     </span>
 
     <h2>
-      How are adjacent nucleotides joined within one DNA strand?
+      Which connection joins one nucleotide to the next?
     </h2>
 
     <p>
-      The model below represents part of a
-      <strong>single DNA strand</strong>.
-      Follow the sugar-phosphate backbone and examine the connection
-      between one nucleotide and the next.
+      The simplified model below shows two adjacent nucleotides
+      within a <strong>single DNA strand</strong>.
+      Three different connections have been labelled.
+    </p>
+
+    <p>
+      First, identify the connection that continues the
+      sugar-phosphate backbone from one nucleotide to the next.
+      Then identify the type of bond involved.
     </p>
 
 
-    <div class="stage3-bond-model">
+    <!-- TWO-NUCLEOTIDE MODEL -->
+
+    <div class="stage3-bond-investigation">
 
 
-      <!-- FIRST NUCLEOTIDE -->
+      <!-- NUCLEOTIDE 1 -->
 
-      <div class="mini-nucleotide">
+      <div class="bond-analysis-nucleotide">
 
-        <span class="mini-phosphate">
-          P
-        </span>
+        <div class="bond-analysis-backbone">
 
-        <span class="mini-sugar">
-          D
-        </span>
+          <span class="mini-phosphate">
+            P
+          </span>
+
+          <span class="mini-sugar">
+            D
+          </span>
+
+        </div>
 
         <span class="mini-base base-a">
           A
@@ -584,28 +595,36 @@
       </div>
 
 
-      <!-- CONNECTION BETWEEN NUCLEOTIDES -->
+      <!-- BACKBONE LINK TO NEXT NUCLEOTIDE -->
 
-      <button
-        type="button"
-        id="stage3-bond-target"
-        class="stage3-bond-target"
-      >
-        Select backbone connection
-      </button>
+      <div class="bond-choice-wrapper">
+
+        <button
+          type="button"
+          class="stage3-bond-choice"
+          data-bond-choice="backbone"
+        >
+          Connection B
+        </button>
+
+      </div>
 
 
-      <!-- SECOND NUCLEOTIDE -->
+      <!-- NUCLEOTIDE 2 -->
 
-      <div class="mini-nucleotide">
+      <div class="bond-analysis-nucleotide">
 
-        <span class="mini-phosphate">
-          P
-        </span>
+        <div class="bond-analysis-backbone">
 
-        <span class="mini-sugar">
-          D
-        </span>
+          <span class="mini-phosphate">
+            P
+          </span>
+
+          <span class="mini-sugar">
+            D
+          </span>
+
+        </div>
 
         <span class="mini-base base-t">
           T
@@ -616,17 +635,58 @@
     </div>
 
 
+
+    <!-- OTHER CONNECTION CHOICES -->
+
+    <div class="stage3-bond-choice-row">
+
+      <button
+        type="button"
+        class="stage3-bond-choice"
+        data-bond-choice="base-attachment"
+      >
+        Connection A
+        <span>
+          Sugar ↔ Base
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="stage3-bond-choice"
+        data-bond-choice="backbone"
+      >
+        Connection B
+        <span>
+          Between adjacent nucleotides
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="stage3-bond-choice"
+        data-bond-choice="second-base-attachment"
+      >
+        Connection C
+        <span>
+          Sugar ↔ Base
+        </span>
+      </button>
+
+    </div>
+
+
     <p class="small-note">
-      You are examining a connection
-      <strong>within one strand</strong>.
-      Do not confuse this with the hydrogen bonds that later form
-      between complementary nitrogenous bases on opposite strands.
+      Select the connection that allows the backbone to continue
+      from the first nucleotide into the second nucleotide.
     </p>
 
 
+
     <h3>
-      Which type of bond joins adjacent nucleotides in the
-      sugar-phosphate backbone?
+      What type of bond forms this linkage?
     </h3>
 
 
@@ -667,11 +727,11 @@
         <input
           type="radio"
           name="stage3-bond-answer"
-          value="bases"
+          value="glycosidic"
         >
 
         <span>
-          Glycosidic bond between two nitrogenous bases
+          Glycosidic bond
         </span>
 
       </label>
@@ -682,11 +742,11 @@
         <input
           type="radio"
           name="stage3-bond-answer"
-          value="phosphates"
+          value="phosphate-phosphate"
         >
 
         <span>
-          Direct covalent bond between two phosphate groups
+          Direct covalent bond between phosphate groups
         </span>
 
       </label>
@@ -714,258 +774,264 @@
 
 
   <!-- =====================================================
-       PART C — MODEL DIAGNOSIS
+       PART C — STRUCTURAL ERROR ANALYSIS
        ===================================================== -->
 
   <section class="analysis-section">
 
     <span class="panel-label">
-      PART C — MODEL DIAGNOSIS
+      PART C — STRUCTURAL ERROR ANALYSIS
     </span>
 
     <h2>
-      Which model correctly represents one DNA strand?
+      Diagnose the problem in this DNA strand.
     </h2>
 
     <p>
-      Evaluate all three models using what you now know about
-      nucleotide structure and the sugar-phosphate backbone.
-      Only one model is structurally correct.
+      A student attempted to construct part of a DNA strand.
+      The base sequence is correct, but the model contains
+      <strong>one structural error in the backbone</strong>.
     </p>
 
-    <p class="small-note">
-      Pay attention to which components form the backbone
-      and where the nitrogenous bases are attached.
+    <p>
+      Use what you discovered in Parts A and B to identify the
+      error and predict its consequence.
     </p>
 
 
-    <div class="stage3-model-grid">
 
+    <!-- FLAWED MODEL -->
 
-      <!-- MODEL A -->
+    <div class="stage3-error-model">
 
-      <article
-        class="stage3-model-card"
-        data-model="A"
-      >
+      <div class="error-model-unit">
 
-        <span class="model-id">
-          MODEL A
+        <span class="model-p">
+          P
         </span>
 
-
-        <div class="stage3-model-line">
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-        </div>
-
-
-        <div class="stage3-attached-bases">
-
-          <span>
-            A
-          </span>
-
-          <span>
-            T
-          </span>
-
-          <span>
-            G
-          </span>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="stage3-model-select"
-          data-model="A"
-        >
-          Select Model A
-        </button>
-
-      </article>
-
-
-
-      <!-- MODEL B -->
-
-      <article
-        class="stage3-model-card"
-        data-model="B"
-      >
-
-        <span class="model-id">
-          MODEL B
+        <span class="model-d">
+          D
         </span>
 
-
-        <div class="stage3-model-line">
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-base">
-            A
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-base">
-            T
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-base">
-            G
-          </span>
-
-        </div>
-
-
-        <div class="stage3-side-phosphates">
-
-          <span>
-            P
-          </span>
-
-          <span>
-            P
-          </span>
-
-          <span>
-            P
-          </span>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="stage3-model-select"
-          data-model="B"
-        >
-          Select Model B
-        </button>
-
-      </article>
-
-
-
-      <!-- MODEL C -->
-
-      <article
-        class="stage3-model-card"
-        data-model="C"
-      >
-
-        <span class="model-id">
-          MODEL C
+        <span class="model-base base-a">
+          A
         </span>
 
-
-        <div class="stage3-model-line">
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-          <span class="model-p">
-            P
-          </span>
-
-          <span class="model-d">
-            D
-          </span>
-
-        </div>
+      </div>
 
 
-        <div class="stage3-attached-bases incorrect-attachment">
-
-          <span>
-            A
-          </span>
-
-          <span>
-            T
-          </span>
-
-          <span>
-            G
-          </span>
-
-        </div>
+      <div class="error-model-link">
+        —
+      </div>
 
 
-        <button
-          type="button"
-          class="stage3-model-select"
-          data-model="C"
-        >
-          Select Model C
-        </button>
+      <div class="error-model-unit">
 
-      </article>
+        <span class="model-d">
+          D
+        </span>
+
+        <span class="model-base base-t">
+          T
+        </span>
+
+      </div>
+
+
+      <div class="error-model-link">
+        —
+      </div>
+
+
+      <div class="error-model-unit">
+
+        <span class="model-p">
+          P
+        </span>
+
+        <span class="model-d">
+          D
+        </span>
+
+        <span class="model-base base-g">
+          G
+        </span>
+
+      </div>
 
     </div>
 
+
+    <p class="small-note">
+      The nitrogenous bases are not the source of the error.
+      Focus on the continuity of the backbone.
+    </p>
+
+
+
+    <!-- ERROR IDENTIFICATION -->
+
+    <h3>
+      1. What is the structural error?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-error-answer"
+          value="missing-phosphate"
+        >
+
+        <span>
+          A phosphate group is missing between adjacent sugars
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-error-answer"
+          value="wrong-base"
+        >
+
+        <span>
+          One nitrogenous base is incorrect
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-error-answer"
+          value="ribose"
+        >
+
+        <span>
+          One deoxyribose sugar has been replaced by ribose
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-error-answer"
+          value="hydrogen"
+        >
+
+        <span>
+          The number of hydrogen bonds is incorrect
+        </span>
+
+      </label>
+
+    </div>
+
+
+
+    <!-- CONSEQUENCE -->
+
+    <h3>
+      2. What is the most direct consequence of this error?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-consequence-answer"
+          value="backbone-disrupted"
+        >
+
+        <span>
+          The normal phosphodiester linkage cannot continue,
+          disrupting the sugar-phosphate backbone
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-consequence-answer"
+          value="base-change"
+        >
+
+        <span>
+          The genetic information must change because
+          the base sequence changes
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-consequence-answer"
+          value="purine-change"
+        >
+
+        <span>
+          A purine is converted into a pyrimidine
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage3-consequence-answer"
+          value="complement"
+        >
+
+        <span>
+          The strand automatically becomes complementary
+          to itself
+        </span>
+
+      </label>
+
+    </div>
+
+
+
+    <!-- WRITTEN JUSTIFICATION -->
 
     <label
       for="stage3-diagnosis-note"
       class="response-label"
     >
-      Explain why your selected model is correct and identify
-      the structural problem in each of the other two models.
+      Use the structure of the DNA backbone to explain why
+      this error prevents the strand from being structurally correct.
     </label>
 
 
     <textarea
       id="stage3-diagnosis-note"
       data-save-field="stage3DiagnosisNote"
-      placeholder="Use the repeating sugar-phosphate backbone and the attachment of the nitrogenous bases as evidence..."
+      placeholder="Explain the role of phosphate groups and phosphodiester bonds in maintaining the continuity of a DNA strand..."
     ></textarea>
 
 
@@ -974,7 +1040,7 @@
       class="check-button"
       type="button"
     >
-      Submit Model Diagnosis
+      Submit Structural Diagnosis
     </button>
 
 
