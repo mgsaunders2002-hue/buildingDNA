@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Stage 4 | Construct the Complementary Strand</title>
+  <title>Stage 4 | Analyze DNA Stability</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -35,7 +35,7 @@
 
   <div class="progress-label">
     <span>Stage 4 of 6</span>
-    <strong>Construct the Complementary Strand</strong>
+    <strong>Analyze DNA Stability</strong>
   </div>
 
   <div class="progress-bar">
@@ -47,195 +47,494 @@
 
 <main class="lab-page">
 
-<section class="stage-heading">
 
-  <span class="stage-number">STAGE 04</span>
+  <!-- =====================================================
+       STAGE HEADING
+       ===================================================== -->
 
-  <h1>Construct the Complementary Strand</h1>
+  <section class="stage-heading">
 
-  <p>
-    Use the existing DNA strand as a template.
-    Build the second strand using the molecular relationships
-    you learned in class.
-  </p>
+    <span class="stage-number">
+      STAGE 04
+    </span>
 
-</section>
+    <h1>
+      Analyze DNA Stability
+    </h1>
+
+    <p>
+      You have already built complementary DNA strands and examined
+      how nucleotides are connected. Now use the molecular structure
+      of DNA to compare the stability of different DNA regions,
+      calculate hydrogen bonding, and predict how easily a region
+      would separate.
+    </p>
+
+  </section>
 
 
-<section class="lab-panel">
 
-  <div class="dna-ladder-workspace">
+  <!-- =====================================================
+       PART A — COMPARE DNA REGIONS
+       ===================================================== -->
+
+  <section class="lab-panel">
+
+    <div class="panel-heading">
+
+      <span class="panel-label">
+        PART A — COMPARE DNA REGIONS
+      </span>
+
+      <h2>
+        Which DNA region would be more stable?
+      </h2>
+
+      <p>
+        The two DNA regions below are the same length.
+        Compare their base-pair composition before deciding which
+        region would generally require more energy to separate.
+      </p>
+
+    </div>
 
 
-    <!-- TOP STRAND -->
 
-    <div class="strand-row template-row">
+    <div class="stage4-region-grid">
 
-      <span class="strand-end-label">5′</span>
 
-      <span class="dna-base base-a">A</span>
-      <span class="dna-base base-t">T</span>
-      <span class="dna-base base-g">G</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-a">A</span>
+      <!-- REGION X -->
 
-      <span class="strand-end-label">3′</span>
+      <article class="stage4-region-card">
+
+        <span class="model-id">
+          REGION X
+        </span>
+
+        <div class="stage4-sequence-pair">
+
+          <div>
+            5′ — G C G C A T G C — 3′
+          </div>
+
+          <div>
+            3′ — C G C G T A C G — 5′
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- REGION Y -->
+
+      <article class="stage4-region-card">
+
+        <span class="model-id">
+          REGION Y
+        </span>
+
+        <div class="stage4-sequence-pair">
+
+          <div>
+            5′ — A T A T G C A T — 3′
+          </div>
+
+          <div>
+            3′ — T A T A C G T A — 5′
+          </div>
+
+        </div>
+
+      </article>
 
     </div>
 
 
-    <!-- BOND ZONES -->
 
-    <div class="bond-row">
+    <h3>
+      Which region would generally require more energy to separate?
+    </h3>
 
-      <div class="hydrogen-bond-zone" data-position="0"></div>
-      <div class="hydrogen-bond-zone" data-position="1"></div>
-      <div class="hydrogen-bond-zone" data-position="2"></div>
-      <div class="hydrogen-bond-zone" data-position="3"></div>
-      <div class="hydrogen-bond-zone" data-position="4"></div>
-      <div class="hydrogen-bond-zone" data-position="5"></div>
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-stability-answer"
+          value="x"
+        >
+
+        <span>
+          Region X
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-stability-answer"
+          value="y"
+        >
+
+        <span>
+          Region Y
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-stability-answer"
+          value="same"
+        >
+
+        <span>
+          Both regions would require the same amount of energy
+        </span>
+
+      </label>
 
     </div>
 
 
-    <!-- STUDENT STRAND -->
 
-    <div class="strand-row student-complement-row">
+    <label
+      for="stage4-stability-note"
+      class="response-label"
+    >
+      Explain your choice using the number of hydrogen bonds
+      formed by A–T and G–C base pairs.
+    </label>
 
-      <span class="strand-end-label pending-direction">?</span>
 
-      <button class="complement-position" data-position="0" type="button">?</button>
-      <button class="complement-position" data-position="1" type="button">?</button>
-      <button class="complement-position" data-position="2" type="button">?</button>
-      <button class="complement-position" data-position="3" type="button">?</button>
-      <button class="complement-position" data-position="4" type="button">?</button>
-      <button class="complement-position" data-position="5" type="button">?</button>
+    <textarea
+      id="stage4-stability-note"
+      data-save-field="stage4StabilityNote"
+      placeholder="Compare the hydrogen bonding in A–T and G–C base pairs..."
+    ></textarea>
 
-      <span class="strand-end-label pending-direction">?</span>
+
+    <button
+      id="check-stage4-stability"
+      class="check-button"
+      type="button"
+    >
+      Check Stability Analysis
+    </button>
+
+
+    <div
+      id="stage4-stability-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART B — HYDROGEN-BOND CALCULATION
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART B — MOLECULAR CALCULATION
+    </span>
+
+    <h2>
+      Calculate the hydrogen bonds in Region X.
+    </h2>
+
+    <p>
+      Use the base-pair composition of Region X to determine
+      how many A–T and G–C pairs it contains, then calculate
+      the total number of hydrogen bonds.
+    </p>
+
+
+    <div class="stage4-analysis-sequence">
+
+      <div>
+        5′ — G C G C A T G C — 3′
+      </div>
+
+      <div>
+        3′ — C G C G T A C G — 5′
+      </div>
 
     </div>
 
-  </div>
 
 
-  <div class="base-bank">
+    <div class="calculation-grid stage4-calculation-grid">
 
-    <button type="button" class="base-bank-button base-a" data-base="A">A</button>
-    <button type="button" class="base-bank-button base-t" data-base="T">T</button>
-    <button type="button" class="base-bank-button base-c" data-base="C">C</button>
-    <button type="button" class="base-bank-button base-g" data-base="G">G</button>
+      <label>
+        Number of A–T base pairs
 
-  </div>
-
-
-  <button
-    id="check-stage4-complement"
-    class="check-button"
-    type="button"
-  >
-    Validate Complementary Pairing
-  </button>
+        <input
+          id="stage4-at-pairs"
+          type="number"
+          min="0"
+        >
+      </label>
 
 
-  <div
-    id="stage4-feedback"
-    class="feedback-box"
-  ></div>
+      <label>
+        Number of G–C base pairs
 
-</section>
-
-
-<section class="analysis-section">
-
-  <span class="panel-label">MOLECULAR ANALYSIS</span>
-
-  <h2>Analyze the bonds in your molecule.</h2>
+        <input
+          id="stage4-gc-pairs"
+          type="number"
+          min="0"
+        >
+      </label>
 
 
-  <div class="calculation-grid">
+      <label>
+        Total hydrogen bonds
 
-    <label>
-      A–T base pairs
-      <input
-        id="stage4-at-pairs"
-        type="number"
-        min="0"
-      >
+        <input
+          id="stage4-hydrogen-bonds"
+          type="number"
+          min="0"
+        >
+      </label>
+
+    </div>
+
+
+    <button
+      id="check-stage4-calculations"
+      class="check-button"
+      type="button"
+    >
+      Check Calculations
+    </button>
+
+
+    <div
+      id="stage4-calculation-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART C — APPLY GC CONTENT
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART C — APPLY THE PATTERN
+    </span>
+
+    <h2>
+      Predict how GC content affects DNA separation.
+    </h2>
+
+    <p>
+      Two DNA regions are the same length.
+      Region M contains <strong>70% G–C base pairs</strong>,
+      while Region N contains <strong>35% G–C base pairs</strong>.
+    </p>
+
+
+    <h3>
+      Which region would generally separate more easily when heated?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-heating-answer"
+          value="m"
+        >
+
+        <span>
+          Region M
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-heating-answer"
+          value="n"
+        >
+
+        <span>
+          Region N
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage4-heating-answer"
+          value="same"
+        >
+
+        <span>
+          Both regions would separate equally easily
+        </span>
+
+      </label>
+
+    </div>
+
+
+
+    <label
+      for="stage4-heating-note"
+      class="response-label"
+    >
+      Explain your prediction using GC content and hydrogen bonding.
     </label>
 
-    <label>
-      G–C base pairs
-      <input
-        id="stage4-gc-pairs"
-        type="number"
-        min="0"
-      >
+
+    <textarea
+      id="stage4-heating-note"
+      data-save-field="stage4HeatingNote"
+      placeholder="Consider how many hydrogen bonds are formed by G–C pairs compared with A–T pairs..."
+    ></textarea>
+
+
+    <button
+      id="check-stage4-heating"
+      class="check-button"
+      type="button"
+    >
+      Check Prediction
+    </button>
+
+
+    <div
+      id="stage4-heating-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART D — SYNTHESIS
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART D — STRUCTURAL SYNTHESIS
+    </span>
+
+    <h2>
+      Connect base pairing to DNA function.
+    </h2>
+
+    <p>
+      DNA must be stable enough to store genetic information,
+      but the two strands must also be able to separate when
+      the information needs to be copied.
+    </p>
+
+
+    <label
+      for="stage4-note"
+      class="response-label"
+    >
+      Explain how complementary base pairing contributes to both
+      the stability of double-stranded DNA and the ability of the
+      strands to separate when needed.
     </label>
 
-    <label>
-      Total hydrogen bonds
-      <input
-        id="stage4-hydrogen-bonds"
-        type="number"
-        min="0"
-      >
-    </label>
 
-  </div>
+    <textarea
+      id="stage4-note"
+      data-save-field="stage4Note"
+      placeholder="Consider complementary base pairing, hydrogen bonds, and the fact that hydrogen bonds can be broken without disrupting the covalent backbone..."
+    ></textarea>
 
 
-  <label for="stage4-note" class="response-label">
-    Explain why a DNA region containing more G–C pairs
-    would generally require more energy to separate.
-  </label>
-
-  <textarea
-    id="stage4-note"
-    data-save-field="stage4Note"
-  ></textarea>
+    <button
+      id="check-stage4-analysis"
+      class="check-button"
+      type="button"
+    >
+      Complete Stage 4
+    </button>
 
 
-  <button
-    id="check-stage4-analysis"
-    class="check-button"
-    type="button"
-  >
-    Submit Molecular Analysis
-  </button>
+    <div
+      id="stage4-analysis-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
 
 
-  <div
-    id="stage4-analysis-feedback"
-    class="feedback-box"
-  ></div>
 
-</section>
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
 
+  <nav class="stage-navigation">
 
-<nav class="stage-navigation">
+    <a
+      href="stage3.html"
+      class="nav-button back-button"
+    >
+      ← Stage 3
+    </a>
 
-  <a href="stage3.html" class="nav-button back-button">
-    ← Stage 3
-  </a>
+    <a
+      href="stage5.html"
+      id="stage4-next"
+      class="nav-button next-button locked"
+      aria-disabled="true"
+    >
+      Continue to Stage 5 →
+    </a>
 
-  <a
-    href="stage5.html"
-    id="stage4-next"
-    class="nav-button next-button locked"
-  >
-    Continue to Stage 5 →
-  </a>
-
-</nav>
+  </nav>
 
 </main>
+
 
 <footer>
   Biology 30 • Molecular Genetics
 </footer>
 
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
