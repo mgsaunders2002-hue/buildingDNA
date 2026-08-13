@@ -63,10 +63,10 @@
     </h1>
 
     <p>
-      A DNA strand is more than a sequence of letters.
-      Build the strand from its molecular components, analyze
-      how neighbouring nucleotides are connected, and use
-      structural evidence to diagnose a problem in a DNA model.
+      A single DNA strand is a repeating sugar-phosphate backbone
+      with a nitrogenous base attached to every sugar. Build the
+      strand, examine how one nucleotide bonds to the next, then
+      use that structure to diagnose a broken model.
     </p>
 
   </section>
@@ -74,7 +74,7 @@
 
 
   <!-- =====================================================
-       PART A — MOLECULAR CONSTRUCTION
+       PART A — BUILD THE STRAND
        ===================================================== -->
 
   <section class="lab-panel">
@@ -82,27 +82,18 @@
     <div class="panel-heading">
 
       <span class="panel-label">
-        PART A — MOLECULAR CONSTRUCTION
+        PART A — BUILD THE STRAND
       </span>
 
       <h2>
-        Build the required DNA strand.
+        Place each base in 5′ → 3′ order.
       </h2>
 
       <p>
-        Construct each nucleotide from a phosphate group,
-        deoxyribose sugar, and nitrogenous base.
-        <strong>
-          Build each nucleotide down one numbered column before
-          moving to the next nucleotide.
-        </strong>
-      </p>
-
-      <p class="small-note">
-        Start with nucleotide 1. Complete all three positions
-        vertically from top to bottom, then move across to nucleotide 2.
-        Continue this pattern until all six nucleotides are complete.
-        Do not build horizontally across the rows.
+        The sugar-phosphate backbone below is already assembled —
+        it is identical at every position. Your job is to attach
+        the correct nitrogenous base to each sugar, reading the
+        strand from the 5′ end to the 3′ end.
       </p>
 
     </div>
@@ -111,7 +102,7 @@
     <div class="target-banner">
 
       <span>
-        REQUIRED STRAND
+        Required strand
       </span>
 
       <strong>
@@ -121,420 +112,146 @@
     </div>
 
 
+    <div class="s3-bank">
 
-    <!-- PARTS BANK -->
+      <span class="s3-bank-label">
+        Bases:
+      </span>
 
-    <div class="stage3-parts-bank">
+      <button type="button" class="base-bank-button base-a" data-base="A">A</button>
+      <button type="button" class="base-bank-button base-t" data-base="T">T</button>
+      <button type="button" class="base-bank-button base-g" data-base="G">G</button>
+      <button type="button" class="base-bank-button base-c" data-base="C">C</button>
 
-
-      <!-- PHOSPHATE GROUPS -->
-
-      <div class="stage3-bank-section">
-
-        <h3>
-          Phosphate groups
-        </h3>
-
-        <div class="stage3-bank-row">
-
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part phosphate-part"
-            data-part-type="phosphate"
-          >
-            P
-          </button>
-
-        </div>
-
-        <p class="small-note">
-          Parts may be reused.
-        </p>
-
-      </div>
-
-
-
-      <!-- DEOXYRIBOSE SUGARS -->
-
-      <div class="stage3-bank-section">
-
-        <h3>
-          Deoxyribose sugars
-        </h3>
-
-        <div class="stage3-bank-row">
-
-          <button
-            type="button"
-            class="stage3-part sugar-part"
-            data-part-type="sugar"
-          >
-            D
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part sugar-part"
-            data-part-type="sugar"
-          >
-            D
-          </button>
-
-        </div>
-
-        <p class="small-note">
-          Parts may be reused.
-        </p>
-
-      </div>
-
-
-
-      <!-- NITROGENOUS BASES -->
-
-      <div class="stage3-bank-section">
-
-        <h3>
-          Nitrogenous bases
-        </h3>
-
-        <div class="stage3-bank-row">
-
-          <button
-            type="button"
-            class="stage3-part base-part base-a"
-            data-part-type="base"
-            data-base="A"
-          >
-            A
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part base-part base-t"
-            data-part-type="base"
-            data-base="T"
-          >
-            T
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part base-part base-c"
-            data-part-type="base"
-            data-base="C"
-          >
-            C
-          </button>
-
-          <button
-            type="button"
-            class="stage3-part base-part base-g"
-            data-part-type="base"
-            data-base="G"
-          >
-            G
-          </button>
-
-        </div>
-
-      </div>
+      <span class="small-note">
+        Select a base, then select a slot. Bases may be reused.
+      </span>
 
     </div>
 
 
+    <div class="s3-backbone-panel">
 
-    <!-- STRAND BUILD AREA -->
+      <div class="s3-track">
 
-    <div class="stage3-strand-builder">
-
-      <span class="stage3-direction">
-        5′
-      </span>
-
-
-      <div class="stage3-nucleotide-grid">
+        <span class="s3-end-label">5′</span>
 
 
         <!-- NUCLEOTIDE 1 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="0"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="0"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="0"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="0"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 1</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="0" aria-label="Empty base site, nucleotide 1">?</button>
         </div>
 
+        <span class="s3-connector"></span>
 
 
         <!-- NUCLEOTIDE 2 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="1"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="1"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="1"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="1"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 2</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="1" aria-label="Empty base site, nucleotide 2">?</button>
         </div>
 
+        <span class="s3-connector"></span>
 
 
         <!-- NUCLEOTIDE 3 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="2"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="2"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="2"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="2"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 3</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="2" aria-label="Empty base site, nucleotide 3">?</button>
         </div>
 
+        <span class="s3-connector"></span>
 
 
         <!-- NUCLEOTIDE 4 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="3"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="3"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="3"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="3"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 4</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="3" aria-label="Empty base site, nucleotide 4">?</button>
         </div>
 
+        <span class="s3-connector"></span>
 
 
         <!-- NUCLEOTIDE 5 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="4"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="4"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="4"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="4"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 5</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="4" aria-label="Empty base site, nucleotide 5">?</button>
         </div>
 
+        <span class="s3-connector"></span>
 
 
         <!-- NUCLEOTIDE 6 -->
-
-        <div
-          class="stage3-nucleotide-slot"
-          data-position="5"
-        >
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="5"
-            data-component="phosphate"
-          >
-            P?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="5"
-            data-component="sugar"
-          >
-            D?
-          </button>
-
-          <button
-            type="button"
-            class="stage3-component-slot"
-            data-position="5"
-            data-component="base"
-          >
-            Base?
-          </button>
-
+        <div class="s3-unit">
+          <span class="s3-position-index">Nt 6</span>
+          <div class="s3-backbone-row">
+            <span class="s3-phosphate">P</span>
+            <span class="s3-bond-line"></span>
+            <span class="s3-sugar">D</span>
+          </div>
+          <span class="s3-stem"></span>
+          <button type="button" class="s3-base-slot" data-position="5" aria-label="Empty base site, nucleotide 6">?</button>
         </div>
+
+
+        <span class="s3-end-label">3′</span>
 
       </div>
 
-
-      <span class="stage3-direction">
-        3′
-      </span>
+      <div id="stage3-backbone-note" class="s3-backbone-note hidden-content">
+        <strong>Notice:</strong> every phosphate and sugar in this
+        strand is identical. Only the sequence of bases changes —
+        and that sequence is what carries genetic information.
+      </div>
 
     </div>
 
 
     <div class="lab-actions">
 
-      <button
-        id="check-stage3-build"
-        class="check-button"
-        type="button"
-      >
+      <button id="check-stage3-build" class="check-button" type="button">
         Validate My Strand
       </button>
 
-      <button
-        id="clear-stage3-build"
-        class="secondary-button"
-        type="button"
-      >
-        Clear Strand
+      <button id="clear-stage3-build" class="secondary-button" type="button">
+        Clear Bases
       </button>
 
     </div>
 
 
-    <div
-      id="stage3-build-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
+    <div id="stage3-build-feedback" class="feedback-box" aria-live="polite"></div>
 
   </section>
 
@@ -546,218 +263,113 @@
 
   <section class="analysis-section">
 
-  <span class="panel-label">
-    PART B — BOND ANALYSIS
-  </span>
+    <span class="panel-label">
+      PART B — BOND ANALYSIS
+    </span>
 
-  <h2>
-    Which connection joins one nucleotide to the next?
-  </h2>
+    <h2>
+      Which connection joins one nucleotide to the next?
+    </h2>
 
-  <p>
-    The model below shows two adjacent nucleotides in a
-    <strong>single DNA strand</strong>.
-    Select the connection that allows the sugar-phosphate
-    backbone to continue from one nucleotide to the next.
-  </p>
-
-
-  <!-- SINGLE-STRAND BOND MODEL -->
-
-  <div class="stage3-bond-diagram">
+    <p>
+      The diagram below shows two adjacent nucleotides in a
+      <strong>single DNA strand</strong>. Three possible connection
+      points are marked. Select the one that lets the sugar-phosphate
+      backbone continue from one nucleotide into the next.
+    </p>
 
 
-    <!-- NUCLEOTIDE 1 -->
+    <div class="s3-bond-diagram">
 
-    <div class="bond-diagram-nucleotide">
+      <!-- NUCLEOTIDE 1 -->
+      <div class="s3-bond-nucleotide">
 
-      <div class="bond-backbone-row">
+        <div class="s3-bond-base-row">
+          <span class="mini-base base-a">A</span>
+          <span class="s3-hotspot-connector"></span>
+          <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="base-attachment" aria-label="Connection A">A</button>
+        </div>
 
-        <span class="mini-phosphate">
-          P
-        </span>
-
-        <span class="bond-line"></span>
-
-        <span class="mini-sugar">
-          D
-        </span>
+        <div class="s3-bond-backbone-row">
+          <span class="mini-phosphate">P</span>
+          <span class="bond-line"></span>
+          <span class="mini-sugar">D</span>
+        </div>
 
       </div>
 
 
-      <div class="bond-base-branch">
-
-        <button
-          type="button"
-          class="stage3-bond-choice bond-hotspot"
-          data-bond-choice="base-attachment"
-          aria-label="Connection A"
-        >
-          A
-        </button>
-
-        <span class="mini-base base-a">
-          A
-        </span>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- CONNECTION BETWEEN NUCLEOTIDES -->
-
-    <div class="between-nucleotides">
-
-      <span class="bond-line long-bond-line"></span>
-
-      <button
-        type="button"
-        class="stage3-bond-choice bond-hotspot backbone-hotspot"
-        data-bond-choice="backbone"
-        aria-label="Connection B"
-      >
-        B
-      </button>
-
-    </div>
-
-
-
-    <!-- NUCLEOTIDE 2 -->
-
-    <div class="bond-diagram-nucleotide">
-
-      <div class="bond-backbone-row">
-
-        <span class="mini-phosphate">
-          P
-        </span>
-
-        <span class="bond-line"></span>
-
-        <span class="mini-sugar">
-          D
-        </span>
-
+      <!-- CONNECTION BETWEEN NUCLEOTIDES -->
+      <div class="s3-bond-link-wrap">
+        <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="backbone" aria-label="Connection B">B</button>
       </div>
 
 
-      <div class="bond-base-branch">
+      <!-- NUCLEOTIDE 2 -->
+      <div class="s3-bond-nucleotide">
 
-        <button
-          type="button"
-          class="stage3-bond-choice bond-hotspot"
-          data-bond-choice="second-base-attachment"
-          aria-label="Connection C"
-        >
-          C
-        </button>
+        <div class="s3-bond-base-row">
+          <span class="mini-base base-t">T</span>
+          <span class="s3-hotspot-connector"></span>
+          <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="second-base-attachment" aria-label="Connection C">C</button>
+        </div>
 
-        <span class="mini-base base-t">
-          T
-        </span>
+        <div class="s3-bond-backbone-row">
+          <span class="mini-phosphate">P</span>
+          <span class="bond-line"></span>
+          <span class="mini-sugar">D</span>
+        </div>
 
       </div>
 
     </div>
 
-  </div>
+
+    <p class="small-note">
+      Click <strong>A, B, or C</strong> directly on the model, then
+      identify the type of bond that forms that linkage.
+    </p>
 
 
-  <p class="small-note">
-    Click <strong>A, B, or C directly on the model</strong>.
-    Then identify the type of bond that forms the selected linkage.
-  </p>
+    <h3>
+      What type of bond links adjacent nucleotides in the DNA backbone?
+    </h3>
 
 
-  <h3>
-    What type of bond links adjacent nucleotides in the DNA backbone?
-  </h3>
+    <div class="choice-grid">
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-bond-answer" value="sugar-phosphate">
+        <span>Phosphodiester bond</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-bond-answer" value="hydrogen">
+        <span>Hydrogen bond</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-bond-answer" value="glycosidic">
+        <span>Glycosidic bond</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-bond-answer" value="peptide">
+        <span>Peptide bond</span>
+      </label>
+
+    </div>
 
 
-  <div class="choice-grid">
-
-    <label class="choice-card">
-
-      <input
-        type="radio"
-        name="stage3-bond-answer"
-        value="sugar-phosphate"
-      >
-
-      <span>
-        Phosphodiester bond
-      </span>
-
-    </label>
+    <button id="check-stage3-bond" class="check-button" type="button">
+      Check Bond Analysis
+    </button>
 
 
-    <label class="choice-card">
+    <div id="stage3-bond-feedback" class="feedback-box" aria-live="polite"></div>
 
-      <input
-        type="radio"
-        name="stage3-bond-answer"
-        value="hydrogen"
-      >
+  </section>
 
-      <span>
-        Hydrogen bond
-      </span>
-
-    </label>
-
-
-    <label class="choice-card">
-
-      <input
-        type="radio"
-        name="stage3-bond-answer"
-        value="glycosidic"
-      >
-
-      <span>
-        Glycosidic bond
-      </span>
-
-    </label>
-
-
-    <label class="choice-card">
-
-      <input
-        type="radio"
-        name="stage3-bond-answer"
-        value="peptide"
-      >
-
-      <span>
-        Peptide bond
-      </span>
-
-    </label>
-
-  </div>
-
-
-  <button
-    id="check-stage3-bond"
-    class="check-button"
-    type="button"
-  >
-    Check Bond Analysis
-  </button>
-
-
-  <div
-    id="stage3-bond-feedback"
-    class="feedback-box"
-    aria-live="polite"
-  ></div>
-
-</section>
 
 
   <!-- =====================================================
@@ -775,303 +387,124 @@
     </h2>
 
     <p>
-      A student attempted to construct part of a DNA strand.
-      The base sequence is correct, but the model contains
-      <strong>one structural error in the backbone</strong>.
-    </p>
-
-    <p>
-      Use what you discovered in Parts A and B to identify the
-      error and predict its consequence.
+      A student attempted to build part of a DNA strand. The base
+      sequence is correct, but the model contains
+      <strong>one structural error in the backbone</strong>. Use
+      what you found in Parts A and B to identify it.
     </p>
 
 
+    <div class="s3-error-diagram">
 
-   <!-- FLAWED DNA STRAND MODEL -->
-
-<div class="stage3-error-diagram">
-
-  <div class="error-backbone">
-
-
-    <!-- NUCLEOTIDE 1 -->
-
-    <div class="error-backbone-unit">
-
-      <div class="error-backbone-row">
-
-        <span class="mini-phosphate">
-          P
-        </span>
-
-        <span class="bond-line"></span>
-
-        <span class="mini-sugar">
-          D
-        </span>
-
+      <div class="s3-error-unit">
+        <span class="mini-base base-a">A</span>
+        <span class="s3-stem"></span>
+        <div class="s3-backbone-row">
+          <span class="mini-phosphate">P</span>
+          <span class="bond-line"></span>
+          <span class="mini-sugar">D</span>
+        </div>
       </div>
 
-      <span class="mini-base base-a error-base">
-        A
-      </span>
+      <span class="s3-error-connector"></span>
+
+      <div class="s3-error-unit">
+        <span class="mini-base base-t">T</span>
+        <span class="s3-stem"></span>
+        <div class="s3-backbone-row">
+          <span class="mini-phosphate">P</span>
+          <span class="bond-line"></span>
+          <span class="mini-sugar">D</span>
+        </div>
+      </div>
+
+      <span class="s3-error-connector gap"></span>
+
+      <div class="s3-error-unit">
+        <span class="mini-base base-g">G</span>
+        <span class="s3-stem"></span>
+        <div class="s3-backbone-row">
+          <span class="mini-sugar s3-error-missing">D</span>
+        </div>
+      </div>
+
+      <span class="s3-error-connector"></span>
+
+      <div class="s3-error-unit">
+        <span class="mini-base base-c">C</span>
+        <span class="s3-stem"></span>
+        <div class="s3-backbone-row">
+          <span class="mini-phosphate">P</span>
+          <span class="bond-line"></span>
+          <span class="mini-sugar">D</span>
+        </div>
+      </div>
 
     </div>
 
-
-
-    <!-- NORMAL LINK -->
-
-    <span class="bond-line error-connector"></span>
-
-
-
-    <!-- NUCLEOTIDE 2 -->
-
-    <div class="error-backbone-unit">
-
-      <div class="error-backbone-row">
-
-        <span class="mini-phosphate">
-          P
-        </span>
-
-        <span class="bond-line"></span>
-
-        <span class="mini-sugar">
-          D
-        </span>
-
-      </div>
-
-      <span class="mini-base base-t error-base">
-        T
-      </span>
-
-    </div>
-
-
-
-    <!-- STRUCTURAL GAP -->
-
-    <span
-      class="backbone-gap"
-      aria-label="Gap in the DNA backbone"
-    ></span>
-
-
-
-    <!-- SUGAR WITH NO PHOSPHATE BEFORE IT -->
-
-    <div class="error-backbone-unit">
-
-      <div class="error-backbone-row">
-
-        <span class="mini-sugar">
-          D
-        </span>
-
-      </div>
-
-      <span class="mini-base base-g error-base">
-        G
-      </span>
-
-    </div>
-
-
-
-    <!-- NORMAL LINK -->
-
-    <span class="bond-line error-connector"></span>
-
-
-
-    <!-- NUCLEOTIDE 4 -->
-
-    <div class="error-backbone-unit">
-
-      <div class="error-backbone-row">
-
-        <span class="mini-phosphate">
-          P
-        </span>
-
-        <span class="bond-line"></span>
-
-        <span class="mini-sugar">
-          D
-        </span>
-
-      </div>
-
-      <span class="mini-base base-c error-base">
-        C
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-    <!-- ERROR IDENTIFICATION -->
 
     <h3>
       1. What is the structural error?
     </h3>
 
-
     <div class="choice-grid">
 
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-error-answer"
-          value="missing-phosphate"
-        >
-
-        <span>
-          A phosphate group is missing between adjacent sugars
-        </span>
-
+        <input type="radio" name="stage3-error-answer" value="missing-phosphate">
+        <span>A phosphate group is missing between adjacent sugars</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-error-answer"
-          value="wrong-base"
-        >
-
-        <span>
-          One nitrogenous base is incorrect
-        </span>
-
+        <input type="radio" name="stage3-error-answer" value="wrong-base">
+        <span>One nitrogenous base is incorrect</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-error-answer"
-          value="ribose"
-        >
-
-        <span>
-          One deoxyribose sugar has been replaced by ribose
-        </span>
-
+        <input type="radio" name="stage3-error-answer" value="ribose">
+        <span>One deoxyribose sugar has been replaced by ribose</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-error-answer"
-          value="hydrogen"
-        >
-
-        <span>
-          The number of hydrogen bonds is incorrect
-        </span>
-
+        <input type="radio" name="stage3-error-answer" value="hydrogen">
+        <span>The number of hydrogen bonds is incorrect</span>
       </label>
 
     </div>
 
-
-
-    <!-- CONSEQUENCE -->
 
     <h3>
       2. What is the most direct consequence of this error?
     </h3>
 
-
     <div class="choice-grid">
 
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-consequence-answer"
-          value="backbone-disrupted"
-        >
-
-        <span>
-          The normal phosphodiester linkage cannot continue,
-          disrupting the sugar-phosphate backbone
-        </span>
-
+        <input type="radio" name="stage3-consequence-answer" value="backbone-disrupted">
+        <span>The normal phosphodiester linkage cannot continue, disrupting the sugar-phosphate backbone</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-consequence-answer"
-          value="base-change"
-        >
-
-        <span>
-          The genetic information must change because
-          the base sequence changes
-        </span>
-
+        <input type="radio" name="stage3-consequence-answer" value="base-change">
+        <span>The genetic information must change because the base sequence changes</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-consequence-answer"
-          value="purine-change"
-        >
-
-        <span>
-          A purine is converted into a pyrimidine
-        </span>
-
+        <input type="radio" name="stage3-consequence-answer" value="purine-change">
+        <span>A purine is converted into a pyrimidine</span>
       </label>
 
-
       <label class="choice-card">
-
-        <input
-          type="radio"
-          name="stage3-consequence-answer"
-          value="complement"
-        >
-
-        <span>
-          The strand automatically becomes complementary
-          to itself
-        </span>
-
+        <input type="radio" name="stage3-consequence-answer" value="complement">
+        <span>The strand automatically becomes complementary to itself</span>
       </label>
 
     </div>
 
 
-
-    <!-- WRITTEN JUSTIFICATION -->
-
-    <label
-      for="stage3-diagnosis-note"
-      class="response-label"
-    >
-      Use the structure of the DNA backbone to explain why
-      this error prevents the strand from being structurally correct.
+    <label for="stage3-diagnosis-note" class="response-label">
+      Use the structure of the DNA backbone to explain why this
+      error prevents the strand from being structurally correct.
     </label>
-
 
     <textarea
       id="stage3-diagnosis-note"
@@ -1079,21 +512,11 @@
       placeholder="Explain the role of phosphate groups and phosphodiester bonds in maintaining the continuity of a DNA strand..."
     ></textarea>
 
-
-    <button
-      id="check-stage3-diagnosis"
-      class="check-button"
-      type="button"
-    >
+    <button id="check-stage3-diagnosis" class="check-button" type="button">
       Submit Structural Diagnosis
     </button>
 
-
-    <div
-      id="stage3-diagnosis-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
+    <div id="stage3-diagnosis-feedback" class="feedback-box" aria-live="polite"></div>
 
   </section>
 
@@ -1114,50 +537,28 @@
     </h2>
 
 
-    <div class="stage3-sequence-change">
+    <div class="sequence-compare">
 
       <div>
-
-        <span>
-          Original strand
-        </span>
-
-        <strong>
-          5′ — A T G C C A — 3′
-        </strong>
-
+        <span>Original strand</span>
+        <strong>5′ — A T G C C A — 3′</strong>
       </div>
 
-
-      <div class="sequence-arrow">
-        →
-      </div>
-
+      <span class="sequence-compare-arrow">→</span>
 
       <div>
-
-        <span>
-          Changed strand
-        </span>
-
-        <strong>
-          5′ — G C T A T G — 3′
-        </strong>
-
+        <span>Changed strand</span>
+        <strong>5′ — G C T A T G — 3′</strong>
       </div>
 
     </div>
 
 
-    <label
-      for="stage3-note"
-      class="response-label"
-    >
+    <label for="stage3-note" class="response-label">
       If the base sequence changes from the first strand to the
       second, which parts of the molecular structure change and
       which parts remain unchanged? Explain your reasoning.
     </label>
-
 
     <textarea
       id="stage3-note"
@@ -1165,21 +566,11 @@
       placeholder="Consider the bases, sugars, phosphates, and overall backbone..."
     ></textarea>
 
-
-    <button
-      id="check-stage3-analysis"
-      class="check-button"
-      type="button"
-    >
+    <button id="check-stage3-analysis" class="check-button" type="button">
       Complete Stage 3
     </button>
 
-
-    <div
-      id="stage3-analysis-feedback"
-      class="feedback-box"
-      aria-live="polite"
-    ></div>
+    <div id="stage3-analysis-feedback" class="feedback-box" aria-live="polite"></div>
 
   </section>
 
@@ -1191,19 +582,11 @@
 
   <nav class="stage-navigation">
 
-    <a
-      href="stage2.html"
-      class="nav-button back-button"
-    >
+    <a href="stage2.html" class="nav-button back-button">
       ← Stage 2
     </a>
 
-    <a
-      href="stage4.html"
-      id="stage3-next"
-      class="nav-button next-button locked"
-      aria-disabled="true"
-    >
+    <a href="stage4.html" id="stage3-next" class="nav-button next-button locked" aria-disabled="true">
       Continue to Stage 4 →
     </a>
 
