@@ -1912,20 +1912,24 @@ footer {
 
 .s3-track {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
   gap: 0;
 
-  min-width: 640px;
+  min-width: 700px;
 }
 
-.s3-end-label {
-  align-self: center;
+.s3-end-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-  margin: 0 6px;
+  margin: 0 8px;
+  padding: 28px 0 6px;
 
   color: var(--navy-900);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 900;
 }
 
@@ -1944,6 +1948,24 @@ footer {
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+}
+
+.s3-template-base {
+  margin-bottom: 6px;
+}
+
+.s3-hbond-zone {
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 4px;
+
+  color: var(--teal-500);
+  font-weight: 900;
+  font-size: 1.15rem;
 }
 
 .s3-backbone-row {
@@ -1996,15 +2018,22 @@ footer {
 }
 
 .s3-connector {
-  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 
-  margin-top: 17px;
+  padding-bottom: 15px;
+
+  flex-shrink: 0;
+}
+
+.s3-connector-line {
   width: 26px;
   height: 3px;
 
   background: var(--navy-700);
   border-radius: 3px;
-  flex-shrink: 0;
 }
 
 .s3-stem {
