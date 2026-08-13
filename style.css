@@ -1180,74 +1180,185 @@ input[type="number"] {
 
 
 /* =========================================================
-   25. STAGE 4
+   25. STAGE 4 — ANALYZE DNA STABILITY
    ========================================================= */
 
-.dna-ladder-workspace {
-  max-width: 980px;
 
-  margin: 0 auto 24px;
-  padding: 30px 24px;
+/* ---------------------------------------------------------
+   PART A — DNA REGION COMPARISON
+   --------------------------------------------------------- */
+
+.stage4-region-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  margin: 24px 0 28px;
+}
+
+
+.stage4-region-card {
+  padding: 22px;
+
+  border: 2px solid var(--grey-200);
+  border-radius: var(--radius-md);
+
+  background: var(--grey-50);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.stage4-region-card .model-id {
+  margin-bottom: 18px;
+}
+
+
+.stage4-sequence-pair {
+  padding: 20px 18px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
+
+  background: var(--white);
+
+  color: var(--navy-900);
+
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  font-weight: 800;
+
+  text-align: center;
+
+  line-height: 2;
+}
+
+
+.stage4-sequence-pair > div + div {
+  margin-top: 3px;
+}
+
+
+
+/* ---------------------------------------------------------
+   PART B — HYDROGEN-BOND CALCULATION
+   --------------------------------------------------------- */
+
+.stage4-analysis-sequence {
+  max-width: 720px;
+
+  margin: 24px auto;
+  padding: 22px;
 
   border: 1px solid var(--grey-200);
   border-radius: var(--radius-md);
 
   background: var(--grey-50);
-}
 
-.strand-row {
-  display: grid;
-  grid-template-columns: 55px repeat(6, 1fr) 55px;
-  align-items: center;
-  gap: 10px;
-}
-
-.strand-end-label {
   color: var(--navy-900);
-  font-size: 1.15rem;
-  font-weight: 900;
+
+  font-family: "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+
   text-align: center;
+
+  line-height: 2;
 }
 
-.bond-row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
 
-  width: calc(100% - 130px);
+.stage4-calculation-grid {
+  grid-template-columns: repeat(3, 1fr);
 
-  margin: 9px auto;
+  margin-top: 24px;
 }
 
-.hydrogen-bond-zone {
-  min-height: 52px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.stage4-calculation-grid label {
+  padding: 16px;
 
-  color: var(--grey-300);
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
 
-  font-size: 1.7rem;
-  font-weight: 900;
+  background: var(--grey-50);
 }
 
-.hydrogen-bond-zone.connected {
-  color: var(--teal-500);
-}
 
-.complement-position {
-  min-height: 58px;
-
-  border: 3px dashed var(--grey-300);
-  border-radius: 11px;
-
+.stage4-calculation-grid input {
   background: var(--white);
-  color: var(--grey-500);
-
-  font-weight: 900;
 }
 
+
+
+/* ---------------------------------------------------------
+   PART C — GC CONTENT APPLICATION
+   --------------------------------------------------------- */
+
+.analysis-section
+  input[name="stage4-heating-answer"] {
+  accent-color: var(--teal-500);
+}
+
+
+.analysis-section
+  input[name="stage4-stability-answer"] {
+  accent-color: var(--teal-500);
+}
+
+
+
+/* ---------------------------------------------------------
+   PART D — STRUCTURAL SYNTHESIS
+   --------------------------------------------------------- */
+
+#stage4-note,
+#stage4-stability-note,
+#stage4-heating-note {
+  margin-bottom: 16px;
+}
+
+
+
+/* ---------------------------------------------------------
+   STAGE 4 RESPONSE SPACING
+   --------------------------------------------------------- */
+
+#check-stage4-stability,
+#check-stage4-calculations,
+#check-stage4-heating,
+#check-stage4-analysis {
+  margin-top: 6px;
+}
+
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 850px) {
+
+  .stage4-region-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .stage4-calculation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage4-sequence-pair,
+  .stage4-analysis-sequence {
+    overflow-x: auto;
+
+    font-size: 0.92rem;
+  }
+
+}
 
 /* =========================================================
    26. STAGE 5
