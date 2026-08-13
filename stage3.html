@@ -290,14 +290,13 @@
     </span>
 
     <h2>
-      Which connection joins one nucleotide to the next?
+      Identify the bond that connects one nucleotide to the next.
     </h2>
 
     <p>
       The diagram below shows two adjacent nucleotides in a
-      <strong>single DNA strand</strong>. Three possible connection
-      points are marked. Select the one that lets the sugar-phosphate
-      backbone continue from one nucleotide into the next.
+      <strong>single DNA strand</strong>, with three bonds numbered
+      for reference. Use the diagram to answer both questions below.
     </p>
 
 
@@ -309,7 +308,7 @@
         <div class="s3-bond-base-row">
           <span class="mini-base base-a">A</span>
           <span class="s3-hotspot-connector"></span>
-          <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="base-attachment" aria-label="Connection A">A</button>
+          <span class="s3-hotspot" aria-hidden="true">1</span>
         </div>
 
         <div class="s3-bond-backbone-row">
@@ -323,7 +322,7 @@
 
       <!-- CONNECTION BETWEEN NUCLEOTIDES -->
       <div class="s3-bond-link-wrap">
-        <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="backbone" aria-label="Connection B">B</button>
+        <span class="s3-hotspot" aria-hidden="true">2</span>
       </div>
 
 
@@ -333,7 +332,7 @@
         <div class="s3-bond-base-row">
           <span class="mini-base base-t">T</span>
           <span class="s3-hotspot-connector"></span>
-          <button type="button" class="stage3-bond-choice s3-hotspot" data-bond-choice="second-base-attachment" aria-label="Connection C">C</button>
+          <span class="s3-hotspot" aria-hidden="true">3</span>
         </div>
 
         <div class="s3-bond-backbone-row">
@@ -347,16 +346,34 @@
     </div>
 
 
-    <p class="small-note">
-      Click <strong>A, B, or C</strong> directly on the model, then
-      identify the type of bond that forms that linkage.
-    </p>
+    <h3>
+      1. Which numbered bond connects the sugar of nucleotide 1 to
+      the phosphate of nucleotide 2, continuing the backbone?
+    </h3>
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-location-answer" value="base-attachment">
+        <span>Bond 1</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-location-answer" value="backbone">
+        <span>Bond 2</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="stage3-location-answer" value="second-base-attachment">
+        <span>Bond 3</span>
+      </label>
+
+    </div>
 
 
     <h3>
-      What type of bond links adjacent nucleotides in the DNA backbone?
+      2. What type of bond is this?
     </h3>
-
 
     <div class="choice-grid">
 
