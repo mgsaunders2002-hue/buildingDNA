@@ -2198,35 +2198,21 @@ footer {
 }
 
 .s3-hotspot {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 2px solid var(--teal-600);
+  border: 2px dashed var(--grey-300);
   border-radius: 50%;
 
   background: var(--white);
-  color: var(--teal-600);
+  color: var(--grey-500);
 
   font-weight: 900;
-
-  transition:
-    background var(--transition),
-    border-color var(--transition),
-    transform var(--transition);
-}
-
-.s3-hotspot:hover {
-  transform: scale(1.06);
-}
-
-.s3-hotspot.selected-bond {
-  background: var(--teal-500);
-  border-color: var(--teal-600);
-  color: var(--white);
+  font-size: 0.8rem;
 }
 
 .s3-hotspot-connector {
