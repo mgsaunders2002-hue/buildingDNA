@@ -60,27 +60,22 @@ const defaultLabData = {
   },
 
   stage3: {
-  components: [
-    { phosphate: "", sugar: "", base: "" },
-    { phosphate: "", sugar: "", base: "" },
-    { phosphate: "", sugar: "", base: "" },
-    { phosphate: "", sugar: "", base: "" },
-    { phosphate: "", sugar: "", base: "" },
-    { phosphate: "", sugar: "", base: "" }
-  ],
+    /* Backbone (phosphate + sugar) is fixed/pre-built at every
+       position — Stage 3 focuses on base sequence, directionality,
+       and backbone bonding rather than re-building every part. */
+    sequence: ["", "", "", "", "", ""],
+    buildCorrect: false,
 
-  buildCorrect: false,
+    bondChoice: "",
+    bondAnswer: "",
+    bondCorrect: false,
 
-  bondChoice: "",
-  bondAnswer: "",
-  bondCorrect: false,
+    errorAnswer: "",
+    consequenceAnswer: "",
+    diagnosisCorrect: false,
 
-  errorAnswer: "",
-  consequenceAnswer: "",
-  diagnosisCorrect: false,
-
-  analysisCorrect: false
-},
+    analysisCorrect: false
+  },
 
   stage4: {
     sequence: ["", "", "", "", "", ""],
@@ -2327,6 +2322,18 @@ function setupStage2() {
   }
 
 }
+/* =========================================================
+   STAGE 3 — CONSTRUCT A DNA STRAND (REDESIGN)
+
+   The sugar-phosphate backbone is pre-built and static at
+   every position (that concept was already taught in Stage 1).
+   Stage 3 focuses on:
+     Part A — placing bases in the correct 5'->3' sequence
+     Part B — identifying the phosphodiester backbone bond
+     Part C — diagnosing a broken backbone
+     Part D — transfer / reasoning question
+   ========================================================= */
+
 function setupStage3() {
 
   const targetBases = [
@@ -2339,35 +2346,70 @@ function setupStage3() {
   ];
 
 
-  const parts =
+  /* ---- migrate any older saved shape safely ---- */
+
+  if (
+    !Array.isArray(
+      labData.stage3.sequence
+    ) ||
+    labData.stage3.sequence.length !== 6
+  ) {
+
+    labData.stage3.sequence =
+      ["", "", "", "", "", ""];
+
+  }
+
+
+  [
+    "bondChoice",
+    "bondAnswer",
+    "errorAnswer",
+    "consequenceAnswer"
+  ]
+  .forEach(key => {
+
+    if (
+      typeof labData.stage3[key] !==
+      "string"
+    ) {
+
+      labData.stage3[key] = "";
+
+    }
+
+  });
+
+
+  const bankButtons =
     document.querySelectorAll(
-      ".stage3-part"
+      ".s3-bank .base-bank-button"
     );
 
-
-  const componentSlots =
+  const slots =
     document.querySelectorAll(
-      ".stage3-component-slot"
+      ".s3-base-slot"
     );
-
 
   const buildFeedback =
     document.querySelector(
       "#stage3-build-feedback"
     );
 
+  const backboneNote =
+    document.querySelector(
+      "#stage3-backbone-note"
+    );
 
   const bondFeedback =
     document.querySelector(
       "#stage3-bond-feedback"
     );
 
-
   const diagnosisFeedback =
     document.querySelector(
       "#stage3-diagnosis-feedback"
     );
-
 
   const analysisFeedback =
     document.querySelector(
@@ -2375,123 +2417,27 @@ function setupStage3() {
     );
 
 
-  /* =====================================================
-     MAKE OLD SAVED DATA COMPATIBLE WITH NEW STAGE 3
-     ===================================================== */
-
-  if (
-    typeof labData.stage3.bondChoice !==
-    "string"
-  ) {
-
-    labData.stage3.bondChoice = "";
-
-  }
-
-
-  if (
-    typeof labData.stage3.bondAnswer !==
-    "string"
-  ) {
-
-    labData.stage3.bondAnswer = "";
-
-  }
-
-
-  if (
-    typeof labData.stage3.errorAnswer !==
-    "string"
-  ) {
-
-    labData.stage3.errorAnswer = "";
-
-  }
-
-
-  if (
-    typeof labData.stage3.consequenceAnswer !==
-    "string"
-  ) {
-
-    labData.stage3.consequenceAnswer = "";
-
-  }
-
-
 
   /* =====================================================
-     PART A — BUILD THE STRAND
+     PART A — PLACE THE BASES
      ===================================================== */
 
-  if (
-    !Array.isArray(
-      labData.stage3.components
-    ) ||
-    labData.stage3.components.length !== 6
-  ) {
-
-    labData.stage3.components =
-      targetBases.map(() => ({
-        phosphate: "",
-        sugar: "",
-        base: ""
-      }));
-
-  }
-
-
-  labData.stage3.components =
-    labData.stage3.components.map(
-      component => ({
-        phosphate:
-          component?.phosphate || "",
-
-        sugar:
-          component?.sugar || "",
-
-        base:
-          component?.base || ""
-      })
-    );
-
-
-  parts.forEach(part => {
-
-    const componentType =
-      part.dataset.partType;
-
-
-    const componentValue =
-      part.dataset.partValue ||
-      part.dataset.base ||
-      (
-        componentType === "phosphate"
-          ? "phosphate"
-          : componentType === "sugar"
-            ? "deoxyribose"
-            : ""
-      );
-
-
-    const partData = {
-      type: "stage3-component",
-      component: componentType,
-      value: componentValue
-    };
-
+  bankButtons.forEach(button => {
 
     makeDraggable(
-      part,
-      partData
+      button,
+      {
+        type: "stage3-base",
+        base: button.dataset.base
+      }
     );
 
 
-    part.addEventListener(
+    button.addEventListener(
       "click",
       () => {
 
-        selectPiece(part);
+        selectPiece(button);
 
       }
     );
@@ -2499,7 +2445,7 @@ function setupStage3() {
   });
 
 
-  componentSlots.forEach(slot => {
+  slots.forEach(slot => {
 
     setupDropTarget(
       slot,
@@ -2507,7 +2453,7 @@ function setupStage3() {
 
         if (
           data.type !==
-          "stage3-component"
+          "stage3-base"
         ) {
 
           return;
@@ -2515,10 +2461,9 @@ function setupStage3() {
         }
 
 
-        placeStage3Component(
+        placeStage3Base(
           slot,
-          data.component,
-          data.value
+          data.base
         );
 
       }
@@ -2532,30 +2477,13 @@ function setupStage3() {
         if (
           selectedPiece &&
           selectedPiece.classList.contains(
-            "stage3-part"
+            "base-bank-button"
           )
         ) {
 
-          const selectedType =
-            selectedPiece.dataset.partType;
-
-
-          const selectedValue =
-            selectedPiece.dataset.partValue ||
-            selectedPiece.dataset.base ||
-            (
-              selectedType === "phosphate"
-                ? "phosphate"
-                : selectedType === "sugar"
-                  ? "deoxyribose"
-                  : ""
-            );
-
-
-          placeStage3Component(
+          placeStage3Base(
             slot,
-            selectedType,
-            selectedValue
+            selectedPiece.dataset.base
           );
 
 
@@ -2572,19 +2500,15 @@ function setupStage3() {
           );
 
 
-        const component =
-          slot.dataset.component;
-
-
         if (
-          labData.stage3.components[
+          labData.stage3.sequence[
             position
-          ]?.[component]
+          ]
         ) {
 
-          labData.stage3.components[
+          labData.stage3.sequence[
             position
-          ][component] = "";
+          ] = "";
 
 
           resetStage3CompletionFrom(
@@ -2595,6 +2519,10 @@ function setupStage3() {
           saveLabData();
 
           renderStage3Build();
+
+          backboneNote?.classList.remove(
+            "visible"
+          );
 
           clearFeedback(
             buildFeedback
@@ -2611,6 +2539,16 @@ function setupStage3() {
   renderStage3Build();
 
 
+  if (
+    labData.stage3.buildCorrect
+  ) {
+
+    backboneNote?.classList.add(
+      "visible"
+    );
+
+  }
+
 
   document
     .querySelector(
@@ -2621,12 +2559,8 @@ function setupStage3() {
       () => {
 
         const complete =
-          labData.stage3.components.every(
-            component =>
-
-              component.phosphate &&
-              component.sugar &&
-              component.base
+          labData.stage3.sequence.every(
+            base => base
           );
 
 
@@ -2643,8 +2577,8 @@ function setupStage3() {
             "hint",
             `
               <strong>Your strand is incomplete.</strong><br>
-              Every nucleotide must contain all three molecular
-              components before the strand can be validated.
+              Place a base in every position before validating
+              the strand.
             `
           );
 
@@ -2656,18 +2590,12 @@ function setupStage3() {
         const wrongPositions = [];
 
 
-        labData.stage3.components.forEach(
-          (component, index) => {
+        labData.stage3.sequence.forEach(
+          (base, index) => {
 
             if (
-              component.phosphate !==
-                "phosphate" ||
-
-              component.sugar !==
-                "deoxyribose" ||
-
-              component.base !==
-                targetBases[index]
+              base !==
+              targetBases[index]
             ) {
 
               wrongPositions.push(
@@ -2689,6 +2617,8 @@ function setupStage3() {
 
           saveLabData();
 
+          renderStage3Build();
+
 
           showFeedback(
             buildFeedback,
@@ -2699,9 +2629,8 @@ function setupStage3() {
                 wrongPositions.length > 1
                   ? "s"
                   : ""
-              } ${wrongPositions.join(", ")}.
-              Check both molecular composition and the required
-              5′ → 3′ base sequence.
+              } ${wrongPositions.join(", ")}
+              against the required 5′ → 3′ sequence.
             `
           );
 
@@ -2719,19 +2648,23 @@ function setupStage3() {
         renderStage3Build();
 
 
+        backboneNote?.classList.add(
+          "visible"
+        );
+
+
         showFeedback(
           buildFeedback,
           "success",
           `
             <strong>Strand validated.</strong><br>
-            You constructed six DNA nucleotides with the required
+            You built a strand with the required
             5′–A T G C C A–3′ base sequence.
           `
         );
 
       }
     );
-
 
 
   document
@@ -2742,12 +2675,8 @@ function setupStage3() {
       "click",
       () => {
 
-        labData.stage3.components =
-          targetBases.map(() => ({
-            phosphate: "",
-            sugar: "",
-            base: ""
-          }));
+        labData.stage3.sequence =
+          ["", "", "", "", "", ""];
 
 
         resetStage3CompletionFrom(
@@ -2761,6 +2690,12 @@ function setupStage3() {
         saveLabData();
 
         renderStage3Build();
+
+
+        backboneNote?.classList.remove(
+          "visible"
+        );
+
 
         clearFeedback(
           buildFeedback
@@ -2914,8 +2849,8 @@ function setupStage3() {
             bondFeedback,
             "hint",
             `
-              Validate your molecular strand in Part A before
-              analysing the bonds between adjacent nucleotides.
+              Validate your strand in Part A before analysing
+              the bonds between adjacent nucleotides.
             `
           );
 
@@ -3187,7 +3122,7 @@ function setupStage3() {
             `
               Re-examine the backbone rather than the base sequence.
               Compare the repeating pattern with the strand
-              you constructed in Part A.
+              you built in Part A.
             `
           );
 
@@ -3393,19 +3328,17 @@ function setupStage3() {
   }
 
 }
-function placeStage3Component(
+
+
+function placeStage3Base(
   slot,
-  componentType,
-  componentValue
+  base
 ) {
 
   const position =
     Number(
       slot.dataset.position
     );
-
-  const requiredComponent =
-    slot.dataset.component;
 
 
   if (
@@ -3419,111 +3352,46 @@ function placeStage3Component(
   }
 
 
-  if (
-    componentType !==
-    requiredComponent
-  ) {
-
-    const feedback =
-      document.querySelector(
-        "#stage3-build-feedback"
-      );
-
-    showFeedback(
-      feedback,
-      "hint",
-      `
-        That molecular part does not belong in this position.
-        Match the part to its role within a nucleotide.
-      `
-    );
-
-    slot.classList.add(
-      "error-site"
-    );
-
-    setTimeout(
-      () =>
-        slot.classList.remove(
-          "error-site"
-        ),
-      700
-    );
-
-    return;
-
-  }
-
-
-  let value =
+  const value =
     String(
-      componentValue || ""
-    );
+      base || ""
+    ).toUpperCase();
 
 
   if (
-    componentType ===
-    "phosphate"
+    !["A", "T", "G", "C"].includes(
+      value
+    )
   ) {
-
-    value =
-      value || "phosphate";
-
-  }
-
-  else if (
-    componentType ===
-    "sugar"
-  ) {
-
-    value =
-      value || "deoxyribose";
-
-  }
-
-  else if (
-    componentType ===
-    "base"
-  ) {
-
-    value =
-      value.toUpperCase();
-
-    if (
-      ![
-        "A",
-        "T",
-        "G",
-        "C",
-        "U"
-      ].includes(value)
-    ) {
-
-      return;
-
-    }
-
-  }
-
-  else {
 
     return;
 
   }
 
 
-  labData.stage3.components[
+  labData.stage3.sequence[
     position
-  ][requiredComponent] =
-    value;
+  ] = value;
+
 
   resetStage3CompletionFrom(
     "build"
   );
 
+
   saveLabData();
 
   renderStage3Build();
+
+
+  document
+    .querySelector(
+      "#stage3-backbone-note"
+    )
+    ?.classList.remove(
+      "visible"
+    );
+
 
   clearFeedback(
     document.querySelector(
@@ -3538,7 +3406,7 @@ function renderStage3Build() {
 
   document
     .querySelectorAll(
-      ".stage3-component-slot"
+      ".s3-base-slot"
     )
     .forEach(slot => {
 
@@ -3547,17 +3415,14 @@ function renderStage3Build() {
           slot.dataset.position
         );
 
-      const component =
-        slot.dataset.component;
-
-      const value =
-        labData.stage3.components[
+      const base =
+        labData.stage3.sequence[
           position
-        ]?.[component] || "";
+        ] || "";
 
 
       slot.classList.remove(
-        "filled-component",
+        "filled",
         "correct-site",
         "error-site",
         "base-a",
@@ -3567,13 +3432,14 @@ function renderStage3Build() {
       );
 
 
-      if (!value) {
+      if (!base) {
 
-        slot.textContent = "?";
+        slot.textContent =
+          "?";
 
         slot.setAttribute(
           "aria-label",
-          `Empty molecular attachment site in nucleotide ${position + 1}`
+          `Empty base site, nucleotide ${position + 1}`
         );
 
         return;
@@ -3581,76 +3447,19 @@ function renderStage3Build() {
       }
 
 
+      slot.textContent =
+        base;
+
+
       slot.classList.add(
-        "filled-component"
+        "filled",
+        `base-${base.toLowerCase()}`
       );
-
-
-      const visualSource =
-        Array.from(
-          document.querySelectorAll(
-            ".stage3-part"
-          )
-        )
-        .find(part => {
-
-          const sourceType =
-            part.dataset.partType;
-
-          const sourceValue =
-            part.dataset.partValue ||
-            part.dataset.base ||
-            (
-              sourceType === "phosphate"
-                ? "phosphate"
-                : sourceType === "sugar"
-                  ? "deoxyribose"
-                  : ""
-            );
-
-          return (
-            sourceType ===
-              component &&
-            String(
-              sourceValue
-            ).toUpperCase() ===
-              String(
-                value
-              ).toUpperCase()
-          );
-
-        });
-
-
-      if (visualSource) {
-
-        slot.innerHTML =
-          visualSource.innerHTML;
-
-      }
-
-      else {
-
-        slot.textContent =
-          value;
-
-      }
-
-
-      if (
-        component === "base"
-      ) {
-
-        slot.classList.add(
-          `base-${value.toLowerCase()}`
-        );
-
-      }
 
 
       slot.setAttribute(
         "aria-label",
-        `Placed molecular component in nucleotide ${position + 1}`
+        `Base ${base} placed at nucleotide ${position + 1}`
       );
 
 
@@ -3663,46 +3472,6 @@ function renderStage3Build() {
         );
 
       }
-
-    });
-
-}
-
-
-function renderStage3ModelSelection() {
-
-  document
-    .querySelectorAll(
-      ".stage3-model-card"
-    )
-    .forEach(card => {
-
-      const selected =
-        card.dataset.model ===
-        labData.stage3.selectedModel;
-
-      card.classList.toggle(
-        "selected-model",
-        selected
-      );
-
-    });
-
-
-  document
-    .querySelectorAll(
-      ".stage3-model-select"
-    )
-    .forEach(button => {
-
-      const selected =
-        button.dataset.model ===
-        labData.stage3.selectedModel;
-
-      button.textContent =
-        selected
-          ? `Model ${button.dataset.model} selected ✓`
-          : `Select Model ${button.dataset.model}`;
 
     });
 
