@@ -77,16 +77,20 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-  stage4: {
-    sequence: ["", "", "", "", "", ""],
+ stage4: {
+  stabilityAnswer: "",
+  stabilityCorrect: false,
 
-    complementCorrect: false,
+  atPairs: "",
+  gcPairs: "",
+  hydrogenBonds: "",
+  calculationsCorrect: false,
 
-    atPairs: "",
-    gcPairs: "",
-    hydrogenBonds: "",
+  heatingAnswer: "",
+  heatingCorrect: false,
 
-    analysisCorrect: false
+  analysisCorrect: false
+}
   },
 
   stage5: {
@@ -152,6 +156,8 @@ const defaultLabData = {
     stage2Note: "",
     stage3Note: "",
     stage3DiagnosisNote: "",
+    stage4StabilityNote: "",
+    stage4HeatingNote: "",
     stage4Note: "",
     stage5Note: "",
     stage6Note: "",
@@ -3578,19 +3584,19 @@ function lockStage3Next() {
 }
 function setupStage4() {
 
-  const bankButtons =
-    document.querySelectorAll(
-      ".base-bank-button"
-    );
-
-  const positions =
-    document.querySelectorAll(
-      ".complement-position"
-    );
-
-  const feedback =
+  const stabilityFeedback =
     document.querySelector(
-      "#stage4-feedback"
+      "#stage4-stability-feedback"
+    );
+
+  const calculationFeedback =
+    document.querySelector(
+      "#stage4-calculation-feedback"
+    );
+
+  const heatingFeedback =
+    document.querySelector(
+      "#stage4-heating-feedback"
     );
 
   const analysisFeedback =
@@ -3598,170 +3604,215 @@ function setupStage4() {
       "#stage4-analysis-feedback"
     );
 
-  const correctComplement = [
-    "T",
-    "A",
-    "C",
-    "G",
-    "G",
-    "T"
-  ];
+
+  /* =====================================================
+     MIGRATE OLD SAVED STAGE 4 DATA
+     ===================================================== */
+
+  if (
+    typeof labData.stage4.stabilityAnswer !==
+    "string"
+  ) {
+
+    labData.stage4.stabilityAnswer = "";
+
+  }
+
+  if (
+    typeof labData.stage4.heatingAnswer !==
+    "string"
+  ) {
+
+    labData.stage4.heatingAnswer = "";
+
+  }
+
+  if (
+    typeof labData.stage4.atPairs !==
+    "string"
+  ) {
+
+    labData.stage4.atPairs = "";
+
+  }
+
+  if (
+    typeof labData.stage4.gcPairs !==
+    "string"
+  ) {
+
+    labData.stage4.gcPairs = "";
+
+  }
+
+  if (
+    typeof labData.stage4.hydrogenBonds !==
+    "string"
+  ) {
+
+    labData.stage4.hydrogenBonds = "";
+
+  }
 
 
-  bankButtons.forEach(button => {
+  /* =====================================================
+     PART A — DNA STABILITY
+     ===================================================== */
 
-    makeDraggable(
-      button,
-      {
-        type: "dna-base",
-        base: button.dataset.base
-      }
-    );
+  document
+    .querySelectorAll(
+      'input[name="stage4-stability-answer"]'
+    )
+    .forEach(option => {
 
-    button.addEventListener(
+      option.checked =
+        option.value ===
+        labData.stage4.stabilityAnswer;
+
+
+      option.addEventListener(
+        "change",
+        () => {
+
+          labData.stage4.stabilityAnswer =
+            option.value;
+
+          labData.stage4.stabilityCorrect =
+            false;
+
+          labData.stage4.calculationsCorrect =
+            false;
+
+          labData.stage4.heatingCorrect =
+            false;
+
+          labData.stage4.analysisCorrect =
+            false;
+
+          labData.completedStages.stage4 =
+            false;
+
+          saveLabData();
+
+          lockStage4Next();
+
+          clearFeedback(
+            stabilityFeedback
+          );
+
+        }
+      );
+
+    });
+
+
+  document
+    .querySelector(
+      "#check-stage4-stability"
+    )
+    ?.addEventListener(
       "click",
       () => {
 
-        selectPiece(button);
+        const answer =
+          labData.stage4.stabilityAnswer;
 
-      }
-    );
+        const explanation =
+          document.querySelector(
+            "#stage4-stability-note"
+          )?.value || "";
 
-  });
 
+        if (!answer) {
 
-  positions.forEach(position => {
+          showFeedback(
+            stabilityFeedback,
+            "hint",
+            `
+              Select which DNA region would generally
+              require more energy to separate.
+            `
+          );
 
-    setupDropTarget(
-      position,
-      data => {
-
-        if (
-          data.type !==
-          "dna-base"
-        ) {
           return;
+
         }
 
-        placeStage4Base(
-          position,
-          data.base
+
+        if (
+          answer !== "x"
+        ) {
+
+          labData.stage4.stabilityCorrect =
+            false;
+
+          saveLabData();
+
+
+          showFeedback(
+            stabilityFeedback,
+            "hint",
+            `
+              Compare the number of G–C base pairs
+              in the two regions. Remember that G–C
+              and A–T pairs do not form the same
+              number of hydrogen bonds.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !requireReasoning(
+            explanation,
+            45
+          )
+        ) {
+
+          showFeedback(
+            stabilityFeedback,
+            "hint",
+            `
+              Your region choice is correct, but your
+              explanation needs more evidence.
+              Compare the hydrogen bonding of A–T
+              and G–C base pairs.
+            `
+          );
+
+          return;
+
+        }
+
+
+        labData.stage4.stabilityCorrect =
+          true;
+
+        saveLabData();
+
+
+        showFeedback(
+          stabilityFeedback,
+          "success",
+          `
+            <strong>Stability analysis correct.</strong><br>
+            Region X contains more G–C base pairs.
+            G–C pairs form three hydrogen bonds,
+            whereas A–T pairs form two.
+          `
         );
 
       }
     );
 
 
-    position.addEventListener(
-      "click",
-      () => {
 
-        if (
-          selectedPiece &&
-          selectedPiece.classList.contains(
-            "base-bank-button"
-          )
-        ) {
-
-          placeStage4Base(
-            position,
-            selectedPiece.dataset.base
-          );
-
-          clearSelectedPiece();
-
-          return;
-
-        }
-
-
-        const index =
-          Number(
-            position.dataset.position
-          );
-
-        labData.stage4.sequence[
-          index
-        ] = "";
-
-        labData.stage4.complementCorrect =
-          false;
-
-        saveLabData();
-
-        renderStage4();
-
-      }
-    );
-
-  });
-
-
-  restoreStage4Calculations();
-
-  renderStage4();
-
-
-  document
-    .querySelector(
-      "#check-stage4-complement"
-    )
-    ?.addEventListener(
-      "click",
-      () => {
-
-        const wrongIndex =
-          correctComplement.findIndex(
-            (base, index) =>
-
-              labData.stage4.sequence[
-                index
-              ] !== base
-          );
-
-
-        if (
-          wrongIndex === -1
-        ) {
-
-          labData.stage4.complementCorrect =
-            true;
-
-          saveLabData();
-
-          renderStage4();
-
-          showFeedback(
-            feedback,
-            "success",
-            `
-              <strong>Complementary strand validated.</strong>
-            `
-          );
-
-        }
-
-        else {
-
-          labData.stage4.complementCorrect =
-            false;
-
-          saveLabData();
-
-          showFeedback(
-            feedback,
-            "hint",
-            `
-              At least one base pair is incorrect.
-              Re-examine position ${wrongIndex + 1}.
-            `
-          );
-
-        }
-
-      }
-    );
-
+  /* =====================================================
+     PART B — HYDROGEN-BOND CALCULATION
+     ===================================================== */
 
   const atInput =
     document.querySelector(
@@ -3779,44 +3830,402 @@ function setupStage4() {
     );
 
 
-  atInput?.addEventListener(
-    "input",
-    () => {
+  if (atInput) {
 
-      labData.stage4.atPairs =
-        atInput.value;
+    atInput.value =
+      labData.stage4.atPairs || "";
 
-      saveLabData();
+    atInput.addEventListener(
+      "input",
+      () => {
 
-    }
-  );
+        labData.stage4.atPairs =
+          atInput.value;
+
+        labData.stage4.calculationsCorrect =
+          false;
+
+        labData.stage4.heatingCorrect =
+          false;
+
+        labData.stage4.analysisCorrect =
+          false;
+
+        labData.completedStages.stage4 =
+          false;
+
+        saveLabData();
+
+        lockStage4Next();
+
+        clearFeedback(
+          calculationFeedback
+        );
+
+      }
+    );
+
+  }
 
 
-  gcInput?.addEventListener(
-    "input",
-    () => {
+  if (gcInput) {
 
-      labData.stage4.gcPairs =
-        gcInput.value;
+    gcInput.value =
+      labData.stage4.gcPairs || "";
 
-      saveLabData();
+    gcInput.addEventListener(
+      "input",
+      () => {
 
-    }
-  );
+        labData.stage4.gcPairs =
+          gcInput.value;
+
+        labData.stage4.calculationsCorrect =
+          false;
+
+        labData.stage4.heatingCorrect =
+          false;
+
+        labData.stage4.analysisCorrect =
+          false;
+
+        labData.completedStages.stage4 =
+          false;
+
+        saveLabData();
+
+        lockStage4Next();
+
+        clearFeedback(
+          calculationFeedback
+        );
+
+      }
+    );
+
+  }
 
 
-  hydrogenInput?.addEventListener(
-    "input",
-    () => {
+  if (hydrogenInput) {
 
-      labData.stage4.hydrogenBonds =
-        hydrogenInput.value;
+    hydrogenInput.value =
+      labData.stage4.hydrogenBonds || "";
 
-      saveLabData();
+    hydrogenInput.addEventListener(
+      "input",
+      () => {
 
-    }
-  );
+        labData.stage4.hydrogenBonds =
+          hydrogenInput.value;
 
+        labData.stage4.calculationsCorrect =
+          false;
+
+        labData.stage4.heatingCorrect =
+          false;
+
+        labData.stage4.analysisCorrect =
+          false;
+
+        labData.completedStages.stage4 =
+          false;
+
+        saveLabData();
+
+        lockStage4Next();
+
+        clearFeedback(
+          calculationFeedback
+        );
+
+      }
+    );
+
+  }
+
+
+  document
+    .querySelector(
+      "#check-stage4-calculations"
+    )
+    ?.addEventListener(
+      "click",
+      () => {
+
+        if (
+          !labData.stage4.stabilityCorrect
+        ) {
+
+          showFeedback(
+            calculationFeedback,
+            "hint",
+            `
+              Complete Part A before submitting
+              the molecular calculation.
+            `
+          );
+
+          return;
+
+        }
+
+
+        const atCorrect =
+          Number(
+            labData.stage4.atPairs
+          ) === 2;
+
+        const gcCorrect =
+          Number(
+            labData.stage4.gcPairs
+          ) === 6;
+
+        const hydrogenCorrect =
+          Number(
+            labData.stage4.hydrogenBonds
+          ) === 22;
+
+
+        if (
+          atCorrect &&
+          gcCorrect &&
+          hydrogenCorrect
+        ) {
+
+          labData.stage4.calculationsCorrect =
+            true;
+
+          saveLabData();
+
+
+          showFeedback(
+            calculationFeedback,
+            "success",
+            `
+              <strong>Calculations correct.</strong><br>
+              Region X contains 2 A–T pairs and
+              6 G–C pairs.<br><br>
+              2 × 2 hydrogen bonds = 4<br>
+              6 × 3 hydrogen bonds = 18<br>
+              <strong>Total = 22 hydrogen bonds.</strong>
+            `
+          );
+
+          return;
+
+        }
+
+
+        labData.stage4.calculationsCorrect =
+          false;
+
+        saveLabData();
+
+
+        if (
+          !atCorrect ||
+          !gcCorrect
+        ) {
+
+          showFeedback(
+            calculationFeedback,
+            "hint",
+            `
+              Recount the base pairs in Region X.
+              Classify each pair as either A–T
+              or G–C before calculating hydrogen bonds.
+            `
+          );
+
+          return;
+
+        }
+
+
+        showFeedback(
+          calculationFeedback,
+          "hint",
+          `
+            Your base-pair counts are correct.
+            Now remember that A–T forms two
+            hydrogen bonds and G–C forms three.
+          `
+        );
+
+      }
+    );
+
+
+
+  /* =====================================================
+     PART C — APPLY GC CONTENT
+     ===================================================== */
+
+  document
+    .querySelectorAll(
+      'input[name="stage4-heating-answer"]'
+    )
+    .forEach(option => {
+
+      option.checked =
+        option.value ===
+        labData.stage4.heatingAnswer;
+
+
+      option.addEventListener(
+        "change",
+        () => {
+
+          labData.stage4.heatingAnswer =
+            option.value;
+
+          labData.stage4.heatingCorrect =
+            false;
+
+          labData.stage4.analysisCorrect =
+            false;
+
+          labData.completedStages.stage4 =
+            false;
+
+          saveLabData();
+
+          lockStage4Next();
+
+          clearFeedback(
+            heatingFeedback
+          );
+
+        }
+      );
+
+    });
+
+
+  document
+    .querySelector(
+      "#check-stage4-heating"
+    )
+    ?.addEventListener(
+      "click",
+      () => {
+
+        if (
+          !labData.stage4.calculationsCorrect
+        ) {
+
+          showFeedback(
+            heatingFeedback,
+            "hint",
+            `
+              Complete Part B before applying
+              the pattern to the new DNA regions.
+            `
+          );
+
+          return;
+
+        }
+
+
+        const answer =
+          labData.stage4.heatingAnswer;
+
+        const explanation =
+          document.querySelector(
+            "#stage4-heating-note"
+          )?.value || "";
+
+
+        if (!answer) {
+
+          showFeedback(
+            heatingFeedback,
+            "hint",
+            `
+              Select which DNA region would
+              separate more easily when heated.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          answer !== "n"
+        ) {
+
+          labData.stage4.heatingCorrect =
+            false;
+
+          saveLabData();
+
+
+          showFeedback(
+            heatingFeedback,
+            "hint",
+            `
+              Compare the GC content of the two regions.
+              A region with fewer G–C pairs has fewer
+              three-hydrogen-bond interactions to break.
+            `
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !requireReasoning(
+            explanation,
+            45
+          )
+        ) {
+
+          showFeedback(
+            heatingFeedback,
+            "hint",
+            `
+              Your prediction is correct, but explain
+              why lower GC content affects the energy
+              needed to separate the strands.
+            `
+          );
+
+          return;
+
+        }
+
+
+        labData.stage4.heatingCorrect =
+          true;
+
+        saveLabData();
+
+
+        showFeedback(
+          heatingFeedback,
+          "success",
+          `
+            <strong>Prediction correct.</strong><br>
+            Region N has lower GC content and therefore
+            fewer three-hydrogen-bond G–C interactions.
+            It would generally separate more easily
+            when heated.
+          `
+        );
+
+      }
+    );
+
+
+
+  /* =====================================================
+     PART D — STRUCTURAL SYNTHESIS
+     ===================================================== */
 
   document
     .querySelector(
@@ -3827,44 +4236,17 @@ function setupStage4() {
       () => {
 
         if (
-          !labData.stage4.complementCorrect
+          !labData.stage4.stabilityCorrect ||
+          !labData.stage4.calculationsCorrect ||
+          !labData.stage4.heatingCorrect
         ) {
 
           showFeedback(
             analysisFeedback,
             "hint",
             `
-              Validate the complementary strand first.
-            `
-          );
-
-          return;
-
-        }
-
-
-        const countsCorrect =
-
-          Number(
-            labData.stage4.atPairs
-          ) === 3 &&
-
-          Number(
-            labData.stage4.gcPairs
-          ) === 3 &&
-
-          Number(
-            labData.stage4.hydrogenBonds
-          ) === 15;
-
-
-        if (!countsCorrect) {
-
-          showFeedback(
-            analysisFeedback,
-            "hint",
-            `
-              Recheck your calculations.
+              Complete Parts A, B and C correctly
+              before submitting the Stage 4 synthesis.
             `
           );
 
@@ -3882,7 +4264,7 @@ function setupStage4() {
         if (
           !requireReasoning(
             explanation,
-            45
+            80
           )
         ) {
 
@@ -3890,7 +4272,9 @@ function setupStage4() {
             analysisFeedback,
             "hint",
             `
-              Expand your explanation.
+              Expand your explanation. Connect
+              complementary base pairing to hydrogen
+              bonding, DNA stability, and strand separation.
             `
           );
 
@@ -3907,13 +4291,19 @@ function setupStage4() {
 
         saveLabData();
 
+
         showFeedback(
           analysisFeedback,
           "success",
           `
-            <strong>Stage 4 complete.</strong>
+            <strong>Stage 4 complete.</strong><br>
+            Complementary bases stabilize the double
+            helix through hydrogen bonding, while those
+            hydrogen bonds can still be broken when
+            the two strands need to separate.
           `
         );
+
 
         unlockNext(
           "#stage4-next"
@@ -3936,185 +4326,32 @@ function setupStage4() {
 }
 
 
-function placeStage4Base(
-  element,
-  base
-) {
+function lockStage4Next() {
 
-  const position =
-    Number(
-      element.dataset.position
-    );
-
-  labData.stage4.sequence[
-    position
-  ] =
-    base;
-
-  labData.stage4.complementCorrect =
-    false;
-
-  saveLabData();
-
-  renderStage4();
-
-}
-
-
-function renderStage4() {
-
-  const template = [
-    "A",
-    "T",
-    "G",
-    "C",
-    "C",
-    "A"
-  ];
-
-  const complements = {
-    A: "T",
-    T: "A",
-    G: "C",
-    C: "G"
-  };
-
-
-  document
-    .querySelectorAll(
-      ".complement-position"
-    )
-    .forEach(element => {
-
-      const position =
-        Number(
-          element.dataset.position
-        );
-
-      const base =
-        labData.stage4.sequence[
-          position
-        ];
-
-
-      if (!base) {
-
-        element.className =
-          "complement-position";
-
-        element.textContent =
-          "?";
-
-        return;
-
-      }
-
-
-      element.className =
-        `complement-position dna-base base-${base.toLowerCase()}`;
-
-      element.textContent =
-        base;
-
-    });
-
-
-  document
-    .querySelectorAll(
-      ".hydrogen-bond-zone"
-    )
-    .forEach(element => {
-
-      const position =
-        Number(
-          element.dataset.position
-        );
-
-      const templateBase =
-        template[position];
-
-      const placed =
-        labData.stage4.sequence[
-          position
-        ];
-
-      const correct =
-        placed ===
-        complements[
-          templateBase
-        ];
-
-
-      element.classList.toggle(
-        "connected",
-        correct
-      );
-
-
-      if (!correct) {
-
-        element.textContent =
-          "";
-
-        return;
-
-      }
-
-
-      element.textContent =
-        (
-          templateBase === "G" ||
-          templateBase === "C"
-        )
-          ? "···"
-          : "··";
-
-    });
-
-}
-
-
-function restoreStage4Calculations() {
-
-  const at =
+  const link =
     document.querySelector(
-      "#stage4-at-pairs"
-    );
-
-  const gc =
-    document.querySelector(
-      "#stage4-gc-pairs"
-    );
-
-  const hydrogen =
-    document.querySelector(
-      "#stage4-hydrogen-bonds"
+      "#stage4-next"
     );
 
 
-  if (at) {
+  if (!link) {
 
-    at.value =
-      labData.stage4.atPairs;
+    return;
 
   }
 
-  if (gc) {
 
-    gc.value =
-      labData.stage4.gcPairs;
+  link.classList.add(
+    "locked"
+  );
 
-  }
 
-  if (hydrogen) {
-
-    hydrogen.value =
-      labData.stage4.hydrogenBonds;
-
-  }
+  link.setAttribute(
+    "aria-disabled",
+    "true"
+  );
 
 }
-
 
 function setupStage5() {
 
