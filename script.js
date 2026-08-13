@@ -2629,8 +2629,9 @@ function setupStage3() {
                 wrongPositions.length > 1
                   ? "s"
                   : ""
-              } ${wrongPositions.join(", ")}
-              against the required 5′ → 3′ sequence.
+              } ${wrongPositions.join(", ")}.
+              Check the template base directly above it and apply
+              the base-pairing rules (A–T, G–C).
             `
           );
 
@@ -2658,8 +2659,10 @@ function setupStage3() {
           "success",
           `
             <strong>Strand validated.</strong><br>
-            You built a strand with the required
-            5′–A T G C C A–3′ base sequence.
+            Correctly derived: 5′–A T G C C A–3′. Every base you
+            placed follows Watson–Crick pairing with the template
+            strand above it, and the new strand runs antiparallel
+            to it.
           `
         );
 
@@ -3472,6 +3475,77 @@ function renderStage3Build() {
         );
 
       }
+
+    });
+
+
+  /* Live hydrogen-bond feedback: shows the dots between the
+     template base and the placed base only once that position
+     is correctly paired (A–T = 2 bonds, G–C = 3 bonds). This
+     previews the hydrogen-bond concept Stage 4 builds on. */
+
+  const stage3TemplateBases = [
+    "T",
+    "A",
+    "C",
+    "G",
+    "G",
+    "T"
+  ];
+
+  const stage3WatsonCrick = {
+    A: "T",
+    T: "A",
+    G: "C",
+    C: "G"
+  };
+
+
+  document
+    .querySelectorAll(
+      ".s3-hbond-zone"
+    )
+    .forEach(zone => {
+
+      const position =
+        Number(
+          zone.dataset.position
+        );
+
+      const templateBase =
+        stage3TemplateBases[
+          position
+        ];
+
+      const placedBase =
+        labData.stage3.sequence[
+          position
+        ];
+
+      const correct =
+        placedBase &&
+        placedBase ===
+          stage3WatsonCrick[
+            templateBase
+          ];
+
+
+      if (!correct) {
+
+        zone.textContent = "";
+
+        return;
+
+      }
+
+
+      zone.textContent =
+        (
+          templateBase === "G" ||
+          templateBase === "C"
+        )
+          ? "···"
+          : "··";
 
     });
 
