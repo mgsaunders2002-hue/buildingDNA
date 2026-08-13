@@ -2710,82 +2710,53 @@ function setupStage3() {
 
 
   /* =====================================================
-     PART B — IDENTIFY BACKBONE CONNECTION
+     PART B — IDENTIFY THE BACKBONE BOND
      ===================================================== */
 
-  const bondChoices =
-    document.querySelectorAll(
-      ".stage3-bond-choice"
-    );
+  document
+    .querySelectorAll(
+      'input[name="stage3-location-answer"]'
+    )
+    .forEach(option => {
 
-
-  function renderStage3BondChoice() {
-
-    bondChoices.forEach(button => {
-
-      const selected =
-        button.dataset.bondChoice ===
+      option.checked =
+        option.value ===
         labData.stage3.bondChoice;
 
 
-      button.classList.toggle(
-        "selected-bond",
-        selected
-      );
+      option.addEventListener(
+        "change",
+        () => {
+
+          labData.stage3.bondChoice =
+            option.value;
 
 
-      button.setAttribute(
-        "aria-pressed",
-        selected
-          ? "true"
-          : "false"
+          labData.stage3.bondCorrect =
+            false;
+
+          labData.stage3.diagnosisCorrect =
+            false;
+
+          labData.stage3.analysisCorrect =
+            false;
+
+          labData.completedStages.stage3 =
+            false;
+
+
+          saveLabData();
+
+          lockStage3Next();
+
+          clearFeedback(
+            bondFeedback
+          );
+
+        }
       );
 
     });
-
-  }
-
-
-  bondChoices.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        labData.stage3.bondChoice =
-          button.dataset.bondChoice || "";
-
-
-        labData.stage3.bondCorrect =
-          false;
-
-        labData.stage3.diagnosisCorrect =
-          false;
-
-        labData.stage3.analysisCorrect =
-          false;
-
-        labData.completedStages.stage3 =
-          false;
-
-
-        saveLabData();
-
-        renderStage3BondChoice();
-
-        lockStage3Next();
-
-        clearFeedback(
-          bondFeedback
-        );
-
-      }
-    );
-
-  });
-
-
-  renderStage3BondChoice();
 
 
 
@@ -2870,7 +2841,8 @@ function setupStage3() {
             bondFeedback,
             "hint",
             `
-              Select Connection A, B or C on the model first.
+              Answer question 1 first — choose which numbered
+              bond continues the backbone.
             `
           );
 
@@ -2894,9 +2866,10 @@ function setupStage3() {
             bondFeedback,
             "hint",
             `
-              That connection does not join one nucleotide
-              to the next in the sugar-phosphate backbone.
-              Re-examine the model and try another connection.
+              That bond does not join one nucleotide to the next
+              in the sugar-phosphate backbone — it attaches a base
+              to its own sugar, within a single nucleotide.
+              Re-examine the diagram and try again.
             `
           );
 
@@ -2913,8 +2886,8 @@ function setupStage3() {
             bondFeedback,
             "hint",
             `
-              You identified the correct location.
-              Now identify the type of bond that forms this linkage.
+              You identified the correct bond.
+              Now answer question 2: what type of bond is it?
             `
           );
 
@@ -2938,7 +2911,7 @@ function setupStage3() {
             bondFeedback,
             "hint",
             `
-              You selected the correct backbone connection,
+              You identified the correct backbone bond,
               but the bond type is not correct.
               Think about the covalent linkage that connects
               successive DNA nucleotides.
@@ -2962,7 +2935,7 @@ function setupStage3() {
           "success",
           `
             <strong>Bond analysis correct.</strong><br>
-            Connection B continues the sugar-phosphate backbone.
+            Bond 2 continues the sugar-phosphate backbone.
             Adjacent DNA nucleotides are linked by covalent
             phosphodiester bonds.
           `
