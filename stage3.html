@@ -86,14 +86,17 @@
       </span>
 
       <h2>
-        Place each base in 5′ → 3′ order.
+        Derive the new strand from the template.
       </h2>
 
       <p>
-        The sugar-phosphate backbone below is already assembled —
-        it is identical at every position. Your job is to attach
-        the correct nitrogenous base to each sugar, reading the
-        strand from the 5′ end to the 3′ end.
+        A single template strand is shown above the workspace. DNA
+        strands are always <strong>antiparallel</strong>, so the new
+        strand you build runs in the opposite direction, and each
+        base you attach must follow the base-pairing rules:
+        <strong>A pairs with T</strong>, and
+        <strong>G pairs with C</strong>. No base sequence is given —
+        you have to derive it.
       </p>
 
     </div>
@@ -102,11 +105,11 @@
     <div class="target-banner">
 
       <span>
-        Required strand
+        Given template strand
       </span>
 
       <strong>
-        5′ — A T G C C A — 3′
+        3′ — T A C G G T — 5′
       </strong>
 
     </div>
@@ -124,7 +127,8 @@
       <button type="button" class="base-bank-button base-c" data-base="C">C</button>
 
       <span class="small-note">
-        Select a base, then select a slot. Bases may be reused.
+        Select a base, then select a slot below the matching
+        template base. Bases may be reused.
       </span>
 
     </div>
@@ -134,98 +138,116 @@
 
       <div class="s3-track">
 
-        <span class="s3-end-label">5′</span>
+        <span class="s3-end-stack">
+          <span>3′</span>
+          <span>5′</span>
+        </span>
 
 
         <!-- NUCLEOTIDE 1 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 1</span>
+          <span class="mini-base s3-template-base base-t">T</span>
+          <span class="s3-hbond-zone" data-position="0"></span>
+          <button type="button" class="s3-base-slot" data-position="0" aria-label="Empty base site, nucleotide 1">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="0" aria-label="Empty base site, nucleotide 1">?</button>
         </div>
 
-        <span class="s3-connector"></span>
+        <span class="s3-connector"><span class="s3-connector-line"></span></span>
 
 
         <!-- NUCLEOTIDE 2 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 2</span>
+          <span class="mini-base s3-template-base base-a">A</span>
+          <span class="s3-hbond-zone" data-position="1"></span>
+          <button type="button" class="s3-base-slot" data-position="1" aria-label="Empty base site, nucleotide 2">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="1" aria-label="Empty base site, nucleotide 2">?</button>
         </div>
 
-        <span class="s3-connector"></span>
+        <span class="s3-connector"><span class="s3-connector-line"></span></span>
 
 
         <!-- NUCLEOTIDE 3 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 3</span>
+          <span class="mini-base s3-template-base base-c">C</span>
+          <span class="s3-hbond-zone" data-position="2"></span>
+          <button type="button" class="s3-base-slot" data-position="2" aria-label="Empty base site, nucleotide 3">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="2" aria-label="Empty base site, nucleotide 3">?</button>
         </div>
 
-        <span class="s3-connector"></span>
+        <span class="s3-connector"><span class="s3-connector-line"></span></span>
 
 
         <!-- NUCLEOTIDE 4 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 4</span>
+          <span class="mini-base s3-template-base base-g">G</span>
+          <span class="s3-hbond-zone" data-position="3"></span>
+          <button type="button" class="s3-base-slot" data-position="3" aria-label="Empty base site, nucleotide 4">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="3" aria-label="Empty base site, nucleotide 4">?</button>
         </div>
 
-        <span class="s3-connector"></span>
+        <span class="s3-connector"><span class="s3-connector-line"></span></span>
 
 
         <!-- NUCLEOTIDE 5 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 5</span>
+          <span class="mini-base s3-template-base base-g">G</span>
+          <span class="s3-hbond-zone" data-position="4"></span>
+          <button type="button" class="s3-base-slot" data-position="4" aria-label="Empty base site, nucleotide 5">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="4" aria-label="Empty base site, nucleotide 5">?</button>
         </div>
 
-        <span class="s3-connector"></span>
+        <span class="s3-connector"><span class="s3-connector-line"></span></span>
 
 
         <!-- NUCLEOTIDE 6 -->
         <div class="s3-unit">
           <span class="s3-position-index">Nt 6</span>
+          <span class="mini-base s3-template-base base-t">T</span>
+          <span class="s3-hbond-zone" data-position="5"></span>
+          <button type="button" class="s3-base-slot" data-position="5" aria-label="Empty base site, nucleotide 6">?</button>
+          <span class="s3-stem"></span>
           <div class="s3-backbone-row">
             <span class="s3-phosphate">P</span>
             <span class="s3-bond-line"></span>
             <span class="s3-sugar">D</span>
           </div>
-          <span class="s3-stem"></span>
-          <button type="button" class="s3-base-slot" data-position="5" aria-label="Empty base site, nucleotide 6">?</button>
         </div>
 
 
-        <span class="s3-end-label">3′</span>
+        <span class="s3-end-stack">
+          <span>5′</span>
+          <span>3′</span>
+        </span>
 
       </div>
 
