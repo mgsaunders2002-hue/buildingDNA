@@ -2350,7 +2350,629 @@ function lockStage4Next() {
   link.setAttribute("aria-disabled", "true");
 }
 
+/* =========================================================
+   STAGE 5 — DIAGNOSE THE DNA
+   ========================================================= */
 
+function setupStage5() {
+
+  const partAFeedback =
+    document.querySelector("#stage5-part-a-feedback");
+
+  const partBFeedback =
+    document.querySelector("#stage5-part-b-feedback");
+
+  const partCFeedback =
+    document.querySelector("#stage5-part-c-feedback");
+
+  const analysisFeedback =
+    document.querySelector("#stage5-analysis-feedback");
+
+
+  /* =====================================================
+     PART A — INTERPRET THE EVIDENCE
+     ===================================================== */
+
+  document
+    .querySelectorAll('input[name="stage5-sample-answer"]')
+    .forEach(option => {
+
+      option.checked =
+        option.value === labData.stage5.sampleAnswer;
+
+      option.addEventListener("change", () => {
+
+        labData.stage5.sampleAnswer =
+          option.value;
+
+        resetStage5CompletionFrom("partA");
+
+        saveLabData();
+
+        clearFeedback(partAFeedback);
+        clearFeedback(partBFeedback);
+        clearFeedback(partCFeedback);
+        clearFeedback(analysisFeedback);
+
+      });
+
+    });
+
+
+  document
+    .querySelector("#check-stage5-part-a")
+    ?.addEventListener("click", () => {
+
+      const answer =
+        labData.stage5.sampleAnswer;
+
+      const explanation =
+        document.querySelector("#stage5-part-a-note")?.value || "";
+
+      if (!answer) {
+
+        showFeedback(
+          partAFeedback,
+          "hint",
+          `
+            Select the sample you predict would require
+            the least energy to separate.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (answer !== "b") {
+
+        resetStage5CompletionFrom("partA");
+        saveLabData();
+
+        showFeedback(
+          partAFeedback,
+          "hint",
+          `
+            Compare the proportion of A–T and G–C pairs.
+            Which sample contains the greatest number of
+            two-hydrogen-bond base pairs?
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (!validateStage5PartA(explanation)) {
+
+        resetStage5CompletionFrom("partA");
+        saveLabData();
+
+        showFeedback(
+          partAFeedback,
+          "hint",
+          `
+            Sample B is correct, but your explanation needs
+            stronger molecular evidence.<br><br>
+
+            Compare its G–C and A–T content and explain how
+            the different numbers of hydrogen bonds affect
+            the energy needed for separation.
+          `
+        );
+
+        return;
+
+      }
+
+
+      labData.stage5.partACorrect =
+        true;
+
+      saveLabData();
+
+
+      showFeedback(
+        partAFeedback,
+        "success",
+        `
+          <strong>Prediction supported.</strong><br>
+          Sample B contains the fewest G–C pairs and the
+          most A–T pairs. Because A–T pairs form two
+          hydrogen bonds rather than three, Sample B should
+          require the least energy to separate.
+        `
+      );
+
+    });
+
+
+
+  /* =====================================================
+     PART B — DIAGNOSE THE RESULT
+     ===================================================== */
+
+  document
+    .querySelectorAll('input[name="stage5-diagnosis-answer"]')
+    .forEach(option => {
+
+      option.checked =
+        option.value === labData.stage5.diagnosisAnswer;
+
+      option.addEventListener("change", () => {
+
+        labData.stage5.diagnosisAnswer =
+          option.value;
+
+        resetStage5CompletionFrom("diagnosis");
+
+        saveLabData();
+
+        clearFeedback(partBFeedback);
+        clearFeedback(partCFeedback);
+        clearFeedback(analysisFeedback);
+
+      });
+
+    });
+
+
+  document
+    .querySelector("#check-stage5-part-b")
+    ?.addEventListener("click", () => {
+
+      if (!labData.stage5.partACorrect) {
+
+        showFeedback(
+          partBFeedback,
+          "hint",
+          `
+            Complete Part A correctly before diagnosing
+            the unexpected result.
+          `
+        );
+
+        return;
+
+      }
+
+
+      const answer =
+        labData.stage5.diagnosisAnswer;
+
+      const explanation =
+        document.querySelector("#stage5-part-b-note")?.value || "";
+
+      if (!answer) {
+
+        showFeedback(
+          partBFeedback,
+          "hint",
+          `
+            Select the explanation that best accounts
+            for the unexpected result.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (answer !== "c") {
+
+        resetStage5CompletionFrom("diagnosis");
+        saveLabData();
+
+        showFeedback(
+          partBFeedback,
+          "hint",
+          `
+            The observation says Sample C separates
+            <strong>more easily than its GC content predicts.</strong>
+            Look for an explanation that introduces an
+            additional change in interactions between the strands.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (!validateStage5PartB(explanation)) {
+
+        resetStage5CompletionFrom("diagnosis");
+        saveLabData();
+
+        showFeedback(
+          partBFeedback,
+          "hint",
+          `
+            Explanation C is the strongest diagnosis, but your
+            defence needs more evidence.<br><br>
+
+            Explain how a base mismatch changes normal hydrogen
+            bonding and use the evidence to reject at least one
+            competing explanation.
+          `
+        );
+
+        return;
+
+      }
+
+
+      labData.stage5.diagnosisCorrect =
+        true;
+
+      saveLabData();
+
+
+      showFeedback(
+        partBFeedback,
+        "success",
+        `
+          <strong>Diagnosis supported.</strong><br>
+          A mismatched base pair can disrupt the normal
+          complementary hydrogen-bond pattern. This provides
+          an additional explanation for why Sample C separates
+          more easily than GC content alone predicts.
+        `
+      );
+
+    });
+
+
+
+  /* =====================================================
+     PART C — PREDICT THE CONSEQUENCE
+     ===================================================== */
+
+  document
+    .querySelectorAll('input[name="stage5-backbone-answer"]')
+    .forEach(option => {
+
+      option.checked =
+        option.value === labData.stage5.backboneAnswer;
+
+      option.addEventListener("change", () => {
+
+        labData.stage5.backboneAnswer =
+          option.value;
+
+        resetStage5CompletionFrom("backbone");
+
+        saveLabData();
+
+        clearFeedback(partCFeedback);
+        clearFeedback(analysisFeedback);
+
+      });
+
+    });
+
+
+  document
+    .querySelector("#check-stage5-part-c")
+    ?.addEventListener("click", () => {
+
+      if (!labData.stage5.diagnosisCorrect) {
+
+        showFeedback(
+          partCFeedback,
+          "hint",
+          `
+            Complete Part B correctly before analysing
+            the new structural problem.
+          `
+        );
+
+        return;
+
+      }
+
+
+      const answer =
+        labData.stage5.backboneAnswer;
+
+      const explanation =
+        document.querySelector("#stage5-part-c-note")?.value || "";
+
+      if (!answer) {
+
+        showFeedback(
+          partCFeedback,
+          "hint",
+          `
+            Select the property affected most directly
+            by the backbone break.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (answer !== "continuity") {
+
+        resetStage5CompletionFrom("backbone");
+        saveLabData();
+
+        showFeedback(
+          partCFeedback,
+          "hint",
+          `
+            Distinguish the covalent bonds within one strand
+            from the hydrogen bonds between complementary bases.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (!validateStage5PartC(explanation)) {
+
+        resetStage5CompletionFrom("backbone");
+        saveLabData();
+
+        showFeedback(
+          partCFeedback,
+          "hint",
+          `
+            Your selected answer is correct, but the explanation
+            needs stronger structural reasoning.<br><br>
+
+            Explain what type of bond forms the backbone,
+            why the strand loses continuity, and why
+            complementary base pairing can still remain normal.
+          `
+        );
+
+        return;
+
+      }
+
+
+      labData.stage5.backboneCorrect =
+        true;
+
+      saveLabData();
+
+
+      showFeedback(
+        partCFeedback,
+        "success",
+        `
+          <strong>Structural prediction supported.</strong><br>
+          A break in the covalent phosphodiester backbone
+          interrupts the continuity of one strand. The bases
+          can still remain opposite their complementary partners
+          and can still form hydrogen bonds.
+        `
+      );
+
+    });
+
+
+
+  /* =====================================================
+     PART D — EVALUATE THE CLAIM
+     ===================================================== */
+
+  document
+    .querySelectorAll('input[name="stage5-claim-answer"]')
+    .forEach(option => {
+
+      option.checked =
+        option.value === labData.stage5.claimAnswer;
+
+      option.addEventListener("change", () => {
+
+        labData.stage5.claimAnswer =
+          option.value;
+
+        resetStage5CompletionFrom("analysis");
+
+        saveLabData();
+
+        clearFeedback(analysisFeedback);
+
+      });
+
+    });
+
+
+  document
+    .querySelector("#check-stage5-analysis")
+    ?.addEventListener("click", () => {
+
+      if (
+        !labData.stage5.partACorrect ||
+        !labData.stage5.diagnosisCorrect ||
+        !labData.stage5.backboneCorrect
+      ) {
+
+        showFeedback(
+          analysisFeedback,
+          "hint",
+          `
+            Complete Parts A, B and C correctly before
+            evaluating the final claim.
+          `
+        );
+
+        return;
+
+      }
+
+
+      const answer =
+        labData.stage5.claimAnswer;
+
+      const explanation =
+        document.querySelector("#stage5-note")?.value || "";
+
+      if (!answer) {
+
+        showFeedback(
+          analysisFeedback,
+          "hint",
+          `
+            Decide whether the student's claim is
+            fully supported by the evidence.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (answer !== "not-supported") {
+
+        resetStage5CompletionFrom("analysis");
+        saveLabData();
+
+        showFeedback(
+          analysisFeedback,
+          "hint",
+          `
+            Consider whether abnormal base pairing is the
+            only reason a DNA region might require
+            less energy to separate.
+          `
+        );
+
+        return;
+
+      }
+
+
+      if (!validateStage5Claim(explanation)) {
+
+        resetStage5CompletionFrom("analysis");
+        saveLabData();
+
+        showFeedback(
+          analysisFeedback,
+          "hint",
+          `
+            Your evaluation is correct, but your defence needs
+            additional evidence.<br><br>
+
+            Use at least two different structural explanations.
+            Consider both GC content and abnormal base pairing,
+            and connect each to hydrogen bonding.
+          `
+        );
+
+        return;
+
+      }
+
+
+      labData.stage5.analysisCorrect =
+        true;
+
+      labData.completedStages.stage5 =
+        true;
+
+      saveLabData();
+
+
+      showFeedback(
+        analysisFeedback,
+        "success",
+        `
+          <strong>Stage 5 complete.</strong><br>
+          Easy strand separation alone does not prove that
+          incorrect base pairing is present. Lower GC content
+          can reduce the total hydrogen bonding even when every
+          base pair is structurally correct, while a mismatch
+          provides a different mechanism that can also disrupt
+          normal interactions between the strands.
+        `
+      );
+
+
+      unlockNext("#stage5-next");
+
+    });
+
+
+  if (
+    labData.completedStages.stage5 &&
+    labData.stage5.analysisCorrect
+  ) {
+
+    unlockNext("#stage5-next");
+
+  }
+
+}
+
+
+/* =========================================================
+   STAGE 5 — RESET DOWNSTREAM COMPLETION
+   ========================================================= */
+
+function resetStage5CompletionFrom(step) {
+
+  const order = [
+    "partA",
+    "diagnosis",
+    "backbone",
+    "analysis"
+  ];
+
+  const start =
+    order.indexOf(step);
+
+  if (start === -1) return;
+
+
+  if (start <= order.indexOf("partA")) {
+    labData.stage5.partACorrect = false;
+  }
+
+  if (start <= order.indexOf("diagnosis")) {
+    labData.stage5.diagnosisCorrect = false;
+  }
+
+  if (start <= order.indexOf("backbone")) {
+    labData.stage5.backboneCorrect = false;
+  }
+
+  if (start <= order.indexOf("analysis")) {
+    labData.stage5.analysisCorrect = false;
+  }
+
+  labData.completedStages.stage5 = false;
+
+  lockStage5Next();
+}
+
+
+/* =========================================================
+   STAGE 5 — LOCK NEXT
+   ========================================================= */
+
+function lockStage5Next() {
+
+  const link =
+    document.querySelector("#stage5-next");
+
+  if (!link) return;
+
+  link.classList.add("locked");
+  link.setAttribute("aria-disabled", "true");
+}
 /* =========================================================
    STAGE 6 — INVESTIGATE DNA STRUCTURE
    ========================================================= */
