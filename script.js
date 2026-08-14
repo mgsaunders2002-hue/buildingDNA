@@ -69,17 +69,19 @@ const defaultLabData = {
     analysisCorrect: false
   },
 
-  /* ===================== STAGE 5 ===================== */
-  stage5: {
-    topLeft: "5",
-    topRight: "3",
-    bottomLeft: "5",
-    bottomRight: "3",
-    sequence: ["T", "A", "C", "G", "T", "T"],
-    bondCounts: [2, 2, 3, 3, 2, 2],
-    repairsCorrect: false,
-    analysisCorrect: false
-  },
+stage5: {
+  sampleAnswer: "",
+  partACorrect: false,
+
+  diagnosisAnswer: "",
+  diagnosisCorrect: false,
+
+  backboneAnswer: "",
+  backboneCorrect: false,
+
+  claimAnswer: "",
+  analysisCorrect: false
+},
 
   /* ===================== STAGE 6 ===================== */
   stage6: {
@@ -109,6 +111,9 @@ const defaultLabData = {
     stage4StabilityNote: "",
     stage4HeatingNote: "",
     stage4Note: "",
+    stage5PartANote: "",
+    stage5PartBNote: "",
+    stage5PartCNote: "",
     stage5Note: "",
     stage6Note: "",
     finalNote: ""
@@ -591,25 +596,221 @@ function validateStage4Synthesis(text) {
   );
 }
 
-/* ---------- STAGE 5 — ERROR DIAGNOSIS ---------- */
-function validateStage5Explanation(text) {
-  const directionError = containsAny(text, [
-    "antiparallel", "direction", "5'", "3'", "same direction", "opposite direction"
+/* ---------- STAGE 5 — PART A ---------- */
+
+function validateStage5PartA(text) {
+
+  const lowerGC = containsAny(text, [
+    "lower gc",
+    "less gc",
+    "fewer g-c",
+    "fewer gc",
+    "3 g-c",
+    "3 gc"
   ]);
 
-  const pairingError = containsAny(text, [
-    "base pair", "base pairing", "complementary",
-    "incorrect pair", "wrong pair", "a-t", "g-c"
+  const moreAT = containsAny(text, [
+    "more a-t",
+    "more at",
+    "9 a-t",
+    "9 at",
+    "more adenine-thymine"
   ]);
 
-  const bondError = containsAny(text, [
-    "hydrogen bond", "hydrogen bonds", "bond count",
-    "two hydrogen", "three hydrogen", "2 hydrogen", "3 hydrogen"
+  const hydrogen = containsAny(text, [
+    "hydrogen bond",
+    "hydrogen bonds",
+    "hydrogen bonding"
   ]);
 
-  const errorCategories = [directionError, pairingError, bondError].filter(Boolean).length;
+  const bondDifference =
+    containsAny(text, [
+      "g-c has three",
+      "g-c pairs have three",
+      "g-c forms three",
+      "gc forms three",
+      "three hydrogen bonds"
+    ]) &&
+    containsAny(text, [
+      "a-t has two",
+      "a-t pairs have two",
+      "a-t forms two",
+      "at forms two",
+      "two hydrogen bonds"
+    ]);
 
-  return hasMinimumLength(text, 65) && errorCategories >= 2;
+  const easier = containsAny(text, [
+    "less energy",
+    "easier to separate",
+    "separate more easily",
+    "lower temperature",
+    "easier to break apart"
+  ]);
+
+  return (
+    hasMinimumLength(text, 55) &&
+    lowerGC &&
+    moreAT &&
+    hydrogen &&
+    bondDifference &&
+    easier
+  );
+
+}
+
+
+/* ---------- STAGE 5 — PART B ---------- */
+
+function validateStage5PartB(text) {
+
+  const mismatch = containsAny(text, [
+    "mismatch",
+    "mismatched base",
+    "incorrectly paired",
+    "incorrect base pair",
+    "wrong base pair",
+    "not complementary"
+  ]);
+
+  const hydrogen = containsAny(text, [
+    "hydrogen bond",
+    "hydrogen bonds",
+    "hydrogen bonding"
+  ]);
+
+  const disruptedPairing = containsAny(text, [
+    "cannot form normal",
+    "cannot form the normal",
+    "fewer hydrogen bonds",
+    "reduced hydrogen bonding",
+    "disrupts hydrogen bonding",
+    "prevents normal hydrogen bonding"
+  ]);
+
+  const rejectsGC = containsAny(text, [
+    "gc content alone",
+    "g-c content alone",
+    "already accounted for",
+    "does not explain the unexpected",
+    "doesn't explain the unexpected",
+    "would be expected from gc",
+    "predicted from gc"
+  ]);
+
+  const rejectsPhosphate = containsAny(text, [
+    "extra phosphate",
+    "additional phosphate",
+    "phosphate group",
+    "backbone",
+    "does not directly affect hydrogen",
+    "doesn't directly affect hydrogen",
+    "would not directly reduce hydrogen"
+  ]);
+
+  return (
+    hasMinimumLength(text, 80) &&
+    mismatch &&
+    hydrogen &&
+    disruptedPairing &&
+    (rejectsGC || rejectsPhosphate)
+  );
+
+}
+
+
+/* ---------- STAGE 5 — PART C ---------- */
+
+function validateStage5PartC(text) {
+
+  const backbone = containsAny(text, [
+    "sugar-phosphate backbone",
+    "sugar phosphate backbone",
+    "backbone"
+  ]);
+
+  const covalent = containsAny(text, [
+    "covalent",
+    "phosphodiester",
+    "phosphodiester bond",
+    "phosphodiester bonds"
+  ]);
+
+  const continuity = containsAny(text, [
+    "continuity",
+    "continuous",
+    "break in the strand",
+    "strand is broken",
+    "interrupts the strand",
+    "disrupts the strand"
+  ]);
+
+  const pairingCanRemain = containsAny(text, [
+    "base pairing can remain",
+    "base pairing remains",
+    "bases can still pair",
+    "bases remain complementary",
+    "complementary bases remain",
+    "hydrogen bonds can remain",
+    "hydrogen bonding can remain"
+  ]);
+
+  return (
+    hasMinimumLength(text, 65) &&
+    backbone &&
+    covalent &&
+    continuity &&
+    pairingCanRemain
+  );
+
+}
+
+
+/* ---------- STAGE 5 — PART D ---------- */
+
+function validateStage5Claim(text) {
+
+  const notAlways = containsAny(text, [
+    "not always",
+    "not fully supported",
+    "not necessarily",
+    "does not always",
+    "doesn't always",
+    "cannot conclude",
+    "can't conclude"
+  ]);
+
+  const gcCause = containsAny(text, [
+    "lower gc",
+    "less gc",
+    "fewer g-c",
+    "more a-t",
+    "more at",
+    "gc content",
+    "g-c content"
+  ]);
+
+  const mismatchCause = containsAny(text, [
+    "mismatch",
+    "mismatched",
+    "incorrect base pair",
+    "incorrectly paired",
+    "wrong base pair"
+  ]);
+
+  const hydrogen = containsAny(text, [
+    "hydrogen bond",
+    "hydrogen bonds",
+    "hydrogen bonding"
+  ]);
+
+  return (
+    hasMinimumLength(text, 85) &&
+    notAlways &&
+    gcCause &&
+    mismatchCause &&
+    hydrogen
+  );
+
 }
 
 /* ---------- STAGE 6 — MODEL EVIDENCE ---------- */
