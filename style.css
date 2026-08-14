@@ -2488,17 +2488,16 @@ footer {
 .stage5-data-table-wrapper {
   width: 100%;
   max-width: 760px;
-  margin: 24px 0 26px;
+  margin: 24px 0 28px;
   overflow-x: auto;
 }
 
 .stage5-data-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   background: #ffffff;
-  border: 1px solid #cbd8e2;
-  border-radius: 12px;
+  border: 2px solid #9fb3c1;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -2506,34 +2505,45 @@ footer {
 .stage5-data-table td {
   padding: 15px 18px;
   text-align: center;
-  border-right: 1px solid #dbe4eb;
-  border-bottom: 1px solid #dbe4eb;
+  border: 1px solid #b8c7d1;
+  font-size: 1rem;
 }
 
-.stage5-data-table th:last-child,
-.stage5-data-table td:last-child {
-  border-right: none;
-}
-
-.stage5-data-table tbody tr:last-child th,
-.stage5-data-table tbody tr:last-child td {
-  border-bottom: none;
-}
+/* Header row */
 
 .stage5-data-table thead th {
-  background: #edf7f7;
-  font-weight: 800;
+  background: #e6f5f4;
   color: #073047;
+  font-weight: 800;
+  border-bottom: 2px solid #8fa8b7;
 }
+
+/* Sample-name column */
 
 .stage5-data-table tbody th {
-  text-align: left;
-  font-weight: 800;
+  background: #f4f8fa;
   color: #073047;
-  background: #f8fafb;
+  font-weight: 800;
+  text-align: left;
+  border-right: 2px solid #9fb3c1;
 }
 
+/* Data cells */
+
 .stage5-data-table tbody td {
-  font-size: 1rem;
   color: #253746;
+  font-weight: 600;
+}
+
+/* Subtle alternating rows */
+
+.stage5-data-table tbody tr:nth-child(even) {
+  background: #f9fbfc;
+}
+
+/* Keep headings readable */
+
+.stage5-data-table th {
+  white-space: nowrap;
+}
 }
