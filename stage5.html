@@ -47,188 +47,682 @@
 
 <main class="lab-page">
 
-<section class="stage-heading">
 
-  <span class="stage-number">STAGE 05</span>
+  <!-- =====================================================
+       STAGE HEADING
+       ===================================================== -->
 
-  <h1>Diagnose and Repair the DNA</h1>
+  <section class="stage-heading">
 
-  <p>
-    A student constructed the DNA model below and claimed it is correct.
-    Examine the molecule carefully. More than one structural feature may
-    need attention.
-  </p>
+    <span class="stage-number">
+      STAGE 05
+    </span>
 
-</section>
-
-
-<section class="lab-panel diagnostic-panel">
-
-  <div class="diagnostic-model">
-
-
-    <div class="diagnostic-strand">
-
-      <button
-        class="direction-control"
-        id="stage5-top-left"
-        type="button"
-      >
-        5′
-      </button>
-
-      <span class="dna-base base-a">A</span>
-      <span class="dna-base base-t">T</span>
-      <span class="dna-base base-g">G</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-c">C</span>
-      <span class="dna-base base-a">A</span>
-
-      <button
-        class="direction-control"
-        id="stage5-top-right"
-        type="button"
-      >
-        3′
-      </button>
-
-    </div>
-
-
-    <div class="diagnostic-bonds">
-      <span>··</span>
-      <span>··</span>
-      <span>···</span>
-      <span>···</span>
-      <span>··</span>
-      <span>··</span>
-    </div>
-
-
-    <div class="diagnostic-strand">
-
-      <button
-        class="direction-control"
-        id="stage5-bottom-left"
-        type="button"
-      >
-        5′
-      </button>
-
-      <button class="diagnostic-base base-t" data-position="0">T</button>
-      <button class="diagnostic-base base-a" data-position="1">A</button>
-      <button class="diagnostic-base base-c" data-position="2">C</button>
-      <button class="diagnostic-base base-g" data-position="3">G</button>
-      <button class="diagnostic-base base-t" data-position="4">T</button>
-      <button class="diagnostic-base base-t" data-position="5">T</button>
-
-      <button
-        class="direction-control"
-        id="stage5-bottom-right"
-        type="button"
-      >
-        3′
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="diagnostic-tools">
+    <h1>
+      Diagnose the DNA
+    </h1>
 
     <p>
-      Select any part of the model you believe is incorrect
-      and repair it.
+      You now know the major structural rules of DNA.
+      In this stage, you will use those rules as evidence.
+      Rather than simply identifying an incorrect structure,
+      you will compare data, evaluate competing explanations,
+      and defend a molecular diagnosis.
     </p>
 
-    <div class="base-bank">
+  </section>
 
-      <button class="base-bank-button base-a" data-base="A" type="button">A</button>
-      <button class="base-bank-button base-t" data-base="T" type="button">T</button>
-      <button class="base-bank-button base-c" data-base="C" type="button">C</button>
-      <button class="base-bank-button base-g" data-base="G" type="button">G</button>
+
+
+  <!-- =====================================================
+       PART A — INTERPRET THE EVIDENCE
+       ===================================================== -->
+
+  <section class="lab-panel">
+
+    <div class="panel-heading">
+
+      <span class="panel-label">
+        PART A — INTERPRET THE EVIDENCE
+      </span>
+
+      <h2>
+        Which DNA sample should separate most easily?
+      </h2>
+
+      <p>
+        A researcher examines three double-stranded DNA regions.
+        Each region is the same length, but their base-pair
+        composition differs.
+      </p>
+
+      <p>
+        Use only the information in the table to predict which
+        sample should require the least energy to separate.
+      </p>
 
     </div>
 
-  </div>
+
+    <div class="stage5-data-table-wrapper">
+
+      <table class="stage5-data-table">
+
+        <thead>
+
+          <tr>
+            <th>Sample</th>
+            <th>Total Base Pairs</th>
+            <th>G–C Pairs</th>
+            <th>A–T Pairs</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><strong>Sample A</strong></td>
+            <td>12</td>
+            <td>8</td>
+            <td>4</td>
+          </tr>
+
+          <tr>
+            <td><strong>Sample B</strong></td>
+            <td>12</td>
+            <td>3</td>
+            <td>9</td>
+          </tr>
+
+          <tr>
+            <td><strong>Sample C</strong></td>
+            <td>12</td>
+            <td>7</td>
+            <td>5</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
 
 
-  <button
-    id="check-stage5-repair"
-    class="check-button"
-    type="button"
-  >
-    Test My Repairs
-  </button>
+    <h3>
+      Based only on base-pair composition, which sample should
+      separate most easily?
+    </h3>
 
 
-  <div
-    id="stage5-feedback"
-    class="feedback-box"
-  ></div>
+    <div class="choice-grid">
 
-</section>
+      <label class="choice-card">
 
+        <input
+          type="radio"
+          name="stage5-sample-answer"
+          value="a"
+        >
 
-<section class="analysis-section">
+        <span>
+          Sample A
+        </span>
 
-  <span class="panel-label">ERROR ANALYSIS</span>
-
-  <h2>Explain the problem with the original model.</h2>
-
-
-  <label for="stage5-note" class="response-label">
-    Identify at least two structural errors and explain why each
-    would prevent the original diagram from representing normal DNA.
-  </label>
-
-  <textarea
-    id="stage5-note"
-    data-save-field="stage5Note"
-  ></textarea>
+      </label>
 
 
-  <button
-    id="check-stage5-analysis"
-    class="check-button"
-    type="button"
-  >
-    Submit Error Analysis
-  </button>
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-sample-answer"
+          value="b"
+        >
+
+        <span>
+          Sample B
+        </span>
+
+      </label>
 
 
-  <div
-    id="stage5-analysis-feedback"
-    class="feedback-box"
-  ></div>
+      <label class="choice-card">
 
-</section>
+        <input
+          type="radio"
+          name="stage5-sample-answer"
+          value="c"
+        >
+
+        <span>
+          Sample C
+        </span>
+
+      </label>
+
+    </div>
 
 
-<nav class="stage-navigation">
+    <label
+      for="stage5-part-a-note"
+      class="response-label"
+    >
+      Explain your prediction using the molecular structure
+      of A–T and G–C base pairs.
+    </label>
 
-  <a href="stage4.html" class="nav-button back-button">
-    ← Stage 4
-  </a>
 
-  <a
-    href="stage6.html"
-    id="stage5-next"
-    class="nav-button next-button locked"
-  >
-    Continue to Stage 6 →
-  </a>
+    <textarea
+      id="stage5-part-a-note"
+      data-save-field="stage5PartANote"
+      placeholder="Use the hydrogen-bond pattern of A–T and G–C pairs as evidence..."
+    ></textarea>
 
-</nav>
+
+    <button
+      id="check-stage5-part-a"
+      class="check-button"
+      type="button"
+    >
+      Check Prediction
+    </button>
+
+
+    <div
+      id="stage5-part-a-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART B — DIAGNOSE AN UNEXPECTED RESULT
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART B — DIAGNOSE THE RESULT
+    </span>
+
+    <h2>
+      The experimental result does not fully match the prediction.
+    </h2>
+
+    <p>
+      The researcher heats the samples and records the following
+      observation:
+    </p>
+
+
+    <div class="evidence-callout">
+
+      <strong>Experimental observation:</strong>
+
+      <p>
+        Sample C begins separating at a much lower temperature
+        than expected from its G–C content alone.
+      </p>
+
+    </div>
+
+
+    <p>
+      The researcher proposes three possible explanations.
+      Evaluate each one before choosing the explanation that
+      best accounts for the unexpected result.
+    </p>
+
+
+    <div class="stage5-hypothesis-grid">
+
+
+      <!-- EXPLANATION A -->
+
+      <article class="stage5-hypothesis-card">
+
+        <span class="model-id">
+          EXPLANATION A
+        </span>
+
+        <h3>
+          Lower G–C content
+        </h3>
+
+        <p>
+          Sample C separates unusually easily because it contains
+          fewer G–C base pairs than Sample A.
+        </p>
+
+      </article>
+
+
+
+      <!-- EXPLANATION B -->
+
+      <article class="stage5-hypothesis-card">
+
+        <span class="model-id">
+          EXPLANATION B
+        </span>
+
+        <h3>
+          A mismatched base pair
+        </h3>
+
+        <p>
+          Sample C contains a base mismatch that prevents one
+          position from forming the normal complementary
+          hydrogen-bond pattern.
+        </p>
+
+      </article>
+
+
+
+      <!-- EXPLANATION C -->
+
+      <article class="stage5-hypothesis-card">
+
+        <span class="model-id">
+          EXPLANATION C
+        </span>
+
+        <h3>
+          An extra phosphate group
+        </h3>
+
+        <p>
+          Sample C contains one additional phosphate group
+          in its sugar-phosphate backbone.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <h3>
+      Which explanation best accounts for Sample C separating
+      much more easily than expected?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-diagnosis-answer"
+          value="a"
+        >
+
+        <span>
+          Explanation A
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-diagnosis-answer"
+          value="b"
+        >
+
+        <span>
+          Explanation B
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-diagnosis-answer"
+          value="c"
+        >
+
+        <span>
+          Explanation C
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <label
+      for="stage5-part-b-note"
+      class="response-label"
+    >
+      Defend your diagnosis. Explain why your selected explanation
+      fits the evidence and why at least one of the other explanations
+      does not fully account for the result.
+    </label>
+
+
+    <textarea
+      id="stage5-part-b-note"
+      data-save-field="stage5PartBNote"
+      placeholder="Use the evidence to support one explanation and rule out another..."
+    ></textarea>
+
+
+    <button
+      id="check-stage5-part-b"
+      class="check-button"
+      type="button"
+    >
+      Submit Diagnosis
+    </button>
+
+
+    <div
+      id="stage5-part-b-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART C — PREDICT A STRUCTURAL CONSEQUENCE
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART C — PREDICT THE CONSEQUENCE
+    </span>
+
+    <h2>
+      A different DNA molecule has a different structural problem.
+    </h2>
+
+    <p>
+      A second DNA sample contains a break in the
+      <strong>sugar-phosphate backbone of one strand</strong>.
+      However, the bases on both strands are still positioned
+      opposite their correct complementary partners.
+    </p>
+
+
+    <div class="stage5-backbone-case">
+
+      <div class="stage5-mini-strand">
+        5′ — A — T — G — C — C — A — 3′
+      </div>
+
+      <div class="stage5-mini-bonds">
+        ·· &nbsp;&nbsp; ·· &nbsp;&nbsp; ··· &nbsp;&nbsp; ···
+        &nbsp;&nbsp; ··· &nbsp;&nbsp; ··
+      </div>
+
+      <div class="stage5-mini-strand">
+        3′ — T — A — C &nbsp;&nbsp; G — G — T — 5′
+      </div>
+
+      <div class="stage5-break-label">
+        ↑ break in one sugar-phosphate backbone
+      </div>
+
+    </div>
+
+
+    <h3>
+      Which property is affected most directly by this error?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-backbone-answer"
+          value="continuity"
+        >
+
+        <span>
+          Continuity of one DNA strand
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-backbone-answer"
+          value="pairing"
+        >
+
+        <span>
+          Complementary base pairing
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-backbone-answer"
+          value="hydrogen"
+        >
+
+        <span>
+          Number of hydrogen bonds between the strands
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-backbone-answer"
+          value="identity"
+        >
+
+        <span>
+          Identity of the nitrogenous bases
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <label
+      for="stage5-part-c-note"
+      class="response-label"
+    >
+      Explain why the backbone break directly affects strand
+      continuity while other structural features can remain normal.
+    </label>
+
+
+    <textarea
+      id="stage5-part-c-note"
+      data-save-field="stage5PartCNote"
+      placeholder="Distinguish the covalent backbone from the interactions between complementary bases..."
+    ></textarea>
+
+
+    <button
+      id="check-stage5-part-c"
+      class="check-button"
+      type="button"
+    >
+      Check Structural Prediction
+    </button>
+
+
+    <div
+      id="stage5-part-c-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PART D — EVALUATE A CLAIM
+       ===================================================== -->
+
+  <section class="analysis-section">
+
+    <span class="panel-label">
+      PART D — EVALUATE THE CLAIM
+    </span>
+
+    <h2>
+      Does the evidence support the student's conclusion?
+    </h2>
+
+
+    <div class="claim-card">
+
+      <span class="claim-label">
+        STUDENT CLAIM
+      </span>
+
+      <p>
+        “If a DNA molecule separates easily, it must contain
+        incorrectly paired bases.”
+      </p>
+
+    </div>
+
+
+    <h3>
+      How would you evaluate this claim?
+    </h3>
+
+
+    <div class="choice-grid">
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-claim-answer"
+          value="supported"
+        >
+
+        <span>
+          The claim is fully supported
+        </span>
+
+      </label>
+
+
+      <label class="choice-card">
+
+        <input
+          type="radio"
+          name="stage5-claim-answer"
+          value="not-supported"
+        >
+
+        <span>
+          The claim is not fully supported
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <label
+      for="stage5-note"
+      class="response-label"
+    >
+      Defend your evaluation using at least two different structural
+      explanations for why one DNA region might separate more easily
+      than another.
+    </label>
+
+
+    <textarea
+      id="stage5-note"
+      data-save-field="stage5Note"
+      placeholder="Consider GC content, hydrogen bonding, and abnormal base pairing..."
+    ></textarea>
+
+
+    <button
+      id="check-stage5-analysis"
+      class="check-button"
+      type="button"
+    >
+      Complete Stage 5
+    </button>
+
+
+    <div
+      id="stage5-analysis-feedback"
+      class="feedback-box"
+      aria-live="polite"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <nav class="stage-navigation">
+
+    <a
+      href="stage4.html"
+      class="nav-button back-button"
+    >
+      ← Stage 4
+    </a>
+
+    <a
+      href="stage6.html"
+      id="stage5-next"
+      class="nav-button next-button locked"
+      aria-disabled="true"
+    >
+      Continue to Stage 6 →
+    </a>
+
+  </nav>
 
 </main>
+
 
 <footer>
   Biology 30 • Molecular Genetics
 </footer>
 
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
